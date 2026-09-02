@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Gastos IA — Claude Code</title>
+<style>
+:root {
+  color-scheme: light;
+  --surface-1: #fcfcfb;
+  --page: #f9f9f7;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --series-1: #2a78d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --page: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255,255,255,0.10);
+    --series-1: #3987e5;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-1: #1a1a19;
+  --page: #0d0d0d;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --baseline: #383835;
+  --border: rgba(255,255,255,0.10);
+  --series-1: #3987e5;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding: 32px 20px 60px;
+}
+.wrap { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+.subtitle { color: var(--text-secondary); font-size: 14px; margin: 0 0 28px; }
+.stat-row { display: flex; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+.stat-tile {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  flex: 1 1 160px;
+}
+.stat-tile .label { color: var(--text-secondary); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+.stat-tile .value { font-size: 26px; font-weight: 600; margin-top: 4px; }
+.stat-tile .sub-value { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px 24px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+.card h2 { font-size: 15px; margin: 0 0 14px; color: var(--text-primary); }
+.chart-svg { width: 100%; height: auto; display: block; }
+.axis-line { stroke: var(--baseline); stroke-width: 1; }
+.axis-label { fill: var(--muted); font-size: 11px; }
+.line-path { stroke: var(--series-1); stroke-width: 2; }
+.line-dot { fill: var(--series-1); }
+.bar-fill { fill: var(--series-1); }
+.bar-label { fill: var(--text-secondary); font-size: 12px; }
+.bar-value { fill: var(--text-primary); font-size: 12px; }
+.stack-seg { stroke: var(--surface-1); stroke-width: 1; }
+.legend { margin-top: 12px; font-size: 12px; color: var(--text-secondary); display: flex; flex-wrap: wrap; gap: 14px; }
+.legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.legend-swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--grid); }
+th { color: var(--muted); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: .03em; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td.mono { font-family: ui-monospace, monospace; font-size: 12px; color: var(--text-secondary); }
+.empty { color: var(--muted); font-size: 13px; }
+.footer-note { color: var(--muted); font-size: 12px; margin-top: 24px; }
+.warn { color: var(--muted); font-size: 12px; margin-top: -18px; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Gastos com IA — Claude Code</h1>
+  <p class="subtitle">Custo estimado a partir dos logs locais (~/.claude/projects). Gerado em 2026-09-02 18:15 UTC.</p>
+
+  <div class="stat-row">
+    <div class="stat-tile"><div class="label">Total (todo o historico)</div><div class="value">$1,741.27</div><div class="sub-value">5068.07M tokens</div></div>
+    <div class="stat-tile"><div class="label">Mes atual (set/26)</div><div class="value">$464.78</div><div class="sub-value">1236.59M tokens</div></div>
+    <div class="stat-tile"><div class="label">Projeto mais caro</div><div class="value">claude-os</div></div>
+  </div>
+
+  <div class="card">
+    <h2>Gasto por mes</h2>
+    <svg viewBox="0 0 760 220" class="chart-svg" role="img" aria-label="Gasto mensal ao longo do tempo">
+  <line class="axis-line" x1="36" y1="184" x2="724" y2="184" />
+  <polyline class="line-path" points="36.0,36.0 724.0,130.1" fill="none" />
+  <circle class="line-dot" cx="36.0" cy="36.0" r="3.5"><title>ago/26: $1,276.49</title></circle><circle class="line-dot" cx="724.0" cy="130.1" r="3.5"><title>set/26: $464.78</title></circle>
+  <text class="axis-label" x="36.0" y="202" text-anchor="middle">ago/26</text><text class="axis-label" x="724.0" y="202" text-anchor="middle">set/26</text>
+</svg>
+  </div>
+
+  <div class="card">
+    <h2>Gasto total por projeto</h2>
+    <svg viewBox="0 0 760 526" class="chart-svg bars" role="img" aria-label="Gasto por projeto">
+  <text class="bar-label" x="160" y="33.1" text-anchor="end">claude-os</text><rect class="bar-fill" x="170" y="12" width="500.0" height="22" rx="4"><title>claude-os: $613.60 — 1475.77M tokens</title></rect><text class="bar-value" x="678.0" y="33.1">$613.60 · 1475.77M tokens</text><text class="bar-label" x="160" y="67.1" text-anchor="end">supervisor</text><rect class="bar-fill" x="170" y="46" width="277.3" height="22" rx="4"><title>supervisor: $340.33 — 1262.40M tokens</title></rect><text class="bar-value" x="455.3" y="67.1">$340.33 · 1262.40M tokens</text><text class="bar-label" x="160" y="101.1" text-anchor="end">tibia-dex-wksp</text><rect class="bar-fill" x="170" y="80" width="242.5" height="22" rx="4"><title>tibia-dex-wksp: $297.63 — 769.80M tokens</title></rect><text class="bar-value" x="420.5" y="101.1">$297.63 · 769.80M tokens</text><text class="bar-label" x="160" y="135.1" text-anchor="end">tibia_dex</text><rect class="bar-fill" x="170" y="114" width="127.4" height="22" rx="4"><title>tibia_dex: $156.33 — 467.81M tokens</title></rect><text class="bar-value" x="305.4" y="135.1">$156.33 · 467.81M tokens</text><text class="bar-label" x="160" y="169.1" text-anchor="end">gerenciador-pessoal</text><rect class="bar-fill" x="170" y="148" width="56.5" height="22" rx="4"><title>gerenciador-pessoal: $69.39 — 253.83M tokens</title></rect><text class="bar-value" x="234.5" y="169.1">$69.39 · 253.83M tokens</text><text class="bar-label" x="160" y="203.1" text-anchor="end">narwhal</text><rect class="bar-fill" x="170" y="182" width="50.5" height="22" rx="4"><title>narwhal: $61.94 — 215.90M tokens</title></rect><text class="bar-value" x="228.5" y="203.1">$61.94 · 215.90M tokens</text><text class="bar-label" x="160" y="237.1" text-anchor="end">backend</text><rect class="bar-fill" x="170" y="216" width="27.2" height="22" rx="4"><title>backend: $33.36 — 128.34M tokens</title></rect><text class="bar-value" x="205.2" y="237.1">$33.36 · 128.34M tokens</text><text class="bar-label" x="160" y="271.1" text-anchor="end">admin-web</text><rect class="bar-fill" x="170" y="250" width="15.8" height="22" rx="4"><title>admin-web: $19.37 — 64.36M tokens</title></rect><text class="bar-value" x="193.8" y="271.1">$19.37 · 64.36M tokens</text><text class="bar-label" x="160" y="305.1" text-anchor="end">frontend</text><rect class="bar-fill" x="170" y="284" width="15.6" height="22" rx="4"><title>frontend: $19.10 — 70.42M tokens</title></rect><text class="bar-value" x="193.6" y="305.1">$19.10 · 70.42M tokens</text><text class="bar-label" x="160" y="339.1" text-anchor="end">app-web</text><rect class="bar-fill" x="170" y="318" width="12.1" height="22" rx="4"><title>app-web: $14.88 — 49.40M tokens</title></rect><text class="bar-value" x="190.1" y="339.1">$14.88 · 49.40M tokens</text><text class="bar-label" x="160" y="373.1" text-anchor="end">gastos-ia</text><rect class="bar-fill" x="170" y="352" width="11.5" height="22" rx="4"><title>gastos-ia: $14.17 — 46.62M tokens</title></rect><text class="bar-value" x="189.5" y="373.1">$14.17 · 46.62M tokens</text><text class="bar-label" x="160" y="407.1" text-anchor="end">remotion</text><rect class="bar-fill" x="170" y="386" width="9.7" height="22" rx="4"><title>remotion: $11.93 — 33.12M tokens</title></rect><text class="bar-value" x="187.7" y="407.1">$11.93 · 33.12M tokens</text><text class="bar-label" x="160" y="441.1" text-anchor="end">generate_game_data</text><rect class="bar-fill" x="170" y="420" width="9.1" height="22" rx="4"><title>generate_game_data: $11.21 — 31.69M tokens</title></rect><text class="bar-value" x="187.1" y="441.1">$11.21 · 31.69M tokens</text><text class="bar-label" x="160" y="475.1" text-anchor="end">videos</text><rect class="bar-fill" x="170" y="454" width="6.1" height="22" rx="4"><title>videos: $7.44 — 17.84M tokens</title></rect><text class="bar-value" x="184.1" y="475.1">$7.44 · 17.84M tokens</text><text class="bar-label" x="160" y="509.1" text-anchor="end">amazon-agent</text><rect class="bar-fill" x="170" y="488" width="5.7" height="22" rx="4"><title>amazon-agent: $7.00 — 21.05M tokens</title></rect><text class="bar-value" x="183.7" y="509.1">$7.00 · 21.05M tokens</text>
+</svg>
+  </div>
+
+  <div class="card">
+    <h2>Gasto mensal por projeto</h2>
+    <svg viewBox="0 0 760 280" class="chart-svg" role="img" aria-label="Gasto mensal por projeto">
+  <line class="axis-line" x1="40" y1="240" x2="720" y2="240" />
+  <rect class="stack-seg" style="fill:#2a78d6" x="108.0" y="150.0" width="204.0" height="88.0"><title>claude-os — ago/26: $574.26</title></rect><rect class="stack-seg" style="fill:#eb6834" x="108.0" y="96.7" width="204.0" height="51.3"><title>supervisor — ago/26: $340.33</title></rect><rect class="stack-seg" style="fill:#1baf7a" x="108.0" y="95.4" width="204.0" height="0.0"><title>tibia-dex-wksp — ago/26: $8.25</title></rect><rect class="stack-seg" style="fill:#eda100" x="108.0" y="91.9" width="204.0" height="1.5"><title>tibia_dex — ago/26: $22.53</title></rect><rect class="stack-seg" style="fill:#e87ba4" x="108.0" y="81.0" width="204.0" height="8.9"><title>gerenciador-pessoal — ago/26: $69.39</title></rect><rect class="stack-seg" style="fill:#008300" x="108.0" y="71.3" width="204.0" height="7.7"><title>narwhal — ago/26: $61.94</title></rect><rect class="stack-seg" style="fill:#4a3aa7" x="108.0" y="66.1" width="204.0" height="3.2"><title>backend — ago/26: $33.36</title></rect><rect class="stack-seg" style="fill:#898781" x="108.0" y="40.0" width="204.0" height="24.1"><title>Outros — ago/26: $166.42</title></rect><text class="axis-label" x="210.0" y="258" text-anchor="middle">ago/26</text><rect class="stack-seg" style="fill:#2a78d6" x="448.0" y="233.8" width="204.0" height="4.2"><title>claude-os — set/26: $39.34</title></rect><rect class="stack-seg" style="fill:#1baf7a" x="448.0" y="188.5" width="204.0" height="43.3"><title>tibia-dex-wksp — set/26: $289.38</title></rect><rect class="stack-seg" style="fill:#eda100" x="448.0" y="167.5" width="204.0" height="19.0"><title>tibia_dex — set/26: $133.79</title></rect><rect class="stack-seg" style="fill:#898781" x="448.0" y="167.2" width="204.0" height="0.0"><title>Outros — set/26: $2.27</title></rect><text class="axis-label" x="550.0" y="258" text-anchor="middle">set/26</text>
+</svg>
+    <div class="legend"><span class="legend-item"><span class="legend-swatch" style="background:#2a78d6"></span>claude-os</span><span class="legend-item"><span class="legend-swatch" style="background:#eb6834"></span>supervisor</span><span class="legend-item"><span class="legend-swatch" style="background:#1baf7a"></span>tibia-dex-wksp</span><span class="legend-item"><span class="legend-swatch" style="background:#eda100"></span>tibia_dex</span><span class="legend-item"><span class="legend-swatch" style="background:#e87ba4"></span>gerenciador-pessoal</span><span class="legend-item"><span class="legend-swatch" style="background:#008300"></span>narwhal</span><span class="legend-item"><span class="legend-swatch" style="background:#4a3aa7"></span>backend</span><span class="legend-item"><span class="legend-swatch" style="background:#898781"></span>Outros</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Tarefas (sessoes) mais caras</h2>
+    <table>
+      <thead><tr><th>Projeto</th><th>Data</th><th>Sessao</th><th>Modelo(s)</th><th class="num">Tokens</th><th class="num">Custo</th></tr></thead>
+      <tbody><tr><td>tibia-dex-wksp</td><td>2026-09-02</td><td class='mono'>c8441dec</td><td>claude-sonnet-5</td><td class='num'>750.06M tokens</td><td class='num'>$289.38</td></tr><tr><td>tibia_dex</td><td>2026-09-02</td><td class='mono'>c8441dec</td><td>claude-sonnet-5</td><td class='num'>400.18M tokens</td><td class='num'>$133.79</td></tr><tr><td>supervisor</td><td>2026-08-15</td><td class='mono'>e092cea5</td><td>claude-sonnet-5</td><td class='num'>468.79M tokens</td><td class='num'>$117.41</td></tr><tr><td>claude-os</td><td>2026-08-15</td><td class='mono'>e092cea5</td><td>claude-sonnet-5</td><td class='num'>234.59M tokens</td><td class='num'>$92.66</td></tr><tr><td>claude-os</td><td>2026-08-13</td><td class='mono'>b90868b8</td><td>&lt;synthetic&gt;, claude-sonnet-5</td><td class='num'>287.68M tokens</td><td class='num'>$91.89</td></tr><tr><td>claude-os</td><td>2026-08-21</td><td class='mono'>04faef36</td><td>&lt;synthetic&gt;, claude-sonnet-5</td><td class='num'>203.82M tokens</td><td class='num'>$71.69</td></tr><tr><td>supervisor</td><td>2026-08-13</td><td class='mono'>b90868b8</td><td>claude-sonnet-5</td><td class='num'>255.61M tokens</td><td class='num'>$58.35</td></tr><tr><td>claude-os</td><td>2026-08-11</td><td class='mono'>9e7a3e1f</td><td>claude-sonnet-5</td><td class='num'>155.02M tokens</td><td class='num'>$55.52</td></tr><tr><td>gerenciador-pessoal</td><td>2026-08-28</td><td class='mono'>738e227d</td><td>claude-sonnet-5</td><td class='num'>161.28M tokens</td><td class='num'>$38.44</td></tr><tr><td>narwhal</td><td>2026-08-16</td><td class='mono'>8632fd40</td><td>claude-sonnet-5</td><td class='num'>120.87M tokens</td><td class='num'>$34.78</td></tr><tr><td>claude-os</td><td>2026-08-03</td><td class='mono'>510be98f</td><td>claude-sonnet-5</td><td class='num'>47.38M tokens</td><td class='num'>$34.33</td></tr><tr><td>supervisor</td><td>2026-08-19</td><td class='mono'>6e02713f</td><td>claude-sonnet-5</td><td class='num'>127.30M tokens</td><td class='num'>$31.37</td></tr><tr><td>claude-os</td><td>2026-09-01</td><td class='mono'>c8441dec</td><td>claude-sonnet-5</td><td class='num'>70.23M tokens</td><td class='num'>$30.06</td></tr><tr><td>backend</td><td>2026-08-24</td><td class='mono'>3b12d15a</td><td>claude-sonnet-5</td><td class='num'>103.30M tokens</td><td class='num'>$25.54</td></tr><tr><td>supervisor</td><td>2026-08-15</td><td class='mono'>2bc9f11a</td><td>claude-sonnet-5</td><td class='num'>70.93M tokens</td><td class='num'>$22.75</td></tr></tbody>
+    </table>
+  </div>
+
+  
+
+  <p class="footer-note">Custo estimado com base nas tabelas de preco publicas da Anthropic (tokens de input/output, cache write 5m/1h e cache read). Cobre apenas uso via Claude Code neste computador — nao inclui uso via console.claude.com, outras maquinas, ou outras ferramentas (Cursor, etc).</p>
+</div>
+</body>
+</html>
