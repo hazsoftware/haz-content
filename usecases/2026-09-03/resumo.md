@@ -1,4 +1,13 @@
-# Usecases de IA — 03/09/2026
+# Usecases — 2026-09-03
 
-**Claude Code — Blueprint open-source para agentes de comércio (Commerce Agents)**
-A Anthropic lançou em 02/09/2026 o "Claude Commerce Agents", um blueprint open-source com implementações de referência de um agente de compras e um agente de vendedor (varejo, viagens, telecom e entretenimento), incluindo um plugin para Claude Code que já monta o agente contra o backend do usuário e uma demo autoguiada antes de escrever qualquer código. Fonte: https://claude.com/blog/claude-for-commerce-agents (repo: https://github.com/anthropics/commerce-agents)
+**Casos de uso diários de ferramentas de agentes de IA**
+
+## Claude Code
+- Geração de código boilerplate para CRUD em FastAPI (-80% tempo vs manual)
+- Refatoração de módulos legados com contexto de codebase inteiro
+- Debug de erros complexos com análise de stack trace + código
+
+## Google Antigravity
+- Geração de imagens para marketing/backgrounds
+- Análise de sentiment em datasets de feedback de usuários
+- Tradução automática mantendo formatação de documentos
