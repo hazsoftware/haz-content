@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 05/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo IA para Devs — 05/09/2026</h1>
+<h2>📰 Novidades para Devs</h2>
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.1 / Mythos 5.1</strong> (Anthropic) — janela de contexto de 1M tokens e corte de 75% no preço de cache-read, reduzindo bastante o custo de agentes de longa duração (refactors grandes, pesquisa, workflows multi-step).</li>
+<li><strong>Gemini 3.8 Flash + variante "Cyber"</strong> (Google) — a variante Cyber é liberada apenas para defensores/pesquisadores vetados, sinal de que big techs estão segmentando modelos por caso de uso sensível (segurança ofensiva/defensiva).</li>
+<li><strong>Perplexity Hybrid Compute</strong> com <strong>PPLX Qwen 3.8 27B</strong> local — modelo rodando no device do usuário, tendência de "hybrid inference" (local + cloud) ganhando tração.</li>
+</ul>
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>anthropics/skills</strong> (novo repo oficial da Anthropic) entrou em alta no GitHub — referência para quem quer estruturar Skills reutilizáveis no Claude Code.</li>
+<li><strong>sglang</strong> segue crescendo como framework de serving de alta performance para LLMs multimodais, concorrendo diretamente com vLLM.</li>
+<li><strong>vLLM</strong> ampliou suporte de hardware para AMD, Intel Arc e TPU além de NVIDIA — importante para quem está desenhando infra de inferência multi-vendor.</li>
+</ul>
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>reverify</strong> (novo, Python, MCP server + CLI) — combate alucinação de agentes de IA amarrando cada claim a ferramentas determinísticas e evidência verificável; nasceu focado em engenharia reversa/CTF mas serve para qualquer pipeline "agent proposes, tool verifies".</li>
+<li><strong>NVIDIA/SkillSpector</strong> — ferramenta de análise de segurança para identificar vulnerabilidades em extensões de agentes de IA antes da instalação, resposta direta ao crescimento de ataques via extensões maliciosas.</li>
+<li>Alertas de segurança recorrentes sobre <strong>MCP</strong>: servidores maliciosos conseguem fragmentar instruções em descrições de tools e resultados para fazer agentes exfiltrarem segredos — reforça a necessidade de tratar tool descriptions como superfície de ataque, não só como metadado.</li>
+</ul>
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>Consolidação de <strong>serving frameworks</strong> (sglang, vLLM) com foco em throughput e portabilidade de hardware.</li>
+<li><strong>Proofpoint SOC Analyst Agent</strong> (usando modelos OpenAI Daybreak) transforma perguntas em linguagem natural em investigações estruturadas e rastreáveis — exemplo prático de agentic AI em observabilidade/segurança entrando em GA ainda este trimestre.</li>
+</ul>
+<h2>🔥 Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>2akouwu/reverify</strong> (Python, 911⭐) — MCP server + CLI anti-alucinação: cada afirmação do agente é checada contra fatos verificados, com foco inicial em engenharia reversa.</li>
+<li><strong>NousResearch/hermes-agent</strong> (720⭐) — agente que "cresce com você", explorando memória/adaptação contínua.</li>
+<li><strong>anthropics/skills</strong> (511⭐) — repositório oficial de Agent Skills da Anthropic, referência de padrão para extensões do Claude Code.</li>
+<li><strong>sgl-project/sglang</strong> (836⭐) — framework de serving de alta performance para LLMs e modelos multimodais.</li>
+<li><strong>NVIDIA/SkillSpector</strong> (254⭐) — scanner de segurança para extensões de agentes de IA antes da instalação.</li>
+<li><strong>debpalash/VoiceStudio</strong> (1.130⭐) — alternativa open-source para síntese/clonagem de voz em 600+ idiomas.</li>
+<li><strong>k2-fsa/OmniVoice</strong> (83⭐) — TTS de alta qualidade com clonagem de voz, também 600+ idiomas.</li>
+</ul>
+<h2>🛠️ Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>Context engineering + grounding determinístico</strong>: em vez de confiar cegamente no LLM, times estão amarrando saídas de agentes a ferramentas determinísticas que validam cada claim (padrão popularizado por projetos como reverify).</li>
+<li><strong>Agentic RAG</strong>: RAG deixando de ser "retrieve-then-generate" simples para orquestração multi-step onde o agente decide quando e o que buscar; já existe taxonomia formal (SoK) surgindo na literatura.</li>
+<li><strong>Fine-tuning sem tocar nos pesos do LLM base</strong>: abordagens como AgentFly usam RL online baseado em memória para adaptar agentes continuamente, sem re-treinar o modelo — reduz custo de iteração.</li>
+<li><strong>Evolution Strategies (ES) para fine-tuning de agentes long-horizon</strong>: alternativa ao RL tradicional para tarefas de múltiplos passos, ganhando espaço em papers recentes (Agentic ESOpt).</li>
+<li><strong>Segurança de supply chain para MCP e extensões de agentes</strong>: scanners pré-instalação (SkillSpector) e auditoria de tool descriptions viraram prática recomendada, não mais opcional.</li>
+<li><strong>Hybrid inference (local + cloud)</strong>: rodar um modelo menor localmente (ex. Qwen 3.8 27B) e escalar para a nuvem sob demanda está virando padrão de arquitetura para reduzir custo e latência.</li>
+</ul>
+<h2>📄 Papers em Tendência</h2>
+<ul>
+<li><strong>AgentFly: Fine-tuning LLM Agents without Fine-tuning LLMs</strong> — propõe adaptação contínua de agentes via RL online baseado em memória, eliminando a necessidade de re-treinar o LLM base.</li>
+<li><strong>Agentic ESOpt: Fine-Tuning Long-Horizon LLM Agents with Minimal GPU Requirements</strong> — usa evolution strategies como alternativa mais barata ao RL para treinar agentes em tarefas longas.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG)</strong> — taxonomia e systemization of knowledge cobrindo arquiteturas, avaliação e direções de pesquisa para RAG agêntico.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> — converte retrieval em tempo de inferência em competência aprendida via destilação, generalizando entre escalas de modelo (7B/14B) e arquiteturas (ReAct/StateAct).</li>
+<li><strong>JIT-Agent</strong> — modelo treinável que sintetiza harnesses adaptativos de agente para LLMs prontos, melhorando performance sem re-treinar o modelo base.</li>
+<li><strong>SWEvo / SlopCodeBench</strong> — novos benchmarks avaliando como agentes de coding se degradam em tarefas iterativas de longo horizonte e evolução de software — sinal de que a comunidade está mais preocupada com robustez de longo prazo do que só taxa de sucesso pontual.</li>
+</ul>
+<h2>🔗 Fontes</h2>
+<ul>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week" style="color:#2563eb;text-decoration:none">AI Agents News — Week of September 4, 2026</a></li>
+<li><a href="https://github.com/microsoft/agent-framework/releases" style="color:#2563eb;text-decoration:none">Releases · microsoft/agent-framework</a></li>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026" style="color:#2563eb;text-decoration:none">AI Tools for Developers 2026 | Cortex</a></li>
+<li><a href="https://platform.uno/blog/ai-tooling-trends-shaping-how-we-build/" style="color:#2563eb;text-decoration:none">Developer AI Tooling in 2026: Trends Shaping How We Build</a></li>
+<li><a href="https://llmgateway.io/timeline" style="color:#2563eb;text-decoration:none">New AI Model Releases — September 2026 Timeline | LLM Gateway</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-model-releases-september-2026-tracker" style="color:#2563eb;text-decoration:none">AI Model Releases: September 2026 Tracker | Digital Applied</a></li>
+<li><a href="https://thehackernews.com/2026/08/weekly-recap-ai-goes-rogue-metabase-0.html" style="color:#2563eb;text-decoration:none">Weekly Recap: AI Goes Rogue, Metabase 0-Day, MCP Supply-Chain Attacks | The Hacker News</a></li>
+<li><a href="https://thehackernews.com/2026/08/malicious-mcp-servers-can-split.html" style="color:#2563eb;text-decoration:none">Malicious MCP Servers Can Split Instructions to Exfiltrate Secrets | The Hacker News</a></li>
+<li><a href="https://github.com/trending/python?since=daily" style="color:#2563eb;text-decoration:none">GitHub Trending (Python, daily)</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en" style="color:#2563eb;text-decoration:none">GitHub Trending</a></li>
+<li><a href="https://github.com/2akouwu/reverify" style="color:#2563eb;text-decoration:none">2akouwu/reverify</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375" style="color:#2563eb;text-decoration:none">Fine-tuning with RAG for Improving LLM Learning of New Skills (arXiv)</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379" style="color:#2563eb;text-decoration:none">SoK: Agentic Retrieval-Augmented Generation (RAG) (arXiv)</a></li>
+<li><a href="https://huggingface.co/papers/2508.16153" style="color:#2563eb;text-decoration:none">AgentFly: Fine-tuning LLM Agents without Fine-tuning LLMs (Hugging Face Papers)</a></li>
+<li><a href="https://huggingface.co/papers/2608.17310" style="color:#2563eb;text-decoration:none">Agentic ESOpt: Fine-Tuning Long-Horizon LLM Agents (Hugging Face Papers)</a></li>
+<li><a href="https://github.com/VoltAgent/awesome-ai-agent-papers" style="color:#2563eb;text-decoration:none">VoltAgent/awesome-ai-agent-papers</a></li>
+</ul>
+<div class="footer">Gerado automaticamente por rotina diária de IA — 05/09/2026</div>
+</body></html>
