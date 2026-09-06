@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 06/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo IA para Devs — 06/09/2026</h1>
+<h2>📰 Novidades para Devs</h2>
+<h3>Modelos e APIs</h3>
+<ul>
+<li>Claude Sonnet 4.5 segue como referência de custo-benefício em coding, com ~77% no SWE-bench Verified — ponto de comparação direto contra GPT-5.x e Gemini em tarefas de engenharia real.</li>
+<li>Guerra de preços entre Google, OpenAI e Anthropic: Google cortou o plano de entrada do Gemini (AI Plus) de US$7,99 para US$4,99/mês, e a OpenAI estuda reduzir bastante o preço por token para segurar clientes enterprise.</li>
+<li>ChatGPT ganhou suporte nativo a MCP, permitindo conectar servidores externos diretamente sem integrações customizadas — reduz atrito pra times que já padronizaram em MCP.</li>
+</ul>
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li>Cursor: Composer 2.5 (branch 3.7) virou o modo agressivo padrão para edições multi-arquivo — recebe instrução em linguagem natural, monta um plano inline editável antes de executar.</li>
+<li>Claude Code segue evoluindo o modelo de execução autônoma: effort level "xhigh", Task Budgets (limite de custo/tempo por tarefa) e Auto Mode para deixar o agente decidir quando parar.</li>
+<li>CodeRabbit levantou US$60M para expandir revisão de código via IA — sinal de que "AI code review" virou categoria própria, não só feature de IDE.</li>
+<li>astral-sh/ruff continua ganhando tração como linter/formatter Python em Rust, substituindo boa parte do stack flake8+black+isort em projetos novos.</li>
+</ul>
+<h3>Agentes e Automação</h3>
+<ul>
+<li>Microsoft Agent Framework chegou à GA (1.0), unificando AutoGen e Semantic Kernel numa única plataforma suportada — chat clients, tools, integrações MCP e workflows multi-step em um SDK só.</li>
+<li>Google mantém seu agente de terminal open-source (loop ReAct, MCP nativo, contexto de 1M tokens, Apache 2.0) como opção viável a Claude Code/Codex CLI.</li>
+<li>Slack Code passou a embutir agentes de coding (Claude Code, Devin, GitHub Copilot, agente da Vercel) direto em canais dedicados, permitindo que o time inteiro acompanhe e revise em tempo real.</li>
+<li>n8n segue em alta como camada de orquestração no-code/low-code para conectar agentes e ferramentas em workflows de produção.</li>
+</ul>
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>MCP consolidou a revisão de spec 2026-07-28: protocolo stateless (sem handshake de sessão), extensão de Tasks para chamadas assíncronas longas, MCP Apps para UIs interativas sandboxed, e cache determinístico de listagens de tools — tudo pensado pra escalar horizontalmente e melhorar hit-rate de prompt cache.</li>
+<li>OpenTelemetry avança nas semantic conventions para GenAI (spans de modelo/agente, tokens, custo, latência, TTFT), permitindo instrumentar com OpenInference e mandar pra Phoenix, Langfuse, Honeycomb ou Jaeger sem trocar de SDK.</li>
+<li>Observabilidade de vector DB virou requisito de produção: monitorar latência/recall de retrieval é tratado como parte do SLO de qualquer stack RAG, não mais opcional.</li>
+</ul>
+<h2>🔥 Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>huggingface/transformers</strong> (Python, 🌟 ~42 hoje) — o framework de referência para modelos de texto, visão e áudio continua puxando tração diária mesmo maduro.</li>
+<li><strong>n8n-io/n8n</strong> (TypeScript, 🌟 ~139 hoje) — automação visual+código com 400+ integrações, virou peça central para orquestrar agentes em produção.</li>
+<li><strong>f/prompts.chat</strong> (HTML, 🌟 ~99 hoje) — plataforma self-hostable para compartilhar e descobrir prompts, alternativa aberta a serviços proprietários.</li>
+<li><strong>astral-sh/ruff</strong> (Rust, 🌟 ~20 hoje) — linter/formatter Python ultrarrápido, consolidando o Rust como stack de tooling para Python.</li>
+<li><strong>codecrafters-io/build-your-own-x</strong> (Markdown, 🌟 ~234 hoje) — recurso educacional pra recriar ferramentas conhecidas do zero, útil pra entender internals que agentes de IA hoje abstraem.</li>
+<li><strong>donnemartin/system-design-primer</strong> (Python, 🌟 ~226 hoje) — referência de system design, cada vez mais relevante pra revisar arquiteturas geradas por agentes.</li>
+<li><strong>dgtlmoon/changedetection.io</strong> (Python, 🌟 ~45 hoje) — monitoramento de mudanças em páginas web, útil como gatilho de automações e pipelines de dados para RAG.</li>
+</ul>
+<h2>🛠️ Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>Orquestração de agentes + MCP</strong>: coordenar múltiplos agentes especializados via protocolo padrão (em vez de integrações ad-hoc) é a habilidade mais cotada em vagas de engenharia com IA agora.</li>
+<li><strong>Eval design</strong>: engenheiros estão investindo em benchmarks e avaliadores determinísticos próprios (LLM-as-judge + testes reproduzíveis) em vez de confiar só em benchmarks públicos.</li>
+<li><strong>Destilar RAG em fine-tuning</strong>: internalizar conhecimento recuperado via fine-tuning para eliminar overhead de retrieval em produção, mantendo o ganho de qualidade do RAG só em tempo de treino.</li>
+<li><strong>Observabilidade GenAI com OpenTelemetry</strong>: instrumentar spans de modelo/agente com custo, tokens e latência virou prática padrão antes mesmo do primeiro deploy.</li>
+<li><strong>Verificação de código gerado por IA</strong>: revisão rigorosa (testes, análise estática, checagem de premissas) do output de agentes autônomos é tratada como etapa obrigatória do pipeline, não opcional.</li>
+<li><strong>Linguagens tipadas por padrão</strong>: TypeScript, Python com type hints, Rust e Go seguem como escolha padrão para novos projetos justamente para dar mais grip sobre código gerado por IA.</li>
+</ul>
+<h2>📄 Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> — mostra como converter retrieval em tempo de inferência em competência aprendida via destilação, eliminando overhead de RAG no deploy sem perder desempenho.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG)</strong> — survey que organiza taxonomia, arquiteturas e direções de pesquisa para RAG agentic, útil como mapa de referência pra quem está desenhando pipelines novos.</li>
+<li><strong>Stable-RAG</strong> — ataca alucinações causadas por permutação na ordem dos documentos recuperados, um problema prático comum em RAG de produção.</li>
+<li><strong>Agents' Last Exam (ALE)</strong> — benchmark vivo com 300+ especialistas em 55 indústrias e 1.500+ tarefas reais, testando se agentes generalistas (GUI+CLI) fazem trabalho de nível profissional.</li>
+<li><strong>RealSWE</strong> — benchmark com 381 famílias de tarefas multi-variante para avaliar agentes de coding sob pedidos realistas de usuário, mais próximo do dia a dia do que SWE-bench clássico.</li>
+<li><strong>AgenticDataBench</strong> — benchmark para agentes de dados automatizando workflows de data science reais em 15 domínios, incluindo casos B2B fintech.</li>
+</ul>
+<h2>🔗 Fontes</h2>
+<ul>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026" style="color:#2563eb;text-decoration:none">Cortex — AI Tools for Developers 2026</a></li>
+<li><a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/" style="color:#2563eb;text-decoration:none">Microsoft Agent Framework at BUILD 2026</a></li>
+<li><a href="https://doit.software/blog/ai-developer-skills" style="color:#2563eb;text-decoration:none">doit.software — Top 13 AI Developer Skills 2026</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/" style="color:#2563eb;text-decoration:none">The New MCP Roadmap — MCP Blog</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" style="color:#2563eb;text-decoration:none">The 2026-07-28 Specification — MCP Blog</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en" style="color:#2563eb;text-decoration:none">GitHub Trending (daily, EN)</a></li>
+<li><a href="https://aiweekly.co/ai-news-today/anthropic-news" style="color:#2563eb;text-decoration:none">aiweekly.co — Anthropic News</a></li>
+<li><a href="https://sherwood.news/tech/openai-anthropic-google-price-wars-where-no-one-is-making-money/" style="color:#2563eb;text-decoration:none">Sherwood News — OpenAI/Anthropic/Google price wars</a></li>
+<li><a href="https://venturebeat.com/category/ai" style="color:#2563eb;text-decoration:none">VentureBeat — AI category</a></li>
+<li><a href="https://andrew.ooo/answers/cursor-3-7-vs-cursor-4-vs-windsurf-vs-claude-code-june-2026/" style="color:#2563eb;text-decoration:none">andrew.ooo — Cursor/Windsurf/Claude Code comparativo</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375" style="color:#2563eb;text-decoration:none">arXiv 2510.01375 — Fine-tuning with RAG</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379" style="color:#2563eb;text-decoration:none">arXiv 2603.07379 — SoK Agentic RAG</a></li>
+<li><a href="https://arxiv.org/pdf/2601.02993" style="color:#2563eb;text-decoration:none">arXiv 2601.02993 — Stable-RAG</a></li>
+<li><a href="https://huggingface.co/papers/2606.05405" style="color:#2563eb;text-decoration:none">Hugging Face Papers — Agents' Last Exam</a></li>
+<li><a href="https://github.com/VoltAgent/awesome-ai-agent-papers" style="color:#2563eb;text-decoration:none">VoltAgent — awesome-ai-agent-papers</a></li>
+<li><a href="https://www.infoworld.com/article/4201254/model-context-protocol-is-going-stateless-to-make-scaling-simpler.html" style="color:#2563eb;text-decoration:none">InfoWorld — MCP going stateless</a></li>
+</ul>
+<div class="footer">Gerado automaticamente por rotina diária de IA — 06/09/2026</div>
+</body></html>
