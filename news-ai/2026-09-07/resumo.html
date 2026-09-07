@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 07/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 07/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.1 e Mythos 5.1</strong> (01/09/2026): a Anthropic lançou o Fable 5.1 com janela de contexto de 1M tokens, saída máxima de 128K tokens e corte de 75% no preço de cache-read (para US$ 0,25/milhão de tokens). O modelo marcou 55,8% no Terminal-Bench 4.0 e 73,4% no CursorBench 3.2.0 — mais que o dobro do Fable 5. O Mythos 5.1 foi liberado apenas para pesquisadores e defensores verificados (gated release).</li>
+<li><strong>GPT-6 Astra</strong> (03/09/2026): a OpenAI lançou o Astra, primeiro modelo da empresa a acionar o limiar crítico de segurança cibernética ("critical-cyber safeguard threshold") em seus próprios testes internos, o que implica mitigações adicionais de acesso.</li>
+<li><strong>Gemini 3.8 Flash</strong> (02/09/2026): o Google lançou o Gemini 3.8 Flash mantendo o preço de entrada do 3.7 Flash, além de uma variante "Cyber" com acesso restrito (Fairwind-gated).</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Model Context Protocol — spec 2026-07-28</strong>: a especificação mais recente do MCP tornou o núcleo do protocolo stateless, adicionou Multi Round-Trip Requests, roteamento por headers, resultados de listagem cacheáveis e um framework formal de extensões. Os SDKs Tier 1 (TypeScript e Python) já ultrapassaram 1 bilhão de downloads acumulados cada, com quase 500 milhões de downloads/mês somados.</li>
+<li><strong>DataBridge</strong>: novo sistema open-source modular para apps RAG, com API unificada cobrindo processamento de documentos, geração de embeddings e busca vetorial; integra a Unstructured API e usa MongoDB Atlas como vector store.</li>
+<li><strong>HawkinsDB</strong>: framework de memória para agentes inspirado em neurociência, com suporte a memória semântica, episódica e procedural; inclui pacotes especializados HawkinsRAG (RAG) e módulos voltados a desenvolvimento de agentes.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>PrimeIntellect-ai/prime-agent</strong>: agente self-improving baseado no conceito de Recursive Language Model (RLM), que trata contexto como variáveis e subagentes como chamadas de função dentro de um REPL persistente em Python. Ganhou mais de 2.200 stars no GitHub em um único dia e chegou a #1 no GitHub Trending em 07/08/2026. Tem modo autônomo com orçamento configurável de turnos, tokens e tempo, e continuidade via daemon (sessões e schedules seguem rodando mesmo com o terminal desconectado).</li>
+<li><strong>Mudança estrutural nos agentes de código</strong>: em 2026 os agentes deixaram de se limitar a interações curtas de prompt-resposta — já rodam por minutos ou horas em loops autônomos de execução, mudando o padrão de "chat assistivo" para execução autônoma supervisionada.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>RAG com fine-tuning ("Fine-tuning with RAG")</strong>: pipeline que converte retrieval em tempo de inferência em competência aprendida via destilação — extrai dicas compactas de falhas do agente, gera trajetórias de professor melhoradas por retrieval one-shot e treina o modelo aluno nessas trajetórias sem as dicas explícitas (arXiv 2510.01375).</li>
+<li><strong>CompactRAG</strong>: converte o corpus em pares QA atômicos offline, resolvendo perguntas multi-hop com apenas duas chamadas de LLM independentemente do número de hops — reduz drasticamente custo de tokens em RAG multi-hop.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>openclaw/openclaw</strong> (⭐ ~68.000 total, crescimento explosivo desde jan/2026) — assistente pessoal de IA local-first que roda em qualquer dispositivo/OS e conecta modelos a mais de 50 integrações (WhatsApp, Telegram, Slack, Discord, Signal, iMessage, Teams). Criado por Peter Steinberger (fundador da PSPDFKit).</li>
+<li><strong>karpathy/nanochat</strong> (Python/Rust, ⭐ ~57.800 total) — pipeline completo de treinamento de LLM em ~8.000 linhas legíveis: tokenização, pretraining, finetuning, avaliação e inferência com chat UI. Reproduz um modelo classe GPT-2 por ~US$ 73 em um nó H100 de 8 GPUs em 3 horas.</li>
+<li><strong>PrimeIntellect-ai/prime-agent</strong> (Python, +2.200 ⭐ em um dia) — agente RLM self-improving para workflows de código e tarefas autônomas de longa duração, com modo bounded-autonomy e subagentes recursivos.</li>
+<li><strong>PrimeIntellect-ai/prime-rl</strong> — biblioteca de treinamento de RL agêntico em escala, parte do stack "GitHub para ambientes de RL" da Prime Intellect.</li>
+<li><strong>VoltAgent/awesome-ai-agent-papers</strong> — coleção curada de papers de pesquisa em agentes de IA de 2026, organizada por engenharia de agentes, memória, avaliação, workflows e sistemas autônomos.</li>
+<li><strong>caramaschiHG/awesome-ai-agents-2026</strong> — lista com mais de 300 recursos e 20+ categorias de agentes, frameworks e ferramentas de IA, atualizada mensalmente.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Orquestração de agentes de longa duração (agentic AI)</strong>: a mudança central de 2026 é agentes que não esperam prompts — planejam e executam workflows multi-etapa de forma autônoma por minutos/horas, exigindo do dev domínio de checkpoints, budgets de tokens/tempo e recuperação de falhas em vez de apenas prompting.</li>
+<li><strong>2. Prompt engineering estruturado</strong>: profissionais com essa skill têm prêmio salarial de 56% (vs. 25% no ano anterior). Na prática de 2026 significa codificar papéis, exemplos few-shot e formatos de saída em system prompts reutilizáveis e testáveis em escala, não "escrever frases espertas".</li>
+<li><strong>3. RAG avançado e agent memory</strong>: construir e otimizar sistemas RAG é apontado como a skill de maior alavancagem em engenharia de IA hoje; técnicas como CompactRAG (2 chamadas de LLM por pergunta multi-hop) e memória em grafo para agentes (graph-based agent memory) estão em alta.</li>
+<li><strong>4. Evals, guardrails e observabilidade</strong>: com a implementação de agentes virando commodity, o valor do dev está migrando para orquestração e verificação — testes automatizados de qualidade de saída (evals), guardrails e checagem de uso de ferramentas (tool-use checks) já são item obrigatório em processos seletivos de AI engineer.</li>
+<li><strong>5. Linguagens tipadas por padrão</strong>: para projetos novos em 2026 a recomendação é TypeScript, Python com type hints, Rust ou Go como default — a rede de segurança dos tipos compensa quando parcelas grandes do código são geradas por IA.</li>
+<li><strong>6. MCP como padrão de integração de ferramentas</strong>: com a spec 2026-07-28 tornando o protocolo stateless e cacheável, MCP virou o caminho padrão para conectar agentes a ferramentas e dados corporativos, com quase 500M downloads/mês nos SDKs Tier 1.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375) — mostra que agentes LLM falham de forma previsível em tarefas multi-etapa (ações com pré-condições não satisfeitas, comandos redundantes) e propõe destilar retrieval em tempo de inferência para competência aprendida via fine-tuning, sem custo de retrieval em produção.</li>
+<li><strong>KC-Bench: A Dynamic Interactive Benchmark for Evaluating Knowledge Conflicts in LLM Agents</strong> (arXiv 2609.03588, submetido 03/09/2026) — avalia 9 modelos (incluindo DeepSeek-V4-Flash, GLM-5.2, MiniMax-M3) em como agentes reconciliam instrução do usuário, conhecimento paramétrico e observações dinâmicas do ambiente; nenhum modelo lida de forma confiável com correção factual, consistência de identidade e resolução temporal em todos os cenários.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG)</strong> (arXiv 2603.07379) — "systematization of knowledge" sobre taxonomia, arquiteturas, avaliação e direções de pesquisa para RAG agêntico, útil como mapa de referência para quem está desenhando pipelines RAG com agentes.</li>
+<li><strong>Graph-based Agent Memory: Taxonomy, Techniques, and Applications</strong> — survey sobre arquiteturas de memória em grafo para agentes, cobrindo extração, armazenamento, recuperação e evolução da memória ao longo do tempo.</li>
+<li><strong>CompactRAG: Reducing LLM Calls and Token Overhead in Multi-Hop Question Answering</strong> — converte o corpus em pares QA atômicos offline para resolver perguntas multi-hop com apenas duas chamadas de LLM, independentemente do número de saltos de raciocínio.</li>
+<li><strong>Mitigating Hallucination in Financial Retrieval-Augmented Generation via Fine-Grained Knowledge Verification</strong> — quebra respostas de RAG financeiro em fatos atômicos e verifica cada um contra os documentos recuperados usando recompensas de reinforcement learning.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.digitalapplied.com/blog/ai-model-releases-september-2026-tracker">AI Model Releases: September 2026 Tracker (Digital Applied)</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">The 2026-07-28 MCP Specification (MCP Blog)</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">The New MCP Roadmap (MCP Blog)</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills (arXiv)</a></li>
+<li><a href="https://arxiv.org/abs/2609.03588">KC-Bench (arXiv)</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">SoK: Agentic RAG (arXiv)</a></li>
+<li><a href="https://github.com/VoltAgent/awesome-ai-agent-papers">VoltAgent/awesome-ai-agent-papers (GitHub)</a></li>
+<li><a href="https://github.com/caramaschiHG/awesome-ai-agents-2026">caramaschiHG/awesome-ai-agents-2026 (GitHub)</a></li>
+<li><a href="https://github.com/openclaw/openclaw">openclaw/openclaw (GitHub)</a></li>
+<li><a href="https://github.com/karpathy/nanochat">karpathy/nanochat (GitHub)</a></li>
+<li><a href="https://github.com/PrimeIntellect-ai/prime-agent">PrimeIntellect-ai/prime-agent (GitHub)</a></li>
+<li><a href="https://github.com/PrimeIntellect-ai/prime-rl">PrimeIntellect-ai/prime-rl (GitHub)</a></li>
+<li><a href="https://trendshift.io/repositories/104249">prime-agent trending stats (Trendshift)</a></li>
+<li><a href="https://www.startuphub.ai/ai-news/ai-figures/2026/figure-andrej-karpathy-nano-series-technical-contribution-2026-07-16">Andrej Karpathy's Nano Repos (StartupHub.ai)</a></li>
+<li><a href="https://www.digitalocean.com/resources/articles/what-is-openclaw">What is OpenClaw? (DigitalOcean)</a></li>
+<li><a href="https://natalenoci.substack.com/p/i-found-8-new-ai-dev-tools-to-help-you-cut-development-costs">8 New AI Dev Tools (Natale Noci Substack)</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily</a></li>
+<li><a href="https://www.firecrawl.dev/blog/best-open-source-agent-frameworks">Best Open Source Agent Frameworks 2026 (Firecrawl)</a></li>
+<li><a href="https://pooyagolchian.com/blog/claude-ai-developer-skills-trends-2026/">AI Developer Skills 2026 (Pooya Golchian)</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">AI Developer Hiring 2026: Skills That Actually Matter</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 07/09/2026</div>
+</body></html>
