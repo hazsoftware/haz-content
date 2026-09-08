@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 08/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 08/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.1</strong> (Anthropic, GA em 01/09/2026): modelo de propósito geral com janela de contexto de 1M tokens e redução de 75% no preço de cache-read; lidera o Artificial Analysis Intelligence Index com 56,8 pontos, à frente do GPT-6 Astra (54,7) e do Claude Opus 5 (54,1) — a cache mais barata derruba o custo de rodar agentes de longa duração.</li>
+<li><strong>GLM-5.3-Flash</strong> (Z.ai): primeiro modelo nativamente multimodal da família GLM-5, arquitetura MoE de 320B/18B parâmetros e contexto de 1M tokens.</li>
+<li><strong>GLM-5.2</strong>: lidera benchmarks de coding open-weight como SWE-bench Pro e Terminal-Bench 2.1, referência para quem busca alternativa aberta a modelos fechados em tarefas de engenharia.</li>
+<li>Outros lançamentos recentes no radar: <strong>GPT-5.5</strong> (OpenAI), <strong>Claude Opus 4.7</strong> (Anthropic), <strong>Gemini 3.5 Flash</strong> (Google), <strong>Grok 4.3</strong> (xAI) e <strong>Mistral Medium 3.5 / Large 3</strong> (Mistral).</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain</strong>: adicionou suporte nativo a MCP, novos middlewares e controles de segurança para agentes — interrupts do LangGraph para elicitation, tratamento de erro mais rígido, redação automática de PII e mais provedores suportados em <code>init_chat_model</code>.</li>
+<li><strong>OpenClaw 2.0</strong> (v2026.8.1, lançado em 30/08/2026): control plane self-hosted para agentes de IA que expõe canais de mensagens via WebSocket tipado; a versão traz instalação mais rápida, UI redesenhada e sessões cloud compartilhadas. O projeto acumula 355 mil stars no GitHub e mais de 500 mil instâncias ativas em menos de cinco meses, ultrapassando o React em popularidade.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Especificação MCP 2026-07-28</strong>: o núcleo do protocolo virou stateless (cada requisição carrega o próprio contexto, sem conexão persistente obrigatória), com adição de Multi Round-Trip Requests, roteamento por headers, listas cacheáveis e hardening de autorização. <strong>Tasks</strong> saiu do core experimental para a extensão <code>io.modelcontextprotocol/tasks</code>, enquanto Roots, Sampling e Logging foram descontinuados (com suporte garantido por pelo menos 12 meses) — quem mantém integrações MCP precisa migrar.</li>
+<li>Pesquisa <strong>McKinsey "State of AI 2026"</strong>: 32% das organizações já deixaram de comprar algum produto ou feature de software porque conseguiram construir a solução internamente usando ferramentas de coding agêntico.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>Vector DBs mais citados para RAG em produção em 2026: <strong>Milvus</strong>, <strong>Qdrant</strong>, <strong>Weaviate</strong>, <strong>Chroma</strong>, <strong>LanceDB</strong> e <strong>Vespa</strong>; <strong>Pinecone</strong> segue como principal opção gerenciada para escala enterprise.</li>
+<li>Caso <strong>Wikimedia Deutschland</strong>: ao expor o grafo de conhecimento do Wikidata (120 milhões de entradas) para LLMs via busca híbrida, obtiveram consultas 30x mais rápidas que computação vetorial local e redução de 90% no tempo de desenvolvimento.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>donnemartin/system-design-primer</strong> (Python, 368.675★, +259 hoje) — guia de referência para design de sistemas em larga escala, clássico para prep de entrevista técnica.</li>
+<li><strong>n8n-io/n8n</strong> (TypeScript, 203.710★, +119 hoje) — plataforma de automação de workflows fair-code com mais de 400 integrações e recursos nativos de IA.</li>
+<li><strong>karpathy/nanochat</strong> (Python, ~57,8 mil★) — pipeline completo de treinamento de LLM (tokenização, pretraining, finetuning, avaliação, inferência e chat UI) num codebase mínimo e legível; Karpathy o descreve como baseline forte para entender como LLMs modernos são construídos do zero.</li>
+<li><strong>ClickHouse/ClickHouse</strong> (C++, 49.731★, +52 hoje) — banco analítico em tempo real, muito usado como backend de observability em sistemas de IA.</li>
+<li><strong>nautechsystems/nautilus_trader</strong> (Rust, 28.637★, +130 hoje) — motor de trading orientado a eventos, com adoção crescente para agentes de IA aplicados a mercados financeiros.</li>
+<li><strong>quickwit-oss/quickwit</strong> (Rust, 11.577★, +5 hoje) — motor de busca cloud-native otimizado para observability, usado em pipelines de logs para sistemas baseados em LLM.</li>
+<li><strong>OpenClaw</strong> (ecossistema, 355 mil★, 500 mil+ instâncias ativas) — segue como o projeto de crescimento mais rápido do GitHub em 2026, focado em agentes de IA self-hosted controlando canais de mensagens.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Agent orchestration e integração MCP</strong> — coordenar múltiplos agentes especializados via protocolos padronizados virou competência central; vagas nos EUA que exigem skills de IA cresceram 143% ano a ano.</li>
+<li><strong>2. Eval design para agentes</strong> — construir suites de avaliação e testes automatizados é tratado como disciplina própria, com benchmarks como SWE-bench Pro e Terminal-Bench 2.1 usados para medir capacidade de coding autônomo de forma padronizada.</li>
+<li><strong>3. Fine-tuning destilado a partir de RAG</strong> — técnica que converte retrieval em tempo de inferência em competência aprendida via destilação: extrai "hints" compactos das falhas do agente e treina modelos menores com trajetórias corrigidas, generalizando entre escalas de 7B/14B parâmetros e arquiteturas ReAct/StateAct (arXiv 2510.01375).</li>
+<li><strong>4. Agentic RAG</strong> — em vez de retrieval estático, agentes decidem dinamicamente a estratégia de busca usando reflection, planning, tool use e colaboração multiagente.</li>
+<li><strong>5. Context engineering e cost optimization</strong> — com contextos de até 1M tokens (Fable 5.1, GLM-5.3-Flash) e cache-read até 75% mais barato, otimizar uso de contexto e cache virou skill prática para reduzir custo operacional de agentes de longa duração.</li>
+<li><strong>6. TypeScript como linguagem default para IA</strong> — TypeScript ultrapassou Python como linguagem mais usada no GitHub; a recomendação de mercado é priorizar linguagens tipadas (TS, Python com type hints, Rust, Go) em novos projetos de IA.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375) — destila retrieval em competência aprendida via fine-tuning, reduzindo a dependência de infraestrutura de RAG em produção; validado em modelos de 7B/14B com arquiteturas ReAct/StateAct.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG): Taxonomy, Architectures, Evaluation, and Research Directions</strong> (arXiv 2603.07379) — sistematização do campo de Agentic RAG, propondo taxonomia de arquiteturas e direções de pesquisa.</li>
+<li><strong>Towards Agentic RAG with Deep Reasoning: A Survey of RAG-Reasoning Systems in LLMs</strong> (arXiv 2507.09477) — survey que mapeia como reasoning profundo (chain-of-thought, planning) se combina com RAG em sistemas agênticos.</li>
+<li><strong>Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG</strong> (arXiv 2501.09136) — survey seminal que define os padrões de design (reflection, planning, tool use, multiagente) usados para embutir agentes autônomos no pipeline de RAG.</li>
+<li><strong>Knowledge Augmented Finetuning Matters in both RAG and Agent Based Dialog Systems</strong> (arXiv 2506.22852) — mostra que fine-tuning com conhecimento aumentado melhora tanto sistemas de diálogo baseados em RAG quanto em agentes.</li>
+<li><strong>Addressing the sustainable AI trilemma: a case study on LLM agents and RAG</strong> (arXiv 2501.08262) — estudo de caso sobre o trilema de sustentabilidade (custo, performance, impacto ambiental) em agentes LLM que usam RAG.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">Cortex — AI Tools for Developers 2026</a></li>
+<li><a href="https://www.aitude.com/ai-engineer-tools-2026/">Aitude — 15 Must-Know AI Engineer Tools In 2026</a></li>
+<li><a href="https://www.firecrawl.dev/blog/best-open-source-agent-frameworks">Firecrawl — Best open source AI agent frameworks 2026</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agent Store — AI Agents News, semana de 05/09/2026</a></li>
+<li><a href="https://www.marktechpost.com/2026/06/10/ai-coding-agents-development-platforms-2026/">MarkTechPost — Top AI Coding Agents and Development Platforms in 2026</a></li>
+<li><a href="https://platform.uno/blog/ai-tooling-trends-shaping-how-we-build/">Platform Uno — Developer AI Tooling in 2026</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">Digital Applied — AI Developer Hiring 2026: Skills That Actually Matter</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">arXiv 2510.01375 — Fine-tuning with RAG for Improving LLM Learning of New Skills</a></li>
+<li><a href="https://github.com/VoltAgent/awesome-ai-agent-papers">VoltAgent — awesome-ai-agent-papers (GitHub)</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">arXiv 2603.07379 — SoK: Agentic RAG</a></li>
+<li><a href="https://arxiv.org/pdf/2507.09477">arXiv 2507.09477 — Towards Agentic RAG with Deep Reasoning</a></li>
+<li><a href="https://arxiv.org/abs/2501.09136">arXiv 2501.09136 — Agentic Retrieval-Augmented Generation: A Survey</a></li>
+<li><a href="https://arxiv.org/pdf/2506.22852">arXiv 2506.22852 — Knowledge Augmented Finetuning</a></li>
+<li><a href="https://arxiv.org/pdf/2501.08262">arXiv 2501.08262 — Sustainable AI trilemma: LLM agents and RAG</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — diário</a></li>
+<li><a href="https://www.firecrawl.dev/blog/best-github-repos">Firecrawl — Best Trending GitHub Repositories for AI Developers 2026</a></li>
+<li><a href="https://github.com/karpathy/nanochat">GitHub — karpathy/nanochat</a></li>
+<li><a href="https://en.wikipedia.org/wiki/OpenClaw">Wikipedia — OpenClaw</a></li>
+<li><a href="https://medium.com/data-science-collective/355k-github-stars-in-5-months-17-defense-rate-the-complete-honest-guide-to-openclaw-28d2f59598e1">Data Science Collective — 355K GitHub Stars: The Complete Guide to OpenClaw</a></li>
+<li><a href="https://llm-stats.com/llm-updates">LLM Stats — AI Updates Today (Setembro 2026)</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Model Context Protocol Blog — 2026-07-28 Specification</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">Model Context Protocol Blog — The New MCP Roadmap</a></li>
+<li><a href="https://releasebot.io/updates/langchain-ai">Releasebot — LangChain Release Notes, Setembro 2026</a></li>
+<li><a href="https://iternal.ai/insights/best-vector-databases-2026">Iternal AI — Best Vector Databases 2026</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 08/09/2026</div>
+</body></html>
