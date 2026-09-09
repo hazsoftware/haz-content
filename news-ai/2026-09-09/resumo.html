@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 09/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 09/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6 Astra</strong> (OpenAI, 03/09/2026): lançado nesta semana como o modelo mais recente da OpenAI, um dos seis modelos novos lançados por 5 provedores diferentes só em setembro/2026 — sinal de que o ritmo de releases segue acelerado.</li>
+<li><strong>Claude Fable 5.1</strong> (Anthropic, 01/09/2026): score de 55,8% no Terminal-Bench 4.0, 73,4% no CursorBench 3.2.0 e 52,6% no Terminal-Bench-Science 0.1 (mais que o dobro do Fable 5 anterior), com janela de contexto de 1M tokens e saída máxima de 128K tokens — lançado junto com o Mythos 5.1, mantendo preço de lista mas com três breaking changes na API.</li>
+<li><strong>Gemini 3.8 Flash</strong> (Google, 02/09/2026): mesmo preço de entrada do 3.7 Flash, com variante "Cyber" liberada via Fairwind-gating; Google também lançou o <strong>gemini-omni-1.1-flash</strong> em GA para geração e edição de vídeo conversacional rápida.</li>
+<li><strong>MCP 2026-07-28</strong> (Model Context Protocol): especificação estável migra o core do protocolo para arquitetura stateless — cada request carrega todo o contexto necessário, permitindo balanceamento de carga entre servidores sem storage compartilhado. SDKs Tier 1 (TypeScript e Python) já passam de 1 bilhão de downloads acumulados, com quase 500 milhões/mês.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>CrewAI</strong>: integração Agent-to-Agent (A2A) passa a ser "enterprise-grade", tornando o framework viável para cenários de produção com múltiplos agentes se comunicando entre si.</li>
+<li><strong>browser-use</strong>: repositório Python (+228 estrelas hoje) que dá a agentes LLM controle direto do navegador, ganhando tração como alternativa leve a stacks de automação web mais pesadas.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>GitHub HydraFusion</strong> (preview): orquestração multi-modelo do GitHub que iguala ou supera o Claude Opus 5 em três benchmarks (TerminalBench 2.1, DeepSWE e CheckpointBench), com custo estimado por token de 36% a 67% menor.</li>
+<li><strong>GitHub Copilot Workspace</strong>: agora suporta múltiplos agentes especializados trabalhando simultaneamente em partes diferentes de um mesmo repositório — agentes separados para implementação, testes e documentação coordenados via contexto compartilhado.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>MCP stateless</strong>: a mudança de conexão persistente para requisições autocontidas facilita deploy horizontal de servidores MCP atrás de load balancers simples — relevante para quem está colocando ferramentas MCP em produção.</li>
+<li><strong>Anthropic detection API</strong> (private preview): API de detecção ligada a requisitos de watermarking de conteúdo gerado por IA sob o EU AI Act — vale acompanhar para quem serve usuários na UE.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>TauricResearch/TradingAgents</strong> (Python, +506 ⭐ hoje) — framework multi-agente LLM voltado para automação e análise de trading financeiro.</li>
+<li><strong>openai/skills</strong> (Python, +490 ⭐ hoje) — catálogo oficial de skills para o Codex, referência de como a OpenAI está padronizando extensões de agentes.</li>
+<li><strong>The-Swarm-Corporation/AutoHedge</strong> (Python, +494 ⭐ hoje) — plataforma de "hedge fund autônomo" baseada em swarm intelligence, exemplo do uso de multi-agentes em domínios de alto risco.</li>
+<li><strong>experientiallabs/experiential</strong> (Python, +544 ⭐ hoje) — gateway open-source para modelos self-hosted e de marketplace com foco em otimização de custo, útil para quem gerencia múltiplos provedores de LLM.</li>
+<li><strong>rohitg00/ai-engineering-from-scratch</strong> (Python, +356 ⭐ hoje) — material didático prático de engenharia de IA "do zero", cobrindo o pipeline completo de build a ship.</li>
+<li><strong>Alishahryar1/free-claude-code</strong> (Python, +234 ⭐ hoje) — ferramenta de terminal/IDE que dá acesso a múltiplas plataformas de coding AI com suporte a voz.</li>
+<li><strong>browser-use/browser-use</strong> (Python, +228 ⭐ hoje) — agentes que operam o navegador diretamente, cada vez mais usado como building block para automação web agentic.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Agent orchestration multi-agente</strong>: coordenar vários agentes especializados (implementação, teste, documentação, pesquisa) num mesmo fluxo virou padrão de mercado — visto no GitHub Copilot Workspace e no A2A do CrewAI agora enterprise-grade. Domínio dessa técnica é item obrigatório em vagas de "AI integration", que cresceram 178% ano a ano segundo a Upwork.</li>
+<li><strong>2. MCP stateless design</strong>: adaptar servidores MCP para o modelo stateless da spec 2026-07-28 (cada request autocontido, sem sessão persistente) é a mudança de infraestrutura mais relevante do trimestre para quem expõe ferramentas via MCP — permite escalar horizontalmente sem storage compartilhado.</li>
+<li><strong>3. Agentic RAG com reasoning</strong>: RAG deixou de ser busca-e-injeta simples e passou a incorporar reflexão e refinamento baseado em memória (ex. frameworks como o DIVERGE), gerando respostas mais diversas para perguntas abertas e reduzindo alucinação em bases de conhecimento internas.</li>
+<li><strong>4. Distillation de trajetórias de agente</strong>: técnica que converte retrieval em tempo de inferência em competência aprendida — extrai "hints" compactos das falhas de um agente, gera trajetórias de um "professor" via retrieval one-shot e treina modelos menores (7B/14B) sem os hints, generalizando entre arquiteturas de agente.</li>
+<li><strong>5. Eval design e benchmark auditing</strong>: com a proliferação de benchmarks (KC-Bench, Agent-Diff, AgentAtlas), auditar a qualidade dos próprios benchmarks virou skill própria — hiring checklists de 2026 já listam "eval design" ao lado de prompt engineering e RAG como competência central.</li>
+<li><strong>6. Synthetic data pipelines</strong>: geração de dados sintéticos deixou de ser workaround para escassez de dados e virou parte central do pipeline de fine-tuning, exigindo validação de qualidade e critérios claros de quando o dado sintético é apropriado.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>KC-Bench</strong> (arXiv 2609.03588) — benchmark dinâmico e interativo para avaliar conflitos de conhecimento em agentes LLM (conflitos com conhecimento de mundo, inconsistências de input, conflitos temporais multi-fonte); avalia 9 modelos incluindo DeepSeek-V4-Flash, GLM-5.2 e MiniMax-M3, com variação significativa entre domínios.</li>
+<li><strong>SoK: Agentic RAG</strong> (arXiv 2603.07379) — "systematization of knowledge" que organiza taxonomia, arquiteturas, avaliação e direções de pesquisa para RAG agentic, útil como mapa de referência para quem está desenhando pipelines de RAG mais sofisticados.</li>
+<li><strong>Agent-Diff</strong> (arXiv 2602.11224) — benchmark para avaliar agentes LLM em tarefas de API empresarial usando execução de código com avaliação baseada em "state-diff", mais rigorosa que comparação de output textual.</li>
+<li><strong>Automated Benchmark Auditing for AI Agents and LLMs</strong> (arXiv 2605.26079) — propõe métodos automatizados para auditar a qualidade e integridade de benchmarks de agentes, respondendo à preocupação crescente com benchmarks inflados ou contaminados.</li>
+<li><strong>AgentAtlas</strong> (arXiv 2605.20530) — vai além de leaderboards de resultado final, propondo avaliação mais granular do processo de decisão dos agentes LLM.</li>
+<li><strong>Act As a Real Researcher</strong> (arXiv 2606.07462) — suite de benchmarks para avaliar LLMs de fronteira e harnesses agentic no ciclo de vida completo de pesquisa científica, referenciando o Terminal-Bench como base de tarefas realistas de linha de comando.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 9, 2026</a></li>
+<li><a href="https://www.dutchstartup.ai/en/news/a-wave-of-new-ai-agent-tools-is-emerging-around-early-september-2026">A wave of new AI agent tools — early September 2026</a></li>
+<li><a href="https://cleverhack.com/ai-coding-landscape">AI Coding Landscape 2026</a></li>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">The Engineering Leader's Guide to AI Tools for Developers in 2026</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">AI Developer Hiring 2026: Skills That Actually Matter</a></li>
+<li><a href="https://github.com/VoltAgent/awesome-ai-agent-papers">awesome-ai-agent-papers (VoltAgent)</a></li>
+<li><a href="https://arxiv.org/abs/2609.03588">KC-Bench (arXiv 2609.03588)</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">SoK: Agentic RAG (arXiv 2603.07379)</a></li>
+<li><a href="https://arxiv.org/abs/2602.11224">Agent-Diff (arXiv 2602.11224)</a></li>
+<li><a href="https://arxiv.org/pdf/2605.26079">Automated Benchmark Auditing (arXiv 2605.26079)</a></li>
+<li><a href="https://arxiv.org/html/2605.20530v1">AgentAtlas (arXiv 2605.20530)</a></li>
+<li><a href="https://arxiv.org/pdf/2606.07462">Act As a Real Researcher (arXiv 2606.07462)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, diário</a></li>
+<li><a href="https://llm-stats.com/llm-updates">AI Updates Today (September 2026)</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-model-releases-september-2026-tracker">AI Model Releases: September 2026 Tracker</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP Specification 2026-07-28</a></li>
+<li><a href="https://blog.cloudflare.com/mcp-v2/">The next generation of MCP — Cloudflare Blog</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 09/09/2026</div>
+</body></html>
