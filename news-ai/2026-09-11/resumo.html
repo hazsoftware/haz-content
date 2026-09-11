@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 11/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 11/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6 Astra</strong> (OpenAI, lançado em 03/09/2026): novo modelo com 1,05M de tokens de contexto e 128K de saída, preço de $10/$1(cache)/$12,50(cache write)/$50 por 1M de tokens — sucessor da linha GPT-5.3-Codex focado em tarefas agentivas longas.</li>
+<li><strong>Claude Fable 5.1</strong> (Anthropic, 01/09/2026): mantém o preço de $10/$50 do Fable 5, mas cache reads caem para $0,25/1M; score autorreportado no Terminal-Bench-Science sobe de 24,7 para 52,6 — ganho relevante para agentes de terminal/coding.</li>
+<li><strong>GLM-5.3 Flash</strong> (Z.AI): primeiro GLM-5 nativamente multimodal, variantes 320B/18B, contexto de 1M e pesos sob licença MIT; score autorreportado no DeepSWE sobe de 46,2 (GLM-5.2) para 63,4.</li>
+<li><strong>Gemini 3.8 Flash</strong> (Google): 321 chars/s de velocidade e 90,8% no Terminal-Bench 2.1 — foco em latência para uso agentivo em produção.</li>
+<li><strong>Qwen3.8 27B</strong> (Alibaba): novo modelo de peso aberto lançado no mesmo ciclo, ampliando a linha Qwen3.8.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>GitHub HydraFusion</strong> (preview): orquestração multi-modelo do GitHub que iguala ou supera o Claude Opus 5 em três benchmarks (TerminalBench 2.1, DeepSWE e CheckpointBench), com custo estimado por token 36% a 67% menor — relevante para quem avalia custo de agentes em produção.</li>
+<li><strong>GitHub Copilot Workspace</strong>: passa a suportar múltiplos agentes especializados trabalhando em paralelo no mesmo repositório — agentes separados para implementação, testes e documentação, coordenados via uma janela de contexto compartilhada.</li>
+<li><strong>Microsoft Agent Framework</strong>: fusão do Semantic Kernel com AutoGen, GA desde abril/2026, com suporte a Python e .NET (C#), combinando abstrações multi-agente do AutoGen com recursos enterprise do Semantic Kernel.</li>
+<li><strong>CrewAI</strong>: integração Agent-to-Agent (A2A) declarada "enterprise-grade", voltada a cenários de produção com comunicação entre múltiplos agentes.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP — especificação 2026-07-28</strong>: já em vigor, trouxe núcleo de protocolo stateless, requisições multi-round-trip, roteamento por headers, resultados de listagem cacheáveis, endurecimento de autorização e um framework formal de extensions; SDKs Tier 1 atualizados. (<a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">post oficial</a>)</li>
+<li><strong>MCP Tasks</strong>: saiu do núcleo experimental e virou extensão <code>io.modelcontextprotocol/tasks</code>, com <code>tasks/get</code> baseado em polling e novo <code>tasks/update</code> — útil para long-running tool calls em servidores MCP.</li>
+<li><strong>Novo roadmap MCP</strong> (publicado em agosto/2026): prioridades em transporte/escalabilidade, comunicação entre agentes, maturidade de governança e enterprise readiness; próximos trabalhos incluem eventos server-initiated (webhooks/channels).</li>
+<li><strong>Wavespace — "Beyond the Chatbox"</strong>: framework de UI para agentes que substitui o stream único de texto por UI generativa, com raciocínio visível do agente, checkpoints de aprovação humana e interfaces específicas por tarefa (formulários, tabelas) em vez de chat genérico.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Fine-tuning com RAG destilado</strong> (arXiv 2510.01375): converte retrieval em tempo de inferência em competência aprendida via destilação — extrai "hints" compactos de falhas do agente, gera trajetórias de professor melhoradas via retrieval one-shot, e treina o modelo aluno sem manter banco de conhecimento externo em produção (reduz overhead computacional no deployment).</li>
+<li><strong>Agentic RAG</strong> segue como área ativa: SoK (arXiv 2603.07379) mapeia taxonomia, arquiteturas e direções de pesquisa para RAG com agentes autônomos de retrieval multi-etapa.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>huggingface/transformers</strong> (Python, 165.108★, +47 hoje) — biblioteca de referência para modelos state-of-the-art em texto, visão, áudio e multimodal; segue como base de praticamente todo pipeline de fine-tuning.</li>
+<li><strong>NVIDIA/Megatron-LM</strong> (Python, 17.857★, +31 hoje) — infraestrutura de pesquisa para treinar transformers em larga escala, referência para quem trabalha com pré-treinamento distribuído.</li>
+<li><strong>donnemartin/system-design-primer</strong> (Python, 369.360★, +261 hoje) — guia de design de sistemas em larga escala, recorrente no trending e útil para quem projeta infraestrutura de serving de IA.</li>
+<li><strong>rustdesk/rustdesk</strong> (Rust, 123.155★, +102 hoje) — alternativa open-source ao TeamViewer, ganhando tração por casos de acesso remoto a ambientes de desenvolvimento/agentes com computer-use.</li>
+<li><strong>immich-app/immich</strong> (TypeScript, 113.816★, +70 hoje) — solução self-hosted de gestão de fotos/vídeos com pipelines de ML embutidos (reconhecimento facial, busca semântica).</li>
+<li><strong>windmill-labs/windmill</strong> (Rust, +25 hoje) — plataforma de automação de workflows, cada vez mais usada para orquestrar pipelines de agentes e jobs de IA.</li>
+<li><strong>gitleaks/gitleaks</strong> (Go, +28 hoje) — ferramenta de detecção de segredos, relevante para quem automatiza revisão de código com agentes de IA em CI/CD.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li>1. <strong>Agent orchestration multi-agente</strong>: coordenar agentes especializados (implementação, teste, documentação) em paralelo sobre o mesmo contexto, como no GitHub Copilot Workspace e no CrewAI A2A "enterprise-grade" — a fronteira deixou de ser "um agente melhor" e passou a ser orquestração confiável entre vários.</li>
+<li>2. <strong>Fine-tuning destilado a partir de RAG</strong>: em vez de manter um banco de vetores em produção, extrair hints de falhas do agente e destilar em pesos do modelo (arXiv 2510.01375) — reduz latência e custo de inferência ao internalizar conhecimento antes só disponível via retrieval.</li>
+<li>3. <strong>Evals e observabilidade de agentes</strong>: com 66% dos devs (Stack Overflow Survey 2025) gastando mais tempo corrigindo código gerado por IA, evals automatizados, guardrails e checagem de tool-use viraram item básico do checklist de qualquer pipeline com LLM.</li>
+<li>4. <strong>MCP Tasks / long-running tool calls</strong>: a extensão de Tasks do MCP (poll-based <code>tasks/get</code>, novo <code>tasks/update</code>) formaliza como servidores MCP devem expor operações assíncronas de longa duração — relevante para quem constrói ferramentas MCP próprias.</li>
+<li>5. <strong>UI generativa para agentes</strong>: abandonar o chat de texto único em favor de interfaces específicas por tarefa (formulários, tabelas, checkpoints de aprovação), como proposto pelo framework "Beyond the Chatbox" da Wavespace — resposta direta à dificuldade de auditar raciocínio de agente em texto corrido.</li>
+<li>6. <strong>TypeScript como linguagem dominante para código gerado por IA</strong>: TypeScript ultrapassou Python como linguagem mais usada no GitHub; tipagem estática funciona como rede de segurança quando parte relevante do código é gerada por LLM.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv <a href="https://arxiv.org/abs/2510.01375">2510.01375</a>) — pipeline que destila retrieval em tempo de inferência em competência aprendida, treinando modelos-aluno em trajetórias melhoradas por hints extraídos de falhas do agente, sem overhead de banco de conhecimento externo no deployment.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG)</strong> (arXiv <a href="https://arxiv.org/pdf/2603.07379">2603.07379</a>) — revisão sistemática de taxonomia, arquiteturas e avaliação de RAG agentivo, mapeando o estado da arte e direções de pesquisa em retrieval multi-etapa controlado por agentes.</li>
+<li><strong>RigorBench: Benchmarking Engineering Process Discipline in Autonomous AI Coding Agents</strong> (arXiv <a href="https://arxiv.org/abs/2606.22678">2606.22678</a>) — em vez de medir só se o agente acertou o resultado final, avalia disciplina de processo de engenharia (planejamento, testes intermediários, revisão) durante a tarefa.</li>
+<li><strong>Position: Coding Benchmarks Are Misaligned with Agentic Software Engineering</strong> (arXiv <a href="https://arxiv.org/pdf/2606.17799">2606.17799</a>) — argumenta que benchmarks de coding atuais medem mal o desempenho real de agentes em engenharia de software agentiva, propondo repensar as métricas usadas para comparar modelos como Opus 5, GLM-5.3 e Gemini 3.8.</li>
+<li><strong>SlopCodeBench: Benchmarking How Coding Agents Degrade Over Long-Horizon Iterative Tasks</strong> (arXiv <a href="https://arxiv.org/html/2603.24755v1">2603.24755</a>) — mede a degradação de qualidade de agentes de código ao longo de tarefas iterativas de longo horizonte, tema crítico para quem roda agentes autônomos por muitas iterações sem supervisão.</li>
+<li><strong>Code Review Agent Benchmark (c-CRAB)</strong> (arXiv <a href="https://arxiv.org/abs/2603.23448">2603.23448</a>) — dataset e framework de avaliação para agentes de revisão de código, comparando ferramentas open-source (PR-agent) com agentes comerciais como Devin, Claude Code e Codex.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 9, 2026</a></li>
+<li><a href="https://www.dutchstartup.ai/en/news/a-wave-of-new-ai-agent-tools-is-emerging-around-early-september-2026">A wave of new AI agent tools is emerging around early September 2026</a></li>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">AI Tools for Developers 2026 — Cortex</a></li>
+<li><a href="https://www.technary.com/software/ai-in-software-engineering-2026/">AI in Software Engineering 2026 — Technary</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">arXiv 2510.01375 — Fine-tuning with RAG for Improving LLM Learning of New Skills</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">arXiv 2603.07379 — SoK: Agentic RAG</a></li>
+<li><a href="https://github.com/VoltAgent/awesome-ai-agent-papers">VoltAgent/awesome-ai-agent-papers</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 — TripleTen</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">AI Developer Hiring 2026 — Digital Applied</a></li>
+<li><a href="https://local-ai-zone.github.io/blog/September_2026_AI_Model_Updates.html">September 2026 AI Model Updates — Local AI Zone</a></li>
+<li><a href="https://llm-stats.com/ai-news">LLM News Today (September 2026)</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">The 2026-07-28 Specification — Model Context Protocol Blog</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">The New MCP Roadmap — Model Context Protocol Blog</a></li>
+<li><a href="https://arxiv.org/abs/2606.22678">arXiv 2606.22678 — RigorBench</a></li>
+<li><a href="https://arxiv.org/pdf/2606.17799">arXiv 2606.17799 — Position: Coding Benchmarks Are Misaligned with Agentic Software Engineering</a></li>
+<li><a href="https://arxiv.org/html/2603.24755v1">arXiv 2603.24755 — SlopCodeBench</a></li>
+<li><a href="https://arxiv.org/abs/2603.23448">arXiv 2603.23448 — Code Review Agent Benchmark</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily, English</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 11/09/2026</div>
+</body></html>
