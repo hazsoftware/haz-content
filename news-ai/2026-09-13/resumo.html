@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 13/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 13/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.1</strong> (01/09/2026): Anthropic colocou o modelo no topo dos rankings de coding em setembro, mantendo o preço de $10/$50 por milhão de tokens do Fable 5, mas com cache reads 75% mais baratos ($0,25/milhão) — reduz o custo efetivo de workflows agentic pesados que reaproveitam contexto.</li>
+<li><strong>GPT-6 Astra</strong> (03/09/2026): primeiro modelo da OpenAI a cruzar o limiar interno de "critical cyber safeguard"; 1,05M de tokens de contexto, 128K de output, $10 input / $1 cache read / $12,50 cache write / $50 output por milhão de tokens.</li>
+<li><strong>Gemini 3.8 Flash</strong> (02/09/2026): Google manteve o preço de introdução do 3.7 Flash, mas já divulgou a data de fim dessa faixa de preço, com uma variante "Cyber" sob gate de acesso (Fairwind) — sinal de que capacidades ofensivas estão virando um tier separado nos modelos mainstream.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Bumblebee (Perplexity AI)</strong>: scanner open-source read-only de supply chain que varre npm, PyPI, Go modules, RubyGems, Composer, servidores MCP e extensões de editor/browser em busca de dependências maliciosas ou suspeitas — resposta direta ao aumento de pacotes armadilhados distribuídos via skills/MCP de agentes.</li>
+<li><strong>crawl4ai</strong> (82.915 ⭐, +690 hoje): web crawler/scraper "LLM-friendly" que virou peça padrão de pipeline de coleta de dados para RAG e fine-tuning, com saída já formatada em markdown limpo para ingestão por modelo.</li>
+<li><strong>nanochat</strong> (Andrej Karpathy): repositório minimalista com o pipeline completo de treino de LLM em um único codebase legível — tokenização, pretraining, finetuning, avaliação, inferência e chat UI — usado como material de referência para quem quer entender treino de ponta a ponta sem a complexidade de frameworks de produção.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>OpenMontage</strong> (58.039 ⭐, +383 hoje): descrito como o primeiro sistema agentic de produção de vídeo open-source, com 12 pipelines e mais de 700 arquivos de "agent skills" — sinaliza a expansão de agentes de coding para produção de mídia multi-etapa.</li>
+<li><strong>hyperresearch</strong> (3.130 ⭐, +642 hoje): base de conhecimento orientada a agente que coleta, busca e sintetiza pesquisa da web automaticamente — categoria de "research agents" ganhando tração junto com o EvoMap/AutoResearch (agentes de pesquisa científica ponta a ponta, de ideia a paper).</li>
+<li><strong>AgentGrad</strong> (arXiv 2609.08572, 08/09/2026): técnica de otimização de prompt guiada por intervenção para sistemas multi-agente, usando gradientes textuais para ajustar automaticamente instruções entre agentes sem re-treino do modelo base.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>awesome-llm-apps</strong> (137.815 ⭐, +230 hoje): coleção curada com mais de 100 agentes de IA, agent skills e aplicações RAG prontas para referência de arquitetura — cresce junto com a demanda por exemplos production-ready de RAG além de tutoriais de brinquedo.</li>
+<li><strong>MCP roadmap</strong> (atualizado 22/08/2026): próxima janela de spec do Model Context Protocol prevista, com SDKs Tier 1 (TypeScript e Python) já ultrapassando 1 bilhão de downloads acumulados cada e quase meio bilhão de downloads/mês somados — consolidando o MCP como padrão de fato para conectar agentes a ferramentas e bancos vetoriais.</li>
+<li><strong>Harness Engineering</strong> (arXiv 2609.00006): estudo de código-fonte de 11 sistemas de coding agents mapeando a anatomia e evolução de "harnesses" (a camada que orquestra loop de ferramentas, contexto e memória) — referência técnica para quem constrói agente de coding próprio.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>OpenMontage</strong> (⭐ 58.039, +383 hoje): sistema agentic open-source de produção de vídeo com 12 pipelines e 700+ agent skills.</li>
+<li><strong>awesome-llm-apps</strong> (⭐ 137.815, +230 hoje): coleção curada de 100+ agentes de IA, agent skills e apps RAG.</li>
+<li><strong>crawl4ai</strong> (Python, ⭐ 82.915, +690 hoje): web crawler/scraper otimizado para consumo por LLM, peça padrão em pipelines de RAG.</li>
+<li><strong>VoiceStudio</strong> (⭐ 25.277, +2.546 hoje): alternativa open-source ao ElevenLabs para clonagem de voz, dublagem e transcrição em 646 idiomas.</li>
+<li><strong>huggingface/transformers</strong> (Python, ⭐ 165.251, +102 hoje): framework de referência da Hugging Face para modelos de texto, visão, áudio e multimodais.</li>
+<li><strong>hyperresearch</strong> (⭐ 3.130, +642 hoje): base de conhecimento de pesquisa orientada a agente, que coleta e sintetiza fontes da web automaticamente.</li>
+<li><strong>codecrafters-io/build-your-own-x</strong> (Markdown, ⭐ 546.933, em alta contínua): recurso educacional para recriar tecnologias do zero — segue relevante como base conceitual para revisar código que agentes geram automaticamente.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Auditoria de supply chain de agentes/MCP</strong>: com ferramentas como o Bumblebee da Perplexity varrendo servidores MCP, extensões de editor e pacotes npm/PyPI por dependências maliciosas, virou prática recomendada rodar esse tipo de scanner antes de instalar skills ou MCP servers de terceiros em pipelines de produção.</li>
+<li><strong>Harness engineering</strong>: o paper arXiv 2609.00006 formaliza como um campo próprio o design do "harness" de um coding agent (orquestração de ferramentas, gestão de contexto, memória) — cresce como skill distinta de prompt engineering, focada em arquitetura do loop do agente, não só no texto do prompt.</li>
+<li><strong>Otimização de prompt entre agentes (multi-agent prompt tuning)</strong>: técnicas como o AgentGrad (arXiv 2609.08572) usam "gradientes textuais" para ajustar automaticamente prompts trocados entre agentes de um sistema multi-agente, reduzindo a necessidade de tuning manual de cada papel.</li>
+<li><strong>Agentic AI e orquestração multi-agente</strong>: contratação para funções de integração de IA cresceu 178% ano a ano, e quase 1 em cada 20 vagas já menciona IA — frameworks como Microsoft Agent Framework (GA em 02/04/2026, unificando AutoGen e Semantic Kernel), LangGraph e CrewAI seguem disputando esse espaço.</li>
+<li><strong>Interfaces generativas para agentes ("Beyond the Chatbox")</strong>: framework de interação que substitui o chat de texto único por UI generativa — raciocínio visível do agente, checkpoints de aprovação humana e interfaces específicas por tarefa (formulários, tabelas) em vez de respostas de chat genéricas.</li>
+<li><strong>Prompt engineering como skill remunerada</strong>: profissionais com essa competência já têm prêmio salarial de 56% no mercado — segue como uma das skills de IA mais bem pagas isoladamente, mesmo com o avanço de agentes autônomos.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>AgentGrad: Intervention-guided Prompt Optimization for Multi Agent Systems</strong> (arXiv 2609.08572, 08/09/2026): propõe otimização de prompt guiada por intervenção usando gradientes textuais para sistemas multi-agente, ajustando instruções entre agentes sem re-treinar os modelos base.</li>
+<li><strong>Harness Engineering: Anatomy, Architecture, and Evolution of Coding Agents</strong> (arXiv 2609.00006): estudo de código-fonte de 11 sistemas de coding agents, mapeando padrões arquiteturais comuns e a evolução dos "harnesses" que orquestram ferramentas, contexto e memória.</li>
+<li><strong>LLM Agents for Time-Series: A Survey</strong> (arXiv 2608.26226, 26/08/2026): survey organizando o uso de agentes LLM por tipo de problema de séries temporais (previsão, detecção de anomalia, causalidade), mapeando lacunas frente a modelos especializados como TimesFM.</li>
+<li><strong>LLM-Based Agents for Software and Systems Security</strong> (arXiv 2608.28490, 28/08/2026): revisão sistemática de abordagens, aplicações e avaliação de agentes LLM aplicados a segurança de software e sistemas — relevante para quem avalia risco de agentes com acesso a produção.</li>
+<li><strong>Privacy-Preserving Topology-Guided Safety for LLM-Based Multi-Agent Systems via Federated Graph Learning</strong> (arXiv 2609.02967): propõe aprendizado federado sobre grafo de topologia para reforçar segurança/privacidade em sistemas multi-agente sem centralizar dados sensíveis de cada agente.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375, ICLR 2026): destila hints compactos extraídos de falhas de agentes em tarefas multi-etapa e treina o modelo aluno em trajetórias corrigidas sem os hints — converte retrieval em tempo de inferência em competência aprendida, evitando manter base de conhecimento externa.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">LogRocket — AI dev tool power rankings [Sept. 2026]</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 9, 2026</a></li>
+<li><a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/">Microsoft Agent Framework at BUILD 2026</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">TripleTen — AI Skills to Learn in 2026</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">Digital Applied — AI Developer Hiring 2026</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-model-releases-september-2026-tracker">Digital Applied — AI Model Releases September 2026 Tracker</a></li>
+<li><a href="https://local-ai-zone.github.io/blog/September_2026_AI_Model_Updates.html">Local AI Zone — September 2026 AI Model Updates</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">Model Context Protocol Blog — The New MCP Roadmap</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Model Context Protocol Blog — The 2026-07-28 Specification</a></li>
+<li><a href="https://arxiv.org/abs/2609.08572">arXiv 2609.08572 — AgentGrad</a></li>
+<li><a href="https://arxiv.org/abs/2608.26226">arXiv 2608.26226 — LLM Agents for Time-Series: A Survey</a></li>
+<li><a href="https://arxiv.org/abs/2608.28490">arXiv 2608.28490 — LLM-Based Agents for Software and Systems Security</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">arXiv 2510.01375 — Fine-tuning with RAG for Improving LLM Learning of New Skills</a></li>
+<li><a href="https://github.com/VoltAgent/awesome-ai-agent-papers">VoltAgent — awesome-ai-agent-papers (2026)</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily (English)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, Daily</a></li>
+<li><a href="https://blog.bytebytego.com/p/top-ai-github-repositories-in-2026">ByteByteGo — Top AI GitHub Repositories in 2026</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 13/09/2026</div>
+</body></html>
