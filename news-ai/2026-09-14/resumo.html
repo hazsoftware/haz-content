@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 14/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 14/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Cognition SWE-2</strong> (10/09/2026): novo modelo de código da Cognition (criadora do Devin), construído sobre o Kimi K3 (2,8 trilhões de parâmetros, Moonshot AI) com pós-treinamento RL próprio. Marca 50,0% no FrontierCode 1.1 Main — a menos de 1 ponto do Claude Fable 5.1 — custando 64% menos para rodar nesse score; também tira 73,0% no DeepSWE 1.1 e 92,8% no Terminal-Bench 2.1. Já disponível no Devin Desktop e Devin CLI, sem API ou pesos públicos ainda.</li>
+<li><strong>DeepSeek-V4.1-Flash</strong> (10/09/2026): modelo MoE multimodal (texto+imagem) com licença MIT, 1M tokens de contexto, superando o DeepSeek-V4-Pro em desempenho, custo e velocidade nos testes internos. Preço: US$0,22/milhão de tokens de entrada, US$0,01/milhão em cache, US$0,66/milhão de saída. Suporte já confirmado em CodeBuddy e OpenCode.</li>
+<li><strong>Claude Fable 5.1 e Mythos 5.1</strong> (01/09/2026): lançados pela Anthropic com preço de lista inalterado, mas trazendo três mudanças de API que quebram compatibilidade — vale checar changelog antes de atualizar SDKs em produção.</li>
+<li><strong>Gemini 3.8 Flash</strong> (02/09/2026): Google lançou ao mesmo preço de entrada do 3.7 Flash, incluindo variante "Cyber" com gate Fairwind; o 3.7 Flash segue com desconto de lançamento até 31/12/2026 e ganhos relevantes em engenharia de software e workflows agênticos.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>OpenAI Agents API</strong>: saiu do beta fechado e está em beta público para todos os desenvolvedores, padronizando criação de agentes com ferramentas e orquestração nativa na plataforma OpenAI.</li>
+<li><strong>LangChain e LlamaIndex</strong> seguem como os frameworks mais adotados para orquestração de agentes e RAG, respectivamente — LangChain pela integração ampla com provedores e ferramentas, LlamaIndex por abstrações mais limpas focadas em dados.</li>
+<li><strong>Langflow, Dify e n8n</strong> consolidam a tendência de builders visuais (drag-and-drop) para pipelines de agentes, ampliando quem consegue montar aplicações de IA além de times de ML puro.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>OpenClaw</strong>: agente autônomo open source (para o assistente "Molty") tornou-se o projeto de crescimento mais rápido da história do GitHub — passou de 9 mil estrelas no lançamento para mais de 250 mil em 60 dias, superando React e Linux. Vale acompanhar de perto discussões sobre segurança do projeto, que já geraram cobertura crítica (The New Stack).</li>
+<li><strong>GitHub Copilot Workspace</strong>: passou a suportar múltiplos agentes especializados trabalhando em paralelo no mesmo repositório (implementação, testes e documentação), coordenados via contexto compartilhado.</li>
+<li>Projeção de mercado: cerca de <strong>40% das aplicações enterprise</strong> devem incluir agentes de IA específicos por tarefa até o fim de 2026, ante menos de 5% em 2025 — o que está elevando UX de agente a preocupação mainstream de design (ver framework "Beyond the Chatbox", da Wavespace).</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Model Context Protocol (MCP)</strong>: especificação 2026-07-28 tornou o protocolo stateless na camada de transporte (facilita escalar com infra HTTP padrão), trouxe a extensão MCP Apps (UI renderizada pelo servidor) e a extensão Tasks (trabalho de longa duração), além de autorização alinhada a OAuth/OIDC. Roadmap atualizado em 22/08/2026; SDKs Tier 1 somam quase meio bilhão de downloads/mês.</li>
+<li><strong>vLLM</strong> segue como padrão de fato para serving de inferência em produção, com mais de 2.000 contribuidores e suporte ampliado a TPU via plugin tpu-inference (JAX e PyTorch).</li>
+<li>Bancos vetoriais mais citados para RAG em 2026: <strong>Milvus, Qdrant, Weaviate, Chroma, LanceDB e Vespa</strong>; mercado de vector DB projetado saltar de US$2,46 bi (2024) para US$10,6 bi até 2032 (CAGR 27,5%).</li>
+<li><strong>OpenTelemetry</strong> está formalizando convenções semânticas para observabilidade de sistemas GenAI (spans de modelo, spans de agente, métricas e eventos) — importante para quem já roda agentes em produção e precisa de rastreabilidade.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>huggingface/transformers</strong> (Python, ⭐152 hoje) — biblioteca de referência para modelos de ML state-of-the-art em texto, visão, áudio e multimodal; segue como base de praticamente todo pipeline de NLP/LLM open source.</li>
+<li><strong>NangoHQ/nango</strong> (TypeScript, ⭐182 hoje) — plataforma para construir integrações de produto com IA, cada vez mais usada para conectar agentes a APIs de terceiros de forma padronizada.</li>
+<li><strong>karpathy/nanochat</strong> (Python, ~42,2k ⭐ acumuladas) — pipeline completo de treinamento de LLM (tokenização, pretraining, finetuning, avaliação, inferência e chat UI) em código legível de ponta a ponta; treina um modelo tipo GPT-2 por ~US$48 em 2h numa 8xH100.</li>
+<li><strong>openclaw/openclaw</strong> (multi-linguagem, 250k+ ⭐ acumuladas) — agente autônomo de IA "para qualquer SO/plataforma"; caso extremo de adoção viral que vale estudar pela arquitetura, mas também pelo debate de segurança em torno do projeto.</li>
+<li><strong>vllm-project/vllm</strong> (Python) — motor de inferência e serving de alta vazão para LLMs, hoje escolha padrão para quem roda modelos em escala em produção.</li>
+<li><strong>VoltAgent/awesome-ai-agent-papers</strong> — coleção curada e atualizada semanalmente de papers de 2026 sobre engenharia de agentes, memória, avaliação, workflows e sistemas autônomos; bom ponto de partida para quem quer acompanhar a pesquisa sem garimpar o arXiv.</li>
+<li><strong>donnemartin/system-design-primer</strong> (Python, ⭐222 hoje) — referência clássica de system design que voltou a subir no trending, útil para quem está se preparando para entrevistas de engenharia com componente de IA/infra.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Agentic RAG</strong>: em vez de um pipeline fixo de retrieval, o agente decide dinamicamente quando e como buscar informação, usando padrões como reflexão, planejamento e uso de ferramentas. É tema central do survey "SoK: Agentic Retrieval-Augmented Generation" (arXiv 2603.07379), que mapeia taxonomia e arquiteturas emergentes.</li>
+<li><strong>2. Destilação de falhas de agente em hints reutilizáveis</strong>: técnica descrita no paper "Fine-tuning with RAG for Improving LLM Learning of New Skills" (arXiv 2510.01375) converte retrieval em tempo de inferência em competência aprendida — extrai dicas compactas de falhas do agente (ações com pré-condições não satisfeitas, comandos redundantes) e as usa para gerar trajetórias de treino melhores via retrieval one-shot no início do episódio.</li>
+<li><strong>3. Treino multi-nível de esforço (effort levels) em uma única rodada de RL</strong>: inovação por trás do SWE-2 da Cognition — treina simultaneamente os níveis "medium", "high" e "max" de esforço no mesmo run de RL, eliminando a necessidade de modelos separados para respostas rápidas/baratas vs. lentas/completas.</li>
+<li><strong>4. Verificação e observabilidade de código gerado por IA</strong>: com 66% dos devs (Stack Overflow Developer Survey) relatando gastar mais tempo corrigindo código gerado por IA, evals automatizados, guardrails e checks de uso de ferramentas viraram item básico de checklist de qualidade em times que usam agentes de coding.</li>
+<li><strong>5. Protocolos stateless para agentes (MCP 2026-07-28)</strong>: mover o MCP para stateless na camada de protocolo é uma técnica de arquitetura que facilita escalar servidores de ferramentas com infraestrutura HTTP padrão (load balancers, autoscaling) em vez de manter sessões fixas.</li>
+<li><strong>6. Prompt engineering estruturado como skill de alto ROI</strong>: segundo o PwC Global AI Jobs Barometer, profissionais com skills de prompt engineering têm prêmio salarial de 56% (ante 25% no ano anterior) — reforça que prompting estruturado (papéis claros, few-shot, formato de saída explícito) continua sendo alavanca prática de produtividade, não só teoria.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375, ICLR 2026) — converte falhas recorrentes de agentes em múltiplas etapas (ações com pré-condições não atendidas, comandos redundantes) em hints destilados que geram trajetórias de treino melhores.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG)</strong> (arXiv 2603.07379) — survey sistemático de taxonomia, arquiteturas e direções de pesquisa para RAG agêntico, com padrões de reflexão, planejamento e colaboração multi-agente.</li>
+<li><strong>Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG</strong> (arXiv 2501.09136) — survey complementar focado em como agentes autônomos gerenciam dinamicamente estratégias de retrieval dentro do pipeline RAG.</li>
+<li><strong>Knowledge Augmented Finetuning Matters in both RAG and Agent Based Dialog Systems</strong> (arXiv 2506.22852) — mostra que finetuning com conhecimento aumentado melhora tanto sistemas RAG quanto de diálogo baseados em agente, com ganhos mensuráveis sobre baselines sem augmentação.</li>
+<li><strong>Governing Evolving Memory in LLM Agents (SSGM Framework)</strong> (arXiv 2603.11768) — propõe framework de governança para memória evolutiva de agentes (Stability and Safety Governed Memory), endereçando riscos de memória que muda ao longo do tempo em produção.</li>
+<li><strong>DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence</strong> (arXiv 2606.19348) — paper técnico por trás da arquitetura que fundamenta o DeepSeek-V4.1-Flash, detalhando as técnicas de eficiência para contexto de até 1 milhão de tokens.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">Cortex — AI Tools for Developers 2026</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 13, 2026</a></li>
+<li><a href="https://llm-stats.com/ai-news">LLM Stats — LLM News Today (September 2026)</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">TripleTen — AI Skills to Learn in 2026</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">arXiv 2510.01375 — Fine-tuning with RAG</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">arXiv 2603.07379 — SoK: Agentic RAG</a></li>
+<li><a href="https://arxiv.org/abs/2501.09136">arXiv 2501.09136 — Agentic RAG Survey</a></li>
+<li><a href="https://arxiv.org/pdf/2506.22852">arXiv 2506.22852 — Knowledge Augmented Finetuning</a></li>
+<li><a href="https://arxiv.org/pdf/2603.11768">arXiv 2603.11768 — Governing Evolving Memory (SSGM)</a></li>
+<li><a href="https://arxiv.org/pdf/2606.19348">arXiv 2606.19348 — DeepSeek-V4</a></li>
+<li><a href="https://github.com/VoltAgent/awesome-ai-agent-papers">VoltAgent/awesome-ai-agent-papers</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily</a></li>
+<li><a href="https://officechai.com/ai/cognition-releases-swe-2-says-it-performs-close-to-frontier-at-70-lower-cost/">OfficeChai — Cognition SWE-2</a></li>
+<li><a href="https://www.marktechpost.com/2026/09/12/cognition-releases-swe-2-a-kimi-k3-post-trained-coding-model-that-matches-fable-5-1-on-frontiercode-at-64-lower-cost/">MarkTechPost — Cognition SWE-2</a></li>
+<li><a href="https://www.deepseek.com/en/news/deepseek-v4-1-flash/">DeepSeek — DeepSeek-V4.1-Flash</a></li>
+<li><a href="https://www.unite.ai/baseten-adds-deepseek-v4-1-flash-to-model-apis-with-1m-token-context/">Unite.AI — Baseten adds DeepSeek-V4.1-Flash</a></li>
+<li><a href="https://www.star-history.com/blog/openclaw-surpasses-linux-14th-most-starred/">Star History — OpenClaw surpasses Linux</a></li>
+<li><a href="https://en.wikipedia.org/wiki/OpenClaw">Wikipedia — OpenClaw</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/">MCP Blog — 2026 Roadmap</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP Blog — 2026-07-28 Specification</a></li>
+<li><a href="https://cloudian.com/guides/ai-infrastructure/vector-database-for-llm-use-cases-and-notable-dbs-in-2026/">Cloudian — Vector Database for LLM 2026</a></li>
+<li><a href="https://github.com/karpathy/nanochat">karpathy/nanochat</a></li>
+<li><a href="https://github.com/vllm-project/vllm">vllm-project/vllm</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 14/09/2026</div>
+</body></html>
