@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 15/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 15/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6 Astra</strong> (03/09/2026): sucessor do GPT-5.6 Sol, com uso de computador/navegador aprimorado, geração de artefatos profissionais e capacidade de cibersegurança elevada; preço de $10/$1 (cache read)/$12,50 (cache write)/$50 por 1M de tokens, janela de contexto de 1,05M e saída de 128K tokens.</li>
+<li><strong>GPT Image 2.5 Sunburst</strong> (08/09/2026): novo modelo de geração de imagem da OpenAI lançado na mesma semana do GPT-6 Astra.</li>
+<li><strong>Fable 5.1</strong> (01/09/2026): atingiu disponibilidade geral mantendo o preço de $10/$50 do Fable 5, com leitura de cache caindo para $0,25/1M tokens; variante Mythos 5.1 focada em acesso confiável (trusted-access).</li>
+<li><strong>Fugu Ultra v2.0</strong> (11/09/2026), da Sakana AI: lançamento que eleva para 11 o total de novos modelos lançados por 7 provedores diferentes só em setembro de 2026.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Microsoft Agent Framework 1.0</strong> (GA em 03/04/2026): unifica AutoGen e Semantic Kernel em um único SDK .NET/Python, com Agent Harness, Hosted Agents e suporte a CodeAct.</li>
+<li><strong>Google ADK 1.0</strong>: expandiu suporte para Java e Go, além do Python/TypeScript já existentes.</li>
+<li><strong>CrewAI</strong> ultrapassou 52.000 estrelas no GitHub, consolidando-se como principal framework para orquestração multi-agente com abstrações de papéis e delegação.</li>
+<li>Mercado de frameworks se divide entre SDKs nativos de provedor (Claude Agent SDK, OpenAI, Google ADK) otimizados para uma família de modelo, e frameworks independentes (LangGraph, CrewAI, Smolagents, Pydantic AI, AutoGen) que funcionam entre múltiplos provedores.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>OpenClaw</strong> é apontado como o projeto open-source de crescimento mais rápido da história do GitHub em 2026: agentes navegam na web, executam código, gerenciam arquivos e orquestram workflows multi-etapa rodando continuamente na máquina do usuário.</li>
+<li><strong>MCP (Model Context Protocol)</strong> — especificação de 28/07/2026 trouxe núcleo stateless (cada requisição carrega seu próprio contexto, sem conexão permanente), Multi Round-Trip Requests, roteamento por headers e resultados de listagem cacheáveis; SDKs Tier 1 (TypeScript e Python) já ultrapassaram 1 bilhão de downloads totais, com quase 500 milhões de downloads/mês.</li>
+<li>Roadmap de agosto/2026 do MCP prioriza autorização enterprise: validação de issuer, credenciais vinculadas a issuer e Client ID Metadata Documents (CIMD) como via preferencial de registro de clientes.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>vLLM</strong> consolidado como escolha padrão para serving de inferência em produção, tanto em startups quanto em empresas.</li>
+<li>Plataformas low-code/no-code como <strong>Langflow</strong>, <strong>Dify</strong> e <strong>n8n</strong> ganham espaço para desenho de pipelines de agentes via interface visual, permitindo que especialistas de domínio (não só engenheiros de ML) construam aplicações de IA.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>huggingface/transformers</strong> (Python, ⭐ 536 hoje) — biblioteca de referência para modelos de ML em texto, visão e áudio; segue como um dos repositórios de IA mais ativos do GitHub em 2026.</li>
+<li><strong>NangoHQ/nango</strong> (TypeScript, ⭐ 166 hoje) — plataforma para construir integrações de produto com IA, conectando agentes a APIs de terceiros de forma padronizada.</li>
+<li><strong>openai/whisper</strong> (Python, ⭐ 69 hoje) — reconhecimento de fala robusto via supervisão fracamente rotulada em larga escala, ainda referência para pipelines de transcrição.</li>
+<li><strong>OpenClaw</strong> — citado como o projeto open-source de crescimento mais rápido do GitHub em 2026; agentes autônomos que navegam, executam código e melhoram as próprias capacidades continuamente.</li>
+<li><strong>karpathy/nanochat</strong> — repositório minimalista de Andrej Karpathy com o pipeline completo de treinamento de LLM em um único código legível: tokenização, pré-treino, fine-tuning, avaliação, inferência e UI de chat.</li>
+<li><strong>awesome-claude-skills</strong> — lista curada de extensões (skills) para Claude Code, refletindo a adoção crescente do formato skill para customizar agentes.</li>
+<li><strong>firecrawl</strong> — API de web scraping/context para alimentar pipelines de RAG e agentes com conteúdo web estruturado.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Orquestração de agentes (Agentic AI)</strong>: agentes que planejam, executam workflows complexos de múltiplas etapas, usam ferramentas, chamam APIs, testam o próprio trabalho e corrigem erros sem intervenção humana constante — considerado o principal driver de contratação de 2026.</li>
+<li><strong>RAG (Retrieval-Augmented Generation)</strong>: seguir como a técnica mais prática para reduzir alucinação e ancorar modelos em dados proprietários; base de assistentes internos de conhecimento e bots de suporte com conteúdo específico de domínio.</li>
+<li><strong>Prompt engineering avançado</strong>: segundo levantamento de mercado, profissionais com essa habilidade têm prêmio salarial de 56% (subiu de 25% no ano anterior); foco deslocou de "prompts espertos" para entender como o modelo responde a contexto, restrições, exemplos e formatos estruturados de saída.</li>
+<li><strong>Evals, guardrails e observabilidade</strong>: segundo o Stack Overflow Developer Survey 2025, 66% dos desenvolvedores gastam mais tempo corrigindo código gerado por IA do que escrevendo do zero — reforçando evals automatizados, guardrails e observabilidade em produção como itens obrigatórios no checklist de qualquer pipeline de IA.</li>
+<li><strong>Fine-tuning com destilação via RAG</strong> (arXiv 2510.01375): extrai dicas compactas e reutilizáveis de falhas de agentes, gera trajetórias de "professor" melhoradas via retrieval único no início do episódio e treina modelos "aluno" removendo as dicas, forçando internalização em vez de memorização; testado em ALFWorld e WebShop com modelos de 7B/14B parâmetros e arquiteturas ReAct/StateAct.</li>
+<li><strong>MCP com autorização enterprise (CIMD)</strong>: adoção de Client ID Metadata Documents e validação de issuer no protocolo MCP torna viável expor agentes e ferramentas MCP em ambientes corporativos com requisitos de segurança mais rígidos.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Beyond Vector Similarity: Hierarchical Context-Aware Graph RAG vs Standard RAG in Enterprise Code Migration</strong> (arXiv 2609.12464) — compara RAG baseado em grafo hierárquico contra RAG vetorial padrão especificamente em tarefas de migração de código corporativo, relevante para quem avalia RAG em bases de código legadas.</li>
+<li><strong>RAG-Safety-Bench: Reliable Evaluation of Retrieval-Augmented LLM Safety</strong> (arXiv 2609.11758) — benchmark dedicado a avaliar segurança de sistemas RAG, incluindo resistência a conteúdo malicioso recuperado.</li>
+<li><strong>In RAG We Trust? Measuring Robustness of Retrieval-Augmented Generation Under Document Poisoning</strong> (arXiv 2609.09243) — mede quão vulnerável um pipeline RAG é a "document poisoning" (documentos maliciosos injetados na base de conhecimento), tema crítico para quem expõe RAG a fontes externas.</li>
+<li><strong>Q2D-Web: A Large-Scale Benchmark for Retrieval in Agentic RAG Systems</strong> (arXiv 2609.08887) — benchmark em larga escala para retrieval dentro de workflows agentic de RAG, útil para comparar estratégias de busca em agentes autônomos.</li>
+<li><strong>REVA: Reusable Evidence View Aggregation for Context-Efficient RAG Serving</strong> (arXiv 2609.11209) — técnica de agregação de evidências reutilizáveis para reduzir custo de contexto no serving de RAG em produção.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375) — combina fine-tuning e RAG para internalizar novas habilidades em modelos menores sem dependência permanente de retrieval em runtime (detalhes na seção de técnicas acima).</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">Cortex — AI Tools for Developers 2026</a></li>
+<li><a href="https://www.morphllm.com/ai-agent-framework">MorphLLM — AI Agent Frameworks (2026 Update)</a></li>
+<li><a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/">Microsoft Agent Framework at BUILD 2026</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 13, 2026</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">TripleTen — AI Skills to Learn in 2026</a></li>
+<li><a href="https://doit.software/blog/ai-developer-skills">DoIT — Top 13 AI Developer Skills for 2026</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">arXiv 2510.01375 — Fine-tuning with RAG for Improving LLM Learning of New Skills</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/411">DailyArXiv — Latest 15 Papers, 15/09/2026</a></li>
+<li><a href="https://llm-stats.com/llm-updates">LLM Stats — AI Updates Today (September 2026)</a></li>
+<li><a href="https://www.llm-releases.com/">LLM Releases — model release tracker</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Model Context Protocol Blog — 2026-07-28 Specification</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">Model Context Protocol Blog — New MCP Roadmap</a></li>
+<li><a href="https://www.firecrawl.dev/blog/best-github-repos">Firecrawl — Best Trending GitHub Repositories for AI Developers</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSSInsight — Trending AI Repositories</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, English)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 15/09/2026</div>
+</body></html>
