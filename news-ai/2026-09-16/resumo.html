@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 16/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 16/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6 Astra</strong> (03/09/2026): OpenAI lançou a $10/M tokens de entrada e $50/M de saída (2,5x o preço do GPT-5.6 Sol que substitui). Lidera o Terminal-Bench 4.0 com 58,18% (Claude Fable 5.1 fica em 57,9%) e salta de 22,4% para 64,6% no Terminal-Bench Science — maior ganho em uso de terminal/navegador já visto em um único release.</li>
+<li><strong>Claude Fable 5.1 e Mythos 5.1</strong> (01/09/2026): Anthropic lançou os dois modelos mantendo o preço de lista, mas com três mudanças de API que quebram compatibilidade — vale revisar integrações antes de atualizar.</li>
+<li><strong>Gemini 3.8 Flash e Gemini 3.8 Flash Cyber</strong> (02/09/2026): Google lançou a variante padrão e uma versão restrita ("Cyber") de acesso controlado.</li>
+<li><strong>DeepSeek V4.1-Flash</strong> (10/09/2026): quinto lançamento importante de modelo em dez dias (após Anthropic, OpenAI, Google e Meta se moverem em 72h no início do mês).</li>
+<li><strong>Sakana AI Fugu Ultra v2.0</strong> (11/09/2026): fecha a lista de 11 novos modelos lançados por 7 provedores só em setembro/2026.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>vLLM v0.28.0</strong> (26/08/2026): release estável mais recente do motor de serving; segue como referência de throughput para self-hosting de LLMs.</li>
+<li><strong>MCP spec 2026-07-28</strong>: a especificação do Model Context Protocol virou um protocolo stateless (cada requisição carrega todo o contexto necessário, sem conexão persistente), adicionou Multi Round-Trip Requests, roteamento por header, resultados de lista cacheáveis e um framework formal de extensões. Tasks saiu do core para a extensão <code>io.modelcontextprotocol/tasks</code>; Roots, Sampling e Logging ficaram deprecados (mas seguem funcionando). Próximo passo no roadmap: HTTP sobre stdio como binding único para servidores locais.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>OpenHands 1.0</strong>: agente de codificação autônomo open-source chegou à v1.0 com sandboxing Docker pronto para produção, políticas de segurança nativas, limites de recursos e sistema de plugins — completa cerca de 68% das tarefas do SWE-bench Verified de forma autônoma.</li>
+<li><strong>Salesforce Agentforce</strong>: sete agentes nomeados (atendimento, vendas, comércio, suporte interno, back-office), seis já em GA. Multi-Agent Orchestration está em GA; AI Skills no Coworker em piloto (GA previsto para outubro).</li>
+<li><strong>GitHub Copilot Workspace</strong>: passou a suportar múltiplos agentes especializados trabalhando simultaneamente no mesmo codebase (implementação, testes e documentação em paralelo), coordenados via uma janela de contexto compartilhada.</li>
+<li><strong>CIQ Fuzzball 4.2</strong> (03/09/2026): atualização da plataforma de orquestração soberana de AI/HPC, agora permitindo que agentes de IA operem o Fuzzball diretamente para jobs de treino e inferência.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Vector DBs para RAG</strong>: consolidação em torno de Milvus, Qdrant, Weaviate, Chroma, LanceDB e Vespa, com recomendação por escala — Chroma/Qdrant até 1M vetores, Pinecone/Weaviate de 1M a 100M, Vespa/Milvus acima de 100M.</li>
+<li><strong>MCP stateless</strong> (ver acima) também impacta deploy: reduz necessidade de manter conexões abertas em servidores MCP hospedados, facilitando escalonamento horizontal atrás de load balancers comuns.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, +167 ⭐ hoje, 204.515 total) — plataforma de automação de workflows fair-code com capacidades nativas de IA e mais de 400 integrações.</li>
+<li><strong>Panniantong/Agent-Reach</strong> (+960 ⭐ hoje) — CLI unificada que dá a agentes de IA acesso e busca em múltiplas plataformas (Twitter, Reddit, YouTube, GitHub).</li>
+<li><strong>debpalash/VoiceStudio</strong> (+2.072 ⭐ hoje) — alternativa open-source e local ao ElevenLabs: clonagem de voz, dublagem de vídeo, ditado, transcrição e criação de audiobooks.</li>
+<li><strong>SnailSploit/Claude-Red</strong> (+699 ⭐ hoje) — biblioteca curada de skills ofensivas de segurança para o sistema de skills do Claude.</li>
+<li><strong>volcengine/OpenViking</strong> (+286 ⭐ hoje) — banco de dados de contexto para agentes de IA, integrando memória, recuperação de conhecimento e gestão de skills.</li>
+<li><strong>TencentCloud/Octop</strong> (+419 ⭐ hoje) — assistente de IA self-hosted multi-usuário e multi-agente.</li>
+<li><strong>anthropics/knowledge-work-plugins</strong> (+96 ⭐ hoje) — repositório de plugins da Anthropic voltado a workflows de trabalhadores de conhecimento com Claude.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agentic AI de longa duração</strong>: a mudança central de 2026 é agentes que não dependem mais de interações curtas de prompt-resposta — rodam de forma autônoma por minutos ou horas em tarefas de terminal, browser e análise de segurança, puxados por saltos como os do GPT-6 Astra no Terminal-Bench.</li>
+<li><strong>Engenharia de RAG</strong>: apontada como a skill de maior alavancagem em 2026 — fundamenta modelos em dados externos para reduzir alucinação, usada em assistentes internos, suporte ao cliente e ferramentas sobre conteúdo proprietário.</li>
+<li><strong>Destilação de retrieval para fine-tuning</strong>: paper "Fine-tuning with RAG" (arXiv 2510.01375) propõe converter retrieval em tempo de inferência em competência aprendida, extraindo hints compactos das falhas do agente e treinando modelos-aluno com trajetórias corrigidas — reduz dependência de RAG em runtime.</li>
+<li><strong>Integração com MCP</strong>: com a spec 2026-07-28 tornando o protocolo stateless e adicionando um framework de extensões formal, integrar ferramentas via MCP virou skill obrigatória para quem constrói agentes multi-tool.</li>
+<li><strong>Orquestração multi-agente</strong>: coordenação entre agentes especializados (implementação/teste/documentação, ou descoberta/ataque/validação como no caso da Reflectiz) é tratada como a nova fronteira de escala — GitHub Copilot Workspace e Salesforce Agentforce Multi-Agent Orchestration (GA) são exemplos de produção.</li>
+<li><strong>Design de eval e observabilidade de agentes</strong>: com agentes rodando por horas sem supervisão, avaliação (eval design) e observabilidade de produção entraram na lista de skills essenciais de 2026, ao lado de guardrails de segurança e otimização de custo.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375) — mostra como agentes falham de forma previsível em tarefas multi-step e propõe destilar retrieval em fine-tuning para internalizar a competência sem depender de recuperação em runtime.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG)</strong> (arXiv 2603.07379) — taxonomia sistemática de arquiteturas, avaliação e direções de pesquisa para RAG agentic, útil como mapa de referência para quem está desenhando pipelines de agentes com retrieval.</li>
+<li><strong>Vidu S2: Real-Time Interactive, Editable, and Spatial Video Generation</strong> (Hugging Face trending, 253 stars em 15/09/2026) — geração de vídeo em tempo real com personagens interativos a 720p, 25–42 FPS e edição durante a geração.</li>
+<li><strong>Dream-RSI: Recursive Self-Improvement through Evolving Worlds</strong> — explora auto-melhoria recursiva de agentes através de ambientes/mundos que evoluem junto com o modelo.</li>
+<li><strong>PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</strong> — extensão de VLMs para modelos de fundação física, mirando raciocínio sobre o mundo físico além de texto/imagem.</li>
+<li><strong>Discovery Foundation Models: Toward Open-Ended Discovery Intelligence</strong> — propõe uma classe de modelos de fundação voltados a descoberta científica open-ended.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.digitalapplied.com/blog/ai-model-releases-september-2026-tracker">AI Model Releases: September 2026 Tracker and Dated Ledger</a></li>
+<li><a href="https://benchlm.ai/model-updates/releases/september-2026">AI Model Releases in September 2026: Confirmed Updates | BenchLM</a></li>
+<li><a href="https://local-ai-zone.github.io/blog/September_2026_AI_Model_Updates.html">September 2026 AI Model Updates: Every Launch, Price Move, and Architecture Shift</a></li>
+<li><a href="https://www.vellum.ai/blog/gpt-6-astra-benchmarks-explained">GPT-6 Astra Benchmarks Explained - Vellum</a></li>
+<li><a href="https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra">Benchmarking GPT-6 Astra | Artificial Analysis</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">The 2026-07-28 Specification | Model Context Protocol Blog</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">The New MCP Roadmap | Model Context Protocol Blog</a></li>
+<li><a href="https://tech-insider.org/vllm-vs-ollama-2026/">vLLM vs Ollama 2026: 9x Throughput Gap, 172K Stars</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 13, 2026</a></li>
+<li><a href="https://agentic.ai/news">Agentic AI News — September 2026 Launches, Models & Research</a></li>
+<li><a href="https://cloudian.com/guides/ai-infrastructure/vector-database-for-llm-use-cases-and-notable-dbs-in-2026/">Vector Database for LLM: Use Cases and Notable DBs in 2026</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, Daily</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">AI Developer Hiring 2026: Skills That Actually Matter</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 - tripleten.com</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills (arXiv 2510.01375)</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">SoK: Agentic Retrieval-Augmented Generation (RAG) (arXiv 2603.07379)</a></li>
+<li><a href="https://huggingface.co/papers/trending">Trending Papers - Hugging Face</a></li>
+<li><a href="https://www.techaimag.com/top-10-hugging-face-models/trending-hugging-face-models-for-september-2026">Trending Hugging Face Models for September 2026 - Tech AI Magazine</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 16/09/2026</div>
+</body></html>
