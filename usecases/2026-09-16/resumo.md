@@ -1,0 +1,3 @@
+# Usecases de IA — 16/09/2026
+
+- **Claude Code: Coder traz Claude Code para o Agent Relay, mirando empresas altamente regulamentadas** — A Coder Technologies anunciou suporte ao Claude Code dentro do seu Agent Relay, permitindo rodar agentes do Claude Code na infraestrutura do próprio cliente (nuvem privada, VPC ou on-premises), com política de egress de rede controlada pelo time de plataforma e logging completo/auditável. A proposta resolve a barreira de adoção em setores como serviços financeiros, onde requisitos de segurança e compliance impediam que agentes autônomos acessassem código-fonte, credenciais e serviços internos fora do perímetro da organização. Fonte: [Coder Blog](https://coder.com/blog/agent-relay-claude-code-agentic-development)
