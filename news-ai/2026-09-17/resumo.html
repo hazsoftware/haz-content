@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 17/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 17/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.1</strong> (01/09/2026): a Anthropic lançou seu novo modelo top de linha para coding, trabalho de conhecimento e tarefas de agente de longa duração. Leitura de cache agora custa um quarto do preço do Fable 5, reduzindo bastante o custo de workloads agent-heavy com muito prompt caching.</li>
+<li><strong>GPT-6 Astra</strong> (03/09/2026): a OpenAI lançou o sucessor do GPT-5.x com contexto de 1,05M tokens e saída de até 128K tokens. Preço padrão de US$ 10/1M input, US$ 1/1M cache read, US$ 12,50/1M cache write e US$ 50/1M output.</li>
+<li><strong>Gemini 3.8 Flash</strong> (02/09/2026): o Google atualizou a linha Flash com ganhos em engenharia de software, workflows de agentes e raciocínio multi-etapa, mantendo custo abaixo dos modelos frontier — bom candidato para pipelines de agente de alto volume.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>smolagents v1.26.0</strong>: a Hugging Face renomeou seu framework "Transformers Agents" para smolagents, reforçando a aposta em agentes minimalistas e "code-first" (o agente escreve e executa código Python em vez de chamar tools via JSON).</li>
+<li><strong>Microsoft Agent Framework (MAF) v1.0</strong> (GA desde 02/04/2026): unifica Semantic Kernel e AutoGen numa única plataforma; no Build 2026 a Microsoft anunciou extensões como Agent Harness, Hosted Agents e suporte a CodeAct.</li>
+<li><strong>RASA / CALM</strong>: migração arquitetural para "Conversational AI with Language Models", substituindo classificação de intents rígida por gerenciamento de diálogo nativo em LLM — relevante para quem mantém chatbots legados baseados em NLU clássico.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Context engineering</strong> consolidou-se como a skill central de 2026: o relatório "Agentic Coding Trends Report" da Anthropic chamou de "a skill de carga estrutural de 2026". Times que mantêm arquivos de contexto bem cuidados relatam ~40% menos erros e ~55% mais velocidade na conclusão de tarefas; um redesenho de pipeline de contexto levou uma equipe de 83% para 96% de taxa de conclusão de tarefas.</li>
+<li><strong>OpenHands</strong>: destaque na semana de 13/09/2026 por reforçar isolamento e controle de recursos na execução de código por agentes, tratando ferramentas de coding agêntico como "times orquestrados" em vez de assistente único.</li>
+<li><strong>Beyond the Chatbox</strong> (Wavespace): framework de UI generativa para interfaces de agentes de IA que substitui o fluxo único de texto por múltiplas superfícies de interação — sinal de que a UX de agentes está deixando de ser só chat.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>MCP spec 2026-07-28</strong>: a especificação do Model Context Protocol mudou de conexão persistente para um modelo stateless onde cada requisição carrega o contexto necessário (Multi Round-Trip Requests, roteamento por header, listagens cacheáveis). Tasks saiu do core experimental para a extensão <code>io.modelcontextprotocol/tasks</code>; Roots, Sampling e Logging foram depreciados mas continuam funcionando por pelo menos 12 meses — quem mantém servidores MCP precisa migrar.</li>
+<li><strong>Roadmap MCP 2026</strong> (publicado 22/08/2026): prioridades são evolução de transporte/escalabilidade, comunicação entre agentes, maturação de governança e enterprise readiness.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, ~225 ⭐ hoje) — plataforma de automação de workflow "fair-code" com capacidades nativas de IA e mais de 400 integrações; forte adoção para orquestrar pipelines de agentes sem código.</li>
+<li><strong>NationalSecurityAgency/ghidra</strong> (Java, ~1.059 ⭐ hoje) — framework de engenharia reversa da NSA, segue como um dos repositórios mais estrelados do dia mesmo fora do nicho de IA.</li>
+<li><strong>OpenClaw</strong> — assistente de IA pessoal que roda inteiramente no dispositivo do usuário; saltou de 9 mil para mais de 210 mil estrelas desde que viralizou no fim de janeiro/2026, o "breakout" de IA do ano.</li>
+<li><strong>langchain-ai/langchain + langgraph</strong> — segue como framework fundacional em Python para agentes confiáveis (chains, memória, retrieval, tool use); LangGraph adiciona workflows stateful com ciclos e branching condicional para agentes mais complexos.</li>
+<li><strong>Langflow / Dify</strong> — interfaces visuais drag-and-drop para desenhar pipelines de agentes de IA, ampliando quem consegue construir aplicações de IA além de engenheiros de ML.</li>
+<li><strong>rustdesk/rustdesk</strong> (Rust, ~185 ⭐ hoje) — alternativa self-hosted de acesso remoto, útil para times que rodam agentes de IA em ambientes isolados/sandboxed.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context engineering</strong>: desenho deliberado de tudo que o modelo "vê" — instruções, dados recuperados, ferramentas, memória, fatos do usuário, restrições de saída e o que é deliberadamente omitido. Diferente de prompt engineering, é uma disciplina de arquitetura de sistemas de informação (memória, retrieval, priorização, governança de dados).</li>
+<li><strong>Function calling / tool use estruturado</strong>: definir esquemas de ferramentas corretamente segue sendo a base do desenvolvimento de agentes modernos, já que LLMs de 2026 (Claude Fable 5.1, GPT-6 Astra, Gemini 3.8) invocam APIs e código externo de forma nativa.</li>
+<li><strong>Agentic coding "em time"</strong>: em vez de um único assistente, orquestrar múltiplos agentes especializados com isolamento forte (sandboxing, controle de recursos) — padrão que o OpenHands está popularizando para execução segura de código por agentes.</li>
+<li><strong>CodeAct / agentes code-first</strong>: em vez de o agente chamar tools via JSON, ele escreve e executa código Python diretamente — abordagem adotada tanto pelo smolagents (Hugging Face) quanto pelas extensões do Microsoft Agent Framework anunciadas no Build 2026.</li>
+<li><strong>MCP stateless / tasks assíncronas</strong>: adaptar servidores e clientes MCP ao novo modelo de requisições autocontidas e à extensão de tasks assíncronas (fora do core desde a spec 2026-07-28), preparando integrações para escalar sem conexões persistentes.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375, ICLR 2026) — extrai "hints" compactos e reutilizáveis a partir de falhas de agentes, gera trajetórias de professor melhoradas via retrieval one-shot no início do episódio, e treina modelos-aluno removendo os hints das trajetórias, forçando internalização em vez de memorização. Generaliza entre escalas de modelo (7B/14B) e arquiteturas de agente (ReAct/StateAct).</li>
+<li><strong>MemRiskBench: Trace-Aware Risk-Preserving Evaluation for Long-Horizon LLM Agents</strong> (arXiv 2609.14976, submetido 14/09/2026) — benchmark para avaliar riscos de memória em agentes de longo horizonte: fatos desatualizados, atualizações conflitantes, vazamento entre usuários, reuso de memória revogada e decaimento de restrições.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG): Taxonomy, Architectures, Evaluation, and Research Directions</strong> (arXiv 2603.07379) — sistematização (Systematization of Knowledge) do estado da arte em RAG agêntico, cobrindo taxonomia, arquiteturas e direções de avaliação.</li>
+<li><strong>EvoMemBench: Benchmarking Agent Memory from a Self-Evolving Perspective</strong> (arXiv 2605.18421) — compara 15 métodos representativos de memória de agentes contra baselines de contexto longo, concluindo que os sistemas de memória atuais ainda estão longe de uma solução geral.</li>
+<li><strong>Knowledge Augmented Finetuning Matters in both RAG and Agent Based Dialog Systems</strong> (arXiv 2506.22852) — mostra que fine-tuning com aumento de conhecimento traz ganhos tanto em sistemas de diálogo baseados em RAG quanto em agentes, reforçando a tendência de combinar fine-tuning com retrieval em vez de escolher só um.</li>
+<li><strong>Are We Ready For An Agent-Native Memory System?</strong> (arXiv 2606.24775) — questiona se a infraestrutura de memória atual (bancos vetoriais, grafos de conhecimento) foi de fato desenhada para agentes autônomos ou é uma adaptação de sistemas feitos para busca tradicional.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">Cortex — AI Tools for Developers 2026</a></li>
+<li><a href="https://www.shakudo.io/blog/top-9-ai-agent-frameworks">Shakudo — Top 9 AI Agent Frameworks (set/2026)</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agent Store — AI Agents News, semana de 13/09/2026</a></li>
+<li><a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/">Microsoft Agent Framework at BUILD 2026</a></li>
+<li><a href="https://dev.to/alexcloudstar/context-engineering-in-2026-the-skill-that-actually-makes-ai-coding-work-37ni">DEV Community — Context Engineering in 2026</a></li>
+<li><a href="https://harnessengineering.academy/blog/context-engineering-the-key-skill-every-ai-developer-needs-in-2026/">Harness Engineering Academy — Context Engineering 2026</a></li>
+<li><a href="https://blog.bytebytego.com/p/top-ai-github-repositories-in-2026">ByteByteGo — Top AI GitHub Repositories in 2026</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — diário</a></li>
+<li><a href="https://llm-stats.com/llm-updates">LLM Stats — AI Updates Today (set/2026)</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/">Model Context Protocol Blog — 2026 MCP Roadmap</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Model Context Protocol Blog — Especificação 2026-07-28</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">arXiv 2510.01375 — Fine-tuning with RAG</a></li>
+<li><a href="https://arxiv.org/abs/2609.14976">arXiv 2609.14976 — MemRiskBench</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">arXiv 2603.07379 — SoK: Agentic RAG</a></li>
+<li><a href="https://arxiv.org/html/2605.18421">arXiv 2605.18421 — EvoMemBench</a></li>
+<li><a href="https://arxiv.org/pdf/2506.22852">arXiv 2506.22852 — Knowledge Augmented Finetuning</a></li>
+<li><a href="https://arxiv.org/html/2606.24775v1">arXiv 2606.24775 — Are We Ready For An Agent-Native Memory System?</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 17/09/2026</div>
+</body></html>
