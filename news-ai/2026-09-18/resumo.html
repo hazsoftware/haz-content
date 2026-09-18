@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 18/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 18/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.1 e Mythos 5.1</strong> (01/09/2026): a Anthropic lançou essas duas atualizações mantendo o preço de lista, mas com três mudanças de API que quebram compatibilidade — vale revisar integrações antes de atualizar SDKs.</li>
+<li><strong>Gemini 3.8 Flash</strong> (02/09/2026): o Google lançou ao mesmo preço de entrada do 3.7 Flash, já anunciando quando esse preço introdutório termina, além de uma variante "Cyber" com gate Fairwind para casos sensíveis de segurança.</li>
+<li><strong>OpenAI Astra</strong> (17/09/2026): novo modelo focado em "computer and browser use", disponível inicialmente via programa de cibersegurança Daybreak da OpenAI; passa a chegar aos planos Pro/Plus/Enterprise/Business e à API ao longo da semana.</li>
+<li><strong>Especificação MCP 2026-07-28</strong>: nova versão do Model Context Protocol torna o núcleo stateless (request/response), adiciona Multi Round-Trip Requests, roteamento por header e cacheable list results; os recursos Roots, Sampling e Logging foram depreciados (suporte garantido por mais 12 meses).</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li>O stack mais reportado por devs em 2026 é Cursor para edição diária combinado com Claude Code para tarefas complexas, ou GitHub Copilot no IDE junto com Claude Code no terminal.</li>
+<li><strong>Microsoft Agent Framework 1.0</strong> (GA desde 03/04/2026): unifica AutoGen e Semantic Kernel em um único SDK .NET/Python para orquestração de agentes.</li>
+<li>Comparativo atualizado de 8 frameworks de agentes de 2026: Claude Agent SDK, OpenAI Agents SDK, Google ADK, LangGraph, CrewAI (52,4 mil ⭐), Smolagents, Pydantic AI e Microsoft Agent Framework.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li>O MCP já passa de 200 implementações de servidores em produção, segundo levantamento de setembro/2026.</li>
+<li>Previsão de mercado: cerca de 40% das aplicações enterprise devem incluir agentes de IA especializados até o fim de 2026, ante menos de 5% em 2025.</li>
+<li>Plataformas low-code de orquestração de agentes (Langflow, Dify, n8n) seguem em alta — o repositório n8n-io/n8n está entre os mais estrelados do GitHub hoje, com mais de 205 mil ⭐ no total.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>apache/doris</strong> ganha tração no GitHub trending de hoje como banco de analytics em tempo real voltado a aplicações de agentes de IA.</li>
+<li><strong>unslothai/unsloth</strong> (76 mil ⭐ no total) segue como referência para fine-tuning local eficiente de LLMs, com suporte a GGUF e MLX, reduzindo dependência de infraestrutura de nuvem cara.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, 205.216 ⭐ totais) — plataforma de automação de workflows com construção visual e via código, muito usada para orquestrar pipelines de agentes de IA.</li>
+<li><strong>Graphify-Labs/graphify</strong> (Python, +437 ⭐ hoje, 119 mil+ totais) — transforma bases de código, documentação, schemas SQL e PDFs em um knowledge graph consultável por assistentes de IA.</li>
+<li><strong>unslothai/unsloth</strong> (Python, 76 mil ⭐ totais) — ferramenta para rodar e fazer fine-tuning local de LLMs com suporte a GGUF e MLX.</li>
+<li><strong>TencentCloud/Octop</strong> (Python, +367 ⭐ hoje) — assistente de IA self-hosted com arquitetura multiusuário e multiagente.</li>
+<li><strong>roboflow/supervision</strong> (Python, +329 ⭐ hoje) — toolkit de visão computacional para workflows de modelos de visão e anotação de dados.</li>
+<li><strong>D4Vinci/Scrapling</strong> (Python, +315 ⭐ hoje) — framework de web scraping para pipelines de coleta de dados, de requisições únicas a crawls em larga escala.</li>
+<li><strong>anthropics/knowledge-work-plugins</strong> (+287 ⭐ hoje) — plugins open-source da Anthropic voltados a trabalhadores de conhecimento que usam Claude.</li>
+<li><strong>apache/doris</strong> (Java/C++, 15.957 ⭐ totais) — banco de dados de analytics em tempo real citado como peça de infraestrutura para aplicações de agentes de IA.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Agentic AI e orquestração de agentes</strong> — a maior mudança de paradigma de 2026: sistemas que formulam e executam planos multi-etapa sem esperar prompt a prompt. O Gartner apontou "agentic AI" como tendência-chave para 2026, e a Upwork registrou crescimento de 178% ano a ano nas contratações para papéis de integração de IA.</li>
+<li><strong>2. RAG (Retrieval-Augmented Generation)</strong> — segue como a habilidade de engenharia de IA de maior alavancagem em 2026: reduz alucinação e melhora precisão em domínios específicos, sendo a base de assistentes internos de conhecimento e bots de suporte sobre conteúdo proprietário.</li>
+<li><strong>3. Evals e observabilidade</strong> — datasets "golden", tracing, checagem de custo/latência e tratamento de falhas viraram parte do checklist básico de contratação de devs de IA; guardrails e checagem de uso de ferramentas (tool-use) também entraram na lista.</li>
+<li><strong>4. MCP como padrão de integração</strong> — com a especificação 2026-07-28 tornando o protocolo stateless e cacheable, construir e consumir servidores MCP virou requisito comum em vagas de integração de agentes.</li>
+<li><strong>5. Fine-tuning local eficiente</strong> — técnicas como as do unsloth (suporte GGUF/MLX) tornam o fine-tuning viável em hardware de consumidor, reduzindo a dependência de infraestrutura de nuvem cara.</li>
+<li><strong>6. TypeScript como linguagem padrão para IA</strong> — TypeScript ultrapassou o Python como linguagem mais usada no GitHub; a recomendação para novos projetos em 2026 é TypeScript, Python com type hints, Rust, Go ou Java.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv:2510.01375, ICLR 2026) — propõe combinar RAG com fine-tuning para ensinar habilidades novas a LLMs de forma mais eficiente do que usando apenas fine-tuning ou apenas RAG isolados.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation</strong> (arXiv:2603.07379) — sistematização de conhecimento sobre taxonomia, arquiteturas e avaliação de sistemas RAG agentic, mapeando direções de pesquisa em aberto.</li>
+<li><strong>Retrieval-Augmented LLM Agents: Learning to Learn from Experience</strong> (arXiv:2603.18272) — propõe um pipeline que converte retrieval em tempo de inferência em competência aprendida via destilação, reduzindo o overhead computacional de manter bases de conhecimento externas.</li>
+<li><strong>Agent-Diff: Benchmarking LLM Agents on Enterprise API Tasks</strong> (arXiv:2602.11224) — avalia 9 LLMs em 224 tarefas de APIs corporativas usando um contrato de "state-diff" que separa processo de resultado.</li>
+<li><strong>When Tools Fail: Benchmarking Dynamic Replanning and Anomaly Recovery in LLM Agents</strong> (arXiv:2606.05806) — mede como agentes LLM lidam com falhas de ferramentas e replanejamento dinâmico, expondo pontos fracos de recuperação de erro em produção.</li>
+<li><strong>Engineering the RAG Stack: A Comprehensive Review of the Architecture and Trust Frameworks</strong> (arXiv:2601.05264) — revisão abrangente de arquitetura e frameworks de confiança para sistemas RAG em produção.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">AI Tools for Developers 2026: More Than Just Coding Assistants — Cortex</a></li>
+<li><a href="https://dev.to/virciti/ai-development-tools-every-engineering-team-needs-in-2026-25km">AI Development Tools Every Engineering Team Needs in 2026 — DEV Community</a></li>
+<li><a href="https://www.morphllm.com/ai-agent-framework">AI Agent Frameworks (2026 Update): 8 SDKs Compared</a></li>
+<li><a href="https://github.com/microsoft/agent-framework/releases">Releases · microsoft/agent-framework</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 — TripleTen</a></li>
+<li><a href="https://doit.software/blog/ai-developer-skills">Top 13 AI Developer Skills for 2026</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">SoK: Agentic Retrieval-Augmented Generation</a></li>
+<li><a href="https://arxiv.org/pdf/2603.18272">Retrieval-Augmented LLM Agents: Learning to Learn from Experience</a></li>
+<li><a href="https://arxiv.org/abs/2602.11224">Agent-Diff: Benchmarking LLM Agents on Enterprise API Tasks</a></li>
+<li><a href="https://arxiv.org/pdf/2606.05806">When Tools Fail: Benchmarking Dynamic Replanning and Anomaly Recovery in LLM Agents</a></li>
+<li><a href="https://arxiv.org/pdf/2601.05264">Engineering the RAG Stack: A Comprehensive Review</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily (EN)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, Daily</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">The 2026-07-28 Specification — Model Context Protocol Blog</a></li>
+<li><a href="https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/">OpenAI launches Astra — TechCrunch</a></li>
+<li><a href="https://llm-stats.com/ai-news">LLM News Today (September 2026)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 18/09/2026</div>
+</body></html>
