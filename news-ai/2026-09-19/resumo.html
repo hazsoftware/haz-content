@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 19/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 19/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.1</strong> (01/09/2026): novo topo de linha da Anthropic para coding, trabalho de conhecimento e agentes de longa duração; leituras de cache custam 1/4 do que custavam no Fable 5, reduzindo bastante o custo de workloads agent-heavy. Preço: $10/$50 por milhão de tokens.</li>
+<li><strong>Gemini 3.8 Flash</strong> (02/09/2026): Google lançou versão com ganhos em engenharia de software, workflows de agentes e raciocínio multi-etapa, a $0,75/$3,75 por milhão de tokens — bem mais barato que os modelos frontier.</li>
+<li><strong>GPT-6 Astra</strong> (03/09/2026): OpenAI lançou a $10/$50 por milhão de tokens, atingindo 99,9% no ARC-AGI-3.</li>
+<li><strong>Meta Muse Spark 1.3</strong> (02/09/2026): novo modelo da Meta a $1,25/$4,25 por milhão de tokens.</li>
+<li><strong>MLPerf Inference v6.1</strong> (16/09/2026): MLCommons divulgou resultados com recorde de organizações participantes; ganho de até 5,7x em performance de inferência comparado a um ano atrás, com primeiros resultados peer-reviewed de plataformas recém-lançadas.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Beyond the Chatbox</strong> (semana de 13/09/2026): framework da agência Wavespace para interfaces de agentes de IA, substituindo o chat único por generative UI com raciocínio visível do agente, checkpoints de aprovação humana e interfaces específicas por tarefa.</li>
+<li><strong>TaskWeaver</strong> (Microsoft): framework code-first para planejar e executar tarefas de análise de dados via agentes, ganhando tração como alternativa a notebooks manuais.</li>
+<li><strong>Windsurf Cascade</strong>: IDE nativa de IA com agente para tarefas autônomas multi-etapa e workflows de equipe, seguindo a disputa direta com Cursor.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>OpenSpec</strong> (Fission-AI): framework de desenvolvimento spec-driven — "escreva specs, gere código, valide iterativamente" — em alta no GitHub (+296 estrelas em um dia, projeto novo).</li>
+<li><strong>BrowserSkill</strong> (Tencent): permite que agentes controlem navegadores reais via CLI, mantendo sessões logadas sem interromper o usuário; +1.306 estrelas desde 18/09.</li>
+<li><strong>MCP (Model Context Protocol)</strong> segue como padrão de integração de ferramentas para agentes; pesquisa recente ("When Agents Look Like Beacons", arXiv 2609.19091) já documenta técnicas de evasão de NIDS via tráfego MCP, sinal de que o protocolo virou alvo de segurança ofensiva.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>caveman</strong> (JuliusBrussee): proxy de otimização de tokens que reduz uso em ~65% via técnicas de compressão, voltado a workflows sensíveis a custo; 106k+ estrelas, +535 desde 17/09.</li>
+<li><strong>mem0</strong> e <strong>supermemory</strong>: camadas de memória para agentes de longa duração seguem em alta — mem0 com hardening para produção (+527 estrelas desde 11/09), supermemory como motor local-first para retrieval rápido (novo entrante, +140 estrelas).</li>
+<li><strong>cloudflare/security-audit-skill</strong>: skill de auditoria de segurança multi-fase para agentes de código, gerando findings machine-readable; +3.006 estrelas só hoje.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>anthropics/claude-code</strong> (TypeScript, 146.362⭐, +444 hoje) — agente terminal-native oficial da Anthropic que entende codebases, executa tarefas e gerencia workflows de git via linguagem natural.</li>
+<li><strong>affaan-m/ECC</strong> (JavaScript, 262.167⭐, +958 hoje) — infraestrutura para otimizar skills, memória e segurança entre múltiplas plataformas de agentes.</li>
+<li><strong>alibaba/open-code-review</strong> (Go, 36.818⭐, +2.704 hoje) — sistema híbrido de code review combinando pipelines determinísticos com agente LLM, suportando múltiplos provedores.</li>
+<li><strong>cloudflare/security-audit-skill</strong> (JavaScript, 14.042⭐, +3.006 hoje) — skill de auditoria de segurança multi-fase para agentes de código.</li>
+<li><strong>Fission-AI/OpenSpec</strong> (TypeScript, 69.417⭐, novo) — framework spec-driven para gerar e validar código iterativamente a partir de specs.</li>
+<li><strong>JuliusBrussee/caveman</strong> (Go, 106.627⭐, +535 desde 17/09) — proxy de otimização de tokens com ~65% de redução de uso via compressão.</li>
+<li><strong>NousResearch/hermes-agent</strong> (Python, 246.954⭐, +698 desde 17/09) — framework de agente auto-aprimorável com foco em memória de longo prazo e comportamento adaptativo.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Spec-driven agentic development</strong>: padrão popularizado por projetos como OpenSpec — em vez de prompt solto, o dev escreve uma spec estruturada, o agente gera código e valida iterativamente contra ela. Reduz retrabalho em tarefas multi-etapa e está virando prática padrão em times que usam agentes autônomos.</li>
+<li><strong>Compressão de contexto/token para agentes</strong>: proxies como caveman mostram reduções de ~65% no consumo de tokens em workflows agand-heavy, tornando agentes de longa duração economicamente viáveis em produção.</li>
+<li><strong>Camadas de memória persistente para agentes</strong>: mem0 e supermemory consolidam o padrão de dar a agentes memória scoped por usuário e retrieval rápido entre sessões, endereçando a limitação de contexto finito em tarefas longas.</li>
+<li><strong>Evals e observabilidade como competência central</strong>: com agentic AI virando padrão (Gartner cita como trend-chave de 2026 e Upwork reporta alta de 178% ano-a-ano em contratações para integração de IA), testes automatizados de qualidade de output, guardrails e checks de tool-use entram no checklist básico de contratação de devs de IA.</li>
+<li><strong>SFT vs. RL para agentes tool-calling</strong>: estudo controlado recente (arXiv 2609.17848) compara sistematicamente fine-tuning supervisionado e RL para treinar agentes que usam ferramentas, variando dados, método e escala — referência prática para quem decide como treinar agentes de produção.</li>
+<li><strong>TypeScript como linguagem dominante para projetos novos com IA</strong>: TypeScript ultrapassou Python como linguagem mais usada no GitHub; a recomendação para código gerado por agentes é priorizar linguagens tipadas (TypeScript, Python com type hints, Rust, Go) já que a tipagem estática vira rede de segurança quando boa parte do código é gerada por IA.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>SFT or RL for Tool-Calling Agents? A Controlled Study Across Data, Method, and Scale</strong> (arXiv 2609.17848) — comparação sistemática entre fine-tuning supervisionado e RL para agentes que chamam ferramentas, controlando dados, método de treino e escala do modelo.</li>
+<li><strong>Ask the Tool, Don't Guess: Agent Tool Calls Hold Their Progress, and the Serving System Should Read It</strong> (arXiv 2609.18849) — propõe que sistemas de serving leiam o progresso interno das chamadas de ferramenta em vez de re-inferir estado, reduzindo latência e chamadas redundantes em agentes.</li>
+<li><strong>PipeSwift: Revisiting Pipeline Parallelism for Large-Scale Completion-Oriented Agentic LLM Serving</strong> (arXiv 2609.16491) — repensa paralelismo em pipeline especificamente para serving de LLMs orientados a completar tarefas agentic em larga escala.</li>
+<li><strong>Do Not Restart: Residual Completion for Stateful Agent Handoffs</strong> (arXiv 2609.13800) — técnica para transferir estado entre agentes/sessões sem reiniciar a tarefa do zero, relevante para orquestração multi-agente de longa duração.</li>
+<li><strong>FrogNano: Training a 4B Coding Agent via Online Task Synthesis</strong> (arXiv 2609.07925) — treina um agente de código de 4B parâmetros usando síntese online de tarefas, mostrando que modelos pequenos podem competir em coding com pipeline de dados adequado.</li>
+<li><strong>Affora: A Design System for Agent-Friendly Interfaces</strong> (arXiv 2609.19125) — design system voltado a interfaces que agentes conseguem operar de forma confiável, endereçando o gap entre UI feita para humanos e UI operável por IA.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.digitalapplied.com/blog/ai-model-releases-september-2026-tracker">AI Model Releases: September 2026 Tracker and Dated Ledger</a></li>
+<li><a href="https://www.globenewswire.com/news-release/2026/09/16/3363348/0/en/mlcommons-sets-participation-record-with-new-mlperf-inference-v6-1-benchmark-results.html">MLCommons — MLPerf Inference v6.1 Results</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 13, 2026</a></li>
+<li><a href="https://github.com/datnguyenquy94/news-radar/issues/520">AI Open Source Trends 2026-09-19 (news-radar)</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/414">DailyArXiv — Latest 15 Papers, September 18, 2026</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">AI Developer Hiring 2026: Skills That Actually Matter</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 19/09/2026</div>
+</body></html>
