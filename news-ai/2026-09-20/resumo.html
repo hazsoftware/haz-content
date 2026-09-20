@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 20/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 20/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>OpenAI GPT-6 Astra</strong> (02/09/2026): rollout em fases anunciado por Sam Altman, começando pelas empresas do programa de cibersegurança Daybreak da OpenAI; Altman chamou o modelo de "novo nível de capacidade" e disse que já mudou seus próprios fluxos de trabalho.</li>
+<li><strong>Anthropic Claude Fable 5.1 e Claude Mythos 5.1</strong> (01/09/2026): lançados com níveis diferentes de safeguards — o Mythos 5.1 fica disponível só via programas de acesso confiável (trusted access).</li>
+<li><strong>Google Gemini 3.8 Flash e variante Cyber</strong> (02/09/2026): a variante Cyber, com gating "Fairwind", mostrou desempenho de fronteira em descoberta autônoma de vulnerabilidades, superando nos testes modelos maiores da Anthropic (Mythos 5) e da OpenAI (GPT-5.6 Sol e GPT-5.5-Cyber).</li>
+<li><strong>Meta Muse Spark 1.3</strong> (01/09/2026): lançado na mesma noite dos anúncios da Google e Anthropic.</li>
+<li>Balanço do mês: 12 novos modelos lançados em setembro/2026 até agora, vindos de 8 provedores diferentes — um dos meses mais ativos do ano em lançamentos de modelos.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LM Studio</strong>: changelog recente da API adicionou tool calling customizado e suporte a MCP remoto (opt-in), ampliando como devs conectam LLMs locais a ferramentas externas.</li>
+<li><strong>Chrome DevTools MCP</strong> (preview público, Google): servidor MCP que dá a agentes de coding acesso ao Chrome DevTools — abrir sites, rodar performance traces e sugerir otimizações direto do agente, sem sair do fluxo de desenvolvimento.</li>
+<li><strong>docling</strong> (docling-project/docling): 129⭐ hoje, 67.356⭐ no total — segue como ferramenta de referência para preparar documentos (PDF, DOCX etc.) para pipelines de GenAI/RAG.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>OpenAI, Anthropic e Google DeepMind</strong> em conversas coordenadas de AI safety (reportado em 15/09/2026 pela Bloomberg): Demis Hassabis (Google DeepMind) propôs em julho criar um órgão de supervisão liderado pelos EUA para avaliar modelos de fronteira e disparar desacelerações setoriais em caso de risco; Chris Lehane (OpenAI) confirmou que as conversas já duram "várias semanas".</li>
+<li><strong>browser-use/browser-harness</strong>: 86⭐ hoje, 17.820⭐ no total — harness "self-healing" que permite a LLMs completarem tarefas de navegação web se recuperando automaticamente de falhas de seletor/DOM.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>cactus-compute/needle</strong>: 234⭐ hoje, 11.800⭐ no total — modelo de automação para dispositivos "tiny"/edge, com compressão 2-bit e suporte a embeddings, relevante para quem faz deploy de LLM on-device.</li>
+<li><strong>MCP (Model Context Protocol)</strong>: com a especificação atual datada de 28/07/2026, segue como padrão de fato para integração de ferramentas com LLMs, agora suportado nativamente por OpenAI e Google além da Anthropic, que o criou no fim de 2024.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>FareedKhan-dev/train-llm-from-scratch</strong> (Python, 196⭐ hoje / 9.998⭐ total) — guia passo a passo para treinar um LLM do zero, do download dos dados até a geração de texto; bom material para entender os internals de treinamento.</li>
+<li><strong>docling-project/docling</strong> (Python, 129⭐ hoje / 67.356⭐ total) — converte documentos (PDF, DOCX, etc.) em formatos prontos para pipelines de GenAI/RAG.</li>
+<li><strong>mihail911/modern-software-dev-assignments</strong> (174⭐ hoje / 4.400⭐ total) — assignments do curso "The Modern Software Dev" de Stanford, cobrindo práticas atuais de desenvolvimento com IA.</li>
+<li><strong>browser-use/browser-harness</strong> (Python, 86⭐ hoje / 17.820⭐ total) — harness "self-healing" para agentes LLM completarem tarefas de navegação web com resiliência a mudanças de DOM.</li>
+<li><strong>cactus-compute/needle</strong> (234⭐ hoje / 11.800⭐ total) — modelo de automação para dispositivos edge/tiny, com compressão 2-bit.</li>
+<li><strong>zhouxiaoka/autoclip</strong> (325⭐ hoje / 7.732⭐ total) — geração automática de clipes e highlights de vídeo com IA.</li>
+<li><strong>harvard-edge/cs249r_book</strong> (31⭐ hoje / 28.365⭐ total) — livro-texto de ML Systems da Harvard, cobrindo scaling, agentic AI e physical AI.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Agentic Software Development (ASD)</strong>: agentes passam a gerar e gerenciar artefatos de software inteiros — requisitos, arquitetura, testes e documentação — em vez de apenas trechos de código. É apontada como a tendência que mais redefine o trabalho de engenharia em 2026.</li>
+<li><strong>2. Orquestração e verificação de agentes</strong>: com a implementação de código cada vez mais comoditizada pelos LLMs, o valor do dev migra para julgamento, arquitetura e verificação de outputs — orquestração e verificação viram as habilidades mais escassas e valorizadas do mercado.</li>
+<li><strong>3. Evals como prática padrão</strong>: testes automatizados que avaliam a saída de IA (accuracy, guardrails, checagem de tool-use) entraram no checklist básico de contratação de devs de IA, refletindo a maturação de práticas de QA para sistemas agênticos.</li>
+<li><strong>4. MCP como padrão de integração</strong>: o Model Context Protocol, criado pela Anthropic no fim de 2024, hoje é suportado nativamente por OpenAI e Google, consolidando-se como padrão aberto de fato para conectar LLMs a ferramentas externas.</li>
+<li><strong>5. RAG como skill de maior alavancagem</strong>: construir e otimizar sistemas RAG (retrieval-augmented generation) continua sendo apontado como a habilidade de engenharia de IA de maior retorno para assistentes internos de conhecimento e suporte ao cliente.</li>
+<li><strong>6. Migração para linguagens tipadas</strong>: o TypeScript ultrapassou o Python como linguagem mais usada no GitHub; a recomendação para novos projetos em 2026 é usar linguagem tipada (TS, Python com type hints, Rust ou Go), já que boa parte do código é gerada por IA e a rede de segurança do tipo compensa a curva de aprendizado.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv:2510.01375, ICLR 2026) — mostra que destilação consegue recuperar a maior parte do ganho de RAG sem manter retrieval permanente, extraindo "hints" compactos e reutilizáveis a partir de falhas do agente para gerar trajetórias de ensino melhores.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG) — Taxonomy, Architectures, Evaluation, and Research Directions</strong> (arXiv:2603.07379) — sistematização do campo de RAG agêntico, propondo taxonomia, arquiteturas de referência e direções de pesquisa.</li>
+<li><strong>Engineering the RAG Stack: A Comprehensive Review of the Architecture and Trust Frameworks for RAG Systems</strong> (arXiv:2601.05264) — revisão de arquitetura e frameworks de confiança para stacks de RAG em produção.</li>
+<li><strong>Agents-K1: Towards Agent-native Knowledge Orchestration</strong> (arXiv:2606.13669) — propõe orquestração de conhecimento nativa para agentes, indo além do RAG tradicional baseado em chunks.</li>
+<li><strong>A Comprehensive Survey on Integrating Large Language Models with Knowledge-Based Methods</strong> (arXiv:2501.13947) — survey sobre integração de LLMs com métodos estruturados baseados em conhecimento.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.cnbc.com/2026/09/03/open-ai-astra-gpt-6-cyber.html">OpenAI announces rollout of GPT-6 Astra model — CNBC</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-model-releases-september-2026-tracker">AI Model Releases: September 2026 Tracker and Dated Ledger</a></li>
+<li><a href="https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html">Google, Anthropic, and OpenAI Unveil Cyber AI Models, Safeguards, and Access Programs</a></li>
+<li><a href="https://www.bloomberg.com/news/articles/2026-09-15/openai-says-it-s-working-with-anthropic-google-on-ai-safety">OpenAI, Anthropic, Google DeepMind Coordinate on AI Safety Measures — Bloomberg</a></li>
+<li><a href="https://lmstudio.ai/docs/developer/api-changelog">API Changelog — LM Studio</a></li>
+<li><a href="https://developer.chrome.com/blog/chrome-devtools-mcp">Chrome DevTools (MCP) for your AI agent — Chrome for Developers</a></li>
+<li><a href="https://modelcontextprotocol.io/specification/2026-07-28/server/tools">Tools — Model Context Protocol Specification</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (daily)</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, English)</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">AI Developer Hiring 2026: Skills That Actually Matter</a></li>
+<li><a href="https://pooyagolchian.com/blog/claude-ai-developer-skills-trends-2026/">AI Developer Skills 2026: From Code Producer to Creative Director</a></li>
+<li><a href="https://platform.uno/blog/ai-tooling-trends-shaping-how-we-build/">Developer AI Tooling in 2026: Trends Shaping How We Build</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills — arXiv:2510.01375</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">SoK: Agentic Retrieval-Augmented Generation (RAG) — arXiv:2603.07379</a></li>
+<li><a href="https://arxiv.org/pdf/2601.05264">Engineering the RAG Stack — arXiv:2601.05264</a></li>
+<li><a href="https://arxiv.org/pdf/2606.13669">Agents-K1: Towards Agent-native Knowledge Orchestration — arXiv:2606.13669</a></li>
+<li><a href="https://arxiv.org/pdf/2501.13947">A Comprehensive Survey on Integrating Large Language Models with Knowledge-Based Methods — arXiv:2501.13947</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 20/09/2026</div>
+</body></html>
