@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 22/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 22/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.1</strong> (01/09/2026): Anthropic lançou com janela de contexto de 1M tokens e até 128K tokens de saída; leituras de cache agora custam 1/4 do preço do Fable 5, reduzindo o custo de workloads pesados em agentes, e o Claude Code passou a gerar muito menos falsos-positivos em flags de cybersecurity.</li>
+<li><strong>Google Gemini 3.8 Flash</strong> (02/09/2026): nova versão flash do Gemini lançada pelo Google, focada em latência/custo para cargas de produção.</li>
+<li><strong>MCP spec 2026-07-28</strong>: a especificação do Model Context Protocol adotou um núcleo stateless, Multi Round-Trip Requests, roteamento por headers, resultados de <code>list</code> cacheáveis, hardening de autorização e um framework formal de extensões, com SDKs Tier 1 já atualizados.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain</strong> segue como o framework mais adotado para apps de IA, com a maior comunidade e integrações mais extensas para RAG e agentes; <strong>LlamaIndex</strong> mantém foco em retrieval e abstrações data-centric.</li>
+<li><strong>fast-jev-compaction</strong> (TypeScript, 6.070 ⭐ hoje no GitHub): plugin para Claude Code que otimiza chamadas de ferramentas via scoring e truncamento de dados redundantes, preservando o essencial do contexto.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Terminal-Bench 4.0</strong> (refresh de setembro/2026): Claude Code e Codex empatam em #1 — GPT-6 Astra (Codex) marca 58,2% contra Claude Fable 5.1 (Claude Code) com 57,9%.</li>
+<li><strong>OpenClaw</strong> segue como o fenômeno do ano em código aberto: saltou de 9 mil para mais de 210 mil estrelas desde que viralizou em janeiro/2026; assistente de IA local que roda nos próprios dispositivos do usuário e integra com WhatsApp, Telegram, Slack, Discord e Signal (mais de 50 integrações).</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>laya-mlx</strong> (Python, 4.327 ⭐ hoje): runtime MLX nativo para modelos de decisão, com inferência de 7–14ms no Apple M3 Max, sem geração de texto nem dependência de cloud.</li>
+<li><strong>kev</strong> (Python, 2.712 ⭐ hoje): modelos de decisão compactos construídos sobre Qwen3.5, treináveis e implantáveis localmente pelo próprio dev.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>jev-ultrafast</strong> (Python, 16.581 ⭐ hoje) — agente web descrito como o mais rápido e barato da categoria; foco em automação de tarefas em navegador a baixo custo.</li>
+<li><strong>laya</strong> (Python, 12.052 ⭐ hoje) — repositório em ascensão acelerada no ecossistema de modelos de decisão, ainda sem README detalhado público.</li>
+<li><strong>fast-jev-compaction</strong> (TypeScript, 6.070 ⭐ hoje) — plugin de compactação de contexto para Claude Code, reduz overhead de tool calls redundantes em agentes longos.</li>
+<li><strong>ZCode</strong> (TypeScript, 5.938 ⭐ hoje) — harness de coding agent da Z.ai, promovido como "powerful, intelligent, extensible".</li>
+<li><strong>laya-mlx</strong> (Python, 4.327 ⭐ hoje) — runtime MLX nativo com inferência de 7–14ms no M3 Max para modelos de decisão on-device.</li>
+<li><strong>SemIf</strong> (Python, 3.395 ⭐ hoje) — inferência semântica a partir de modelos abertos, executável em GPU de consumidor.</li>
+<li><strong>kev</strong> (Python, 2.712 ⭐ hoje) — modelos de decisão compactos sobre Qwen3.5 para treino e deploy locais.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. RAG (Retrieval-Augmented Generation):</strong> segue como a skill de maior alavancagem em engenharia de IA em 2026 — reduz alucinação e melhora precisão em perguntas de domínio específico, sendo a base prática de assistentes internos de conhecimento e bots de suporte sobre conteúdo proprietário.</li>
+<li><strong>2. Agentic AI / orquestração de agentes:</strong> a maior mudança de paradigma de 2026 — sistemas que formulam e executam planos multi-step de forma autônoma (leem o codebase, planejam mudanças em múltiplos arquivos, rodam testes e iteram sobre falhas), como o modo agente do Claude Code e do GitHub Copilot.</li>
+<li><strong>3. Verificação e QA de output de IA:</strong> apontada como habilidade crítica em 2026 — revisão rigorosa via testes, checagens de segurança e validação de premissas sobre código gerado por agentes, já que confiar cegamente no output do LLM é citado como o principal risco de produtividade.</li>
+<li><strong>4. Graph RAG / conhecimento estruturado:</strong> cresce o ceticismo em relação a RAG puramente vetorial; projetos como RAGFlow e Cognee promovem grafos de conhecimento explicáveis e determinísticos como alternativa ao retrieval "caixa-preta" baseado só em embeddings.</li>
+<li><strong>5. Fine-tuning guiado por falhas de agente:</strong> a técnica descrita em "Fine-tuning with RAG for Improving LLM Learning of New Skills" (arXiv 2510.01375) extrai hints compactos de falhas reais do agente e gera trajetórias de professor melhoradas, generalizando entre modelos de 7B e 14B parâmetros e diferentes arquiteturas de agente.</li>
+<li><strong>6. TypeScript como padrão em projetos com IA:</strong> TypeScript ultrapassou Python como linguagem mais usada no GitHub; a recomendação em 2026 é priorizar linguagens tipadas (TypeScript, Python com type hints, Rust, Go) porque a tipagem funciona como rede de segurança quando parte relevante do código é gerada por IA.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Constraint Decay: The Fragility of LLM Agents in Backend Code Generation</strong> (arXiv 2605.06445v2, atualizado 18/09/2026) — mapeia como agentes de codificação vão degradando a aderência a restrições e especificações ao longo de gerações sucessivas de código de backend.</li>
+<li><strong>SFT or RL for Tool-Calling Agents? A Controlled Study Across Data, Method, and Scale</strong> (arXiv 2609.17848v1, 15/09/2026) — estudo controlado comparando SFT vs. RL para treinar agentes que usam ferramentas, variando dados, método e escala; aceito no REALM Workshop da EMNLP 2026.</li>
+<li><strong>GraphSkillEvo: Evolutionary Optimization of Graph-Structured Agent Skills</strong> (arXiv 2609.21749v1, 18/09/2026) — otimização evolutiva de skills de agentes representadas como grafos, aceito na EMNLP 2026.</li>
+<li><strong>Micro-Collaborative Poisoning: A Distributed Attack on RAG Systems</strong> (arXiv 2609.21573v1, 18/09/2026) — descreve um ataque distribuído de envenenamento contra sistemas RAG; apresentado no workshop ESORICS 2026, relevante para quem expõe RAG a input não confiável.</li>
+<li><strong>SpecQuant: Speculative Decoding with Multi-Parent Quantization for Adaptive LLM Inference</strong> (arXiv 2609.21704v1, 18/09/2026) — combina decodificação especulativa com quantização multi-parent para acelerar inferência adaptativa de LLM.</li>
+<li><strong>Accelerating Dense LLMs via L0-regularized Mixture-of-Experts</strong> (arXiv 2609.21672v1, 18/09/2026) — aplica MoE com regularização L0 a modelos densos para ganhar eficiência via roteamento seletivo de parâmetros.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://dev.to/virciti/ai-development-tools-every-engineering-team-needs-in-2026-25km">AI Development Tools Every Engineering Team Needs in 2026 — DEV Community</a></li>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">AI Tools for Developers 2026 — Cortex</a></li>
+<li><a href="https://github.com/yaojiejia/agents-radar/issues/173">AI Open Source Trends 2026-09-22 — agents-radar</a></li>
+<li><a href="https://mightybot.ai/blog/coding-ai-agents-for-accelerating-engineering-workflows/">Best AI Coding Agents in 2026, Ranked — MightyBot</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 — TripleTen</a></li>
+<li><a href="https://hackernoon.com/5-must-have-ai-skills-for-developers-in-2026-and-how-to-learn-them">5 Must-Have AI Skills for Developers in 2026 — HackerNoon</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/416">Latest 15 Papers — September 22, 2026 — DailyArXiv</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills — arXiv 2510.01375</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário, inglês)</a></li>
+<li><a href="https://github.com/marc-ko/daily-trending-repo/issues/557">Latest 10 Trending Repositories — September 22, 2026 — daily-trending-repo</a></li>
+<li><a href="https://en.wikipedia.org/wiki/2026_in_artificial_intelligence">2026 in artificial intelligence — Wikipedia</a></li>
+<li><a href="https://llm-stats.com/llm-updates">AI Updates Today (September 2026) — llm-stats.com</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">The 2026-07-28 Specification — Model Context Protocol Blog</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 22/09/2026</div>
+</body></html>
