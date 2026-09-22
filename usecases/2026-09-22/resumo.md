@@ -1,0 +1,7 @@
+# Usecases de IA — 22/09/2026
+
+- **Claude Code: Anthropic usa o próprio Claude para construir a próxima versão de si mesmo.** A Anthropic publicou seu "R&D Automation Index" mostrando que o Claude já lidera 26% do trabalho de pesquisa e desenvolvimento de modelos da empresa — completando a maior parte de uma tarefa de ponta a ponta a partir de um prompt de alto nível, com um humano supervisionando o resultado (Claude participa de mais de 90% do R&D no total, mas sem autonomia plena em nenhuma fração medida). Em fevereiro esse índice era zero; em agosto já havia subido a 26%.
+  Fonte: [Anthropic says its model Claude is helping to build the next version of itself — NBC News](https://www.nbcnews.com/tech/tech-news/anthropic-says-model-claude-helping-build-next-version-rcna598494)
+
+- **Google Antigravity: laptops "Googlebook" chegam com Antigravity e Claude Code pré-integrados no terminal.** O Google abriu pré-venda dos Googlebook (linha de notebooks Android/ChromeOS a partir de US$ 899, feitos por Acer, ASUS, Dell, HP e Lenovo, chegando às lojas em outubro). Todo Googlebook já vem com o Antigravity, a plataforma de agentes de IA do Google, para build/test/deploy de apps direto no dispositivo, e o terminal embutido suporta rodar tanto o Antigravity CLI quanto o Claude Code.
+  Fonte: [Google fully details Googlebooks: $899+, October launch, & more — 9to5Google](https://9to5google.com/2026/09/21/googlebook-launch/)
