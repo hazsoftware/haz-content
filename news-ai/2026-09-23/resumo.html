@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 23/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 23/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): Anthropic lançou o Opus 5.5, com desempenho equivalente ao Fable 5.1 na maioria das tarefas e cerca de 40% mais barato que o Opus 5 no tier padrão — importante pra quem precisa equilibrar custo e qualidade em produção.</li>
+<li><strong>GPT-6 Sol e GPT-6 Luna</strong> (22/09/2026): OpenAI lançou os dois modelos no mesmo dia; o Sol custa US$10 de entrada / US$1 cache lido / US$12,50 cache write / US$50 de saída por 1M tokens, com 1,05M de contexto e até 128K tokens de saída.</li>
+<li><strong>Grok 4.7</strong> (21/09/2026): xAI lançou nova versão do Grok, um dia antes dos lançamentos de Anthropic e OpenAI.</li>
+<li><strong>Gemini 3.8 Flash + harness Antigravity</strong> (setembro/2026): Google levou as ferramentas e o comportamento do agente de código Antigravity (release <code>antigravity-preview-09-2026</code>) para dentro da AI Studio e da Interactions API, com novas Files API e Credentials API para mover dados e credenciais de/para o sandbox do agente.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain</strong> segue como o framework de agentes mais adotado do mercado, mas mantém críticas por complexidade e mudanças rápidas de API; <strong>LlamaIndex</strong> foca em RAG com abstrações mais enxutas para busca em bases de conhecimento; <strong>CrewAI</strong> é o mais usado para orquestração multi-agente com papéis definidos.</li>
+<li><strong>ZCode</strong> (TypeScript, ⭐6.391 hoje): harness de coding agent da Z.ai, um dos destaques do trending de hoje no GitHub.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol)</strong>: a especificação de 28/07/2026 trouxe núcleo stateless, Multi Round-Trip Requests, roteamento por headers, cache de resultados de listagem e hardening de autorização. Os SDKs TypeScript e Python já ultrapassaram 1 bilhão de downloads totais cada, somando perto de 500 milhões de downloads/mês entre os SDKs Tier 1.</li>
+<li><strong>fast-jev-compaction</strong> (TypeScript, ⭐6.385 hoje): plugin para Claude Code que usa scoring de tool calls para otimizar a janela de contexto, removendo conteúdo obsoleto e preservando dados essenciais.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>O mercado de <strong>vector databases</strong> está projetado a crescer de US$2,46 bilhões (2024) para US$10,6 bilhões até 2032 (CAGR de 27,5%) — RAG deixou de ser nicho e virou infraestrutura crítica para qualquer time construindo pipelines de busca semântica.</li>
+<li>Serving engines como <strong>vLLM</strong> e <strong>SGLang</strong> continuam empurrando speculative decoding e eficiência de KV cache; o <strong>Unsloth</strong> está expandindo fine-tuning para inferência distribuída multi-node.</li>
+<li>Ferramentas de observabilidade como <strong>LangSmith</strong>, <strong>Arize</strong>, <strong>WhyLabs</strong> e o padrão aberto <strong>OpenLLMetry</strong> instrumentam chamadas de LLM e vector DB com spans para mais de 20 provedores de modelo e bancos como Pinecone e Chroma.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>laya</strong> (Python, ⭐17.681 hoje) — projeto de maior crescimento do dia no trending de IA.</li>
+<li><strong>ZCode</strong> (TypeScript, ⭐6.391 hoje) — harness de coding agent do Z.ai, "powerful, intelligent, extensible".</li>
+<li><strong>fast-jev-compaction</strong> (TypeScript, ⭐6.385 hoje) — plugin de compactação de contexto para Claude Code via scoring de tool calls.</li>
+<li><strong>laya-mlx</strong> (Python, ⭐5.615 hoje) — runtime MLX nativo para modelos de decisão tipados com inferência de 7-14ms em Apple Silicon, sem geração de texto ou chamadas de API na nuvem.</li>
+<li><strong>kev</strong> (Python, ⭐4.714 hoje) — modelos de decisão compactos baseados em Qwen3.5 que podem ser treinados e executados 100% localmente.</li>
+<li><strong>langchain-ai/langchain</strong> (Python, ⭐84 hoje no trending oficial do GitHub) — plataforma de agent engineering, seguindo como referência do ecossistema.</li>
+<li><strong>f/prompts.chat</strong> (HTML, ⭐131 hoje) — plataforma comunitária para compartilhar e descobrir prompts de IA.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>RAG (Retrieval-Augmented Generation)</strong>: segue como a skill de maior alavancagem em engenharia de IA em 2026, essencial para assistentes de conhecimento interno e bots de suporte sobre conteúdo proprietário — puxada também pelo crescimento do mercado de vector DBs (CAGR 27,5% até 2032).</li>
+<li><strong>Agentic AI / orquestração multi-agente</strong>: o Gartner listou como tendência-chave de 2026 e a Upwork reportou crescimento de 178% ano a ano na contratação para papéis de integração de IA.</li>
+<li><strong>Evals, guardrails e observability</strong>: viraram itens básicos de checklist de contratação de devs de IA; ferramentas como LangSmith, Arize, WhyLabs e OpenLLMetry já cobrem 20+ provedores de modelo e vector DBs para monitoramento de latência de retriever e taxa de acerto de conteúdo.</li>
+<li><strong>Adoção de MCP</strong>: protocolo tornou-se stateless na camada de protocolo (spec 2026-07-28), aproximando o modelo de requisição da Claude Messages API, com quase 500M de downloads/mês somando os SDKs Tier 1 — sinal de que integração de ferramentas via MCP virou padrão de mercado.</li>
+<li><strong>TypeScript como linguagem-padrão para novos projetos de IA</strong>: TypeScript ultrapassou o Python como linguagem mais usada no GitHub; a recomendação para 2026 é priorizar linguagens tipadas (TypeScript, Python com type hints, Rust, Go ou Java) em projetos novos.</li>
+<li><strong>Context engineering / compaction</strong>: ferramentas como o fast-jev-compaction (6.385 estrelas em 24h) aplicam scoring de tool calls para podar contexto obsoleto em agentes de código, refletindo a virada de foco de "prompt engineering" para gestão ativa da janela de contexto em agentes de longa duração.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375, ICLR 2026) — extrai dicas compactas de falhas de agentes e as usa para gerar trajetórias de "professor" melhoradas, generalizando entre escalas de 7B/14B parâmetros e diferentes arquiteturas de agente.</li>
+<li><strong>SFT or RL for Tool-Calling Agents? A Controlled Study Across Data, Method, and Scale</strong> (arXiv 2609.17848) — estudo controlado comparando fine-tuning supervisionado e RL para capacidades de function-calling em agentes.</li>
+<li><strong>RedKnot: Efficient Long-Context LLM Serving with Head-Aware KV Reuse and SegPagedAttention</strong> (arXiv 2606.06256v4) — técnica de inferência otimizada para servir contexto longo com reuso de KV cache por head, relevante para quem opera serving em produção.</li>
+<li><strong>Critical-State RL: Diagnosing Trainable States for Multi-Turn Tool Use</strong> (arXiv 2609.24985) — identifica os pontos ótimos de treino para cenários de function-calling sequencial em agentes multi-turno.</li>
+<li><strong>DolphinBench: Mapping the Pareto Frontier of Agent Memory</strong> (arXiv 2609.24971) — benchmark que caracteriza o trade-off entre memória e desempenho em diferentes arquiteturas de agente.</li>
+<li><strong>Constrained Decoding Eliminates Structural Failures in Small LLMs but Reveals a Scale-Dependent Semantic Gap</strong> (arXiv 2609.23742) — mostra que decoding restrito resolve falhas de formato em modelos pequenos, mas expõe uma lacuna semântica dependente de escala.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">Cortex — AI Tools for Developers 2026</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 22, 2026</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Google_Antigravity">Wikipedia — Google Antigravity</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">TripleTen — AI Skills to Learn in 2026</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">Digital Applied — AI Developer Hiring 2026</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/417">jyyang621/DailyArXiv — Latest 15 Papers, September 23, 2026</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">arXiv 2510.01375 — Fine-tuning with RAG for Improving LLM Learning of New Skills</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily</a></li>
+<li><a href="https://github.com/marc-ko/daily-trending-repo/issues/558">marc-ko/daily-trending-repo — Latest 10 Trending Repositories, September 23, 2026</a></li>
+<li><a href="https://llm-stats.com/ai-news">llm-stats.com — LLM News Today (September 2026)</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/">Model Context Protocol Blog — The 2026 MCP Roadmap</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Model Context Protocol Blog — The 2026-07-28 Specification</a></li>
+<li><a href="https://github.com/duanyytop/agents-radar/issues/3127">agents-radar — AI Infrastructure Digest 2026-09-05</a></li>
+<li><a href="https://cloudian.com/guides/ai-infrastructure/vector-database-for-llm-use-cases-and-notable-dbs-in-2026/">Cloudian — Vector Database for LLM 2026</a></li>
+<li><a href="https://www.truefoundry.com/blog/llm-observability-tools">TrueFoundry — 10 Best LLM Observability Tools in 2026</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 23/09/2026</div>
+</body></html>
