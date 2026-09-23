@@ -1,0 +1,5 @@
+# Usecases de IA — 23/09/2026
+
+- **OpenAI Codex: lançamento dos modelos GPT-6 Sol e GPT-6 Luna** — Em 22/09/2026 a OpenAI liberou os novos modelos GPT-6 Sol (indicado para codificação complexa e fluxos de trabalho agênticos de múltiplas etapas) e GPT-6 Luna (para tarefas de alto volume e bem definidas) dentro do Codex, com preços de API 50% menores que o GPT-5.6 e desempenho no benchmark FrontierCode que já se aproxima do Claude Fable 5.1, a um custo bem inferior. Fonte: [TechCrunch](https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/)
+
+- **Claude Code: Opus 5.5 vira o modelo padrão na v2.1.280** — Em 22/09/2026 a Anthropic publicou a versão 2.1.280 do Claude Code, tornando o Claude Opus 5.5 o modelo padrão da ferramenta (desempenho equivalente ao Fable 5.1 na maioria das tarefas, com custo de execução 40% menor), além de trazer melhorias no terminal (suporte a mouse em tela cheia), controles mais rígidos de MCP e arquivamento de sessões no VS Code. Fonte: [Claude Code — What's new](https://code.claude.com/docs/en/whats-new)
