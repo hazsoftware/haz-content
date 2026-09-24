@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 24/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 24/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6 Sol e GPT-6 Luna</strong> (OpenAI, 22/09/2026): dois novos modelos lançados na mesma semana, já disponíveis via gateways de API como LLM Gateway em até 48h após o release oficial.</li>
+<li><strong>Claude Opus 5.5 e Claude Fable 5.1</strong> (Anthropic, set/2026): lançamentos recentes da família Claude; Fable 5.1 já aparece em benchmarks de agentes de código.</li>
+<li><strong>Gemini 3.8 Flash</strong> (Google): a API Gemini ganhou o harness <strong>antigravity-preview-09-2026</strong>, que traz as ferramentas e o comportamento do agente de código Antigravity para o AI Studio e a Interactions API, junto com novas Files API e Credentials API.</li>
+<li><strong>Terminal-Bench 4.0</strong> (atualização de 22/09/2026): Codex + GPT-6 Astra lidera com 58,2% de acurácia; Claude Code + Fable 5.1 fica logo atrás com 57,9%, rodando a cerca do dobro do custo por execução — vale comparar custo-benefício antes de trocar de stack.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Forge</strong> (changelog de 19/09/2026): empacotamento skill-to-agent mais rápido, inferindo metadados diretamente do <code>SKILL.md</code>; novo comando <code>forge skills validate</code> para pegar falhas silenciosas de registro de tools; documentação nova sobre governança default-deny de acesso a ferramentas.</li>
+<li><strong>Model Context Protocol (spec 2026-07-28)</strong>: revisão descrita pela Anthropic como a maior mudança no protocolo desde a adição de autorização. MCP deixa de exigir conexão persistente e passa a um modelo <em>stateless</em> onde cada requisição carrega seu próprio contexto — inclui Multi Round-Trip Requests, roteamento por headers, resultados de listagem cacheáveis, hardening de autorização e um framework formal de extensões. Na prática, permite balancear requisições entre servidores sem storage compartilhado.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li>Contratação para papéis de <strong>integração de agentes de IA</strong> cresceu 178% ano a ano, segundo dados do Upwork citados em pesquisas de mercado de set/2026 — reflexo direto da adoção de orquestração de agentes em produção.</li>
+<li>Google Labs lançou o <strong>CC</strong>, agente de logística doméstica que sincroniza calendário e tarefas entre até 5 membros de uma família e redige planos via Google Chat — exemplo de agente vertical saindo do escopo puramente dev.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>Motores de serving como <strong>vLLM</strong> e <strong>SGLang</strong> continuam empurrando decoding especulativo e eficiência de KV cache no third quarter de 2026.</li>
+<li><strong>LiteLLM</strong> segue evoluindo como gateway central de inferência: PRs recentes corrigem propagação de trace para dados OpenTelemetry por time e adicionam um novo provider de vector store para <strong>MongoDB</strong>, ampliando as opções de backend para RAG.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>laya</strong> (Python, 21.220 ⭐ hoje) — motor de decisão "System 1" não autoregressivo para escolhas tipadas em mais de 100 idiomas, via sistema de checkpoint de roteamento; alternativa leve a chamar um LLM completo para decisões simples.</li>
+<li><strong>ZCode</strong> (TypeScript, 6.598 ⭐) — framework de agente de código da Z.ai, focado em extensibilidade para pipelines de coding agent.</li>
+<li><strong>laya-mlx</strong> (Python, 6.053 ⭐) — runtime MLX do projeto laya, entregando decisões curtas em 7–14 ms em Apple M3 Max, sem geração de texto nem dependência de nuvem.</li>
+<li><strong>jev-chat-jarvis</strong> (Kotlin, 5.433 ⭐) — assistente de chat mobile que integra sugestões de resposta a apps de mensageria sem modificar o sistema.</li>
+<li><strong>unreal-agent</strong> (Go, 1.783 ⭐) — framework de agentes async-first para sistemas inteligentes de alta concorrência.</li>
+<li><strong>nimble</strong> (Python, 1.700 ⭐) — plataforma para decisões tipadas locais, curadoria de dados contrastivos e avaliação de modelos.</li>
+<li><strong>laya-coreml</strong> (Python, 1.401 ⭐) — variante Core ML do laya, com ~5 ms por decisão em M3 Max, reforçando a tendência de inferência local/on-device.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>RAG como skill de maior alavancagem</strong>: continua sendo a base de assistentes internos de conhecimento e bots de suporte sobre conteúdo proprietário. O paper <strong>Re:CAP</strong> (arXiv 2609.24122) propõe auditar a cobertura de retrieval em pipelines RAG de produção, atacando lacunas silenciosas de recall que passam despercebidas em avaliação offline.</li>
+<li><strong>Orquestração de agentes (Agentic AI)</strong>: apontada pelo Gartner como tendência-chave de 2026; exige fluência em prompt engineering, context design e avaliação de agentes — não só chamar um LLM, mas desenhar o loop de decisão inteiro.</li>
+<li><strong>Fine-tuning destilado a partir de falhas de agentes (ReAct+Distillation)</strong>: paper do ICLR 2026 (arXiv 2510.01375) mostra que extrair dicas compactas de falhas de agentes e gerar trajetórias-professor melhoradas eleva o score no WebShop de 44,0 para 57,1, e a variante StateAct+Distillation atinge 79,1% de sucesso no ALFWorld.</li>
+<li><strong>Evals, guardrails e observability como baseline</strong>: já entraram no checklist básico de contratação de devs de IA. O benchmark <strong>DolphinBench</strong> (arXiv 2609.24971) mapeia a fronteira de Pareto entre custo e desempenho de memória em agentes de longo prazo, útil para escolher arquitetura de memória sem estourar orçamento.</li>
+<li><strong>Dados sintéticos como parte central do pipeline</strong>: deixou de ser workaround pontual e virou etapa padrão, com skills emergentes em geração e validação de qualidade de dados sintéticos para fine-tuning.</li>
+<li><strong>Auto-melhoria recursiva de harnesses de agentes</strong>: papers como <strong>RRSI</strong> (arXiv 2609.24972) e <strong>MedRSI</strong> (arXiv 2609.24838) propõem regularizar o processo de um agente melhorar seu próprio harness recursivamente, evitando colapso de desempenho ao longo das iterações.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Re:CAP — Auditing Retrieval Coverage in Production RAG Pipelines</strong> (arXiv 2609.24122) — framework para detectar lacunas de cobertura de retrieval em RAG já em produção, antes que virem respostas erradas silenciosas.</li>
+<li><strong>Harness-Zero: Harness Distillation via Agent-as-Harness</strong> (arXiv 2609.24974) — usa o próprio agente para destilar seu harness, reduzindo a dependência de scaffolding escrito à mão.</li>
+<li><strong>RRSI: Regularized Recursive Self-Improvement of Agent Harnesses</strong> (arXiv 2609.24972) — regularização para permitir que agentes melhorem recursivamente seus próprios harnesses sem degradar desempenho.</li>
+<li><strong>DolphinBench: Mapping the Pareto Frontier of Agent Memory</strong> (arXiv 2609.24971) — benchmark que mapeia o trade-off custo x desempenho entre diferentes arquiteturas de memória de agentes.</li>
+<li><strong>SFT or RL for Tool-Calling Agents? A Controlled Study</strong> (arXiv 2609.17848) — estudo controlado comparando supervised fine-tuning e RL especificamente para agentes que fazem tool-calling, com implicações diretas para quem treina agentes próprios.</li>
+<li><strong>Quantifying Overclaiming Propensity in Frontier LLM Agents</strong> (arXiv 2609.20812) — mede a tendência de agentes LLM de ponta a superestimar suas próprias capacidades ou resultados, relevante para quem avalia confiabilidade de agentes em produção.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">LogRocket — AI dev tool power rankings (Sept. 2026)</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 24, 2026</a></li>
+<li><a href="https://www.morphllm.com/best-ai-coding-agents-2026">MorphLLM — Best AI Coding Agents (September 2026) Leaderboard</a></li>
+<li><a href="https://github.com/microsoft/agent-framework/releases">Microsoft agent-framework — Releases</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">TripleTen — AI Skills to Learn in 2026</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">Digital Applied — AI Developer Hiring 2026: Skills That Actually Matter</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">arXiv 2510.01375 — Fine-tuning with RAG for Improving LLM Learning of New Skills</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/417">DailyArXiv — Latest 15 Papers, September 23, 2026</a></li>
+<li><a href="https://github.com/VoltAgent/awesome-ai-agent-papers">VoltAgent — awesome-ai-agent-papers (2026)</a></li>
+<li><a href="https://github.com/marc-ko/daily-trending-repo/issues/559">daily-trending-repo — Top 10 Trending Repositories, September 24, 2026</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSSInsight — Trending AI Repositories on GitHub</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily (English)</a></li>
+<li><a href="https://llmgateway.io/timeline">LLM Gateway — New AI Model Releases Timeline (September 2026)</a></li>
+<li><a href="https://dev.to/adrasmussen/gpt-6-astra-claude-fable-gemini-38-a-busy-week-for-new-llm-releases-n60">DEV Community — GPT-6 Astra, Claude Fable, Gemini 3.8: A Busy Week for New LLM Releases</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Model Context Protocol Blog — The 2026-07-28 Specification</a></li>
+<li><a href="https://itdaily.com/news/software/mcp-2026-update-specs/">ITdaily — MCP protocol receives major update: more secure and production-ready</a></li>
+<li><a href="https://github.com/duanyytop/agents-radar/issues/3309">agents-radar — AI Infrastructure Digest 2026-09-16</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 24/09/2026</div>
+</body></html>
