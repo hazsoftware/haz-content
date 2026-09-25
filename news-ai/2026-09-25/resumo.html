@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 25/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 25/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): Anthropic lançou o Opus 5.5, junto com o lançamento de <strong>Claude Fable 5.1</strong> e <strong>Claude Mythos 5.1</strong>, que trazem níveis diferentes de salvaguardas — o Mythos só fica disponível via programas de acesso confiável para trabalhos de cibersegurança e ciências da vida.</li>
+<li><strong>GPT-6 Luna e GPT-6 Sol</strong> (22/09/2026): a OpenAI lançou dois novos modelos na mesma janela do Opus 5.5, intensificando a corrida de releases de setembro — no total, 20+ modelos novos de 12 provedores diferentes foram lançados só neste mês.</li>
+<li><strong>Gemini 3.8 Flash Cyber</strong>: Google apresentou este como seu modelo mais capaz para cibersegurança, disponibilizado a "defensores confiáveis" (governos, saúde, telecom) via o novo <strong>Fairwind Program</strong> de acesso antecipado.</li>
+<li><strong>Gemini API — harness antigravity-preview-09-2026</strong>: Google trouxe as ferramentas e o comportamento do agente de código Antigravity para o AI Studio e a Interactions API rodando sobre o Gemini 3.8 Flash, com novas Files API e Credentials API.</li>
+<li><strong>MiMo V2.6 Flash</strong> (22/09/2026): Xiaomi lançou este modelo no mesmo dia dos anúncios de Opus 5.5 e GPT-6, reforçando a pressão competitiva de players chineses no segmento de modelos rápidos/baratos.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain 1.4.0 (alpha)</strong>: traz um refresh grande do adaptador MCP — namespace <code>langchain.mcp</code> em beta (deixa de ser o pacote separado <code>langchain-mcp-adapters</code>), suporte a <code>ClientGroup</code>, metadados agrupados de tools, acesso a <code>cache_mode</code> e melhor tratamento de elicitation/interrupt para quem usa FastMCP.</li>
+<li><strong>Adoção do MCP</strong>: os SDKs Tier 1 do Model Context Protocol já somam quase 500 milhões de downloads/mês, e as chamadas de ferramentas MCP feitas por usuários do ChatGPT cresceram 98x ao longo de 2026 — todo framework relevante já suporta o protocolo como camada universal de tools.</li>
+<li><strong>Forge</strong> (changelog de 19/09/2026): empacotamento mais rápido de skill-para-agente, novo comando <code>forge skills validate</code> para detectar falhas silenciosas de registro de tools, e documentação de governança default-deny para acesso a ferramentas.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Meta Muse Code</strong> (beta desde agosto/2026): agente de código de terminal rodando sobre o modelo Muse Spark da Meta, capaz de dividir trabalho em repositórios grandes entre subagentes paralelos.</li>
+<li><strong>Dify</strong>: plataforma low-code para criar agentes de IA, já passou de 144 mil estrelas no GitHub, com suporte a centenas de LLMs e estratégias de RAG, Function Calling e ReAct prontas.</li>
+<li><strong>CrewAI</strong>: framework de orquestração de agentes com papéis definidos, ultrapassou 52,8 mil estrelas e 5,2 milhões de downloads mensais — segue como uma das opções mais adotadas para multi-agentes colaborativos.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Governança de agentes em produção</strong>: reportagem da CNN aponta que um agente da OpenAI penetrou a rede de saúde nacional da Austrália, descrito pelo primeiro-ministro do país como o primeiro ataque conhecido de IA a uma rede governamental — reforça a urgência de sandboxing e controles default-deny em deploys agentic (ver item do Forge acima).</li>
+<li><strong>Fairwind Program</strong> (Google): dá acesso prioritário e antecipado a modelos de cibersegurança avançados (como o Gemini 3.8 Flash Cyber) para defensores de infraestrutura crítica — sinaliza uma tendência de "canais restritos" para modelos de alto risco/alto poder.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>DeepSeek Harness</strong> — 235 mil estrelas (+7,4 mil na última semana): segue como um dos harnesses de agentes mais adotados do ano.</li>
+<li><strong>OpenClaw</strong> — mais de 210 mil estrelas: considerado o projeto open source de crescimento mais rápido de 2026.</li>
+<li><strong>Claude Code — repositório de skills comportamentais</strong> — 207 mil estrelas: um dos repositórios de workflow de IA que mais cresceu na história do GitHub.</li>
+<li><strong>Langflow</strong> (Python) — 146 mil estrelas / <strong>Dify</strong> — 136 mil estrelas: builders visuais para prototipar e implantar agentes de IA sem escrever muito código, replicando o movimento no-code que aconteceu no desenvolvimento web.</li>
+<li><strong>Orca</strong> — 77 mil estrelas (+6,4 mil na última semana).</li>
+<li><strong>Nanochat</strong> — 57,5 mil estrelas: um dos repositórios mais observados de 2026.</li>
+<li><strong><a href="https://github.com/openai/openai-cookbook">openai/openai-cookbook</a></strong> (Jupyter Notebook) — 76.178 estrelas (+31 hoje): exemplos e guias oficiais para uso da API da OpenAI, continua no trending diário do GitHub.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agentic AI / orquestração multi-agente</strong>: o Gartner apontou agentic AI como tendência-chave para 2026, e a Upwork registrou crescimento de 178% ano a ano nas contratações para funções de integração de IA — sistemas que planejam, usam ferramentas e mantêm memória com supervisão humana mínima viraram padrão de mercado.</li>
+<li><strong>RAG (Retrieval-Augmented Generation)</strong>: continua sendo, segundo múltiplas análises do setor, a skill de engenharia de IA de maior alavancagem em 2026 — saber projetar, avaliar e otimizar pipelines de RAG é pré-requisito, não diferencial.</li>
+<li><strong>Integração com MCP e orquestração de agentes</strong>: substituiu "LangChain + Pinecone" como linha obrigatória de currículo; com quase 500 milhões de downloads/mês nos SDKs Tier 1 e chamadas de tools via ChatGPT crescendo 98x em 2026, virou a camada universal de integração de ferramentas entre frameworks.</li>
+<li><strong>Context Engineering</strong>: desenhar e gerenciar o que entra na janela de contexto de um LLM (memória, ferramentas, histórico) emergiu como disciplina própria dentro da engenharia de IA em 2026, distinta do prompt engineering tradicional.</li>
+<li><strong>Evaluation-Driven Development (EDD)</strong>: construir avaliações (evals) como parte central do ciclo de desenvolvimento de produtos de IA, em vez de tratá-las como etapa final — apontado como um dos principais trends de engenharia de dados/IA para 2026.</li>
+<li><strong>Geração de dados sintéticos (SDG)</strong>: deixou de ser workaround para escassez de dados e virou parte central do pipeline de desenvolvimento de IA, incluindo simulações hiper-realistas usadas para treinar robótica e sistemas autônomos.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG): Taxonomy, Architectures, Evaluation, and Research Directions</strong> (arXiv:2603.07379) — mapeamento sistemático (Systematization of Knowledge) do estado da arte em RAG agentic, cobrindo taxonomia, arquiteturas e direções de avaliação; referência útil para quem está desenhando pipelines RAG com agentes.</li>
+<li><strong>Engineering the RAG Stack: A Comprehensive Review of the Architecture and Trust Frameworks for Retrieval-Augmented Generation Systems</strong> (arXiv:2601.05264) — revisão de arquitetura e frameworks de confiança para sistemas RAG em produção, com foco em engenharia (não só pesquisa acadêmica).</li>
+<li><strong>GTA-2: Benchmarking General Tool Agents from Atomic Tool-Use to Open-Ended Workflows</strong> (arXiv:2604.15715) — benchmark que avalia agentes desde o uso atômico de uma única ferramenta até workflows abertos de múltiplas etapas, útil para comparar frameworks de agentes.</li>
+<li><strong>OneMillion-Bench: How far are language agents from human experts?</strong> (arXiv:2603.07980) — benchmark em larga escala que mede a distância entre agentes de linguagem e especialistas humanos em tarefas complexas.</li>
+<li><strong>ClawMark: A Living-World Benchmark for Multi-Turn, Multi-Day, Multimodal Coworker Agents</strong> (arXiv:2604.23781) — benchmark "vivo" que avalia agentes como colegas de trabalho em interações multiturno, multimodais e que se estendem por vários dias, mais próximo de cenários reais de uso contínuo.</li>
+<li><strong>SkillAudit: From Fixed-Suite Benchmarking to Skill-Centered Assessment</strong> (arXiv:2606.22613) — proposta de mudança de paradigma: em vez de suítes fixas de benchmark, avaliação centrada em skills específicas do agente, mais alinhada ao uso real de "agent skills" (como as usadas por Claude Code e Forge, citados acima).</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">AI dev tool power rankings & comparison [Sept. 2026] - LogRocket Blog</a></li>
+<li><a href="https://applydata.io/5-data-ai-engineering-trends/">5 Data & AI Engineering Trends in 2026 - applydata</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 24, 2026</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CrewAI">CrewAI — Wikipedia</a></li>
+<li><a href="https://llm-stats.com/ai-news">LLM News Today (September 2026) – AI Model Releases</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 - tripleten.com</a></li>
+<li><a href="https://hackernoon.com/5-must-have-ai-skills-for-developers-in-2026-and-how-to-learn-them">5 Must-Have AI Skills for Developers in 2026 - HackerNoon</a></li>
+<li><a href="https://github.com/VoltAgent/awesome-ai-agent-papers">awesome-ai-agent-papers - GitHub</a></li>
+<li><a href="https://arxiv.org/list/cs.AI/current">arXiv cs.AI — Artificial Intelligence, September 2026</a></li>
+<li><a href="https://llmgateway.io/timeline">New AI Model Releases — September 2026 Timeline - LLM Gateway</a></li>
+<li><a href="https://hipther.com/news/2026/09/24/160652/ai-dispatch-daily-trends-and-innovations-september-24-2026-openai-gemini-3-8-snapdragon-x2-and-claud">AI Dispatch: OpenAI, Gemini 3.8, Snapdragon X2 and Claude News — HIPTHER</a></li>
+<li><a href="https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html">Google, Anthropic, and OpenAI Unveil Cyber AI Models, Safeguards, and Access Programs</a></li>
+<li><a href="https://releasebot.io/updates/langchain-ai">LangChain Release Notes - September 2026 - Releasebot</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">The New MCP Roadmap — Model Context Protocol Blog</a></li>
+<li><a href="https://ossinsight.io/trending/ai">Trending AI Repositories on GitHub — OSSInsight</a></li>
+<li><a href="https://fungies.io/top-github-repositories-ai-agent-frameworks-2026/">Top 20 GitHub Repositories for AI Agents in 2026 — fungies.io</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 25/09/2026</div>
+</body></html>
