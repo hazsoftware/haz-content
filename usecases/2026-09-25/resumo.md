@@ -1,0 +1,5 @@
+# Usecases de IA — 25/09/2026
+
+- **Cursor: bots "Rollouts" e "Security Review" para o último trecho do deploy** — Em 23/09/2026 a Cursor lançou dois bots (disponíveis em Teams e Enterprise): o Rollouts monitora cada PR conforme ele é implantado e reporta a saúde por ambiente (saudável, regressão detectada ou inconclusivo), enquanto o Security Review inspeciona automaticamente PRs em busca de bugs exploráveis, regressões de autenticação e riscos de manipulação de dados. Segundo a Cursor, o tempo médio de revisão caiu 21% (de 4,8 para 3,8 minutos) e a taxa de aceitação dos comentários do bot subiu de ~45-50% para 60-70%. Fonte: https://cursor.com/blog/rollouts-and-security-reviewer
+
+- **Hermes Agent (Nous Research): busca web rápida e gratuita via Perplexity** — Em 24/09/2026 a Nous Research anunciou que a Perplexity construiu o "Fast Search" para agentes e o disponibilizou de graça em todos os tiers do Nous Portal, tornando-se a busca padrão do Hermes Agent. A Perplexity relata corte de 68% no custo por tarefa em comparação com o preset padrão, mantendo qualidade comparável. Fonte: https://x.com/NousResearch/status/2103244070407802905
