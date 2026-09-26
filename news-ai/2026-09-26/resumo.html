@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 26/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 26/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): a Anthropic lançou o modelo, precificado em $4/$20 por 1M de tokens (input/output), e o Claude Code v2.1.280 já o define como padrão no lugar do Opus anterior; empata com o modelo "Astra" da OpenAI em 59,6% no benchmark ao nível de modelo.</li>
+<li><strong>Terminal-Bench 4.0</strong> (benchmark de agentes de codificação): liderança de Codex + GPT-6 Astra com 58,2%, seguido por Claude Code + Fable 5.1 com 57,9% — mas a um custo aproximadamente 2x maior por execução, mostrando o trade-off custo/desempenho entre as duas stacks líderes.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Cline v4.1.20</strong> (22/09/2026): passou a rodar subagentes em paralelo dentro do mesmo step e corrigiu um bug em que a compactação de contexto caía silenciosamente para truncamento simples, o que causava perda de contexto sem aviso ao usuário.</li>
+<li><strong>smolagents v1.26.0</strong> (Hugging Face): renomeação do antigo Transformers Agents, reforçando a aposta em agentes "code-first" — em vez de tool calls via JSON, o agente escreve e executa código Python diretamente para interagir com ferramentas.</li>
+<li><strong>Microsoft Agent Framework (MAF)</strong> chegou à v1.0 GA em 02/04/2026, unificando Semantic Kernel e AutoGen numa única plataforma; o AutoGen original se dividiu também no fork comunitário AG2, mantido por criadores que saíram da Microsoft.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>OpenAI Agents SDK</strong>: consolidado como o framework de produção oficial da OpenAI para agentes, sucessor declarado do projeto experimental Swarm (agora arquivado).</li>
+<li>Crescimento de ferramentas de <strong>memória persistente de agentes</strong>: mem0ai/mem0 já soma +66.009 estrelas totais e topoteretes/cognee +30.987, evidenciando que reter contexto entre sessões virou prioridade de mercado para quem constrói agentes de produção.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>NVIDIA Model-Optimizer</strong>: nova versão com foco em otimização de inferência de produção via quantização, destilação e pruning — relevante para quem precisa reduzir custo de serving de LLM.</li>
+<li>Papers recentes de RAG endereçam problemas de produção: auditoria de cobertura de retrieval (Re:CAP) e robustez contra "poisoned context" via reasoning, sinal de que RAG está saindo do estágio de protótipo para exigir observabilidade e hardening como qualquer pipeline crítico.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>paperclipai/paperclip</strong> — gerenciamento de agentes; maior ganho do dia entre projetos de IA, com +2.109 estrelas em 24h.</li>
+<li><strong>vectorize-io/hindsight</strong> (Python) — abordagem open-source para memória persistente e "aprendizado" contínuo de agentes entre sessões; +1.653 estrelas no dia.</li>
+<li><strong>google/ax</strong> (Go) — runtime de orquestração agêntica do Google aberto ao público, focado em escalabilidade e confiabilidade de produção; +1.379 estrelas no dia.</li>
+<li><strong>rohitg00/ai-engineering-from-scratch</strong> — recurso educacional sobre engenharia de IA do zero; +1.177 estrelas no dia.</li>
+<li><strong>dream-num/univer</strong> — "Office Harness for AI Agents", dá a agentes interação nativa com planilhas, documentos e slides; +1.050 estrelas no dia.</li>
+<li><strong>Z.ai/ZCode</strong> (TypeScript, 6.725 ⭐) — harness de agente de codificação da Z.ai, competindo diretamente com Claude Code e Cline.</li>
+<li><strong>unreal-agent</strong> (Go, 1.885 ⭐) — framework de agentes async-first, alternativa mais leve a stacks como LangGraph para pipelines concorrentes.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Memória de agentes (agent memory)</strong>: considerada "o quebra-cabeça não resolvido de 2026" — projetos como hindsight, mem0 e cognee competem para dar a agentes contexto persistente entre sessões, indo além da janela de contexto de uma única conversa.</li>
+<li><strong>RAG com auditoria de cobertura</strong>: em vez de só medir relevância, times de produção passaram a auditar se o retrieval está de fato cobrindo o conhecimento necessário (ver paper Re:CAP, 2609.24122) — sinal de que RAG maduro exige métricas de completude, não só de precisão.</li>
+<li><strong>Agentes "code-first" em vez de JSON tool-calling</strong>: smolagents (Hugging Face) e abordagens similares fazem o agente escrever e rodar código Python direto, reduzindo overhead de parsing e erros de formatação de tool calls estruturados.</li>
+<li><strong>MCP (Model Context Protocol) e orquestração multi-agente</strong>: segue como uma das skills mais pedidas em vagas de "AI integration", que cresceram 178% ano a ano segundo dados do Upwork citados em levantamentos de 2026.</li>
+<li><strong>Verificação e eval design de outputs de IA</strong>: com IA gerando cada vez mais código de produção, times priorizam skills de review estruturado, testes automatizados e checagem de segurança sobre o código gerado — McKinsey estima até 40% de redução no tempo de desenvolvimento com IA, mas só quando acompanhado de revisão rigorosa.</li>
+<li><strong>Deploy e hardening de RAG contra ataques adversariais</strong>: papers como "Reasoning Reduces the Influence of Poisoned Context in RAG" (2608.17153) mostram técnicas para blindar pipelines de RAG contra contexto malicioso injetado nos documentos recuperados.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>SFT or RL for Tool-Calling Agents?</strong> (arXiv 2609.17848) — compara fine-tuning supervisionado versus reinforcement learning para treinar agentes que usam ferramentas, com implicações diretas em qual receita usar para treinar agentes de produção.</li>
+<li><strong>Re:CAP — Auditing Retrieval Coverage in Production RAG Pipelines</strong> (arXiv 2609.24122) — propõe métricas para medir se o retrieval de um pipeline RAG realmente cobre o conhecimento necessário, não só a relevância dos top-k documentos.</li>
+<li><strong>OSWorld-Pro: Process-based Evaluation for Computer Use Agents</strong> (arXiv 2609.24890) — novo benchmark para avaliar agentes de "computer use" pelo processo de execução, não só pelo resultado final.</li>
+<li><strong>GRUET: Quantifying Uncertainty of Agentic Reasoning-and-Acting</strong> (arXiv 2609.24831) — método para medir a confiança de um agente durante ciclos de raciocínio e ação, útil para decidir quando pedir confirmação humana.</li>
+<li><strong>Reasoning Reduces the Influence of Poisoned Context in RAG</strong> (arXiv 2608.17153) — mostra que forçar o modelo a raciocinar explicitamente sobre o contexto recuperado reduz o efeito de documentos maliciosos/envenenados injetados no pipeline de RAG.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375, ICLR 2026) — extrai dicas reutilizáveis de falhas de agentes, gera trajetórias de "professor" melhoradas via retrieval one-shot no início do episódio, e treina modelos "aluno" nessas trajetórias sem as dicas explícitas.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.shakudo.io/blog/top-9-ai-agent-frameworks">Top 9 AI Agent Frameworks as of September 2026 — Shakudo</a></li>
+<li><a href="https://www.morphllm.com/best-ai-coding-agents-2026">Best AI Coding Agents (September 2026) — Morph</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 25, 2026</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 — TripleTen</a></li>
+<li><a href="https://hackernoon.com/5-must-have-ai-skills-for-developers-in-2026-and-how-to-learn-them">5 Must-Have AI Skills for Developers in 2026 — HackerNoon</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/417">DailyArXiv — Latest 15 Papers, September 23, 2026</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills — arXiv</a></li>
+<li><a href="https://github.com/marc-ko/daily-trending-repo/issues/560">Latest Trending Repositories — September 25, 2026</a></li>
+<li><a href="https://github.com/kouweizhu/agents-radar/issues/206">AI Open Source Trends 2026-09-26 — agents-radar</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 26/09/2026</div>
+</body></html>
