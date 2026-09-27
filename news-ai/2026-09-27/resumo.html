@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 27/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 27/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): a Anthropic lançou o Opus 5.5 com preço de $4/$20 por MTok (20% mais barato que o Opus 5) e leitura de cache a $0,20/MTok (queda de 60%); roda 40% mais barato e gera saída 30% mais rápido que o Opus 5, empatando com o Fable 5.1 em coding agêntico, uso de computador e reconhecimento visual de gráficos. Já disponível em AWS, GCP e Azure; Sonnet 5.5 e Haiku 5.5 devem chegar nas próximas semanas.</li>
+<li><strong>GPT-6 Sol e GPT-6 Luna</strong> (22/09/2026): a OpenAI lançou os dois modelos no ChatGPT Work, Codex e na API, posicionados abaixo do GPT-6 Astra. Sol custa $2/$10 por MTok e Luna $0,10/$0,50 — metade do preço da série 5.6 — e o Sol comete "cerca da metade" dos erros do GPT-5.6 Sol no benchmark interno da OpenAI.</li>
+<li><strong>Terminal-Bench 4.0</strong>: no benchmark de agentes de terminal, Codex com GPT-6 Astra marca 58,2%, Claude Code com Fable 5.1 marca 57,9%, e o Opus 5.5 empata com o Astra em 59,6% na avaliação em nível de modelo — os três topos ficam a menos de 2 pontos um do outro.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Gemini API — harness antigravity-preview-09-2026</strong>: o Google trouxe as ferramentas e o comportamento do agente de coding Antigravity para o AI Studio e a Interactions API sobre o Gemini 3.8 Flash, junto com novas Files API e Credentials API que movem dados dentro/fora do sandbox do agente e permitem chamadas a serviços como GitHub e Slack sem expor tokens ao modelo.</li>
+<li><strong>Forge</strong> (changelog de 19/09/2026): empacotamento skill-para-agente mais rápido e novo comando <code>forge skills validate</code> para detectar falhas silenciosas de registro de ferramentas, além de documentação de governança default-deny para acesso a tools.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP — especificação 2026-07-28</strong>: o Model Context Protocol migrou de um protocolo bidirecional com conexão persistente para um modelo stateless request/response, trazendo também o framework de Extensions, Tasks, MCP Apps (apps interativos), reforço de autorização com OAuth 2.1/OpenID Connect e cache determinístico de listagens de tools/resources para melhorar o prompt-cache.</li>
+<li><strong>hindsight</strong> (vectorize-io): +2.147 ⭐ só hoje no GitHub — sistema de memória de agentes ("Agent Memory That Learns") que virou o repositório de maior crescimento do dia, sinal de que memória persistente de agentes é a fronteira quente do momento.</li>
+<li><strong>CLI-Anything</strong> (HKUDS): +97 ⭐ hoje — biblioteca que envolve qualquer CLI existente e a torna "agent-native", útil para dar a agentes acesso a ferramentas de linha de comando sem escrever wrappers customizados.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>NVIDIA Model-Optimizer</strong>: +357 ⭐ hoje no trending do GitHub — biblioteca unificada de técnicas SOTA de compressão e otimização de inferência de modelos, relevante para quem precisa reduzir custo/latência de serving.</li>
+<li><strong>strands-agents/harness-sdk</strong>: +43 ⭐ hoje — framework de produção para agentes de IA, focado em levar protótipos de agente para ambiente produtivo com observabilidade e controle de execução.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>hindsight</strong> (Python, +2.147 ⭐ hoje) — memória de agentes que aprende com o uso; virou o repositório mais em alta do dia entre projetos de IA.</li>
+<li><strong>ai-engineering-from-scratch</strong> (rohitg00, +827 ⭐ hoje) — recurso educacional prático de AI engineering do zero, do "aprenda" ao "shipe para outros".</li>
+<li><strong>Model-Optimizer</strong> (NVIDIA, +357 ⭐ hoje) — biblioteca unificada de otimização/compressão de modelos state-of-the-art.</li>
+<li><strong>MoneyPrinterTurbo</strong> (harry0703, +349 ⭐ hoje) — gera vídeos curtos em HD a partir de um tópico via workflow automatizado com LLMs.</li>
+<li><strong>strix</strong> (usestrix, +196 ⭐ hoje) — agente de IA para pentest e detecção de vulnerabilidades.</li>
+<li><strong>CLI-Anything</strong> (HKUDS, +97 ⭐ hoje) — transforma qualquer software de linha de comando em algo "agent-native".</li>
+<li><strong>harness-sdk</strong> (strands-agents, +43 ⭐ hoje) — SDK/framework de produção para agentes de IA.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agentic AI / orquestração de agentes</strong>: sistemas que planejam múltiplas etapas, usam ferramentas e mantêm memória com supervisão humana mínima. O Gartner aponta como tendência-chave de 2026 e a Upwork reportou crescimento de 178% ano a ano em contratações para papéis de integração de IA.</li>
+<li><strong>Context engineering</strong>: em vez de só escrever prompts, a habilidade em alta é curar e estruturar o que entra no contexto do modelo (memória, tools, docs recuperados). Listada junto com eval design e observabilidade de produção como competência central de 2026 para quem constrói agentes.</li>
+<li><strong>Agentic RAG</strong>: RAG deixou de ser retrieval simples e passou a incluir loops de recuperação guiados pelo próprio agente. O survey "SoK: Agentic RAG" (arXiv 2603.07379) mapeia taxonomia, arquiteturas e avaliação da abordagem, hoje considerada a skill de maior leverage em AI engineering.</li>
+<li><strong>Fine-tuning assistido por RAG</strong>: técnica que extrai "hints" compactos das falhas de um agente e os usa para gerar trajetórias de professor melhores, com ganhos validados nos benchmarks ALFWorld e WebShop (arXiv 2510.01375, aceito na ICLR 2026).</li>
+<li><strong>MCP stateless e MCP Apps</strong>: a especificação MCP 2026-07-28 troca conexão persistente por request/response sem estado, adiciona apps interativos (MCP Apps) e cache determinístico de listagens de tools — quem integra agentes via MCP precisa migrar servidores para o novo modelo.</li>
+<li><strong>Avaliação de coordenação semântica multi-agente</strong>: o benchmark STALE, do paper "Passes Alone, Fails Together" (arXiv 2609.25396), mede quando patches gerados por agentes de coding em paralelo passam isoladamente mas quebram ao serem integrados — ponto crítico para quem já roda múltiplos agentes de coding simultâneos.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Passes Alone, Fails Together: Benchmarking Semantic Coordination in Parallel LLM-Agent Development</strong> (arXiv 2609.25396, 21/09/2026) — introduz o benchmark STALE para medir falhas de coordenação semântica quando múltiplos agentes de coding trabalham em paralelo no mesmo repositório.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG): Taxonomy, Architectures, Evaluation, and Research Directions</strong> (arXiv 2603.07379) — mapeamento sistemático de arquiteturas de RAG agêntico, útil como referência para quem está desenhando pipelines de retrieval com loops controlados por agente.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375, ICLR 2026) — combina fine-tuning com hints extraídos via RAG de falhas passadas do agente, testado em ALFWorld e WebShop.</li>
+<li><strong>Engineering the RAG Stack: A Comprehensive Review of the Architecture and Trust Frameworks for Retrieval-Augmented Generation Systems</strong> (arXiv 2601.05264) — revisão de arquitetura e frameworks de confiança (trust) para stacks de RAG em produção.</li>
+<li><strong>Automatically Benchmarking LLM Code Agents through Agent-Driven Annotation and Evaluation</strong> (arXiv 2510.24358, AAMAS 2026) — propõe anotação e avaliação automatizadas, guiadas por agente, para benchmarks de agentes de código.</li>
+<li><strong>GraphSkillEvo: Evolutionary Optimization of Graph-Structured Agent Skills</strong> (Findings of ACL: EMNLP 2026) — otimização evolutiva de skills de agentes representadas como grafos.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">AI dev tool power rankings & comparison [Sept. 2026] - LogRocket Blog</a></li>
+<li><a href="https://www.aitude.com/ai-engineer-tools-2026/">15 Must-Know AI Engineer Tools In 2026 - Aitude</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of September 25, 2026</a></li>
+<li><a href="https://www.shakudo.io/blog/top-9-ai-agent-frameworks">Top 9 AI Agent Frameworks as of September 2026 - Shakudo Blog</a></li>
+<li><a href="https://www.morphllm.com/best-ai-coding-agents-2026">Best AI Coding Agents (September 2026) - MorphLLM</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 - TripleTen</a></li>
+<li><a href="https://doit.software/blog/ai-developer-skills">Top 13 AI Developer Skills for 2026 - DOIT</a></li>
+<li><a href="https://www.macrumors.com/2026/09/22/anthropic-claude-opus-5-5/">Anthropic Launches Claude Opus 5.5 - MacRumors</a></li>
+<li><a href="https://9to5mac.com/2026/09/22/anthropic-upgrades-claude-with-new-opus-5-5-model-details-here/">Anthropic upgrades Claude with new Opus 5.5 model - 9to5Mac</a></li>
+<li><a href="https://www.macrumors.com/2026/09/22/openai-gpt-6-sol-luna/">OpenAI's New GPT-6 Sol and Luna Models - MacRumors</a></li>
+<li><a href="https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/">OpenAI launches GPT-6 Sol and Luna - TechCrunch</a></li>
+<li><a href="https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available/">OpenAI's GPT-6 Sol and GPT-6 Luna now available - GitHub Changelog</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">The 2026-07-28 Specification - Model Context Protocol Blog</a></li>
+<li><a href="https://www.infoworld.com/article/4201254/model-context-protocol-is-going-stateless-to-make-scaling-simpler.html">MCP is going stateless to make scaling simpler - InfoWorld</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, English)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (daily)</a></li>
+<li><a href="https://github.com/zachysun/DailyArXiv/issues/568">Latest 20 Papers - September 25, 2026 - DailyArXiv</a></li>
+<li><a href="https://arxiv.org/abs/2609.25396">Passes Alone, Fails Together (arXiv 2609.25396)</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">SoK: Agentic RAG (arXiv 2603.07379)</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills (arXiv 2510.01375)</a></li>
+<li><a href="https://arxiv.org/pdf/2601.05264">Engineering the RAG Stack (arXiv 2601.05264)</a></li>
+<li><a href="https://arxiv.org/pdf/2510.24358">Automatically Benchmarking LLM Code Agents (arXiv 2510.24358)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 27/09/2026</div>
+</body></html>
