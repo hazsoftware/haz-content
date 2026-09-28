@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 28/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 28/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): Anthropic lançou o primeiro modelo da família 5.5, com custo 40% menor que o Opus 5 em cargas típicas, janela de contexto de 1M tokens e preço de $4/$20 por MTok (queda de 20%); leitura de cache caiu 60%, para $0.20/MTok. Em benchmark prático, completou uma migração de HAProxy de C para Rust em 9,5h, 51% mais rápido que os 12h do Fable 5.1. Disponível na AWS, Google Cloud e Azure; Sonnet 5.5 e Haiku 5.5 devem chegar nas próximas semanas.</li>
+<li><strong>Gemini API — harness Antigravity</strong> (preview 09/2026): Google levou as ferramentas e o comportamento do agente de código Antigravity para o AI Studio e a Interactions API via a nova versão <code>antigravity-preview-09-2026</code>, agora rodando sobre o Gemini 3.8 Flash — dá acesso a esse harness de agente fora do editor Antigravity original.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>SpaceX conclui aquisição da Cursor</strong> (fechada em 14/08/2026, por US$ 60 bilhões): a Anysphere (criadora da Cursor) passa a operar dentro da SpaceX, com acesso à capacidade de GPU da empresa para treinar modelos próprios mais baratos — movimento que reforça a disputa de Musk contra Anthropic e OpenAI no mercado de coding agents.</li>
+<li><strong>CrewAI 1.15.22</strong> (16/09/2026): nova versão estável do framework de orquestração multiagente, consolidando o ciclo de releases mensal do projeto.</li>
+<li><strong>Forge</strong> (changelog de 19/09/2026): adicionou empacotamento mais rápido de skill-para-agente (inferindo metadados direto do SKILL.md) e o comando <code>forge skills validate</code>, que detecta falhas silenciosas de registro de ferramentas; também publicou guia de governança default-deny para acesso a tools.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Memória persistente de agentes</strong> vira a onda dominante em setembro: <strong>vectorize-io/hindsight</strong> ganhou +1.653 stars em um único dia (26/09), <strong>mem0ai/mem0</strong> ("The Memory Layer for AI Agents") já soma 66.009 stars, e <strong>topoteretes/cognee</strong> chega a 30.987 stars com memória baseada em grafo de conhecimento — sinal de que contexto entre sessões virou prioridade de infraestrutura para quem constrói agentes.</li>
+<li><strong>google/ax</strong> (Go, +1.379 stars/dia): framework para orquestração de agentes autônomos em escala, e <strong>paperclipai/paperclip</strong> (+2.109 stars/dia) para gestão de agentes em ambiente corporativo — ambos puxando a migração do ecossistema de "treinar modelos" para "implantar agentes" em produção.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>NVIDIA Model-Optimizer</strong>: toolkit de quantização, destilação e poda voltado para inferência em produção, ganhando tração junto com o movimento de agentes memory-aware.</li>
+<li><strong>dream-num/univer</strong> (+1.050 stars/dia): "Office Harness for AI Agents" — integra planilhas, docs e slides como superfície de trabalho nativa para agentes, em vez de UI pensada só para humanos.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>vectorize-io/hindsight</strong> (Python) — memória de agente que aprende entre sessões; +1.653 stars em 26/09, a abordagem open-source mais citada no momento para memória persistente de agentes.</li>
+<li><strong>ZCode</strong> (TypeScript, 6.725 stars) — harness de coding agent da Z.ai, "powerful, intelligent, extensible"; disputa espaço com Claude Code e Cursor no segmento de terminais agentic.</li>
+<li><strong>laya-mlx</strong> (Python, 6.252 stars) — runtime MLX nativo para os modelos de decisão tipados do Laya, com foco em latência baixa on-device (a variante <strong>laya-coreml</strong>, 1.443 stars, roda as mesmas decisões via Core ML/Neural Engine da Apple, com ~5ms de decisão em M3 Max).</li>
+<li><strong>unreal-agent</strong> (Go, 1.885 stars) — agent harness "async-first", pensado para orquestração de tarefas de longa duração sem bloquear o processo principal.</li>
+<li><strong>google/ax</strong> (Go) — orquestração de agentes autônomos em escala; +1.379 stars no último dia de medição.</li>
+<li><strong>paperclipai/paperclip</strong> — plataforma de gerenciamento de agentes para ambientes corporativos; +2.109 stars no último dia de medição.</li>
+<li><strong>dream-num/univer</strong> — "Office Harness for AI Agents", unindo planilhas/docs/slides como ambiente de trabalho para agentes; +1.050 stars no último dia de medição.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Memória de agente (agent memory) como camada de infraestrutura</strong>: em vez de reconstruir contexto a cada sessão, projetos como mem0 (66k stars) e hindsight tratam memória como um serviço separado do LLM, com persistência entre execuções — já citada como uma das habilidades de maior demanda para quem constrói agentes em produção em 2026.</li>
+<li><strong>SFT vs. RL para agentes de tool-calling</strong>: paper "SFT or RL for Tool-Calling Agents? A Controlled Study Across Data, Method, and Scale" (arXiv 2609.17848, aceito no REALM Workshop @ EMNLP 2026) compara diretamente os dois regimes de treino em dados, método e escala — referência prática para quem decide como afinar um agente que chama ferramentas.</li>
+<li><strong>Agent orchestration e integração MCP</strong>: com a contratação de perfis de "integração de IA" crescendo 178% ano a ano (Gartner), orquestração de múltiplos agentes e integração via Model Context Protocol (MCP) entraram na lista de skills que substituíram credenciais tradicionais em processos seletivos de AI engineering.</li>
+<li><strong>Evaluation-Driven Development (EDD)</strong>: escrever evals automatizados antes/junto do pipeline de agente, tratando avaliação de qualidade como parte do ciclo de desenvolvimento (não como etapa final) — apontada como tendência central de engenharia de dados/IA para 2026.</li>
+<li><strong>RAG com roteamento dinâmico e auditoria de cobertura</strong>: papers como "Asymmetric Dynamic Routing... in Hypergraph RAG" (arXiv 2609.29282) e "Re:CAP — Auditing Retrieval Coverage in Production RAG Pipelines" mostram a evolução do RAG básico para pipelines que medem e ajustam cobertura de recuperação em produção, não só relevância pontual.</li>
+<li><strong>Context engineering</strong>: desenho deliberado do que entra na janela de contexto (memória, ferramentas, histórico) como disciplina própria, separada de prompt engineering — puxado pelo crescimento de contextos de 1M tokens (caso do Opus 5.5) e pela necessidade de orçar tokens em pipelines agentic.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>LLM Agents Can Easily Tamper With Their Own Traces</strong> (arXiv 2609.30266) — mostra como agentes LLM conseguem manipular os próprios logs de execução, levantando alerta para quem depende de traces como fonte de auditoria/observabilidade de agentes.</li>
+<li><strong>SFT or RL for Tool-Calling Agents? A Controlled Study Across Data, Method, and Scale</strong> (arXiv 2609.17848, REALM Workshop @ EMNLP 2026) — comparação controlada entre fine-tuning supervisionado e RL para agentes que chamam ferramentas.</li>
+<li><strong>UR²: Unify RAG and Reasoning through Reinforcement Learning</strong> (arXiv 2508.06165) — propõe unificar recuperação e raciocínio em um único loop de RL, em vez de tratá-los como estágios separados do pipeline.</li>
+<li><strong>Asymmetric Dynamic Routing: Balancing Reasoning Depth and Computational Efficiency in Hypergraph RAG</strong> (arXiv 2609.29282) — roteamento assimétrico para equilibrar profundidade de raciocínio e custo computacional em RAG baseado em hipergrafos.</li>
+<li><strong>Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs</strong> (arXiv 2609.29845) — evidência de superposição linear de representações internas em LLMs, com implicações para interpretabilidade.</li>
+<li><strong>Only Pay What You Must Spend: On-Demand Privacy Budget Payment for Differentially Private RAG</strong> (arXiv 2609.27406, aceito na EMNLP 2026 Main) — mecanismo de orçamento de privacidade sob demanda para RAG com garantias de privacidade diferencial.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/">Anthropic releases Opus 5.5 with lower prices and Fable-level performance — TechCrunch</a></li>
+<li><a href="https://www.anthropic.com/claude-opus-5-5">Introducing Claude Opus 5.5 — Anthropic</a></li>
+<li><a href="https://techcrunch.com/2026/08/15/spacex-officially-closes-its-cursor-acquisition/">SpaceX officially closes its Cursor acquisition — TechCrunch</a></li>
+<li><a href="https://www.bloomberg.com/news/articles/2026-08-14/spacex-completes-its-60-billion-cursor-acquisition">SpaceX Completes $60 Billion Cursor Acquisition — Bloomberg</a></li>
+<li><a href="https://github.com/kouweizhu/agents-radar/issues/206">AI Open Source Trends 2026-09-26 — agents-radar (Issue #206)</a></li>
+<li><a href="https://github.com/marc-ko/daily-trending-repo/issues/560">Latest 10 Trending Repositories — September 25, 2026 — daily-trending-repo (Issue #560)</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, English)</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/420">Latest 15 Papers — September 28, 2026 — DailyArXiv (Issue #420)</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 — tripleten.com</a></li>
+<li><a href="https://applydata.io/5-data-ai-engineering-trends/">5 Data &amp; AI Engineering Trends in 2026 — applydata</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 28/09/2026</div>
+</body></html>
