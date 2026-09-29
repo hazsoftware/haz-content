@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 29/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 29/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): Anthropic lançou o primeiro modelo da família 5.5 — corte de 40% no custo médio de workload vs. Opus 5, preço de $4/$20 por MTok (queda de 20%) e leitura de cache a $0,20/MTok (-60%), com saída de tokens ~30% mais rápida. Sonnet 5.5 já saiu em 28/09/2026 e Haiku 5.5 é esperado nas próximas semanas. Disponível em AWS, Google Cloud e Azure.</li>
+<li><strong>GPT-6 Sol e GPT-6 Luna</strong> (22/09/2026): OpenAI lançou os dois modelos apenas 19 dias após o GPT-6 Astra — Sol custa $2/$10 por milhão de tokens (input/output) e Luna $0,10/$0,50, corte de 50% frente aos preços promocionais do GPT-5.6. Herdam boa parte do raciocínio e uso de computador do Astra, otimizados para custo/velocidade. Já disponíveis no ChatGPT Work, Codex e via API.</li>
+<li><strong>Terminal-Bench 4.0</strong>: no benchmark de agentes de terminal, Codex + GPT-6 Astra lidera com 58,2%, seguido de perto por Claude Code + Fable 5.1 com 57,9% — disputa acirrada entre os dois principais agentes de codificação do mercado.</li>
+<li><strong>Gemini API / Antigravity</strong> (Google): novo harness <em>antigravity-preview-09-2026</em> trouxe as ferramentas do agente de codificação Antigravity para dentro da API AI Studio e Interactions, rodando sobre Gemini 3.8 Flash, com novas Files API e Credentials API.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>CrewAI 1.15.22</strong> (16/09/2026): nova release do framework de orquestração multiagente; levantamentos do setor apontam que praticamente todos os grandes frameworks open-source de agentes lançaram uma versão em setembro/2026, sinal de ritmo acelerado de iteração no ecossistema.</li>
+<li><strong>OpenSearch 3.5</strong> (fevereiro/2026): adicionou memória de conversação agêntica nativa e suporte expandido a Prometheus para observabilidade — continua referência para quem monta pipelines RAG self-hosted.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP — especificação 2026-07-28</strong>: maior revisão do protocolo desde o lançamento. O núcleo passou a ser <em>stateless</em> (sem handshake initialize/initialized nem Mcp-Session-Id), com Extensions framework, Tasks, MCP Apps e hardening de autorização (issuer validation, client credentials vinculados ao issuer, CIMD como registro preferencial de clientes). Facilita rodar servidores MCP atrás de load balancer round-robin puro.</li>
+<li><strong>OpenClaw</strong>: projeto que "viralizou" saltando de ~9 mil para mais de 210 mil estrelas no GitHub desde janeiro/2026 — um dos crescimentos mais rápidos já registrados na plataforma, evidência do apetite por agentes autônomos open-source.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Observabilidade LLM</strong>: ClickHouse adquiriu o Langfuse em janeiro/2026; a Helicone migrou seu backend para ClickHouse e reduziu o tempo de query de mais de 100s para 0,5s. OpenLLMetry segue como padrão de fato para instrumentação automática via OpenTelemetry de provedores LLM, vector DBs e frameworks (LangChain, LlamaIndex, CrewAI).</li>
+<li><strong>Serving</strong>: vLLM e SGLang continuam liderando as frentes de otimização de custo/latência em produção, com foco em decodificação especulativa e eficiência de KV cache.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>sindresorhus/awesome</strong> (+543 ⭐ hoje, 512k total) — lista curada de recursos por tema, referência histórica que continua no topo do trending diário.</li>
+<li><strong>codecrafters-io/build-your-own-x</strong> (Markdown, +329 ⭐ hoje, 550k total) — ensina a recriar do zero tecnologias populares (bancos de dados, Redis, Git, Docker), ótimo para entender internals.</li>
+<li><strong>vinta/awesome-python</strong> (Python, +316 ⭐ hoje, 324k total) — guia definitivo de bibliotecas e ferramentas do ecossistema Python.</li>
+<li><strong>openai/whisper</strong> (Python, +47 ⭐ hoje, 110k total) — modelo de reconhecimento de fala via weak supervision em larga escala, ainda referência em speech-to-text open-source.</li>
+<li><strong>trufflesecurity/trufflehog</strong> (Go, +43 ⭐ hoje, 28k total) — descoberta e verificação de credenciais expostas, relevante para pipelines de segurança em CI/CD com IA generativa produzindo mais código.</li>
+<li><strong>withastro/astro</strong> (TypeScript, +42 ⭐ hoje, 63k total) — framework para sites orientados a conteúdo, ganhando tração contínua.</li>
+<li><strong>NVIDIA/Megatron-LM</strong> (Python, +2 ⭐ hoje, 18k total) — framework de treinamento de transformers em escala, usado por labs para pré-treino distribuído de LLMs.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>RAG avançado (Retrieval-Augmented Generation)</strong>: continua apontado como a skill de maior retorno em engenharia de IA para 2026 — base de assistentes de conhecimento interno e suporte a clientes sobre conteúdo proprietário. Observabilidade de RAG (instrumentar retrieval e generation como spans separados) virou prática padrão para isolar se uma resposta ruim vem da busca ou da geração.</li>
+<li><strong>Agent orchestration / Agentic AI</strong>: o Gartner aponta agentic AI como tendência-chave de 2026, e o Upwork reportou crescimento de 178% ano a ano em contratações para papéis de integração de IA. O foco é coordenar múltiplos agentes especializados em tarefas multi-etapa com uso de ferramentas e memória.</li>
+<li><strong>Context Engineering</strong>: desenhar deliberadamente o que entra na janela de contexto (memória, ferramentas, histórico, dados recuperados) passa a ser tratado como disciplina própria, além do "prompt engineering" tradicional — listado entre as 5 principais tendências de engenharia de dados/IA de 2026.</li>
+<li><strong>Evaluation-Driven Development (EDD)</strong>: equipes incorporam avaliação automatizada de qualidade de output de LLM como parte do ciclo de desenvolvimento (não pós-hoc), citado como tendência central de engenharia de dados/IA para 2026, análogo ao TDD para sistemas com LLM.</li>
+<li><strong>Verificação e QA de saída de IA</strong>: com agentes ganhando mais autonomia e ação sobre sistemas reais, revisão humana e checks automatizados (testes, segurança, verificação de premissas) tornam-se habilidade central — não opcional — para quem desenvolve com LLMs.</li>
+<li><strong>Synthetic Data Generation (SDG)</strong>: geração de dados sintéticos para fine-tuning e avaliação ganha espaço como alternativa a dados proprietários escassos, incluindo cenários de fine-tuning federado on-device preservando privacidade (ver paper FlexP-SFT abaixo).</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>AgentArch</strong> (arXiv:2509.10769) — benchmark que avalia 18 configurações agênticas distintas em LLMs de ponta, comparando estratégia de orquestração, ReAct vs. function calling, arquitetura de memória e uso de "thinking tools" em cenários corporativos.</li>
+<li><strong>AstaBench</strong> (arXiv:2510.21652) — suíte de benchmark rigoroso para agentes de IA em tarefas de pesquisa científica, com foco em reprodutibilidade metodológica.</li>
+<li><strong>RECLAIM</strong> (arXiv:2609.28850) — investiga se agentes de IA conseguem reproduzir as claims de papers de machine learning, teste direto da confiabilidade de agentes autônomos de pesquisa.</li>
+<li><strong>DENSE</strong> (arXiv:2609.21423) — destila trajetórias de agentes em "árvores de atalho" fundamentadas em evidências para auto-refinamento, reduzindo custo de replanejamento em tarefas longas.</li>
+<li><strong>FlexP-SFT</strong> — framework de fine-tuning federado dividido (split federated), livre de agregação centralizada, para personalização on-device de LLMs preservando privacidade do usuário.</li>
+<li><strong>GraphSkillEvo</strong> — otimização evolutiva de "skills" de agentes estruturadas em grafo, aceito no Findings da ACL/EMNLP 2026.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.anthropic.com/claude-opus-5-5">Introducing Claude Opus 5.5 — Anthropic</a></li>
+<li><a href="https://datanorth.ai/news/anthropic-releases-claude-opus-5-5">Claude Opus 5.5: Anthropic cuts cost 40% vs Opus 5 — DataNorth</a></li>
+<li><a href="https://cellcog.ai/blog/claude-sonnet-5-5-release-date/">Claude Sonnet 5.5: Released Sept 28 — CellCog</a></li>
+<li><a href="https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/">OpenAI launches GPT-6 Sol and Luna — TechCrunch</a></li>
+<li><a href="https://www.requesty.ai/blog/gpt-6-sol-luna-pricing-release-api">GPT-6 Sol and Luna: Pricing, Release Date and API Access — Requesty</a></li>
+<li><a href="https://www.morphllm.com/best-ai-coding-agents-2026">Best AI Coding Agents (September 2026) — MorphLLM</a></li>
+<li><a href="https://www.epsilla.com/blogs/agent-dev-updates-april-2026">The Agentic Shift: New Frameworks, State Managers, and Context Surgeons — Epsilla</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">The 2026-07-28 Specification — Model Context Protocol Blog</a></li>
+<li><a href="https://itdaily.com/news/software/mcp-2026-update-specs/">MCP protocol receives major update — ITdaily</a></li>
+<li><a href="https://ossinsight.io/trending/ai">Trending AI Repositories on GitHub — OSSInsight</a></li>
+<li><a href="https://fungies.io/top-github-repositories-ai-agent-frameworks-2026/">Top 20 GitHub Repositories for AI Agents in 2026 — Fungies</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário)</a></li>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">AI Tools for Developers 2026 — Cortex</a></li>
+<li><a href="https://applydata.io/5-data-ai-engineering-trends/">5 Data & AI Engineering Trends in 2026 — ApplyData</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 — TripleTen</a></li>
+<li><a href="https://www.morphllm.com/build-llm-observability">Build Your Own LLM Observability (2026) — MorphLLM</a></li>
+<li><a href="https://mlflow.org/articles/setting-up-llm-observability-pipelines-in-2026/">Setting Up LLM Observability Pipelines in 2026 — MLflow</a></li>
+<li><a href="https://arxiv.org/abs/2509.10769">AgentArch (arXiv:2509.10769)</a></li>
+<li><a href="https://arxiv.org/pdf/2510.21652">AstaBench (arXiv:2510.21652)</a></li>
+<li><a href="https://arxiv.org/pdf/2609.28850">RECLAIM (arXiv:2609.28850)</a></li>
+<li><a href="https://arxiv.org/pdf/2609.21423">DENSE (arXiv:2609.21423)</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/421">DailyArXiv — Latest 15 Papers, 29/09/2026</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 29/09/2026</div>
+</body></html>
