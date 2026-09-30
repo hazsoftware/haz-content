@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 30/09/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 30/09/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Sonnet 5.5</strong> (28/09/2026): Anthropic lançou a nova versão do Sonnet, completando a atualização da família Claude 5 iniciada em setembro (Fable 5.1 e Mythos 5.1 em 01/09, Opus 5.5 em 22/09) — vale checar o model ID nas integrações via API antes de trocar.</li>
+<li><strong>GPT-6 Sol e GPT-6 Luna</strong> (OpenAI, 22/09/2026): Sol é um irmão mais barato e rápido do GPT-6 Astra, voltado a trabalho profissional do dia a dia, coding e computer use — boa opção de custo-benefício em pipelines que hoje rodam no Astra.</li>
+<li><strong>Gemini 3.8 Flash e Gemini 3.8 Flash Cyber</strong> (Google, 02/09/2026): o Flash é o novo modelo "workhorse" do dia a dia, chegando cerca de três semanas depois do 3.7 Flash; o Flash Cyber é a variante especializada em cibersegurança, liberada a defensores confiáveis via o programa Fairwind.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Microsoft Agent Framework</strong> (Python 1.19.0, 18/09/2026): passou a escopar sessões MCP por invocação, autenticar requisições para a identidade/origem corretas, restringir pacotes de skill a arquivos ZIP e verificar digests dos arquivos — hardening de segurança direto para quem carrega skills dinamicamente em agentes.</li>
+<li><strong>CrewAI 1.15.22</strong> (16/09/2026): nova versão estável do framework de orquestração multi-agente.</li>
+<li><strong>LangGraph v1.2.7</strong>: runtime baseado em grafos para agentes stateful multi-ator, companion da LangChain para fluxos mais complexos que um único chain.</li>
+<li><strong>CLIs de coding agent</strong>: OpenCode (v1.18.32 / V2 2.0.14), OpenAI Codex CLI (0.156.0), Gemini CLI (v0.60.0), Cline (v4.1.20) e Goose (v1.51.0) tiveram releases entre meados e o fim de setembro/2026 — vale revisar changelog antes de atualizar versões usadas em CI.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>agentproto</strong> (release de 30/09/2026): levou a stack de automação de browser para o npm pela primeira vez, o adapter Windows com spawn passou a funcionar ponta a ponta, e o "Jev session judge" ganhou suporte a arquivo de config — relevante para quem testa agentes com automação de navegador em CI multiplataforma.</li>
+<li><strong>Especificação MCP 2026-07-28</strong>: removeu o handshake initialize/initialized e o header Mcp-Session-Id, tornando o núcleo do protocolo stateless, com Multi Round-Trip Requests e roteamento por header — muda como servidores MCP escalam horizontalmente e exige revisão de implementações client/server já em produção.</li>
+<li><strong>Extensão "Enterprise-Managed Authorization" do MCP</strong> virou estável, com adoção de Anthropic, Microsoft e Okta, permitindo gestão centralizada de autorização e SSO para servidores MCP corporativos.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>CloudBees Smart Tests</strong>: usa machine learning para prever quais testes têm mais chance de pegar bugs numa mudança específica, permitindo rodar um subconjunto em vez da suite completa — reduz tempo de CI em bases de código grandes.</li>
+<li><strong>MLflow</strong> segue como plataforma open-source padrão para MLOps (experiment tracking, model registry e deploy), vendor-neutral e amplamente integrada ao ecossistema de ML.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>Laya</strong> (21.220 ⭐): motor de decisão "System 1" não-autoregressivo que faz escolhas tipadas, score e yes/no sobre texto em um único forward pass, em mais de 100 idiomas — alternativa leve a chamar um LLM completo para classificação/decisão simples.</li>
+<li><strong>Laya-mlx</strong>: runtime MLX nativo para os modelos de decisão do Laya, com decisões curtas de 7–14ms em Apple Silicon M3 Max, sem geração de texto, PyTorch ou API de nuvem — interessante para inferência on-device de baixa latência.</li>
+<li><strong>ZCode</strong> (Z.ai): harness de agente de coding da Z.ai, descrito como "powerful, intelligent and extensible" — mais uma entrada no espaço concorrido de agentic coding tools.</li>
+<li><strong>RAGflow</strong>: motor RAG open-source que funde retrieval com capacidades de Agent, um dos mais adotados em pipelines de conhecimento corporativo.</li>
+<li><strong>microsoft/onnxruntime</strong> (C++, +7⭐ hoje): plataforma de inferência e treino ML de alta performance, seguiu no trending diário do GitHub.</li>
+<li><strong>openai/whisper</strong> (Python, +43⭐ hoje): reconhecimento de fala robusto via weak supervision em larga escala, ainda entre os repositórios mais estrelados do trending diário.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Orquestração de Agentes / Agentic AI</strong>: coordenar múltiplos agentes para atingir objetivos complexos virou competência central; o stack agentic de 2026 combina tool use, agentes autônomos e MCP para agir sobre sistemas externos — o dev passa a atuar mais como orquestrador do que como programador linha a linha.</li>
+<li><strong>2. NLP aplicado</strong>: processamento de linguagem natural teve o maior crescimento entre skills técnicas de IA, com alta de 155% nas vagas que citam a competência.</li>
+<li><strong>3. RAG (Retrieval-Augmented Generation)</strong>: apontada como a skill de maior alavancagem em engenharia de IA em 2026 — dominar chunking, retrieval híbrido e grounding de evidências é diferencial competitivo direto.</li>
+<li><strong>4. Arquitetura e Design de Sistemas</strong>: com a geração de código de baixo nível cada vez mais automatizada por agentes, projetar boundaries de sistema, padrões e fluxo de dados vira o trabalho central do dev sênior, criando um ambiente mais seguro e estruturado para os agentes atuarem.</li>
+<li><strong>5. Verificação e Controle de Qualidade de IA</strong>: validar saídas geradas por IA via review, testes automatizados, checagens de segurança e verificação de premissas é cada vez mais exigido à medida que mais código chega gerado por agentes.</li>
+<li><strong>6. Geração de Dados Sintéticos</strong>: virou parte central do pipeline de desenvolvimento de IA, exigindo skills em pipelines de geração e validação de qualidade dos dados sintéticos usados em fine-tuning.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Q2D-Web</strong> (28/09/2026): benchmark em larga escala para retrieval em sistemas de RAG agentic — mede como agentes buscam e integram evidências da web em respostas multi-etapa.</li>
+<li><strong>NOVA — NOise-aware Verbal Confidence CAlibration</strong> (28/09/2026): calibração de confiança verbal robusta a ruído para LLMs em sistemas RAG, atacando o problema de modelos "confiantes demais" em respostas erradas.</li>
+<li><strong>STITCH-RAG</strong> (28/09/2026): rastreamento de influência espaço-temporal sobre hipergrafos de tópicos para RAG multi-hop — mira perguntas que exigem encadear evidências de várias fontes.</li>
+<li><strong>Mitigating Hallucination in Large Language Models</strong> — survey orientado a capacidades (27/09/2026): revisão sistemática de técnicas de RAG, reasoning e sistemas agentic para reduzir alucinação em produção.</li>
+<li><strong>QUATRO — Query-Adaptive Trust Region Policy Optimization</strong> (17/09/2026): método de fine-tuning de LLM via otimização de política com trust region adaptativo à query, mirando maior estabilidade de treino em RLHF/RLAIF.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv:2510.01375, aceito no ICLR 2026): propõe combinar fine-tuning com RAG para melhorar a aquisição de novas habilidades pelo modelo, indo além do RAG puro aplicado só em tempo de inferência.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">The Engineering Leader's Guide to AI Tools for Developers in 2026 — Cortex</a></li>
+<li><a href="https://dev.to/virciti/ai-development-tools-every-engineering-team-needs-in-2026-25km">AI Development Tools Every Engineering Team Needs in 2026 — DEV</a></li>
+<li><a href="https://www.datadoghq.com/state-of-ai-engineering/">State of AI Engineering — Datadog</a></li>
+<li><a href="https://www.shakudo.io/blog/top-9-ai-agent-frameworks">Top 9 AI Agent Frameworks as of September 2026 — Shakudo</a></li>
+<li><a href="https://github.com/agentproto/ts/releases/tag/release/2026-09-30">agentproto — release 2026-09-30 — GitHub</a></li>
+<li><a href="https://www.morphllm.com/best-ai-coding-agents-2026">Best AI Coding Agents (September 2026) — MorphLLM</a></li>
+<li><a href="https://huggingface.co/blog/tegridydev/ai-agents-list-2026-frameworks-agentic-harnesses">AI Agents List 2026 — Hugging Face</a></li>
+<li><a href="https://codeweek.eu/blog/ai-coding-tech-trends-2026/">AI Coding Tech Trends 2026 — CodeWeek</a></li>
+<li><a href="https://pooyagolchian.com/blog/claude-ai-developer-skills-trends-2026/">AI Developer Skills 2026 — Pooya Golchian</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 — TripleTen</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/422">Latest 15 Papers - September 30, 2026 — DailyArXiv</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/417">Latest 15 Papers - September 23, 2026 — DailyArXiv</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills — arXiv:2510.01375</a></li>
+<li><a href="https://llmgateway.io/timeline">New AI Model Releases — September 2026 Timeline — LLM Gateway</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-model-releases-september-2026-tracker">AI Model Releases: September 2026 Tracker — Digital Applied</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">The New MCP Roadmap — Model Context Protocol Blog</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">The 2026-07-28 Specification — Model Context Protocol Blog</a></li>
+<li><a href="https://www.infoworld.com/article/4201254/model-context-protocol-is-going-stateless-to-make-scaling-simpler.html">MCP is going stateless to make scaling simpler — InfoWorld</a></li>
+<li><a href="https://github.com/kouweizhu/agents-radar/issues/206">AI Open Source Trends 2026-09-26 — agents-radar</a></li>
+<li><a href="https://github.com/marc-ko/daily-trending-repo/issues/560">Latest 10 Trending Repositories - September 25, 2026 — daily-trending-repo</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, en)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 30/09/2026</div>
+</body></html>
