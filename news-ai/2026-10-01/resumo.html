@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 01/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 01/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>OpenAI GPT-6.1 Sol</strong>: entrega coding, computer use e trabalho profissional em nível próximo do GPT-5 Astra, mas a $2/$10 por milhão de tokens (input/output) contra $10/$50 do Astra — corte de preço relevante para quem roda agentes em produção em escala.</li>
+<li><strong>Google Gemini 4 Argon</strong>: eleva o limite de output para 1M de tokens (antes 64K nos modelos anteriores do Google); preço inicial de $2/1M tokens de input e $10/1M de output, subindo para $4/$20 depois de um período promocional.</li>
+<li><strong>Anthropic Claude Opus 5.5</strong>: lançado há cerca de uma semana (final de setembro/2026), consolidando a família Claude 5.</li>
+<li><strong>GPT-5.3-Codex</strong> (fev/2026): modelo por trás do Codex da OpenAI, acompanhado por um app desktop dedicado a gerenciar múltiplos agentes de coding rodando em paralelo por períodos longos.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangGraph v1.2.7</strong>: agora é um runtime standalone baseado em grafos para agentes stateful multi-ator, sem depender mais de outros pacotes <code>langchain-*</code>.</li>
+<li><strong>CrewAI 1.15.22</strong> (16/09/2026): versão estável mais recente do framework de orquestração multi-agente, um dos mais adotados no ecossistema Python.</li>
+<li><strong>Google ADK</strong>: SDK model-agnostic e deployment-agnostic (otimizado para Gemini), com suporte em 4 linguagens (Python, TypeScript, Java, Go) e suporte nativo a A2A (agent-to-agent).</li>
+<li><strong>Smolagents / CodeAgent (Hugging Face)</strong>: em vez de gerar chamadas de ferramenta em JSON, o modelo escreve snippets Python que invocam as ferramentas diretamente, reduzindo em cerca de <strong>30%</strong> o número de chamadas ao LLM em benchmarks complexos frente ao tool-calling tradicional.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol)</strong> recebeu uma atualização importante de especificação em setembro/2026, incorporando 18 meses de aprendizado de uso em produção para tornar as integrações mais estáveis e escaláveis.</li>
+<li><strong>Fragmentação de autenticação MCP</strong>: 5 mecanismos de autenticação distintos foram lançados entre meados e 30/09/2026, em resposta a uma vulnerabilidade crítica <strong>CVE-2026-59822 (CVSS 8.8)</strong> — nenhum deles interopera entre si, criando dor de cabeça para quem expõe servidores MCP publicamente.</li>
+<li><strong>Komprise Universal File MCP</strong>: novo servidor MCP para reduzir o "MCP bloat" — acúmulo de contexto que piora busca e UX quando muitos servidores de arquivos são conectados a um mesmo agente.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>MLflow</strong> continua como ferramenta open-source dominante para experiment tracking, model registry e deploy de modelos em produção.</li>
+<li><strong>GraphRAG</strong> se firma como abordagem padrão de produção para RAG sobre knowledge graphs complexos, especialmente em cenários de consultas multi-hop.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>debpalash/VoiceStudio</strong> (Python, ~50,3k ⭐ hoje) — alternativa open-source e 100% local ao ElevenLabs: voice cloning, dublagem de vídeo, dictation e transcrição em 646 idiomas.</li>
+<li><strong>deepseek-ai/deepseek-harness</strong> (~241,0k ⭐ hoje) — infraestrutura de agentes de IA construída sobre a filosofia "Everything is a Plugin".</li>
+<li><strong>karpathy/nanochat</strong> (57,5k ⭐ acumuladas) — stack completo de treinamento de LLM em um único repositório minimalista e legível, de Andrej Karpathy; um dos repositórios mais observados de 2026.</li>
+<li><strong>yetone/magpie</strong> (~2,6k ⭐ hoje) — gerencia diferentes modelos de IA (ex. Codex rodando sobre DeepSeek, Claude Code rodando sobre Kimi) direto da barra de menu do sistema.</li>
+<li><strong>anthropics/claude-plugins-official</strong> (Python, ~1,3k ⭐ hoje) — repositório oficial de plugins para o Claude Code.</li>
+<li><strong>KKKKhazix/AIHOT</strong> (~4,0k ⭐ hoje) — framework que rastreia tópicos em alta na web e gera relatórios diários automaticamente.</li>
+<li><strong>mvschwarz/openrig</strong> — harness multi-agente citado entre os destaques de infraestrutura de IA do dia nos radares de trending.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agent orchestration baseada em grafos de estado</strong>: com o LangGraph v1.2.7 abandonando a dependência de outros pacotes <code>langchain-*</code>, o padrão de runtime próprio para agentes multi-ator com memória de conversação complexa se consolida como abordagem de referência para workflows de produção.</li>
+<li><strong>Code-as-tool-calling</strong>: a abordagem do Smolagents/CodeAgent (Hugging Face), em que o LLM escreve Python para invocar ferramentas diretamente em vez de gerar JSON, corta cerca de 30% das chamadas ao modelo em benchmarks complexos — ganho direto de latência e custo para quem constrói agentes.</li>
+<li><strong>GraphRAG</strong>: RAG sobre grafos de conhecimento para lidar com queries multi-hop e relações complexas entre documentos; cada vez mais citado como peça de infraestrutura padrão em pipelines RAG de produção, ao lado de protocolos abertos de integração de ferramentas.</li>
+<li><strong>Eval design e observability de produção</strong>: junto com integração MCP e guardrails de segurança, aparecem no topo do checklist de contratação de devs de IA para 2026 — reflexo direto da maturidade crescente das stacks de agentes em produção.</li>
+<li><strong>Autenticação federada/hardening de servidores MCP</strong>: resposta fragmentada do ecossistema — 5 mecanismos de autenticação distintos e sem interoperabilidade — à CVE-2026-59822 (CVSS 8.8); tema obrigatório para quem expõe servidores MCP além do ambiente local.</li>
+<li><strong>Context compression em pipelines RAG</strong>: técnicas de "soft context compression" em dois estágios (ex. abordagem descrita no paper "Compression Beyond the Uncompressed") ganham tração para reduzir o custo de tokens em sistemas RAG de produção sem perder qualidade de recuperação.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>NOVA — NOise-aware Verbal Confidence CAlibration for Robust LLMs in RAG Systems</strong> (28/09/2026) — calibra a confiança verbal do modelo em cenários de RAG ruidoso, melhorando a detecção de respostas não confiáveis antes de chegarem ao usuário.</li>
+<li><strong>STITCH-RAG</strong> (28/09/2026) — Spatio-Temporal Influence Tracing over Topic Hypergraphs for Multi-Hop RAG: usa hypergraphs de tópicos para rastrear influência em recuperação multi-hop, útil para RAG sobre bases de conhecimento grandes e interligadas.</li>
+<li><strong>UR² — Unify RAG and Reasoning through Reinforcement Learning</strong> (22/09/2026) — unifica RAG e reasoning via reinforcement learning, relevante para quem treina agentes de raciocínio com retrieval acoplado.</li>
+<li><strong>Mitigating Hallucination in Large Language Models: A Capability-Oriented Survey on RAG, Reasoning, and Agentic Systems</strong> (27/09/2026) — survey que organiza técnicas de mitigação de hallucination por capability, útil como mapa de referência rápido para quem está escolhendo abordagem.</li>
+<li><strong>QUATRO — Query-Adaptive Trust Region Policy Optimization for LLM Fine-tuning</strong> (17/09/2026) — método de otimização de política adaptado à query, buscando fine-tuning mais estável de LLMs em RL.</li>
+<li><strong>TokenCast — Forecasting Token Consumption During LLM Agent Execution</strong> (28/09/2026) — prevê consumo de tokens durante a execução de agentes, peça útil para quem precisa orçar custo de agentes em produção antes de rodar.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.shakudo.io/blog/top-9-ai-agent-frameworks">Top 9 AI Agent Frameworks as of September 2026 — Shakudo</a></li>
+<li><a href="https://www.morphllm.com/ai-agent-framework">AI Agent Frameworks (2026 Update) — MorphLLM</a></li>
+<li><a href="https://www.firecrawl.dev/blog/best-open-source-agent-frameworks">The best open source frameworks for building AI agents in 2026 — Firecrawl</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Codex_(AI_agent)">Codex (AI agent) — Wikipedia</a></li>
+<li><a href="https://hackernoon.com/5-must-have-ai-skills-for-developers-in-2026-and-how-to-learn-them">5 Must-Have AI Skills for Developers in 2026 — HackerNoon</a></li>
+<li><a href="https://doit.software/blog/ai-developer-skills">Top 13 AI Developer Skills for 2026 — doiT Software</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/423">Latest 15 Papers - October 01, 2026 — DailyArXiv</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/422">Latest 15 Papers - September 30, 2026 — DailyArXiv</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/420">Latest 15 Papers - September 28, 2026 — DailyArXiv</a></li>
+<li><a href="https://github.com/jyyang621/DailyArXiv/issues/417">Latest 15 Papers - September 23, 2026 — DailyArXiv</a></li>
+<li><a href="https://github.com/zachysun/DailyArXiv/issues/564">Latest 20 Papers - September 21, 2026 — DailyArXiv</a></li>
+<li><a href="https://github.com/trending">GitHub Trending</a></li>
+<li><a href="https://github.com/marc-ko/daily-trending-repo/issues/567">Latest 10 Trending Repositories - October 01, 2026</a></li>
+<li><a href="https://www.firecrawl.dev/blog/best-github-repos">Best Trending GitHub Repositories for AI Developers to Star in 2026 — Firecrawl</a></li>
+<li><a href="https://llm-stats.com/ai-news">LLM News Today (October 2026) — llm-stats.com</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">Model Context Protocol — Wikipedia</a></li>
+<li><a href="https://thenewstack.io/model-context-protocol-roadmap-2026/">MCP's biggest growing pains for production use will soon be solved — The New Stack</a></li>
+<li><a href="https://cryptorank.io/news/feed/50775-five-mcp-authentication-mechanisms-shipped-in-two-weeks-the-pattern">Five MCP Authentication Mechanisms Shipped in Two Weeks — CryptoRank</a></li>
+<li><a href="https://itdaily.com/news/software/mcp-2026-update-specs/">MCP protocol receives major update — ITdaily</a></li>
+<li><a href="https://manilatimes.net/2026/09/29/tmt-newswire/globenewswire/komprise-breaks-the-ai-context-barrier-and-reduces-mcp-bloat-with-new-universal-file-mcp-solution/2435020">Komprise Universal File MCP — GlobeNewswire</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 01/10/2026</div>
+</body></html>
