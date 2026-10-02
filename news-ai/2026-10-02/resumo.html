@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 02/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 02/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Anthropic Claude Opus 5.5 e Sonnet 5.5</strong> (22/09/2026): Opus 5.5 é voltado para agentic coding de longa duração e knowledge work, equiparando-se ao Claude Fable 5.1 na maioria das tarefas com custo menor e resposta mais rápida; Sonnet 5.5 virou o novo padrão no Claude Code, com upgrades em uso, MCP, plugins e performance.</li>
+<li><strong>OpenAI GPT-6.1 Sol</strong> (22/09/2026): entrega coding, computer use e trabalho profissional em nível próximo do GPT-5 Astra, mas a $2/$10 por milhão de tokens (input/output) contra $10/$50 do Astra — corte de preço relevante para quem roda agentes em produção em escala.</li>
+<li><strong>Google Gemini 4 Argon</strong> (30/09/2026): eleva o limite de output para 1M de tokens (antes 64K nos modelos anteriores do Google); preço inicial de $2/1M tokens de input e $10/1M de output, subindo para $4/$20 após período promocional. Vem logo após o <strong>Gemini 3.8 Flash</strong> (02/09/2026), focado em software engineering, agent workflows e reasoning multi-etapa a custo menor que modelos frontier.</li>
+<li><strong>Pareto 26.10 Preview</strong> (01/10/2026) e <strong>Mercury Voice</strong> (29/09/2026): lançamentos recentes adicionados ao radar de modelos, ampliando a oferta de opções especializadas (voz, tarefas estruturadas) fora do trio Anthropic/OpenAI/Google.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangGraph v1.2.7</strong>: agora é runtime standalone baseado em grafos para agentes stateful multi-ator, sem depender mais de outros pacotes <code>langchain-*</code>.</li>
+<li><strong>CrewAI 1.15.22</strong> (16/09/2026): versão estável mais recente do framework de orquestração multi-agente, com mais de 52.800 estrelas no GitHub.</li>
+<li><strong>Milvus 3.0.2</strong> (20/09/2026): vector DB com arquitetura lake-native, adicionando busca nativa sobre Parquet, Lance, Iceberg e Vortex; branch 2.6.24 também recebeu patch em 16/09/2026.</li>
+<li><strong>Replit Agent 3 sobre Mastra</strong>: a migração para o framework Mastra elevou a taxa de sucesso de tarefas de 80% para 96% no assistente de coding da Replit — ganho concreto citado como case de referência para quem avalia frameworks de agentes.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP vai stateless</strong>: a especificação 2026-07-28 tornou o protocolo stateless, com novo framework de autorização baseado em OAuth 2.1 + OpenID Connect, MCP Apps interativos e caching determinístico de tool/resource listings para melhorar hit-rate de prompt cache. Adoção: SDKs TypeScript e Python já passaram de 1 bilhão de downloads cada, com quase 500 milhões de downloads/mês nos SDKs Tier 1.</li>
+<li><strong>MCP doado para a Agentic AI Foundation</strong>: a Anthropic anunciou a doação do Model Context Protocol para uma fundação dedicada, movimento de governança para acelerar adoção enterprise do protocolo.</li>
+<li><strong>SDK Ruby para MCP 1.0.0</strong>: primeira versão estável com API pública estabilizada, ampliando o leque de linguagens com suporte oficial ao protocolo.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>GraphRAG</strong> segue se firmando como abordagem padrão de produção para RAG sobre knowledge graphs complexos, especialmente em consultas multi-hop — tema recorrente nos papers desta semana (ver Matryoshka Hierarchical RAG abaixo).</li>
+<li><strong>Observability de agentes</strong>: LangSmith, Weights & Biases e Arize AI seguem como stack dominante para rastrear drift, debugar chains/agents e monitorar custo de execução em produção.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>Dao-AILab/flash-attention</strong> (Python, 25.059 ⭐ totais, +14 hoje) — implementação de atenção exata rápida e eficiente em memória, base de boa parte dos stacks de treinamento de LLM atuais.</li>
+<li><strong>PostHog/posthog</strong> (Python, 40.095 ⭐ totais, +29 hoje) — plataforma de analytics que vem incorporando observability e capacidades de ML para produtos de IA.</li>
+<li><strong>n8n-io/n8n</strong> (TypeScript, 206.496 ⭐ totais, +101 hoje) — automação de workflows com capacidades nativas de IA e mais de 400 integrações, segue como um dos repositórios mais ativos do GitHub.</li>
+<li><strong>chidiwilliams/buzz</strong> (Python, 21.796 ⭐ totais, +15 hoje) — transcrição e tradução de áudio offline usando o Whisper da OpenAI.</li>
+<li><strong>NationalSecurityAgency/ghidra</strong> (Java, 80.283 ⭐ totais, +201 hoje) — framework de engenharia reversa de software, com pico de atividade relevante hoje.</li>
+<li><strong>helix-editor/helix</strong> (Rust, 46.431 ⭐ totais, +21 hoje) — editor de texto modal moderno, popular entre devs que integram assistentes de IA via terminal.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agent orchestration baseada em grafos de estado</strong>: com o LangGraph v1.2.7 abandonando dependência de outros pacotes <code>langchain-*</code>, o padrão de runtime próprio para agentes multi-ator com memória complexa se consolida como referência para produção; Gartner cita agentic AI como tendência-chave de 2026 e o Upwork reportou crescimento de 178% ano a ano em contratações para integração de IA.</li>
+<li><strong>Migração para frameworks de agente dedicados</strong>: o salto de 80% para 96% na taxa de sucesso de tarefas do Replit Agent 3 ao adotar o Mastra é citado como evidência concreta de que a escolha de framework de orquestração impacta diretamente a confiabilidade do agente em produção.</li>
+<li><strong>GraphRAG e RAG multi-hop hierárquico</strong>: abordagens como o "Matryoshka Hierarchical RAG" (arXiv:2610.01767, 01/10/2026) buscam eficiência em question answering multi-hop; tema recorrente junto com taxonomias que organizam RAG por eficiência, defesa, interatividade e reasoning (arXiv:2610.01936).</li>
+<li><strong>MCP stateless + OAuth 2.1/OIDC</strong>: a migração da especificação MCP para um modelo stateless com autorização baseada em padrões abertos é o tema de hardening mais citado do momento, essencial para quem expõe servidores MCP em produção/enterprise.</li>
+<li><strong>Defesa contra prompt injection e contexto envenenado em RAG</strong>: papers como "UniGuardian" (arXiv:2502.13141v2) e "When Detection Does Not Guarantee Resistance: Reasoning and Poisoned Context in RAG" (arXiv:2608.17153v4, 30/09/2026) mostram que detectar ataques não basta — o pipeline de reasoning precisa ser robusto mesmo quando o contexto recuperado já está comprometido.</li>
+<li><strong>Detecção de hallucination por observador externo</strong>: a técnica de "cross-model span-level hallucination detection" (arXiv:2610.02066, 01/10/2026) usa um segundo modelo para auditar spans específicos da resposta do primeiro, abordagem ganhando tração como camada de guardrail barata de adicionar antes de servir a resposta ao usuário.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>TACO: Ternary Absolute-max Column-wise One-sparse Optimizer for LLM Fine-Tuning</strong> (arXiv:2610.02199, 01/10/2026) — otimizador ternário column-wise para fine-tuning de LLMs, buscando reduzir memória e custo de treinamento mantendo qualidade.</li>
+<li><strong>Mapping the RAG Landscape: A Four Axis Taxonomy of Efficiency, Defense, Interactivity, and Reasoning</strong> (arXiv:2610.01936, 01/10/2026) — taxonomia que organiza o estado da arte de RAG em quatro eixos, útil como mapa de referência para escolher abordagem.</li>
+<li><strong>A Matryoshka Hierarchical RAG for Efficient Multi-Hop Question Answering</strong> (arXiv:2610.01767, 01/10/2026) — estrutura hierárquica "matryoshka" para RAG multi-hop mais eficiente em question answering complexo.</li>
+<li><strong>Causal Memory Policy: Making Memory Utility Identifiable by Intervening on Retrieval</strong> (arXiv:2610.02070, 01/10/2026) — propõe intervenção causal sobre retrieval para tornar a utilidade da memória de agentes mensurável, relevante para quem projeta agentes com memória de longo prazo.</li>
+<li><strong>External Observers May See More Clearly: Cross-Model Span-Level Hallucination Detection</strong> (arXiv:2610.02066, 01/10/2026) — detecção de hallucination span-level usando um modelo observador externo ao modelo gerador.</li>
+<li><strong>Fine-Tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv:2510.01375, ICLR 2026) — combina fine-tuning com RAG para corrigir falhas comuns de agentes em tarefas multi-etapa (ações com pré-condições não satisfeitas, comandos redundantes, erros de ambiente).</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://releasebot.io/updates/anthropic">Anthropic Release Notes — October 2026 — Releasebot</a></li>
+<li><a href="https://llm-stats.com/ai-news">LLM News Today (October 2026) — llm-stats.com</a></li>
+<li><a href="https://llm-stats.com/llm-updates">AI Updates Today (October 2026) — llm-stats.com</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">Model Context Protocol — Wikipedia</a></li>
+<li><a href="https://itdaily.com/news/software/mcp-2026-update-specs/">MCP protocol receives major update — ITdaily</a></li>
+<li><a href="https://thenewstack.io/model-context-protocol-roadmap-2026/">MCP's biggest growing pains for production use will soon be solved — The New Stack</a></li>
+<li><a href="https://www.infoworld.com/article/4201254/model-context-protocol-is-going-stateless-to-make-scaling-simpler.html">Model Context Protocol is going stateless — InfoWorld</a></li>
+<li><a href="https://venturebeat.com/orchestration/mcp-just-got-its-biggest-update-ever-heres-what-changes-for-ai-agents">MCP just got its biggest update ever — VentureBeat</a></li>
+<li><a href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation">Donating MCP to the Agentic AI Foundation — Anthropic</a></li>
+<li><a href="https://www.firecrawl.dev/blog/best-open-source-agent-frameworks">The best open source frameworks for building AI agents in 2026 — Firecrawl</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CrewAI">CrewAI — Wikipedia</a></li>
+<li><a href="https://www.turingpost.com/p/vector-databases-libraries-resources">Best Open-Source Vector Databases for LLMs in 2026 — Turing Post</a></li>
+<li><a href="https://doit.software/blog/ai-developer-skills">Top 13 AI Developer Skills for 2026 — doiT Software</a></li>
+<li><a href="https://hackernoon.com/5-must-have-ai-skills-for-developers-in-2026-and-how-to-learn-them">5 Must-Have AI Skills for Developers in 2026 — HackerNoon</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily (EN)</a></li>
+<li><a href="https://github.com/Ep11phany/DailyArXiv/issues/382">Latest 15 Papers - October 02, 2026 — DailyArXiv</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills — arXiv</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 02/10/2026</div>
+</body></html>
