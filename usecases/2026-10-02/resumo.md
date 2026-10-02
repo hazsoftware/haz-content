@@ -1,0 +1,7 @@
+# Usecases de IA — 02/10/2026
+
+- **Claude Code — OpenRig: harness multi-agente que une Claude Code e Codex num só time**: Um dev independente lançou um projeto open source que orquestra sessões de Claude Code e Codex como uma única equipe definida em YAML, rodando em tmux e com troca de mensagens entre os agentes; o projeto viralizou no Show HN e passou de 600 estrelas no GitHub em um único dia. Fonte: https://news.ycombinator.com/item?id=47772935 (repositório: https://github.com/mvschwarz/openrig)
+
+- **OpenAI Codex — Codex Cloud e novas ferramentas anunciadas na DevDay 2026**: Na DevDay 2026 (01/10), a OpenAI anunciou ambientes de nuvem reutilizáveis para o Codex que podem ser retomados de qualquer dispositivo (desktop, web ou mobile), um novo fluxo de code review para PRs do GitHub e MRs do GitLab, e o Codex Security Cloud, que escaneia repositórios e prepara correções automaticamente. Fonte: https://openai.com/index/introducing-upgrades-to-codex/
+
+- **Hermes Agent (Nous Research) — tutorial de "Sign in with ChatGPT" no Nous Portal**: A Nous Research lançou integração oficial que permite logar no Nous Portal com a conta ChatGPT para usar o plano pago dentro do Hermes Agent, dando acesso a mais de 300 modelos e ao Tool Gateway (busca web, geração de imagem, automação de navegador) por uma única assinatura; um dev já publicou um tutorial mostrando o passo a passo da configuração. Fonte: https://x.com/tonbistudio/status/2105010298352799879 (anúncio técnico: https://github.com/NousResearch/hermes-agent/issues/128880)
