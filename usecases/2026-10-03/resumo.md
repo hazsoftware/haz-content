@@ -1,0 +1,3 @@
+# Usecases de IA — 03/10/2026
+
+- **Claude Code — Barclays expande uso do Claude para 50% dos desenvolvedores até o fim de 2026**: o Barclays anunciou a expansão do uso da Claude (incluindo Claude Code) para apoiar desenvolvimento de software, modernização de sistemas legados e operações internas, com meta de que metade dos seus desenvolvedores use a ferramenta até o fim do ano. O banco já roda um assistente de conhecimento interno (RAG) com mais de 1 milhão de buscas entre 16 mil funcionários e usa Claude para classificar e rotear cerca de 120 mil e-mails de clientes por dia na divisão de Global Markets. Fonte: https://ffnews.com/news/barclays-scales-claude-to-upgrade-operations-and-improve-client-experience-15560521
