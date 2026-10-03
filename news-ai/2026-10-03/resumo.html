@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 03/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 03/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Grok 4.7</strong> (21/09/2026): lançado pela xAI, já disponível no Cursor (padrão "Fast" nos planos Pro+), GitHub Copilot e na API. Contexto de 500 mil tokens, níveis de reasoning de Low a XHigh (High como padrão), mantendo o mesmo preço do Grok 4.6: $2/milhão de tokens de entrada e $6/milhão de saída.</li>
+<li><strong>OpenAI Codex CLI 0.156.0</strong> (22/09/2026): nova versão da CLI de agente de código da OpenAI, lançada na mesma semana em que o OpenCode V2 e o Grok 4.7 atualizaram seus pipelines de coding agent.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Claude Code Mods</strong> (Anthropic, set/2026): extensões em TypeScript que reescrevem o prompt antes de chegar ao modelo, bloqueiam/repetem chamadas de ferramentas, aprovam ou negam permissões e redigem segredos da saída. Um mod exporta uma função <code>register(on, options)</code> que escuta eventos como <code>tool.call</code>, <code>prompt.submit</code> e <code>turn.start</code>; distribuem-se via plugins pelo comando <code>/plugin</code>. Rodam sem sandbox, com o mesmo acesso à máquina que o próprio Claude Code — só instalar de fontes confiáveis.</li>
+<li><strong>CrewAI 1.15.22</strong> (16/09/2026): adicionou <code>llm_overlay</code> para rotear papéis de agentes para modelos diferentes por contexto, suporte ao OpenRouter como provedor de embeddings e correções como leitura de checkpoints JSON em UTF-8 e fix de crash na TUI quando a saída em stream contém colchetes literais.</li>
+<li><strong>OpenCode V2 2.0.14</strong> (22/09/2026): builds semanais trouxeram hooks experimentais de WebSocket para plugins, suporte a conteúdo de config inline e exibição explícita dos modelos usados por subagentes.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Microsoft Agent Framework</strong> (GA em abril/2026, novidades no BUILD 2026): unifica AutoGen e Semantic Kernel numa única plataforma suportada. Os "Hosted Agents" no Foundry Agent Service permitem deploy do próprio código em container com scale-to-zero (zero cobrança quando ocioso) e estado de sessão persistente entre escalonamentos.</li>
+<li><strong>DeepKeep AI Lens for Developers</strong> e <strong>Classie Supervise</strong> (lançados início de out/2026): novas ferramentas de observabilidade que dão a times de segurança (CISOs) visibilidade sobre o que agentes de codificação como Claude Code e Cursor fazem em ambientes corporativos, refletindo a preocupação crescente com segurança de agentes autônomos.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>CodeAct via Hyperlight</strong> (Microsoft Agent Framework, BUILD 2026): novo pacote <code>agent-framework-hyperlight</code> permite que o agente escreva e execute código que orquestra várias ações num único turno, em vez de uma chamada de ferramenta por turno, reduzindo o overhead de orquestração e o número de turnos do modelo necessários.</li>
+<li><strong>Agent Harness</strong> (Microsoft Agent Framework): torna padrões de produção nativos do framework — compactação de contexto, merge de instruções, rastreamento de todo-lists e provedores extensíveis — já em uso geral desde meados de 2026.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>mattpocock/skills</strong> (TypeScript) — +955 ⭐ hoje: conjunto curado e modular de "skills" para workflows de agentes, de um educador TypeScript conhecido na comunidade.</li>
+<li><strong>Panniantong/Agent-Reach</strong> — +696 ⭐ hoje: CLI única que permite agentes navegarem e pesquisarem Twitter, Reddit, YouTube, GitHub, Bilibili e XiaoHongShu sem custo de API.</li>
+<li><strong>mvschwarz/openrig</strong> — +683 ⭐ hoje: framework para criar redes persistentes de agentes com papéis definidos (multi-agent harness).</li>
+<li><strong>NVIDIA/OpenShell</strong> (Rust) — +594 ⭐ hoje: runtime seguro e privado para execução de agentes autônomos.</li>
+<li><strong>mksglu/context-mode</strong> — +282 ⭐ hoje: reduz drasticamente o tamanho das janelas de contexto para agentes de código, isolando saídas em sandbox e persistindo memória entre sessões.</li>
+<li><strong>firecrawl/firecrawl</strong> (TypeScript) — 188.004 ⭐ no total: API unificada de dados web (busca, scrape, crawl) construída especificamente para consumo por agentes de IA.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agentic Post-Training com Routing Harness</strong>: técnica por trás do modelo NeoHorse-1 (arXiv 2609.08183, set/2026) — roteia tarefas entre um pool heterogêneo de modelos, registra sinais de capacidade demandada e converte as interações em exemplos de treino usados num currículo supervisionado de 3 estágios. Elevou o score macro-médio de 58,94 para 64,87 no checkpoint de 4B e de 65,60 para 69,04 no de 9B, ambos pós-treinados a partir do Qwen3.5.</li>
+<li><strong>Tool-calling no lugar de fine-tuning</strong>: a forma de customização de modelo que mais cresce em 2026 não é retreinar, e sim dar ao modelo acesso a ferramentas — uma função que consulta um banco de dados, um calendário ou roda uma query SQL no data warehouse. Aparece no topo do checklist de contratação de 2026 ao lado de integração MCP, design de evals e orquestração de agentes.</li>
+<li><strong>Fine-tuning combinado com RAG para novas skills</strong>: o paper "Fine-tuning with RAG for Improving LLM Learning of New Skills" (arXiv 2510.01375) mostra que RAG sozinho não basta quando o agente precisa aprender um comportamento novo em tarefas multi-step — combinar com fine-tuning direcionado reduz as falhas nesses casos.</li>
+<li><strong>CodeAct (ação do agente como código executável)</strong>: em vez do agente chamar ferramentas uma a uma, ele escreve e roda código que encadeia várias ações num só turno. A Microsoft implementou via Hyperlight (sandbox leve) no Agent Framework, reduzindo o número de turnos do modelo necessários por tarefa.</li>
+<li><strong>RAG agêntico com supervisão de processo</strong>: frameworks como RAG-Gym otimizam agentes de busca e raciocínio supervisionando cada passo do processo (não só o resultado final), e RAG-Modulo acrescenta memória de experiência e um módulo crítico para melhorar a execução de tarefas sequenciais por agentes baseados em LLM.</li>
+<li><strong>Observabilidade e governança de agentes de código em produção</strong>: com o lançamento de DeepKeep AI Lens e Classie Supervise em out/2026, cresce a adoção de camadas de monitoramento que dão a times de segurança visibilidade sobre o que agentes como Claude Code e Cursor fazem dentro de ambientes corporativos — resposta direta ao aumento de incidentes ligados a agentes autônomos com acesso amplo à máquina (caso dos mods do Claude Code, que rodam sem sandbox).</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness</strong> (<a href="https://arxiv.org/abs/2609.08183">arXiv 2609.08183</a>, set/2026) — família de modelos agent-native de 4B e 9B parâmetros pós-treinados a partir do Qwen3.5, usando destilação on-policy guiada por roteamento; ganhos de +5,9 e +3,4 pontos no score macro-médio sobre as versões base.</li>
+<li><strong>FinRetrieval: A Benchmark for Financial Data Retrieval by AI Agents</strong> (<a href="https://arxiv.org/abs/2603.04403">arXiv 2603.04403</a>) — 500 perguntas de recuperação financeira avaliadas em 14 configurações de agentes (Anthropic, OpenAI, Google) com traces completos de chamadas de ferramenta. Claude Opus atinge 90,8% de acurácia com APIs de dados estruturados mas só 19,8% com busca web pura — um gap de 71 pontos percentuais, 3-4x maior que o de outros provedores.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (<a href="https://arxiv.org/abs/2510.01375">arXiv 2510.01375</a>) — mostra em quais cenários RAG sozinho falha para ensinar comportamentos novos a agentes em tarefas multi-step, e como combinar com fine-tuning direcionado resolve isso.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG) — Taxonomy, Architectures, Evaluation, and Research Directions</strong> (<a href="https://arxiv.org/pdf/2603.07379">arXiv 2603.07379</a>) — revisão sistemática que organiza arquiteturas de RAG agêntico e propõe direções de avaliação, referência para quem está desenhando pipelines de RAG com agentes.</li>
+<li><strong>RAG-Gym: Optimizing Reasoning and Search Agents with Process Supervision</strong> — framework unificado que otimiza agentes de busca e raciocínio via supervisão fine-grained de cada passo do processo, não apenas do resultado final.</li>
+<li><strong>RAG-Modulo: Solving Sequential Tasks using Experience, Critics, and Language Models</strong> — acrescenta memória de experiência e um módulo crítico a agentes baseados em LLM para melhorar a execução de tarefas sequenciais.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://forum.cursor.com/t/grok-4-7-is-now-live/172526">Grok 4.7 is now Live! — Cursor Community Forum</a></li>
+<li><a href="https://llm-stats.com/blog/research/grok-4-7-launch">Grok 4.7 Release: Same Price, Longer Horizons</a></li>
+<li><a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/">Microsoft Agent Framework at BUILD 2026</a></li>
+<li><a href="https://devblogs.microsoft.com/agent-framework/codeact-with-hyperlight/">CodeAct in Agent Framework: Faster Agents with Fewer Model Turns</a></li>
+<li><a href="https://aiweekly.co/alerts/anthropic-launches-claude-code-mods-typescript-agent-hooks">Anthropic Launches Claude Code Mods, TypeScript Agent Hooks</a></li>
+<li><a href="https://github.com/crewAIInc/crewAI/releases/tag/1.15.22">CrewAI Release 1.15.22</a></li>
+<li><a href="https://github.com/ming-14/OpenCodev2-Release/releases/tag/v2-20260922-651529d">OpenCode V2 Release 2026-09-22</a></li>
+<li><a href="https://aiagentsdirectory.com/news/ai-agents-news-brief-october-2-2026">AI Agents News Brief — October 2, 2026</a></li>
+<li><a href="https://github.com/bianzhilong2-ctrl/agents-radar/issues/1392">AI Open Source Trends 2026-10-03 — agents-radar</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily)</a></li>
+<li><a href="https://arxiv.org/abs/2609.08183">NeoHorse-1 (arXiv 2609.08183)</a></li>
+<li><a href="https://arxiv.org/abs/2603.04403">FinRetrieval (arXiv 2603.04403)</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills (arXiv 2510.01375)</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">SoK: Agentic RAG (arXiv 2603.07379)</a></li>
+<li><a href="https://huggingface.co/papers/trending">Hugging Face Trending Papers</a></li>
+<li><a href="https://tripleten.com/blog/posts/ai-skills">AI Skills to Learn in 2026 — TripleTen</a></li>
+<li><a href="https://bigdataboutique.com/blog/fine-tuning-llms-when-rag-isnt-enough">Fine-Tuning LLMs in 2026: When RAG Isn't Enough</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 03/10/2026</div>
+</body></html>
