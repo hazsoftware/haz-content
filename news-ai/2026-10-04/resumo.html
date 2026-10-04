@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 04/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 04/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6.1 Sol</strong> (out/2026): OpenAI lançou o GPT-6.1 Sol junto com o agente automatizado "Dots" e um plano de US$500/mês para usuários de alta demanda. O modelo quase empata com o topo de linha GPT-6 Astra a um custo menor, com taxa de erro caindo para 7,7% (de 11,4% em iterações anteriores). A OpenAI também pausou o desenvolvimento do GPT-6.1 Astra, mais capaz.</li>
+<li><strong>Claude Sonnet 5.5</strong> (out/2026): Anthropic lançou o Sonnet 5.5 prometendo 30% mais velocidade com 30% de redução de custo para o mesmo trabalho — relevante para quem roda Sonnet em produção via API.</li>
+<li><strong>Gemini 4 Argon</strong> (out/2026): Google apresentou o Gemini 4 Argon, seu novo modelo de ponta, com resultados de benchmark no topo da tabela, buscando competir diretamente com GPT-6 e Claude no frontier.</li>
+<li><strong>Deprecações no GitHub Models</strong> (19/10/2026): GitHub vai descontinuar GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, Gemini 3.7 Flash e Grok 4.5 — devs que dependem desses modelos via GitHub Models precisam migrar antes da data.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Claude Code Mods</strong> (01/10/2026): Anthropic lançou "mods" — pequenas funções TypeScript/JavaScript que interceptam eventos internos do Claude Code (tool.call, prompt.submit, turn.start, command.run, ui.render) e podem observar, reescrever ou substituir o comportamento do agente, no estilo middleware do Express. A própria Anthropic converteu três features nativas (diff pane, carregador de AGENTS.md e telemetria) em mods no lançamento. Atenção: mods não são sandboxed e rodam com o mesmo acesso à máquina que o Claude Code.</li>
+<li><strong>Microsoft Agent Framework 1.19.0</strong>: a versão Python passou a isolar sessões MCP por invocação, autenticar requisições contra identidade/origem corretas, restringir pacotes de skills a arquivos ZIP e verificar digests de arquivos — reforço de segurança para quem integra MCP via esse framework.</li>
+<li><strong>IBM Bob self-hosted</strong> (01/10/2026): IBM lançou a versão self-hosted do agente de código Bob, permitindo que bancos e governos rodem o agente em ambientes totalmente air-gapped.</li>
+<li><strong>GitLab Duo 19.4</strong>: expandiu a automação agêntica por toda a plataforma, adicionando controles de governança sobre quais modelos os agentes podem usar e visibilidade detalhada de uso de "GitLab Credits"; a partir de 19/10 o tráfego de agentes passa a ser medido por usuário/grupo.</li>
+<li><strong>CrewAI 1.15.22</strong>: release estável mais recente do framework de orquestração multiagente (desde 16/09/2026).</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP vai stateless</strong> (out/2026): o Model Context Protocol recebeu sua maior atualização desde o lançamento pela Anthropic, após 18 meses de uso em produção. Mudanças principais: modelo de transporte/sessão revisado para servidores escalarem horizontalmente sem manter estado em uma única máquina; novo framework de autorização baseado em OAuth 2.1 + OpenID Connect; MCP Apps interativos; e cache determinístico de listagens de tools/resources para melhorar hit rate de prompt cache.</li>
+<li><strong>AutoCompact</strong> (paper 2610.02163): técnica para agentes de código de longo horizonte aprenderem quando e o que compactar no contexto durante tarefas extensas de engenharia de software — ataca diretamente o problema de context window em agentes autônomos.</li>
+<li><strong>Agenda do setor</strong>: MCP Dev Summit Toronto acontece em 05/10/2026 (livestream) e AGNTCon + MCPCon North America em 22-23/10/2026 em San Jose.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>RAG supera fine-tuning em recall factual por 28-41%</strong>: dado de relatório de arquitetura enterprise de 2026 — consenso maduro é retrieval para conhecimento de domínio, fine-tuning só para comportamento/estilo.</li>
+<li><strong>Hybrid retrieval (BM25 + dense vector + RRF)</strong> supera busca vetorial pura em 15-30% em tarefas enterprise, segundo o mesmo levantamento — reforça a tendência de pipelines em duas etapas (lexical + rerank semântico) em vez de vector DB-only.</li>
+<li><strong>"RIP vector database"</strong>: discussão crescente desde 01/10/2026 questionando se times precisam de um vector DB dedicado, já que pipelines BM25 + rerank por embedding podem superar busca vetorial pura reduzindo complexidade de infra.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>AIHOT</strong> (TypeScript, ⭐5.534 hoje) — framework para montar sites de "radar de notícias" que se curam automaticamente a partir de fontes customizadas; virou referência rápida para quem quer um agregador de notícias de IA.</li>
+<li><strong>universal-modder</strong> (Python, ⭐2.721 hoje) — ferramenta de modificação de jogos via engenharia reversa potencializada por Claude Code; exemplo prático de agente de código aplicado fora do contexto típico de dev web.</li>
+<li><strong>OpenDots</strong> (TypeScript, ⭐2.716 hoje) — "coworkers de IA always-on" que se movem entre texto, chamadas de voz e Slack, competindo no espaço de agentes assíncronos de equipe.</li>
+<li><strong>dots</strong> (Python, ⭐2.581 hoje) — agente de navegador open-source com recursos anti-detecção para automação web, puxado pelo hype do "Dots" anunciado pela OpenAI na mesma semana.</li>
+<li><strong>jeff</strong> (Python, ⭐1.352 hoje) — modelo compacto de 0,8B parâmetros para tomada de decisão rápida via probabilidades calibradas, pensado para rodar embarcado/local em vez de chamar uma API grande.</li>
+<li><strong>reelmimic</strong> (JavaScript, ⭐1.157 hoje) — gerador de vídeo por IA que recria vídeos em estilos pedidos usando um sistema multiagente.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context compaction em agentes de longo horizonte</strong>: técnica exemplificada pelo paper AutoCompact (2610.02163), que treina agentes de código para decidir quando e o que resumir/descartar do contexto durante tarefas longas, reduzindo custo de token sem perder estado relevante — essencial para agentes que rodam por dezenas de passos.</li>
+<li><strong>Hybrid retrieval com reciprocal rank fusion</strong>: combinar busca lexical (BM25/FTS) com embedding denso e fundir os rankings via RRF supera vector search puro em 15-30% em benchmarks enterprise, e está deslocando o "vector DB primeiro" como baseline padrão de RAG.</li>
+<li><strong>Agent orchestration / MCP integration</strong>: consolidado como uma das competências mais cobradas em 2026 junto com eval design, vector DB/RAG, cost optimization, safety/guardrails e observability de produção — o paper KaliBench e o Argo-Bench (ambos out/2026) são exemplos de benchmarks criados justamente para avaliar esse tipo de agente.</li>
+<li><strong>Zero/First-Order fine-tuning (ZFO)</strong>: método descrito no paper "Trust the Direction, Search the Step" (2610.02190), que separa a escolha do tamanho do passo do cálculo da direção de otimização, melhorando estabilidade do fine-tuning de LLMs sem custo adicional de memória como o backprop completo.</li>
+<li><strong>Sampling-aware SFT</strong>: o paper "Finetuning with Sampling" (2610.02140) mostra que supervised fine-tuning com estratégia de sampling adequada generaliza melhor do que se pensava, sem sacrificar capacidades já existentes do modelo base — relevante para quem faz fine-tuning próprio em vez de só RAG.</li>
+<li><strong>Mods/middleware para agentes de código</strong>: com o lançamento dos Claude Code Mods (01/10/2026), a técnica de interceptar o ciclo de vida do agente (prompt → tool call → resposta) via funções register(on, options) no estilo Express middleware se torna um padrão replicável para quem constrói agentes customizados sobre qualquer harness.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>KaliBench: A Fine-Grained Benchmark for Cybersecurity Tool Use on Kali Linux</strong> (2610.02206) — benchmark com recompensas verificáveis sem necessidade de runtime para avaliar LLMs em tarefas de segurança ofensiva no Kali Linux.</li>
+<li><strong>AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents</strong> (2610.02163) — treina agentes de código para decidir quando e o que compactar no contexto durante tarefas longas de engenharia de software.</li>
+<li><strong>Argo-Bench: Evaluating Data Agents on Enterprise-Scale Workflows</strong> (2610.02122) — avalia agentes de dados em workflows reais de ciência de dados que exigem raciocínio sobre múltiplas tabelas, com gabaritos corrigidos.</li>
+<li><strong>Trust the Direction, Search the Step: Zero-and-First-Order Methods for LLM Fine-Tuning</strong> (2610.02190) — framework ZFO que separa direção e tamanho do passo na otimização para estabilizar o fine-tuning de LLMs.</li>
+<li><strong>Finetuning with Sampling: SFT Learns Better Than You Think</strong> (2610.02140) — mostra que SFT com sampling apropriado atinge generalização mais forte do que se assumia, mantendo capacidades prévias do modelo.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (2510.01375, ICLR 2026) — ataca falhas previsíveis de agentes LLM em tarefas multi-etapa combinando fine-tuning com orientação de RAG em tempo de execução.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of October 3, 2026</a></li>
+<li><a href="https://aiagentsdirectory.com/news/ai-agents-news-brief-october-3-2026">AI Agents News Brief: October 3, 2026</a></li>
+<li><a href="https://www.cnbc.com/2026/10/02/tech-download-google-argon-frontier-openai-anthropic.html">CNBC — Google Argon vs OpenAI/Anthropic</a></li>
+<li><a href="https://www.microcenter.com/site/mc-news/article/this-week-in-ai-oct-2-2026.aspx">This Week in AI: OpenAI, Anthropic, Google — Oct 2, 2026</a></li>
+<li><a href="https://itdaily.com/news/software/mcp-2026-update-specs/">MCP protocol receives major update — ITdaily</a></li>
+<li><a href="https://thenewstack.io/model-context-protocol-roadmap-2026/">MCP's biggest growing pains for production use — The New Stack</a></li>
+<li><a href="https://venturebeat.com/orchestration/mcp-just-got-its-biggest-update-ever-heres-what-changes-for-ai-agents">MCP just got its biggest update ever — VentureBeat</a></li>
+<li><a href="https://www.infoworld.com/article/4201254/model-context-protocol-is-going-stateless-to-make-scaling-simpler">MCP is going stateless — InfoWorld</a></li>
+<li><a href="https://aiweekly.co/alerts/anthropic-launches-claude-code-mods-typescript-agent-hooks">Anthropic Launches Claude Code Mods — AI Weekly</a></li>
+<li><a href="https://alphasignal.ai/news/anthropic-s-claude-code-mods-let-developers-rewrite-the-agent-from-inside">Claude Code Mods Let Developers Rewrite the Agent — AlphaSignal</a></li>
+<li><a href="https://postcutoff.com/e/2026-10-01-claude-code-mods/">Anthropic launches mods for Claude Code — Post-Cutoff</a></li>
+<li><a href="https://1000.software/post/rip-vector-database-how-rag-moves-from-vector-centric-stacks-to-composable-retrieval">RIP, Vector Database — 1000.software</a></li>
+<li><a href="https://cybertizeweb.com/blog/ai/rag-vs-fine-tuning-report">RAG vs Fine-Tuning: Enterprise AI Architecture Report</a></li>
+<li><a href="https://github.com/kouweizhu/agents-radar/issues/318">ArXiv AI Research Digest 2026-10-03 — agents-radar</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills (arXiv)</a></li>
+<li><a href="https://github.com/marc-ko/daily-trending-repo/issues/570">Trending Repositories — October 04, 2026</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, English)</a></li>
+<li><a href="https://hackernoon.com/5-must-have-ai-skills-for-developers-in-2026-and-how-to-learn-them">5 Must-Have AI Skills for Developers in 2026 — HackerNoon</a></li>
+<li><a href="https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/">AI is rewriting the developer career ladder — GitHub Blog</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 04/10/2026</div>
+</body></html>
