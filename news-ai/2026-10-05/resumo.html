@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 05/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 05/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Anthropic Sonnet 5.5</strong>: lançado com promessa de 30% mais velocidade e 30% menos custo em relação à geração anterior; uma versão ainda mais barata, <strong>Haiku 5.5</strong>, chega "nas próximas semanas".</li>
+<li><strong>OpenAI GPT-6.1 Sol</strong>: lançado junto com o assistente automatizado "Dots" e um plano de US$ 500/mês para usuários de alta demanda; fica próximo do desempenho do modelo top de linha GPT-6 Astra a um custo menor e registrou a "maior demanda da história" da empresa em APIs e assinaturas logo após o anúncio.</li>
+<li><strong>Google Gemini 4 Argon</strong> (02/10/2026): novo modelo flagship do Google na disputa pela fronteira; no Artificial Analysis Intelligence Index fica atrás apenas do Claude Opus 5.5 e do Claude Sonnet 5.5.</li>
+<li><strong>DeepSeek-V4.1-Flash</strong> (04/10/2026): novo lançamento open-weight da DeepSeek, mantendo a pressão de custo sobre os modelos proprietários.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>smolagents v1.26.0</strong> (Hugging Face): rebranding do antigo "Transformers Agents", migrando para uma abordagem minimalista e code-first de criação de agentes.</li>
+<li><strong>Microsoft Agent Framework 1.19.0</strong> (Python): passa a escopar sessões MCP por invocação, autenticar requisições por identidade/origem, restringir pacotes de skills a arquivos ZIP e verificar digests — foco em fechar brechas de segurança em agentes.</li>
+<li><strong>GitLab Duo 19.4</strong>: expande a automação agentic da plataforma e passa a medir (metering) o tráfego de agentes por usuário e por grupo a partir de 19/10/2026.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Model Context Protocol (spec 2026-07-28)</strong>: remove o handshake <code>initialize</code>/<code>initialized</code> e o header <code>Mcp-Session-Id</code>; metadados do protocolo agora viajam em <code>_meta</code> a cada request, permitindo servidores stateless escaláveis horizontalmente, sem sticky routing ou streams de longa duração. Os SDKs TypeScript e Python já passaram de 1 bilhão de downloads totais cada; o SDK Ruby chegou à v1.0.0 estável.</li>
+<li><strong>claude-mem</strong>: ferramenta de memória persistente entre sessões para agentes, com +628 estrelas só hoje no GitHub — sinal de demanda crescente por continuidade de contexto em agentes de código.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>RAGFlow</strong> (infiniflow, 91.681⭐): engine de RAG que já integra capacidades de agente nativamente, consolidando-se como alternativa a pipelines RAG montados do zero.</li>
+<li><strong>mem0</strong> (mem0ai, 66.575⭐): infraestrutura de memória de produção para manter contexto persistente de agentes entre chamadas e sessões.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>ollama/ollama</strong> (Go, 182.201⭐) — runtime local dominante para LLMs, com suporte a Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen e Gemma.</li>
+<li><strong>huggingface/transformers</strong> (Python, 166.957⭐) — framework de referência para modelos de ML em texto, visão, áudio e multimodal.</li>
+<li><strong>langgenius/dify</strong> (TypeScript, 157.851⭐) — plataforma para construir workflows agentic e sistemas de recuperação (RAG).</li>
+<li><strong>open-webui/open-webui</strong> (Python, 153.956⭐) — interface amigável para modelos locais e via API.</li>
+<li><strong>thedotmack/claude-mem</strong> (TypeScript, 96.137⭐, +628 hoje) — memória persistente entre sessões para agentes de código.</li>
+<li><strong>infiniflow/ragflow</strong> (Go, 91.681⭐) — engine de RAG com capacidades de agente integradas.</li>
+<li><strong>mem0ai/mem0</strong> (Python, 66.575⭐) — infraestrutura de memória de produção para contexto persistente de agentes.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agent orchestration e integração MCP</strong>: orquestrar múltiplos agentes especializados e integrá-los via Model Context Protocol virou item obrigatório em checklists de contratação de 2026, ao lado de habilidades de programação tradicionais.</li>
+<li><strong>Context engineering para coding agents</strong>: gerenciar e compactar a janela de contexto durante tarefas longas de engenharia de software evita degradação de performance em sessões extensas — tema central do paper AutoCompact (ver Papers).</li>
+<li><strong>Eval design e observabilidade em produção</strong>: criar evals próprias e monitorar agentes em produção com guardrails é citado como competência central para 2026, junto com RAG/vector DB e fine-tuning direcionado.</li>
+<li><strong>SFT com sampling controlado</strong>: o paper "Finetuning with Sampling" mostra que fine-tuning supervisionado com estratégia de amostragem adequada generaliza melhor do que a sabedoria convencional sugeria, reduzindo em alguns casos a necessidade de RLHF extenso.</li>
+<li><strong>Otimizadores esparsos para fine-tuning</strong>: técnicas como o TACO (ternário, column-wise, one-sparse) reduzem o overhead de memória no fine-tuning de LLMs grandes, permitindo treinar modelos maiores no mesmo hardware de GPU.</li>
+<li><strong>Code-first agent design</strong>: abandono de abstrações pesadas em frameworks de agentes em favor de agentes minimalistas controlados diretamente por código — tendência puxada pelo rebranding do Transformers Agents da Hugging Face para smolagents.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>TACO: Ternary Absolute-max Column-wise One-sparse Optimizer for LLM Fine-Tuning</strong> (arXiv 2610.02199) — otimizador esparso que reduz o overhead de memória no fine-tuning de LLMs grandes em GPUs modernas.</li>
+<li><strong>Finetuning with Sampling: SFT Learns Better Than You Think</strong> (arXiv 2610.02140) — mostra que fine-tuning supervisionado com sampling adequado generaliza melhor do que se pensava, preservando capacidades prévias do modelo.</li>
+<li><strong>Trust the Direction, Search the Step: Zero-and-First-Order Methods for LLM Fine-Tuning</strong> (arXiv 2610.02190) — framework ZFO que desacopla a escolha do tamanho do passo do cálculo da direção, melhorando a estabilidade da otimização.</li>
+<li><strong>AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents</strong> (arXiv 2610.02163) — ensina agentes a decidir quando compactar a janela de contexto em tarefas longas de engenharia de software.</li>
+<li><strong>KaliBench: A Fine-Grained Benchmark for Cybersecurity Tool Use on Kali Linux</strong> (arXiv 2610.02206) — benchmark com recompensas verificáveis sem execução em runtime, para avaliar LLMs em tarefas executáveis de cibersegurança.</li>
+<li><strong>Argo-Bench: Evaluating Data Agents on Enterprise-Scale Workflows</strong> (arXiv 2610.02122) — benchmark para agentes de dados em workflows corporativos reais, exigindo raciocínio sobre múltiplas tabelas.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.microcenter.com/site/mc-news/article/this-week-in-ai-oct-2-2026.aspx">This Week in AI: OpenAI, Anthropic, Google Push New Models and Features</a></li>
+<li><a href="https://www.cnbc.com/2026/10/02/tech-download-google-argon-frontier-openai-anthropic.html">Can Google's new model really catch up to OpenAI and Anthropic at the frontier?</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">The New MCP Roadmap</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/">The 2026 MCP Roadmap</a></li>
+<li><a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/">Microsoft Agent Framework at BUILD 2026</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of October 3, 2026</a></li>
+<li><a href="https://github.com/kouweizhu/agents-radar/issues/340">AI Open Source Trends 2026-10-05 (agents-radar)</a></li>
+<li><a href="https://github.com/kouweizhu/agents-radar/issues/318">ArXiv AI Research Digest 2026-10-03 (agents-radar)</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily)</a></li>
+<li><a href="https://arxiv.org/list/cs.AI/new">arXiv — Artificial Intelligence, novos papers</a></li>
+<li><a href="https://doit.software/blog/ai-developer-skills">Top 13 AI Developer Skills for 2026</a></li>
+<li><a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026">AI Developer Hiring 2026: Skills That Actually Matter</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 05/10/2026</div>
+</body></html>
