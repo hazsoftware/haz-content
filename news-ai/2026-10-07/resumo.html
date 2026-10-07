@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 07/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 07/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>MCP spec 2026-07-28</strong>: maior revisão do Model Context Protocol desde o lançamento — núcleo passou a ser stateless (handshake <code>initialize/initialized</code> e header <code>Mcp-Session-Id</code> foram retirados), além de sistema de extensões governado e autorização OAuth reforçada. Hoje já são ~15.930 servidores MCP públicos em 4 registries e mais de 97 milhões de downloads mensais dos SDKs — relevante porque simplifica escalar MCP horizontalmente em infra HTTP comum, sem session affinity.</li>
+<li><strong>Certificação MCPA</strong> (lançada em 13/09/2026 pela AAIF): certificação neutra de vendor para implementações MCP, sinal de que o protocolo está virando padrão enterprise.</li>
+<li><strong>OpenAI Codex CLI 0.145.0 — Multi-Agent V2</strong>: modelos de subagente configuráveis, níveis de raciocínio e papéis por agente, controle de concorrência, importação de configs do Claude Code e Cursor, histórico de thread com memória e suporte a múltiplas pastas de projeto.</li>
+<li><strong>Claude Opus 5</strong> (Anthropic): voltado a coding complexo, debugging, repositórios grandes e tarefas de agente de longa duração, com janela de contexto de 1M tokens e níveis de esforço configuráveis.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Agent Plugins 1.0</strong>: especificação pública de empacotamento de plugins agnóstica de vendor, já com suporte amplo — GA no VS Code, Copilot CLI, Copilot SDK e no app Copilot.</li>
+<li><strong>Unsloth</strong>: consolidou-se como framework líder de fine-tuning, combinando PEFT, quantização e exportação num único pipeline simplificado — hoje esperado como competência padrão em vagas de MLE de nível médio.</li>
+<li><strong>DeepEval</strong>: ganhando tração como ferramenta de benchmark e teste de confiabilidade de sistemas de IA em produção, à medida que mais empresas levam aplicações de IA para produção.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li>Vagas mencionando skills de <strong>agentic AI</strong> subiram <strong>986%</strong> entre 2023 e 2024, consolidando 2026 como o ano de escalar agentic AI em produção — com LangGraph e CrewAI como principais frameworks de orquestração multi-agente.</li>
+<li>Surgimento do <strong>"Agent Ops"</strong> como disciplina própria: monitoramento, auditoria e melhoria contínua de agentes em produção, análoga ao MLOps mas focada em comportamento de agentes.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>A arquitetura stateless do MCP (spec 2026-07-28) permite escalonamento horizontal em infraestrutura HTTP com load balancer comum, sem affinity de sessão — reduz complexidade operacional para quem expõe tool servers MCP em produção.</li>
+<li><strong>DPO (Direct Preference Optimization)</strong> consolidou-se como método padrão de alinhamento, substituindo majoritariamente pipelines PPO-based de RLHF por não exigir treinar um modelo de recompensa separado.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>morluto/rea</strong> (TypeScript, +2.956 ⭐ hoje) — ferramenta para fazer reverse engineering de qualquer coisa usando agentes, do comportamento de apps até binários nativos.</li>
+<li><strong>calesthio/OpenMontage</strong> (Python, +857 ⭐ hoje) — sistema open-source de produção de vídeo com 12 pipelines e mais de 100 ferramentas voltadas a workflows agentic.</li>
+<li><strong>tester-army/e2e</strong> (TypeScript, +1.725 ⭐ hoje) — framework de testes end-to-end de nova geração para web e mobile, com forte componente de automação por agentes.</li>
+<li><strong>earthtojake/text-to-cad</strong> (Python, +619 ⭐ hoje) — dá "superpoderes" de CAD a agentes de código, permitindo gerar modelos CAD a partir de linguagem natural.</li>
+<li><strong>thedotmack/claude-mem</strong> (TypeScript, +534 ⭐ hoje) — contexto persistente entre sessões para agentes como Claude Code, Codex, Gemini e Copilot, com compressão e injeção de memória.</li>
+<li><strong>superdesigndev/treg</strong> (Python, +407 ⭐ hoje) — descrito como "o OpenRouter das ferramentas de agente", roteando chamadas de tools entre provedores.</li>
+<li><strong>anthropics/knowledge-work-plugins</strong> (Python, +147 ⭐ hoje) — repositório oficial de plugins da Anthropic para trabalhadores de conhecimento usarem no Claude Cowork.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agentic RAG</strong>: em vez de uma única passada de retrieval, o agente planeja e replaneja dinamicamente os passos de busca ao longo da tarefa. Frameworks como <strong>smolagents</strong> (Hugging Face) e os agents do <strong>LlamaIndex</strong> tiveram documentação atualizada ao longo de 2026 justamente para suportar esse padrão em tarefas de longo horizonte.</li>
+<li><strong>LoRA/QLoRA + DPO</strong>: fine-tuning via adaptadores de baixo rank (LoRA/QLoRA), implementado com as bibliotecas <strong>PEFT</strong> e <strong>TRL</strong> da Hugging Face, combinado com <strong>Direct Preference Optimization (DPO)</strong> para alinhamento — DPO já substitui a maioria dos pipelines PPO-based de RLHF por ser mais simples e não depender de um modelo de recompensa.</li>
+<li><strong>Pipelines de fine-tuning via Unsloth</strong>: unifica PEFT, quantização e exportação em um fluxo único; competência já cobrada em vagas de MLE de nível médio, junto com desenho de eval sets reais e capacidade de justificar a escolha entre fine-tune, prompt engineering e RAG.</li>
+<li><strong>Agent Ops</strong>: disciplina emergente de monitorar, auditar e melhorar agentes em produção — cresce junto com o salto de 986% em vagas citando skills de agentic AI entre 2023 e 2024.</li>
+<li><strong>Integração de tools via MCP stateless</strong>: com a revisão de spec de 28/07/2026, o MCP virou a camada de interoperabilidade de fato entre agentes e ferramentas, já adotado por OpenAI, Google, Microsoft e AWS em seus stacks de agentes, com 15.930+ servidores públicos.</li>
+<li><strong>Stacks híbridos frontier + modelo local</strong>: combinar um modelo de ponta hospedado (GPT, Claude, Gemini) com um modelo open-weight rodando localmente via <strong>Ollama</strong> (Llama 3, Qwen 3 ou Gemma 4) no mesmo pipeline, usando o modelo local para subtarefas de alto volume e baixo custo.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>A Comparison of Independent and Joint Fine-tuning Strategies for Retrieval-Augmented Generation</strong> (<a href="https://arxiv.org/pdf/2510.01600">arXiv 2510.01600</a>, Capital One, aceito na EMNLP 2025) — compara fine-tuning independente, conjunto e em duas fases dos modelos de embedding e gerador num pipeline RAG, mapeando custo vs. ganho de performance de cada estratégia.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG): Taxonomy, Architectures, Evaluation, and Research Directions</strong> (<a href="https://arxiv.org/pdf/2603.07379">arXiv 2603.07379</a>) — paper de systematization of knowledge que organiza taxonomia, arquiteturas e formas de avaliação do espaço de agentic RAG, útil como mapa de referência para quem está projetando pipelines desse tipo.</li>
+<li><strong>Uncertainty Quantification in LLM Agents: Foundations, Emerging Challenges, and Opportunities</strong> (<a href="https://arxiv.org/pdf/2602.05073">arXiv 2602.05073</a>) — survey sobre como quantificar incerteza em decisões de agentes LLM, tema crítico para quem precisa decidir quando um agente deve escalar para humano.</li>
+<li><strong>DeployBench: Benchmarking LLM Agents for Research Artifact Deployment</strong> (<a href="https://arxiv.org/pdf/2606.05238">arXiv 2606.05238</a>) — benchmark que mede a capacidade de agentes LLM de efetivamente colocar em produção artefatos de pesquisa (código, modelos), expondo gaps entre "funciona no notebook" e "funciona em deploy".</li>
+<li><strong>FDE-Bench: Evaluating LLM Agents for Deployment Environment Configuration</strong> (<a href="https://arxiv.org/pdf/2609.27571">arXiv 2609.27571</a>) — benchmark focado especificamente na capacidade de agentes configurarem corretamente ambientes de deploy, área onde erros são caros em produção.</li>
+<li><strong>SafeCoEvo: Co-Evolving Safety Harnesses and Guards for LLM Agents at Test-Time</strong> (2026-10-02, 35 páginas) — propõe co-evolução, em tempo de teste, entre o harness de segurança e os modelos de guarda que protegem agentes LLM, relevante para quem expõe agentes autônomos a usuários externos.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://online.iitkgp.ac.in/blog/ai-development-tools-frameworks">Tools and Frameworks for AI Software Engineers in 2026</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2026/06/ai-engineering-tools-everyone-is-using-in-2026/">Top 10 AI Engineering Tools Everyone is Using in 2026</a></li>
+<li><a href="https://proflead.substack.com/p/ai-news-for-developers-28-codex-multi">AI News for Developers: Codex Multi-Agent</a></li>
+<li><a href="https://select.keenable.ai/r/agentic-coding-solutions-harnesses-last-365-days/N1ROYCMxjqFF-4PdiIZzMQ">120 coding agents and harnesses surfaced in one year</a></li>
+<li><a href="https://itbrief.co.uk/story/ai-to-reshape-developer-roles-skills-teams-by-2026-survey-finds">AI to reshape developer roles, skills, teams by 2026</a></li>
+<li><a href="https://futurense.com/blog/ai-skills-in-demand">Top AI Skills in Demand for 2026</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">SoK: Agentic Retrieval-Augmented Generation (RAG)</a></li>
+<li><a href="https://arxiv.org/pdf/2510.01600">A Comparison of Independent and Joint Fine-tuning Strategies for RAG</a></li>
+<li><a href="https://arxiv.org/pdf/2602.05073">Uncertainty Quantification in LLM Agents</a></li>
+<li><a href="https://arxiv.org/pdf/2606.05238">DeployBench: Benchmarking LLM Agents for Research Artifact Deployment</a></li>
+<li><a href="https://arxiv.org/pdf/2609.27571">FDE-Bench: Evaluating LLM Agents for Deployment Environment Configuration</a></li>
+<li><a href="https://github.com/zachysun/DailyArXiv/issues/575">Latest 20 Papers - October 06, 2026 (DailyArXiv)</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSS Insight — AI Trending</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, Daily</a></li>
+<li><a href="https://github.com/trending/typescript?since=daily">GitHub Trending — TypeScript, Daily</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">Model Context Protocol — Wikipedia</a></li>
+<li><a href="https://aaif.io/blog/mcp-2026-07-28-whats-changing-and-how-to-migrate">MCP 2026-07-28: What's Changing and How to Migrate</a></li>
+<li><a href="https://pub.towardsai.net/mcp-2-0-what-changed-what-remained-and-how-it-impacts-practitioners-8f553e62448c">MCP 2.0? What Changed, What Remained, and How it Impacts Practitioners</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 07/10/2026</div>
+</body></html>
