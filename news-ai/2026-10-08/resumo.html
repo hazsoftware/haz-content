@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 08/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 08/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): a Anthropic lançou a versão 5.5 do Opus, voltada para codificação complexa, debugging e tarefas de agentes de longa duração em repositórios grandes; também disponível via AWS Bedrock, ao lado de GPT-6 Sol e GPT-6 Luna da OpenAI.</li>
+<li><strong>GPT-5.6 (Sol, Terra, Luna)</strong> (jul/2026): a OpenAI lançou a série GPT-5.6 para todos os usuários do ChatGPT e devs via API, com variantes otimizadas para diferentes perfis de custo/latência.</li>
+<li><strong>MCP (Model Context Protocol) — nova especificação</strong> (release candidate em 25/05/2026, versão final prevista para 28/07/2026): maior revisão do protocolo desde o lançamento, com núcleo stateless que roda sobre infraestrutura HTTP comum, extensões e autorização alinhada a OAuth/OIDC. O protocolo foi doado para a Agentic AI Foundation da Linux Foundation no início de 2026, com apoio de OpenAI e Microsoft.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Codex CLI 0.145.0</strong> (jul/2026): atualização do Multi-Agent V2 da OpenAI, com modelos configuráveis por subagente, níveis de raciocínio, papéis (roles) e controle de concorrência.</li>
+<li><strong>Qodo Gen CLI</strong>: a Qodo lançou um framework de agente via CLI para construir agentes de codificação customizados, somando-se a Cursor, GitHub Copilot e Claude Code como as ferramentas mais adotadas por devs em 2026.</li>
+<li><strong>Microsoft Agent Framework</strong> (Python/.NET): inclui agent loops, planejamento, memória, recuperação de falhas (crash recovery), aprovações, gestão de contexto e observabilidade nativa.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li>Stack de orquestração consolidado em 2026: <strong>LangChain</strong>/<strong>LlamaIndex</strong> para RAG, <strong>LangGraph</strong>/<strong>CrewAI</strong> para sistemas multiagente, <strong>DSPy</strong> para otimização programática de prompts.</li>
+<li><strong>Agent Ops</strong> surge como disciplina própria — monitoramento, auditoria e melhoria contínua de agentes em produção — e aparece em pesquisas de contratação de 2026 como uma das skills mais demandadas, ao lado de design de arquitetura de agentes e sistemas de memória de curto/longo prazo.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>RAG observability</strong>: times passaram a correlacionar spans de retrieval, indexação e geração em vez de olhar só a resposta final do LLM — um erro de retrieval com frequência aparece como "erro do modelo" quando na verdade começou antes do prompt chegar a ele.</li>
+<li><strong>Pinecone</strong> lançou stack de monitoramento open-source com dashboards Grafana e coleta via Prometheus; a <strong>Monte Carlo</strong> lançou monitores de volume para Pinecone.</li>
+<li><strong>Fine-tuning + RAG para retrieval imperfeito</strong> (arXiv 2505.10792): combinar RAG com fine-tuning especializado para lidar com retrieval ruidoso do mundo real melhorou a acurácia factual em <strong>21,2%</strong> sobre o LLM base.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<p style="color:#6b7280;font-size:13px;margin-bottom:10px">Levantamento de hoje (08/10/2026) em github.com/trending?since=daily</p>
+<ul>
+<li><strong>NationalSecurityAgency/ghidra</strong> (Java, +306 ⭐ hoje) — framework de engenharia reversa de software mantido pela NSA, referência em análise de binários.</li>
+<li><strong>Z4nzu/hackingtool</strong> (Python, +213 ⭐ hoje) — toolkit all-in-one de ferramentas de pentest e segurança ofensiva.</li>
+<li><strong>directus/directus</strong> (TypeScript, +152 ⭐ hoje) — transforma um banco de dados em headless CMS com API instantânea, bastante usado em backends que alimentam apps de IA.</li>
+<li><strong>emilk/egui</strong> (Rust, +80 ⭐ hoje) — biblioteca de GUI immediate-mode que roda tanto na web (via WASM) quanto nativamente, popular em ferramentas internas de IA/ML.</li>
+<li><strong>invoke-ai/InvokeAI</strong> (TypeScript, +49 ⭐ hoje) — motor criativo e web UI para modelos de geração de imagem Stable Diffusion.</li>
+<li><strong>openai/openai-cookbook</strong> (Jupyter Notebook, +47 ⭐ hoje) — exemplos e guias oficiais da OpenAI para uso prático da API.</li>
+<li><strong>tracel-ai/burn</strong> (Rust, +12 ⭐ hoje) — framework de deep learning e biblioteca de tensores focado em flexibilidade, eficiência e portabilidade.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Agent Ops</strong> — disciplina emergente de monitoramento, auditoria e melhoria contínua de agentes de IA em produção. Aparece em levantamentos de contratação de 2026 como skill essencial ao lado de arquitetura de agentes e sistemas de memória (curto e longo prazo).</li>
+<li><strong>2. GraphRAG / RAG baseado em grafos de conhecimento</strong> — ganha espaço em domínios de conhecimento complexos, reforçando a posição do RAG como complemento (e não substituto) do fine-tuning.</li>
+<li><strong>3. LoRA/QLoRA para fine-tuning eficiente</strong> — permitem ajustar modelos de bilhões de parâmetros em GPUs de consumo modificando menos de 1% dos parâmetros; seguem padrão de mercado para destilar modelos grandes em versões menores e especializadas.</li>
+<li><strong>4. Divisão retrieval vs. fine-tuning</strong> — prática consolidada de colocar conhecimento volátil em RAG e comportamento estável em fine-tuning, reduzindo custo e frequência de re-treinamento.</li>
+<li><strong>5. RAG + fine-tuning combinados para retrieval imperfeito</strong> — segundo arXiv 2505.10792, a combinação melhora acurácia factual em 21,2% sobre o baseline, evidência de que a dicotomia "RAG vs. fine-tuning" é falsa na prática.</li>
+<li><strong>6. Orquestração multiagente com subagentes configuráveis</strong> — padrão replicado pelo Codex CLI 0.145.0 (modelo, papel e concorrência configuráveis por subagente) e por frameworks como CrewAI/LangGraph, tratando enxames de agentes especializados como unidade de deploy.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>AgenticDataBench</strong> (arXiv 2607.01647) — benchmark com 344 tarefas em 15 domínios para agentes de dados baseados em LLM; mesmo os melhores agentes avaliados atingem apenas 60-80% de acurácia a nível de tarefa, dependendo do domínio, evidenciando que agentes de dados ainda falham bastante em cenários de produção.</li>
+<li><strong>T1-Bench</strong> (arXiv 2606.11070) — benchmark multi-cenário para avaliar agentes em domínios do mundo real, cobrindo tarefas mais próximas de uso prático do que benchmarks acadêmicos tradicionais.</li>
+<li><strong>Fine-Tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375) — propõe um "hint bank" e datasets de treinamento para modelos menores (student models), mostrando como retrieval pode acelerar a aquisição de novas habilidades via fine-tuning.</li>
+<li><strong>A Survey on Evaluation of LLM-based Agents</strong> (ACL 2026 Findings) — mapeia lacunas na avaliação de agentes, especialmente em custo-eficiência, segurança e robustez, apontando que a maioria dos benchmarks atuais ignora esses eixos.</li>
+<li><strong>DeepResearch Bench</strong> (ICLR 2026) — benchmark para agentes de "deep research"; seus métodos de avaliação automatizada mostram alto alinhamento com julgamento humano especializado.</li>
+<li><strong>RAG com fine-tuning para retrieval imperfeito</strong> (arXiv 2505.10792) — demonstra ganho de 21,2% em acurácia factual ao combinar fine-tuning especializado com RAG em cenários de retrieval ruidoso/real.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">Qodo launches CLI agent framework — SD Times</a></li>
+<li><a href="https://proflead.substack.com/p/ai-news-for-developers-28-codex-multi">AI news for developers #28 — Codex Multi-Agent V2</a></li>
+<li><a href="https://tldr.tech/ai/2026-05-25">TLDR AI — 25/05/2026 (MCP spec, OpenAI agent evals)</a></li>
+<li><a href="https://azumo.com/artificial-intelligence/intelligent-developer/ai-intelligence-briefing-february-5-2026">AI Intelligence Briefing — MCP doado à Linux Foundation</a></li>
+<li><a href="https://arxiv.org/pdf/2510.01375">arXiv 2510.01375 — Fine-Tuning with RAG for Improving LLM Learning of New Skills</a></li>
+<li><a href="https://arxiv.org/pdf/2312.10997">arXiv 2312.10997 — Retrieval-Augmented Generation for Large Language Models: A Survey</a></li>
+<li><a href="https://www.dio.me/articles/rag-observability-em-2026-do-tracing-ao-vector-db-82cdc4a4e752">RAG observability em 2026: do tracing ao vector DB</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — daily, English</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSS Insight — AI trending repositories</a></li>
+<li><a href="https://futurense.com/blog/ai-skills-in-demand">Top AI Skills in Demand for 2026</a></li>
+<li><a href="https://www.thehansindia.com/tech/upcoming-ai-updates-in-october-2026-major-developments-to-watch-1127036">Upcoming AI Updates in October 2026</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 08/10/2026</div>
+</body></html>
