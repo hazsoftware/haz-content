@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 09/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 09/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): Anthropic lançou o modelo com corte de 75% no preço de cache-read, reduzindo custo de contextos longos reutilizados em pipelines de agentes.</li>
+<li><strong>Claude Fable 5.1 e Claude Mythos 5.1</strong> (01/09/2026): Anthropic liberou o Fable 5.1 de forma geral; o Mythos 5.1 ficou restrito a programas de acesso confiável (trusted-access).</li>
+<li><strong>GPT-6 Astra</strong>: OpenAI lançou um agente de uso de computador capaz de concluir tarefas multi-etapa em vez de apenas descrevê-las; é o primeiro modelo a atingir o nível "critical" no framework de preparação para cibersegurança da empresa, com restrições em prompts públicos nessa área.</li>
+<li><strong>GPT-6 Sol e GPT-6 Luna</strong>: variantes da família GPT-6 disponibilizadas pela AWS via Amazon Bedrock.</li>
+<li><strong>Gemini 4 "Argon"</strong>: há relato (não confirmado por fontes oficiais) de lançamento em outubro/2026 com janela de contexto de 1 milhão de tokens; outras fontes dizem que o Gemini 4 segue em pós-treinamento na Google DeepMind, sem data oficial — trate como rumor até confirmação.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Qodo Gen CLI</strong>: framework de agentes lançado pela Qodo que permite devs criarem, customizarem e implantarem seus próprios agentes de código via CLI.</li>
+<li><strong>Microsoft Agent Framework</strong>: novo framework para Python e .NET cobrindo agent loops, planejamento, memória e fluxos de aprovação, com opção de definir workflows de agentes em YAML.</li>
+<li><strong>DeepEval</strong>: ferramenta de avaliação ganhando tração para cobrir avaliação de LLM, avaliação de RAG, testes de agentes, benchmarking e testes de regressão em pipelines de IA em produção.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP spec 2026-07-28</strong>: maior revisão do Model Context Protocol desde o lançamento. O protocolo tornou-se stateless — o handshake <code>initialize</code> e o header <code>Mcp-Session-Id</code> foram retirados (SEP-2575, SEP-2567). Roots, Sampling e Logging foram depreciados; entraram MCP Apps, Tasks e exigências mais rígidas de OAuth. Devs com servidores MCP em produção precisam migrar.</li>
+<li><strong>Governança do MCP</strong>: o protocolo passou a ser mantido pela Agentic AI Foundation (AAIF) da Linux Foundation desde dezembro/2025; um programa de certificação vendor-neutral para implementações MCP foi lançado em 13/09/2026.</li>
+<li><strong>Codex CLI 0.145.0</strong> (OpenAI, jul/2026): atualização adicionou modelos de subagente configuráveis e níveis de raciocínio ajustáveis para trabalho multi-agente.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Segurança em servidores MCP</strong>: scans independentes encontraram falhas exploráveis em uma parcela grande de servidores MCP públicos; NSA e CISA emitiram orientação formal sobre o tema — relevante para quem expõe servidores MCP externamente.</li>
+<li><strong>AWS Bedrock AgentCore Gateway</strong>: já suporta a nova spec MCP 2026-07-28 via uma única chamada <code>UpdateGateway</code>, facilitando a migração de gateways de agentes na AWS.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>thedotmack/claude-mem</strong> (TypeScript, ~98,5k⭐, +670 hoje) — captura o que um agente faz durante uma sessão e injeta esse contexto em sessões futuras, resolvendo a perda de memória entre execuções de agentes de código.</li>
+<li><strong>morluto/rea</strong> (+7.738⭐ só hoje) — ferramenta de reverse engineering dirigida por agentes, capaz de analisar comportamento de apps até o nível de binários nativos; o ganho de estrelas num único dia é um dos maiores picos registrados na categoria de IA esta semana.</li>
+<li><strong>langchain-ai/langchain</strong> (Python, ~147,4k⭐, +79 hoje) — segue como "the agent engineering platform" de referência para orquestração de LLMs, chains e tools.</li>
+<li><strong>affaan-m/ECC</strong> (JavaScript, ~275k⭐) — harness de otimização de agentes com skills, memória e camada de segurança, compatível com Claude Code, Codex e Cursor.</li>
+<li><strong>headroomlabs-ai/headroom</strong> (Python, ~74,7k⭐) — comprime outputs de tools e chunks de RAG para reduzir consumo de tokens em pipelines de agentes, atacando diretamente o custo de contexto longo.</li>
+<li><strong>openai/openai-cookbook</strong> (Jupyter Notebook, ~76,5k⭐, +51 hoje) — exemplos e guias oficiais de uso da API da OpenAI continuam entre os repositórios mais visitados do dia.</li>
+<li><strong>tracel-ai/burn</strong> (Rust, ~16k⭐, +15 hoje) — tensor library e deep learning framework de nova geração em Rust, alternativa a PyTorch/TensorFlow para quem busca performance nativa.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agent memory / contexto persistente entre sessões</strong>: claude-mem e mem0 lideram o trending de IA no GitHub; claude-mem somou +670 estrelas em um único dia. A técnica ataca o problema central de agentes de código perderem todo o contexto ao fim de cada sessão, persistindo decisões e histórico entre execuções.</li>
+<li><strong>Reverse engineering dirigido por agentes</strong>: o repositório rea ganhou mais de 7.700 estrelas em 24h automatizando análise de binários e comportamento de apps — sinal forte de demanda por agentes especializados em tarefas de segurança/engenharia reversa, não só geração de código.</li>
+<li><strong>Compressão de contexto para RAG e tool outputs</strong>: ferramentas como headroom comprimem chunks de RAG e saídas de tools antes de entrarem no contexto do LLM, reduzindo custo de tokens em pipelines de agentes que fazem múltiplas chamadas de ferramenta por tarefa.</li>
+<li><strong>Migração para MCP stateless</strong>: com a spec 2026-07-28 removendo o handshake <code>initialize</code> e o <code>Mcp-Session-Id</code>, equipes que mantêm servidores MCP precisam revisar integrações que dependiam de estado de sessão — é a mudança de maior impacto prático no protocolo desde seu lançamento.</li>
+<li><strong>Fine-tuning especializado combinado com RAG</strong>: paper (arXiv 2505.10792) reporta ganho de 21,2% em acurácia factual ao combinar fine-tuning especializado com RAG em cenários de recuperação imperfeita do mundo real, reforçando que a dicotomia "RAG vs. fine-tuning" está dando lugar a abordagens híbridas.</li>
+<li><strong>Monitoramento e humildade epistêmica em agentes autônomos</strong>: papers publicados em 09/10/2026 (arXiv 2610.12360 e 2610.12375) mostram que agentes LLM frequentemente falham em reconhecer incerteza sob conflito de evidências, e propõem monitoramento de trajetórias em tempo real via streaming optimal transport para detectar comportamento anômalo antes que cause dano em produção.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Accurate but Not Humble</strong> (<a href="https://arxiv.org/abs/2610.12360">arXiv:2610.12360</a>, 09/10/2026) — avalia humildade epistêmica em agentes LLM sob conflito de conhecimento e mostra que eles frequentemente falham em admitir incerteza quando evidências contradizem suas crenças; relevante para quem constrói agentes que tomam decisões com base em fontes conflitantes.</li>
+<li><strong>Ecology of AI Agents: Collaboration Creates a Population Threshold for Takeoff</strong> (<a href="https://arxiv.org/abs/2610.12436">arXiv:2610.12436</a>, 09/10/2026) — argumenta que populações de agentes desalinhados colaborando entre si podem atingir um limiar de "takeoff" via autorreplicação e hijacking de recursos, com implicações para quem orquestra enxames de agentes autônomos.</li>
+<li><strong>OnTrack</strong> (<a href="https://arxiv.org/abs/2610.12375">arXiv:2610.12375</a>, 09/10/2026) — propõe monitoramento e intervenção em tempo real sobre trajetórias de agentes LLM via streaming structure-aware optimal transport, para detectar comportamento anômalo durante a execução, não só depois.</li>
+<li><strong>Long Text to Predictive Features</strong> (<a href="https://arxiv.org/abs/2610.12390">arXiv:2610.12390</a>, 09/10/2026) — usa LLMs para guiar busca de programas executáveis que extraem features preditivas de texto longo, útil para pipelines de ML que combinam dados tabulares com texto não estruturado.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (<a href="https://arxiv.org/abs/2510.01375">arXiv:2510.01375</a>) — combina fine-tuning com RAG para ensinar novas habilidades a LLMs, com código e experimentos reproduzíveis disponíveis publicamente.</li>
+<li><strong>BrickBench: Evaluating Agentic Brick Design</strong> (<a href="https://arxiv.org/abs/2610.12452">arXiv:2610.12452</a>, 09/10/2026) — benchmark para agentes de design guiados por texto (construções tipo LEGO), avaliados por fidelidade semântica e "buildability"; exemplo do crescimento de benchmarks verticais para agentes especializados.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://online.iitkgp.ac.in/blog/ai-development-tools-frameworks">Tools and Frameworks for AI Software Engineers in 2026</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2026/06/ai-engineering-tools-everyone-is-using-in-2026/">Top 10 AI Engineering Tools Everyone is Using in 2026 — Analytics Vidhya</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">Qodo launches CLI agent framework — SD Times</a></li>
+<li><a href="https://proflead.substack.com/p/ai-news-for-developers-28-codex-multi">AI News for Developers #28 — Codex, multi-agent</a></li>
+<li><a href="https://itbrief.co.uk/story/ai-to-reshape-developer-roles-skills-teams-by-2026-survey-finds">AI to reshape developer roles, skills & teams by 2026 — IT Brief</a></li>
+<li><a href="https://futurense.com/blog/ai-skills-in-demand">Top AI Skills in Demand for 2026 — Futurense</a></li>
+<li><a href="https://arxiv.org/pdf/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills — arXiv</a></li>
+<li><a href="https://lablab.ai/ai-articles/this-week-in-ai-2026-09-07">This Week in AI — Aug 31–Sep 7, 2026 — lablab.ai</a></li>
+<li><a href="https://www.theregister.com/a/5276722">MCP's biggest update — The Register</a></li>
+<li><a href="https://pub.towardsai.net/mcp-2-0-what-changed-what-remained-and-how-it-impacts-practitioners-8f553e62448c">MCP 2.0: What Changed — Towards AI</a></li>
+<li><a href="https://aaif.io/blog/mcp-2026-07-28-whats-changing-and-how-to-migrate">MCP 2026-07-28: What's changing and how to migrate — AAIF</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, English)</a></li>
+<li><a href="https://github.com/kouweizhu/agents-radar/issues/402">AI Open Source Trends 2026-10-09 — agents-radar #402</a></li>
+<li><a href="https://github.com/Qyii22/agents-radar/issues/22">ArXiv AI Research Digest 2026-10-09 — agents-radar #22</a></li>
+<li><a href="https://arxiv.org/abs/2610.12360">Accurate but Not Humble — arXiv:2610.12360</a></li>
+<li><a href="https://arxiv.org/abs/2610.12436">Ecology of AI Agents — arXiv:2610.12436</a></li>
+<li><a href="https://arxiv.org/abs/2610.12375">OnTrack — arXiv:2610.12375</a></li>
+<li><a href="https://arxiv.org/abs/2610.12390">Long Text to Predictive Features — arXiv:2610.12390</a></li>
+<li><a href="https://arxiv.org/abs/2610.12452">BrickBench — arXiv:2610.12452</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 09/10/2026</div>
+</body></html>
