@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 10/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 10/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5</strong> (jul/2026): Anthropic lançou com janela de contexto de 1 milhão de tokens e níveis de esforço (effort) configuráveis via API — relevante para quem processa repositórios grandes ou documentos extensos.</li>
+<li><strong>Gemini 3.8 Live</strong> (15/09/2026): Google lançou a versão "Live" do Gemini 3.8, focada em interação em tempo real/streaming.</li>
+<li><strong>GPT-Live-1</strong> (10/09/2026): OpenAI colocou na API um modelo voltado a voz e streaming em tempo real.</li>
+<li><strong>DeepSeek V4.1 Flash</strong> (10/09/2026): variante "Flash" de menor custo e latência do modelo chinês DeepSeek.</li>
+<li><strong>Qwen3.8-Max</strong> (snapshot de 02/09/2026): Alibaba atualizou o snapshot da API do Qwen3.8-Max.</li>
+<li><strong>Cognition SWE-2</strong> (10/09/2026): novo modelo/agente de engenharia de software da Cognition, criadora do Devin.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Agent Plugins 1.0</strong> (ago/2026): especificação neutra de empacotamento de plugins para agentes atingiu release público, com suporte amplo no VS Code e nos produtos Copilot do GitHub — padroniza como agentes de código carregam extensões e skills.</li>
+<li><strong>LangChain/LangGraph</strong>: o ecossistema LangChain está estável na v1.0 desde out/2025; LangGraph é a recomendação oficial para novas implementações de agentes, reduzindo a diferença com LlamaIndex (que ganhou state management nativo via Workflows e AgentWorkflow).</li>
+<li><strong>CrewAI</strong> (jan/2026): releases adicionaram suporte nativo a A2A (Agent2Agent), protocolo que permite agentes de frameworks diferentes conversarem entre si sem acoplamento direto de SDK.</li>
+<li><strong>MCP (Model Context Protocol)</strong>: doado para a Agentic AI Foundation, estabelecendo governança multi-vendor — antes só da Anthropic, agora com suporte oficial de OpenAI e Google também nos frameworks principais.</li>
+<li><strong>AutoGen → AG2</strong>: Microsoft moveu o AutoGen para modo de manutenção no Q1/2026; a comunidade seguiu com AG2 como fork independente da mesma linhagem.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>OpenAI Codex CLI 0.145.0</strong> (jul/2026): melhorou workflows multi-agente, com modelos configuráveis por subagente, níveis de raciocínio, papéis (roles) e controle de concorrência.</li>
+<li><strong>Google Antigravity 2.0</strong> (anunciado no Google I/O, mai/2026): plataforma de agentes da Google com app desktop, Antigravity CLI e SDK.</li>
+<li><strong>UiPath for Coding Agents</strong> (preview público em 08/07/2026): CLI e skills que permitem construir automações UiPath a partir do Claude Code, Cursor, Codex CLI ou Google Antigravity.</li>
+<li>Um levantamento de ago/2026 contou <strong>120 agentes/harnesses de coding</strong> lançados entre set/2025 e set/2026 — mostra a explosão de ferramentas nesse espaço, mesmo sem um registro oficial único.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>AsymSpec</strong> (arXiv 2608.26004, ago/2026, aceito no EMNLP 2026): ataca o problema de decodificação especulativa em agentes — verificador e "drafter" antes precisavam do mesmo contexto; a técnica permite comprimir o contexto do verificador separadamente, barateando servir agentes com uso pesado de ferramentas.</li>
+<li><strong>SuffixDecoding</strong>: relata speedups de até <strong>4,5x</strong> em conclusão de tarefas end-to-end no SWE-Bench usando decodificação especulativa.</li>
+<li><strong>Terminal-Bench 2.0</strong> (lançado jan/2026): benchmark de agentes de terminal/CLI; Codex/GPT-5.5 lidera com 82% de acurácia (medição de abr/2026).</li>
+<li><strong>DeepEval</strong> e frameworks similares ganharam tração como prática padrão de avaliação de LLM/RAG/agentes (incluindo testes de regressão) antes de ir para produção.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>huggingface/transformers</strong> (Python, 166.969⭐, +94 hoje) — framework de definição de modelos SOTA de texto, visão, áudio e multimodal, para inferência e treino.</li>
+<li><strong>langchain-ai/langchain</strong> (Python, 147.551⭐, +80 hoje) — plataforma para construir agentes.</li>
+<li><strong>n8n-io/n8n</strong> (TypeScript, 206.882⭐, +138 hoje) — automação de workflows com recursos de IA embutidos e mais de 400 integrações.</li>
+<li><strong>apache/doris</strong> (Java, 16.050⭐, +7 hoje) — banco de analytics em tempo real e hybrid search voltado a agentes de IA.</li>
+<li><strong>Project-HAMi/HAMi</strong> (Go, 4.644⭐, +19 hoje) — compartilhamento de GPU para Kubernetes, essencial para servir modelos de forma eficiente e multi-tenant.</li>
+<li><strong>google-deepmind/mujoco</strong> (C++, 15.577⭐, +28 hoje) — simulador de física de propósito geral, usado em robótica e pesquisa de ML.</li>
+<li><strong>nautechsystems/nautilus_trader</strong> (Rust, 29.791⭐, +50 hoje) — engine de trading orientado a eventos, também usado como ambiente de teste para agentes.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Agentic RAG com estratégias de test-time</strong>: em vez de um único retrieval, agentes iteram múltiplos hops de busca e refinamento antes de responder. Um paper do ACL Student Workshop 2026 trata estratégias de test-time para tornar o RAG multi-hop mais eficiente e preciso — relevante para quem lida com perguntas complexas sobre bases de conhecimento.</li>
+<li><strong>2. Decodificação especulativa assimétrica para agentes</strong>: o AsymSpec (EMNLP 2026) desacopla o contexto do verificador e do rascunho, antes bloqueado por exigir contexto idêntico. Combinado ao SuffixDecoding (até 4,5x mais rápido no SWE-Bench), isso reduz diretamente o custo de servir agentes com uso pesado de ferramentas.</li>
+<li><strong>3. MCP como padrão de interoperabilidade</strong>: doado à Agentic AI Foundation, com governança multi-vendor e adoção por OpenAI e Google além da Anthropic. Isso torna skills e tools escritas uma vez reutilizáveis entre frameworks diferentes, sem reescrever integrações por stack.</li>
+<li><strong>4. A2A (Agent2Agent) via CrewAI</strong>: suporte nativo desde jan/2026 permite que agentes de frameworks diferentes troquem tarefas e contexto diretamente, sem acoplamento de SDK — útil em arquiteturas multi-agente heterogêneas.</li>
+<li><strong>5. Avaliação contínua de agentes em CI</strong>: ferramentas como DeepEval tornaram testes de regressão de tool-use, planejamento e raciocínio parte do pipeline padrão, depois que papers como "Beyond the Leaderboard" (arXiv 2607.05775) mapearam padrões recorrentes de falha de agentes em produção.</li>
+<li><strong>6. GPU sharing multi-tenant para inferência</strong>: projetos como HAMi (trending no GitHub, +19⭐ hoje) permitem particionar GPUs entre times e workloads em clusters Kubernetes, reduzindo o custo de servir modelos próprios em vez de depender só de APIs externas.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>AsymSpec: Context-Asymmetric Speculative Decoding for Agentic LLMs</strong> (arXiv 2608.26004, ago/2026) — separa o contexto do verificador e do drafter na decodificação especulativa para acelerar agentes que usam ferramentas; aceito no EMNLP 2026.</li>
+<li><strong>A²Agent: Action-Aware Reinforcement Learning for Repository-Level Code Localization Agents</strong> (arXiv 2608.29831) — treina agentes de localização de código em nível de repositório com RL, superando o SOTA anterior (CodeScout-14B) em 1,58% de F1 médio no SWE-Bench Verified.</li>
+<li><strong>NatureBench: Can Coding Agents Match the Published SOTA of Nature-Family Papers?</strong> (arXiv 2606.24530, jun/2026) — testa se agentes de código conseguem reproduzir resultados de papers da família Nature; mesmo os melhores agentes raramente superam o SOTA publicado, com ganho máximo de 17,8%.</li>
+<li><strong>Beyond the Leaderboard: A Synthesis of Tool-Use, Planning, and Reasoning Failures in Large Language Model Agents</strong> (arXiv 2607.05775, jul/2026) — mapeia padrões recorrentes de falha de agentes em uso de ferramentas, planejamento e raciocínio; útil para quem debuga agentes em produção.</li>
+<li><strong>RAPID: Long-Context Inference with Retrieval-Augmented Speculative Decoding</strong> (arXiv 2502.20330) — usa um "drafter" baseado em RAG sobre contextos de retrieval encurtados para especular respostas de modelos de contexto longo, reduzindo latência sem perder qualidade.</li>
+<li><strong>EvoSkill</strong> (arXiv 2603.02766) — framework multi-agente de descoberta de skills, com ganhos reportados de 7,3% no OfficeQA e 12,1% no SealQA ao permitir que agentes aprendam e reusem skills novas automaticamente.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — daily, English</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/topic/coding/2026-08-25/detailed">AI Agent Store — Coding Weekly AI News</a></li>
+<li><a href="https://select.keenable.ai/r/agentic-coding-solutions-harnesses-last-365-days/N1ROYCMxjqFF-4PdiIZzMQ">Keenable — 120 coding agents/harnesses surfaced in one year</a></li>
+<li><a href="https://docs.uipath.com/coding-agents/standalone/latest/release-notes/july-2026.md">UiPath for Coding Agents — Release Notes July 2026</a></li>
+<li><a href="https://proflead.substack.com/p/ai-news-for-developers-28-codex-multi">AI News for Developers — Codex multi-agent</a></li>
+<li><a href="https://addepto.com/blog/langchain-vs-llamaindex-main-differences/">Addepto — LangChain vs LlamaIndex</a></li>
+<li><a href="https://guptadeepak.com/tools/top-10-mcp-frameworks-2026/">Top 10 MCP Frameworks 2026</a></li>
+<li><a href="https://metavert.io/compare/mcp-vs-crewai">Metavert — MCP vs CrewAI</a></li>
+<li><a href="https://benchlm.ai/md/model-updates/releases.md">BenchLM — AI model release timeline</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2026/06/ai-engineering-tools-everyone-is-using-in-2026/">Analytics Vidhya — Top 10 AI Engineering Tools 2026</a></li>
+<li><a href="https://arxiv.org/pdf/2608.26004">arXiv 2608.26004 — AsymSpec</a></li>
+<li><a href="https://codex.danielvaughan.com/2026/08/29/asymspec-agentspec-speculative-decoding-agentic-llm-tool-use-inference-codex-cli/">Daniel Vaughan — AsymSpec/AgentSpec analysis</a></li>
+<li><a href="https://arxiv.org/pdf/2502.20330">arXiv 2502.20330 — RAPID</a></li>
+<li><a href="https://arxiv.org/pdf/2608.29831">arXiv 2608.29831 — A²Agent</a></li>
+<li><a href="https://arxiv.org/pdf/2606.24530">arXiv 2606.24530 — NatureBench</a></li>
+<li><a href="https://arxiv.org/pdf/2607.05775">arXiv 2607.05775 — Beyond the Leaderboard</a></li>
+<li><a href="https://arxiv.org/abs/2603.02766">arXiv 2603.02766 — EvoSkill</a></li>
+<li><a href="https://www.codesota.com/browse/agentic/autonomous-coding/terminal-bench-2">Codesota — Terminal-Bench 2.0</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 10/10/2026</div>
+</body></html>
