@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 11/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 11/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Haiku 5.5</strong> (lançado 07/10/2026): Anthropic reporta 39,2% no Terminal-Bench 4.0 (benchmark de tarefas complexas de terminal/agente). É o modelo rápido/barato da linha 5.5 da Anthropic, posicionado para tarefas de agente de alto volume onde Opus/Sonnet 5.5 seriam caros demais.</li>
+<li><strong>Mistral Large 4</strong>: disponível em preview público via API; pesos para download sob licença própria previstos para o final de outubro/2026. Fontes de benchmark (não oficiais) citam 61,7% no DeepSWE v1.1, mirando diretamente o caso de uso de coding agents.</li>
+<li><strong>MCP spec 2026-07-28</strong>: a maior revisão do Model Context Protocol desde o lançamento — elimina o handshake de sessão (initialize/initialized) e o header Mcp-Session-Id, permitindo servidores stateless escaláveis atrás de load balancers comuns sem session affinity. Depreca Roots, Sampling e Logging; adiciona MCP Apps e Tasks; exige OAuth mais estrito. Quem mantém servidores MCP precisa migrar antes do suporte aos recursos antigos cair.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong><a href="https://github.com/Alishahryar1/free-claude-code">free-claude-code</a></strong> (461 ⭐ hoje): projeto que permite usar Claude Code e outros agentes de coding sem custo, via terminal, IDE, app e celular — disparou no trending do GitHub hoje.</li>
+<li><strong><a href="https://github.com/repowise-dev/repowise">repowise</a></strong> (68 ⭐ hoje): ferramenta de análise de codebase via MCP — gera score de saúde do código, documentação automática, analytics de git e detecção de dead code direto no fluxo do agente.</li>
+<li><strong>Qodo Gen CLI</strong>: framework de agentes configurável por arquivo de config, com agentes pré-construídos para code review e análise de cobertura de testes — reduz boilerplate de orquestração de agentes de coding.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Microsoft Agent Framework Harness</strong> (fim de julho/2026, ainda referência ativa): framework para Python e .NET cobrindo loop de agente, planejamento, memória, recuperação de falhas, aprovações humanas e observabilidade — integra com o GitHub Copilot SDK como backend para "agent teams".</li>
+<li><strong>Codex CLI 0.145.0</strong>: evoluiu o Multi-Agent V2 com modelos configuráveis por subagente, níveis de raciocínio, papéis (roles) e controle de concorrência — relevante para quem orquestra múltiplos agentes especializados numa mesma task.</li>
+<li><strong>MCPA (certificação de profissionais MCP)</strong>: programa de certificação para quem constrói/integra servidores MCP, lançado sob a Agentic AI Foundation — sinal de que o ecossistema de agentes está padronizando perfis profissionais, não só specs técnicas.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Segurança de servidores MCP</strong>: scans independentes vêm encontrando falhas exploráveis em muitos servidores MCP públicos; NSA e CISA já emitiram orientação formal sobre o tema — se você expõe um servidor MCP, vale revisar autenticação e superfície de ataque agora, antes de migrar para o spec stateless de julho.</li>
+<li><strong>DeepEval</strong> continua ganhando tração como framework de teste para LLM, RAG e agentes — citado repetidamente em guias de stack de produção 2026 como peça padrão ao lado de LangGraph para orquestração.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong><a href="https://github.com/huggingface/transformers">huggingface/transformers</a></strong> (Python, 96 ⭐ hoje) — framework de referência para modelos de texto, visão, áudio e multimodal; continua no topo do trending diário mesmo anos após o lançamento.</li>
+<li><strong><a href="https://github.com/Alishahryar1/free-claude-code">Alishahryar1/free-claude-code</a></strong> (461 ⭐ hoje) — acesso gratuito a Claude Code e outros agentes de coding em múltiplas superfícies (terminal, IDE, app, celular).</li>
+<li><strong><a href="https://github.com/debpalash/VoiceStudio">debpalash/VoiceStudio</a></strong> (1.065 ⭐ hoje) — ferramenta local e open-source de voz: clonagem, dublagem, dictation, transcrição e criação de audiobooks, tudo on-device.</li>
+<li><strong><a href="https://github.com/MadsLorentzen/ai-job-search">MadsLorentzen/ai-job-search</a></strong> (511 ⭐ hoje) — framework self-hosted construído sobre Claude Code para avaliar vagas, adaptar CVs e preparar candidaturas automaticamente.</li>
+<li><strong><a href="https://github.com/hugohe3/ppt-master">hugohe3/ppt-master</a></strong> (461 ⭐ hoje) — gera decks PowerPoint editáveis a partir de documentos ou tópicos, com gráficos, narração e templates customizados.</li>
+<li><strong><a href="https://github.com/ComposioHQ/awesome-claude-skills">ComposioHQ/awesome-claude-skills</a></strong> (59 ⭐ hoje) — lista curada de skills e recursos para customizar workflows do Claude, útil para quem está construindo agentes próprios.</li>
+<li><strong><a href="https://github.com/repowise-dev/repowise">repowise-dev/repowise</a></strong> (68 ⭐ hoje) — análise de codebase via MCP (saúde do código, docs, git analytics, dead code).</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agentic AI / orquestração multi-agente</strong>: sistemas autônomos que planejam, raciocinam e executam tarefas de múltiplos passos com supervisão mínima. Gartner estima que 40% das aplicações empresariais vão integrar agentes de tarefa específica até o fim de 2026. LangGraph se consolidou como a ferramenta dominante para orquestrar esses workflows, e "Agent Ops" (monitoramento de agentes em produção) virou disciplina própria.</li>
+<li><strong>Stacks combinando fine-tuning + RAG + prompt engineering</strong>: a divisão de trabalho é fine-tuning muda o comportamento do modelo, RAG muda o que ele sabe, prompt engineering molda os dois sem tocar infraestrutura. Guias de produção 2026 reportam que a maioria dos stacks sérios já usa as três técnicas juntas, em vez de escolher uma só.</li>
+<li><strong>Small Language Models (SLMs) fine-tunados</strong>: adoção crescente de modelos de 1–7B parâmetros fine-tunados para uma tarefa específica, em vez de depender de um modelo generalista grande — reduz custo de inferência e latência para tarefas bem definidas (classificação, extração, roteamento).</li>
+<li><strong>MCP como padrão de tool-use</strong>: com o spec 2026-07-28 tornando servidores stateless, o MCP se firma como a camada padrão para conectar agentes a ferramentas externas — adotado por OpenAI, Google, Microsoft e AWS (Bedrock AgentCore Gateway já suporta o novo spec).</li>
+<li><strong>Auditoria de benchmarks de agentes</strong>: cresce o escrutínio sobre a confiabilidade de benchmarks de coding agents — papers como TestJack (arXiv 2610.10619) propõem métodos de evolução de avaliadores para verificar se resultados reportados (ex. SWE-bench, Terminal-Bench) são realmente confiáveis, não só otimizados para o teste.</li>
+<li><strong>Testes automatizados de LLM/RAG/agentes (DeepEval e similares)</strong>: frameworks de avaliação contínua ganham espaço como parte do pipeline de CI para produtos com LLM, cobrindo regressão de qualidade de resposta, groundedness de RAG e comportamento de agentes multi-step.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>TestJack</strong> (<a href="https://arxiv.org/abs/2610.10619">arXiv:2610.10619</a>, 07/10/2026) — questiona se os resultados reportados em benchmarks de coding agents são confiáveis, usando "evaluator evolution" para auditar o próprio processo de avaliação.</li>
+<li><strong>A Closer Look at Agentic BBO</strong> (<a href="https://arxiv.org/abs/2610.12183">arXiv:2610.12183</a>, 08/10/2026) — avalia sete LLMs sob o harness de agente do Codex em tarefas de otimização black-box; mostra que adicionar ferramentas numéricas não melhora consistentemente a performance dos agentes.</li>
+<li><strong>BrickBench</strong> (listagem alphaxiv, 08/10/2026) — benchmark de design agentic com LEGO: agentes de coding conseguem montar estruturas fisicamente válidas, mas ainda ficam abaixo da qualidade de design humana.</li>
+<li><strong>Noise Floor Audit for Agent Benchmarks</strong> (arXiv:2608.22331) — mede o "piso de ruído" em benchmarks de agentes, ajudando a separar ganho real de variância estatística entre runs.</li>
+<li><strong>Agent Psychometrics</strong> (arXiv:2604.00594) — propõe prever performance de agentes de coding tarefa a tarefa, tratando benchmarks como instrumentos psicométricos em vez de simples leaderboards.</li>
+<li><strong>AgentAtlas</strong> (arXiv:2605.20530) — vai além de leaderboards de resultado final para mapear como agentes LLM chegam às respostas, dando mais visibilidade ao processo de raciocínio multi-step.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python</a></li>
+<li><a href="https://llm-stats.com/ai-news">LLM News Today — llm-stats.com</a></li>
+<li><a href="https://www.morphllm.com/best-ai-coding-agents-2026">Best AI Coding Agents (Oct 2026) — MorphLLM</a></li>
+<li><a href="https://benchlm.ai/">LLM Leaderboard & Benchmarks — BenchLM</a></li>
+<li><a href="https://devblogs.microsoft.com/agent-framework/author/shawnhenry">Microsoft Agent Framework — DevBlogs</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">Qodo CLI Agent Framework — SD Times</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">Model Context Protocol — Wikipedia</a></li>
+<li><a href="https://pub.towardsai.net/mcp-2-0-what-changed-what-remained-and-how-it-impacts-practitioners-8f553e62448c">MCP 2.0: What Changed — Towards AI</a></li>
+<li><a href="https://aaif.io/blog/mcp-2026-07-28-whats-changing-and-how-to-migrate">MCP 2026-07-28 — Agentic AI Foundation</a></li>
+<li><a href="https://arxiv.org/abs/2610.10619">TestJack — arXiv</a></li>
+<li><a href="https://arxiv.org/abs/2610.12183">A Closer Look at Agentic BBO — arXiv</a></li>
+<li><a href="https://arxiv.org/html/2604.00594v1">Agent Psychometrics — arXiv</a></li>
+<li><a href="https://arxiv.org/html/2605.20530v1">AgentAtlas — arXiv</a></li>
+<li><a href="https://arxiv.org/pdf/2608.22331">Noise Floor Audit for Agent Benchmarks — arXiv</a></li>
+<li><a href="https://futurense.com/blog/ai-skills-in-demand">Top AI Skills in Demand for 2026 — Futurense</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 11/10/2026</div>
+</body></html>
