@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 12/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 12/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Model Context Protocol (MCP)</strong> — atualização major da especificação (datada de 28/07/2026) troca o handshake complexo por um núcleo <em>stateless</em>, permitindo colocar servidores MCP atrás de load balancers padrão sem "sticky routing". Passa a exigir validação do parâmetro OAuth <code>iss</code> (proteção contra ataques de mix-up) e cria uma política formal de depreciação (mínimo 12 meses entre anúncio e remoção). Duas extensões viram oficiais: <strong>MCP Apps</strong> (interfaces interativas dentro do cliente de IA) e <strong>MCP Tasks</strong> (trabalho assíncrono de longa duração). Segundo o co-criador David Soria Parra, os SDKs do MCP somam hoje ~250 milhões de downloads semanais, dobrando nos últimos 6 meses.</li>
+<li><strong>GPT-6 / "Intelligent UI" no ChatGPT</strong> (rollout iniciado em 07/10/2026, segundo reportagem não confirmada por fonte primária) — a interface passa a gerar elementos interativos (gráficos, botões, formulários) diretamente na conversa; rollout começou nos planos pagos, com Free/Go previstos para 08/10.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>CrewAI 1.15.10</strong> (lançado 31/07/2026) — adiciona suporte nativo a MCP e ao protocolo <strong>A2A</strong> (agent-to-agent), facilitando interoperabilidade entre agentes de frameworks diferentes.</li>
+<li><strong>LangChain/LangGraph</strong> — langchain-core na linha 1.4.x e LangGraph em 1.2.6; o <code>AgentExecutor</code> foi oficialmente depreciado, com migração recomendada para o runtime do LangGraph antes de dezembro/2026.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Codex CLI 0.145.0</strong> — evolui o "Multi-Agent V2" com modelos configuráveis por subagente, níveis de reasoning ajustáveis, papéis (roles) definidos e controle de concorrência entre subagentes, útil para quem orquestra times de agentes de código em paralelo.</li>
+<li><strong>Qodo Gen CLI</strong> — framework para criar agentes de código customizados a partir de arquivos de configuração, com agentes pré-construídos prontos para code review e cobertura de testes.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>Não encontramos hoje anúncios verificáveis de infraestrutura/serving/RAG/vector DB com dados concretos e data confirmada — o noticiário do dia se concentrou em MCP, modelos e frameworks de agentes (seções acima).</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>debpalash/VoiceStudio</strong> (Python, ⭐1.225 hoje) — ferramenta open-source e local para clonagem e design de voz, dublagem, transcrição e criação de audiobooks.</li>
+<li><strong>hugohe3/ppt-master</strong> (⭐1.104 hoje) — gera decks do PowerPoint nativos a partir de documentos ou tópicos, com narração e suporte a templates customizados.</li>
+<li><strong>calesthio/OpenMontage</strong> (⭐737 hoje) — sistema agentic de produção de vídeo que roda dentro de assistentes de código de IA como o Claude Code.</li>
+<li><strong>Alishahryar1/free-claude-code</strong> (⭐506 hoje) — permite usar Claude Code e outros harnesses de IA para código gratuitamente via terminal, IDE, app ou browser.</li>
+<li><strong>MadsLorentzen/ai-job-search</strong> (⭐504 hoje) — framework de busca de emprego construído sobre Claude Code que avalia vagas e redige CVs e cartas de apresentação.</li>
+<li><strong>huggingface/transformers</strong> (Python, ⭐501 hoje) — framework de referência para definição de modelos de texto, visão, áudio e multimodais.</li>
+<li><strong>open-webui/open-webui</strong> (⭐142 hoje) — interface web self-hosted para modelos de IA, com suporte a Ollama e APIs compatíveis com OpenAI.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Context Engineering para agentes de código</strong> — otimizar o que entra no contexto do agente (em vez de só aumentar a janela) é apontado como o maior fator de ganho de performance em 2026; um estudo cita 89,1% no SWE-bench Verified via engenharia de contexto otimizada contra 70,7% de baselines manuais (número citado de segunda mão — vale checar a fonte original antes de levar como definitivo).</li>
+<li><strong>2. Separação Viewer/Editor (SWE-Edit)</strong> — dividir a inspeção de código (viewer) da edição (editor) em contextos separados elevou a taxa de resolução no SWE-bench Verified de 69,9% para 72,0%, cortando em ~60% o contexto passado ao agente principal: técnica direta para reduzir custo de tokens sem perder acurácia.</li>
+<li><strong>3. Context Pruning (SWE-Pruner)</strong> — poda ativa de contexto irrelevante reduziu de 23% a 54% o uso de tokens em tarefas como SWE-bench Verified, chegando a melhorar a taxa de sucesso em vez de piorá-la, contrariando a ideia de que "mais contexto é sempre melhor".</li>
+<li><strong>4. MCP Apps e MCP Tasks como padrão de design</strong> — as duas extensões oficiais do MCP (ver seção de novidades) viram técnica de arquitetura: Apps padroniza UI interativa dentro do cliente de IA, Tasks padroniza orquestração de trabalho assíncrono de longa duração — relevante para quem constrói ferramentas MCP que rodam além de uma única chamada.</li>
+<li><strong>5. Multi-agente com papéis e concorrência configurável</strong> — Codex CLI 0.145.0 e o framework da Qodo Gen CLI reforçam a tendência de orquestração multi-agente com roles fixos (ex. reviewer, tester) e modelos diferentes por subagente, em vez de um único agente genérico fazendo tudo.</li>
+<li><strong>6. Interoperabilidade via protocolo A2A</strong> — a adoção nativa de A2A pelo CrewAI 1.15.10 soma-se ao MCP como segundo padrão relevante para fazer agentes de frameworks diferentes conversarem entre si; vale acompanhar se vira padrão de facto como o MCP virou para tools.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>REXBench</strong> (ACL 2026) — avalia 9 agentes de código construídos sobre aider, Claude Code e OpenHands em tarefas de extensão de pesquisa em IA; todos os agentes testados falham em implementar autonomamente a maioria das extensões propostas, expondo o limite atual de agentes "de pesquisa".</li>
+<li><strong>A Survey on Evaluation of LLM-based Agents</strong> (Findings of ACL 2026) — mapeia o estado da arte em avaliação de agentes e aponta custo-eficiência, segurança e robustez como as lacunas que a pesquisa ainda não resolveu.</li>
+<li><strong>DeepResearch Bench</strong> (ICLR 2026) — benchmark abrangente para agentes de "deep research", cobrindo tarefas de investigação multi-etapa que os benchmarks tradicionais de QA não capturam.</li>
+<li><strong>SWE-ContextBench</strong> (arXiv 2602.08316) — mostra que "context learning" só ajuda quando o contexto reaproveitado é compacto e corretamente selecionado; recuperação livre de contexto trouxe ganhos limitados e às vezes piorou o resultado.</li>
+<li><strong>SWE-EVO</strong> (arXiv 2512.18470) — benchmark para avaliar agentes de código em cenários de evolução de software de longo prazo, indo além do escopo de PR único que domina benchmarks como o SWE-bench clássico.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.scworld.com/brief/model-context-protocol-releases-major-update-to-ai-interaction-technology">Model Context Protocol releases major update (SC World)</a></li>
+<li><a href="https://letsdatascience.com/news/openai-brings-gpt-6-and-intelligent-ui-to-chatgpt-4f0d797c">OpenAI brings GPT-6 and Intelligent UI to ChatGPT</a></li>
+<li><a href="https://alicelabs.ai/en/insights/langgraph-vs-crewai-2026">LangGraph vs CrewAI 2026</a></li>
+<li><a href="https://uvik.net/blog/langchain-vs-langgraph/">LangChain vs LangGraph</a></li>
+<li><a href="https://proflead.substack.com/p/ai-news-for-developers-28-codex-multi">AI News for Developers #28 — Codex Multi-Agent V2</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">Qodo launches CLI agent framework</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (geral, diário)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (diário)</a></li>
+<li><a href="https://medium.com/@xanther.ai/context-engineering-is-the-compass-your-coding-agent-needs-6eef30c66286">Context Engineering is the Compass Your Coding Agent Needs</a></li>
+<li><a href="https://ucrisportal.univie.ac.at/en/publications/rexbench-can-coding-agents-autonomously-implement-ai-research-ext-2/">REXBench: Can Coding Agents Autonomously Implement AI Research Extensions?</a></li>
+<li><a href="https://preview.aclanthology.org/ingest-acl/2026.findings-acl.1330/">A Survey on Evaluation of LLM-based Agents (Findings of ACL 2026)</a></li>
+<li><a href="https://mlanthology.org/iclr/2026/du2026iclr-deepresearch/">DeepResearch Bench (ICLR 2026)</a></li>
+<li><a href="https://arxiv.org/pdf/2602.08316">SWE Context Bench (arXiv 2602.08316)</a></li>
+<li><a href="https://arxiv.org/pdf/2512.18470">SWE-EVO (arXiv 2512.18470)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 12/10/2026</div>
+</body></html>
