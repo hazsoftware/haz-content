@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 13/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 13/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Google Home MCP Server</strong> (acesso antecipado desde 16/09/2026) — Google abriu um servidor MCP que permite a agentes de IA compatíveis (Claude, ChatGPT, Hermes, OpenClaw, Google Antigravity) controlar dispositivos smart-home e consultar histórico de eventos; configuração via projeto no Google Cloud, restrita a assinantes do Premium Advanced.</li>
+<li><strong>Intel Agentic Smart Community 2026.2.0</strong> (09/09/2026) — release expõe 10 ferramentas MCP nativas (consulta de cenas, recuperação de alertas, geração de relatórios, gestão de monitores), mostrando MCP se expandindo para edge/smart-city além de dev tools puros.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LlamaIndex Workflows 1.0</strong> (reportado em julho/2026) — camada de orquestração stateful sai do beta e vai para estável, dando a times uma base production-ready para pipelines de agentes com múltiplas etapas.</li>
+<li><strong>CrewAI</strong> — adiciona backends de memória e fluxo plugáveis com integração nativa ao Snowflake, além de cadeias A2A assíncronas e mecanismos de atualização configuráveis (poll, stream, push) entre agentes.</li>
+<li><strong>LangChain</strong> — lançou o <strong>OpenWiki</strong>, CLI open-source que gera e mantém documentação de codebase automaticamente, atualizando-a conforme o código muda.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>browser-use/video-use</strong> (entrou no trending em 23/09/2026, ainda em alta hoje) — projeto da organização browser-use que permite a agentes de código editar vídeo via automação programática; o complemento <strong>browser-harness v0.1.6</strong> adiciona gravação de vídeo configurável por tarefa.</li>
+<li><strong>mvanhorn/last30days-skill</strong> — skill de agente que varre discussões recentes (Reddit, X, YouTube) filtrando só os últimos 30 dias e resume com fontes; chegou a #1 no trending do GitHub com cerca de 50 mil estrelas.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Observabilidade de RAG e vector DB</strong> (tendência consolidada desde agosto/2026) — Pinecone lançou stack de monitoramento open-source com Grafana + Prometheus para Pinecone Serverless/BYOC, e a Monte Carlo adicionou "volume monitors" específicos para Pinecone; a prática agora correlaciona spans de retrieval, indexação e resposta final em vez de só rastrear o prompt.</li>
+<li><strong>Mercado de vector databases em 2026</strong> — segue maduro e fragmentado por caso de uso: Pinecone e Weaviate (managed), Milvus/Zilliz, Qdrant e Chroma (open-source/self-host) continuam como as opções de referência citadas em comparativos do setor.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>debpalash/VoiceStudio</strong> (Python, ⭐1.691 hoje) — alternativa local e open-source ao ElevenLabs para clonagem de voz, dublagem e criação de audiobooks.</li>
+<li><strong>hugohe3/ppt-master</strong> (⭐786 hoje) — transforma documentos ou tópicos em decks do PowerPoint editáveis, com gráficos e narração automática.</li>
+<li><strong>Alishahryar1/free-claude-code</strong> (⭐626 hoje) — acesso gratuito ao Claude Code e outros agentes de código via terminal, IDE, celular ou browser.</li>
+<li><strong>harry0703/MoneyPrinterTurbo</strong> (⭐404 hoje) — gera vídeos curtos em HD a partir de um tópico ou palavra-chave usando workflows de IA.</li>
+<li><strong>baidu/Unlimited-OCR</strong> (⭐210 hoje) — mira parsing de documentos longos em um único passe, sem chunking manual.</li>
+<li><strong>browser-use/video-use</strong> (⭐122 hoje) — dá a agentes de código a capacidade de editar vídeo programaticamente (ver seção de Agentes acima).</li>
+<li><strong>sgl-project/sglang-omni</strong> (⭐42 hoje) — framework de serving de alta performance para modelos de voz (TTS, ASR) e multimodais, extensão do SGLang.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Context editing para controlar crescimento de contexto</strong> — o LOCA-bench (arXiv 2602.07962) formaliza a comparação entre podar contexto por regras ("context editing") e usar ferramentas de memória externa; junto com o SWE Context Bench, reforça que context learning só ajuda quando o conteúdo reaproveitado é compacto e bem selecionado, não quando é recuperado livremente.</li>
+<li><strong>2. Avaliação de memória de longo prazo em agentes</strong> — LongMemEval-V2 (arXiv 2605.12493) testa 5 habilidades de memória em históricos que passam de 100 milhões de tokens, e o Memoria-Bench (ICML 2026) mostra degradação substancial de performance em trajetórias longas e ruidosas — sinal de que "contexto infinito" ainda não resolve memória de agente na prática.</li>
+<li><strong>3. Agentes atuando sobre vídeo, não só texto/código</strong> — o browser-use/video-use e o browser-harness v0.1.6 abrem uma categoria nova de automação onde o agente de código edita e gera vídeo programaticamente, ampliando o escopo de "coding agent" para produção de mídia.</li>
+<li><strong>4. Skills de pesquisa com janela de tempo fixa</strong> — o padrão do last30days-skill (skill estreita, com corte temporal explícito de 30 dias, citando fontes) virou referência para quem empacota skills do Claude focadas em research, evitando que o agente traga resultado desatualizado.</li>
+<li><strong>5. Convergência de observabilidade de RAG com infra</strong> — correlacionar spans de retrieval, indexação e vector DB (Pinecone+Grafana/Prometheus, Monte Carlo) em vez de só tracing de prompt é hoje tratado como prática padrão, não mais diferencial, para pipelines RAG em produção.</li>
+<li><strong>6. Fine-tuning autônomo por agentes</strong> — o FT-Dojo (arXiv 2603.01712) testa se agentes de LLM conseguem conduzir fine-tuning ponta a ponta sozinhos em 13 tarefas de 5 domínios; o agente especializado (FT-Agent) vence em 10 das 13, mas a tarefa ainda está longe de resolvida — útil para avaliar quanto confiar em "AutoML agentic" hoje.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>LOCA-bench</strong> (arXiv 2602.07962) — benchmarking de agentes de linguagem sob crescimento controlado e extremo de contexto; compara context editing (poda baseada em regras) contra ferramentas de memória.</li>
+<li><strong>SWE Context Bench</strong> (arXiv 2602.08316) — mostra que context learning em coding só ajuda quando o contexto reaproveitado é compacto e corretamente selecionado; recuperação livre trouxe ganhos limitados e às vezes piorou o resultado.</li>
+<li><strong>LongMemEval-V2</strong> (arXiv 2605.12493) — benchmark de memória de longo prazo para agentes "como colegas experientes", cobrindo 5 habilidades de memória com históricos acima de 100M tokens.</li>
+<li><strong>Memoria-Bench</strong> (ICML 2026) — benchmark abrangente de memória em agentes autônomos de longo horizonte (deep research, coding, ciência); reporta degradação substancial em trajetórias longas e ruidosas.</li>
+<li><strong>FT-Dojo</strong> (arXiv 2603.01712) — ambiente com 13 tarefas em 5 domínios para testar se agentes de LLM conseguem fazer fine-tuning ponta a ponta sozinhos; o FT-Agent, construído especificamente para a tarefa, vence em 10 das 13 tarefas.</li>
+<li><strong>Retrieval-Augmented LLM Agents</strong> (arXiv 2603.18272) — foca em agentes que melhoram em tarefas não vistas aprendendo da própria experiência via recuperação, em vez de depender só de fine-tuning.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://letsdatascience.com/news/google-home-opens-mcp-access-to-ai-agents-582dff6b">Google Home Opens MCP Access to AI Agents</a></li>
+<li><a href="https://docs.openedgeplatform.intel.com/dev/edge-ai-suites/ai-suite-metro/agentic-smart-community/release-notes.html">Intel Agentic Smart Community — Release Notes</a></li>
+<li><a href="https://alicelabs.ai/en/insights/langgraph-vs-crewai-2026">LangGraph vs CrewAI 2026 (LlamaIndex Workflows, CrewAI, LangChain OpenWiki)</a></li>
+<li><a href="https://aitoolly.com/de/ai-news/article/2026-09-24-browser-use-launches-video-use-exploring-video-editing-automation-driven-by-autonomous-code-agents">Browser-use launches video-use</a></li>
+<li><a href="https://newreleases.io/project/github/browser-use/browser-harness/release/v0.1.6">browser-harness v0.1.6 release notes</a></li>
+<li><a href="https://lumadock.com/tutorials/install-last30days-skill">last30days-skill — install guide</a></li>
+<li><a href="https://www.dio.me/en/articles/rag-observability-em-2026-do-tracing-ao-vector-db-82cdc4a4e752">RAG Observability em 2026 — do tracing ao vector DB</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (geral, diário)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (diário)</a></li>
+<li><a href="https://arxiv.org/pdf/2602.07962">LOCA-bench (arXiv 2602.07962)</a></li>
+<li><a href="https://arxiv.org/pdf/2602.08316">SWE Context Bench (arXiv 2602.08316)</a></li>
+<li><a href="https://arxiv.org/pdf/2605.12493">LongMemEval-V2 (arXiv 2605.12493)</a></li>
+<li><a href="https://icml.cc/virtual/2026/poster/64414">Memoria-Bench (ICML 2026)</a></li>
+<li><a href="https://arxiv.org/abs/2603.01712">FT-Dojo (arXiv 2603.01712)</a></li>
+<li><a href="https://arxiv.org/abs/2603.18272">Retrieval-Augmented LLM Agents (arXiv 2603.18272)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 13/10/2026</div>
+</body></html>
