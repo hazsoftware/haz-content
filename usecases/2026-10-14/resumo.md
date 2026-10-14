@@ -1,0 +1,3 @@
+# Usecases de IA — 14/10/2026
+
+- **Claude Code — Linus Torvalds usa o agente para escrever uma série de patches no kernel Linux**: Torvalds publicou uma branch (`noref-filemap-read-with-llm`) com oito patches que reduzem a contenção no reference-counting de folios durante leituras do page cache por múltiplas threads. Na descrição do commit, ele afirma que o código, os testes e a revisão foram feitos com o Claude Code sob sua direção, com cada patch levando a tag "Assisted-by: LLM". Em benchmark no próprio laptop, o ciclo de CPU por leitura caiu de ~2.950 para ~725 com oito threads lendo o mesmo arquivo (ganho de ~3x). O código ainda não foi integrado ao kernel oficial. Fonte: [Linuxiac](https://linuxiac.com/?p=220979).
