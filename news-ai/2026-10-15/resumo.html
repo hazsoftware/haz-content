@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 15/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 15/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Haiku 5.5</strong> (07/10/2026): Anthropic lançou a nova versão voltada a tarefas de alto volume, com custo bem menor que o Haiku 4.5. Já disponível na Anthropic API, Amazon Bedrock, Google Cloud e Microsoft Foundry simultaneamente.</li>
+<li><strong>Compliance API (beta) no Claude Developer Platform</strong> (08/10/2026): Anthropic adicionou suporte beta a chats do Claude unificado para organizações Enterprise, voltado a auditoria e governança de uso.</li>
+<li><strong>GPT-6 & Intelligent UI</strong> (07/10/2026): OpenAI liberou para todos os usuários do ChatGPT, não só assinantes.</li>
+<li><strong>Gemini "Nano Banana 2.1"</strong> (06/10/2026): Google tornou a versão geralmente disponível na Gemini API, substituindo o Nano Banana 2.</li>
+<li>No leaderboard semanal do lmmarketcap (28/09–04/10/2026), <strong>Claude Fable 5.1</strong> ficou em primeiro lugar, com 8 novos modelos entrando no ranking na semana.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Qodo Gen CLI</strong>: framework de agentes configurável via arquivo, com agentes pré-construídos prontos para code review e cobertura de testes; disponível gratuitamente com camada enterprise.</li>
+<li><strong>CrewAI</strong> já tem suporte nativo a MCP desde o início de 2026: o parâmetro <code>mcps</code> conecta servidores MCP direto nos agentes via <code>crewai-tools[mcp]</code>, sem adaptador externo.</li>
+<li><strong>LangChain</strong> integra MCP via <code>langchain-mcp-adapters</code>, convertendo ferramentas MCP em tools nativas para agentes LangGraph — ambos os frameworks suportam stdio, HTTP e SSE como transporte.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol)</strong> passou de 97 milhões de downloads mensais do SDK, segundo anúncio da Anthropic em 25/03/2026, e já soma cerca de 10.000 servidores públicos após a governança do protocolo migrar para a Agentic AI Foundation (Linux Foundation).</li>
+<li>Pesquisa da Stacklok (jul/2026, n=100 devs sêniores): 41% das empresas já têm MCP em produção, mas 86% do uso ainda é experimentação ou dev local — só 5% roda em produção governada em escala enterprise, e segurança é apontada como principal obstáculo por 64% dos respondentes.</li>
+<li>Dado de segurança (MintMCP): taxa de sucesso de ataque de 72,8% contra implementações atuais de servidores MCP; outro levantamento aponta 38,7% dos servidores públicos sem autenticação — vale revisar antes de expor servidor MCP em produção.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>AgentPerfBench</strong> (arXiv 2609.34683): nova suite de benchmark para performance de inferência de LLMs em cenários agentic multi-turn, preenchendo a lacuna de benchmarks tradicionais focados em chat single-turn.</li>
+<li>Auditoria da OpenAI encontrou contaminação em tasks do <strong>SWE-bench Verified</strong>: modelos de fronteira conseguiram reproduzir patches "gold" verbatim em parte dos problemas — scores acima de 80% no benchmark devem ser lidos com ressalva.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>anthropics/claude-plugins-official</strong> (Python, 181⭐ hoje) — diretório oficial de plugins para Claude Code, mantido pela própria Anthropic.</li>
+<li><strong>K-Dense-AI/scientific-agent-skills</strong> (Python, 163⭐ hoje) — biblioteca de skills validadas e bases científicas para transformar agentes de IA em assistentes de pesquisa.</li>
+<li><strong>ahujasid/mcp-for-blender</strong> (Python, 141⭐ hoje) — plugin da comunidade que permite controlar o Blender via MCP a partir de qualquer LLM.</li>
+<li><strong>wshobson/agents</strong> (Python, 118⭐ hoje) — marketplace de plugins agentic compatível com várias plataformas de coding AI.</li>
+<li><strong>HKUDS/CLI-Anything</strong> (Python, 103⭐ hoje) — torna qualquer software operável por agentes de IA através de interface de linha de comando.</li>
+<li><strong>volcengine/OpenViking</strong> (Python, 96⭐ hoje) — banco de contexto auto-aprimorável que unifica memória de agente, conhecimento RAG e skills num só backend.</li>
+<li><strong>trailofbits/skills</strong> (Python, 27⭐ hoje) — skills para Claude Code voltadas a pesquisa de segurança, detecção de vulnerabilidades e auditorias.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Context Engineering</strong>: em 2026 a disciplina virou consenso — o que importa é a curadoria do contexto, não o volume. Um benchmark citado pela Sourcegraph mostra agentes com retrieval direcionado (~5K tokens) superando agentes alimentados com um resumo de 100K tokens do codebase inteiro.</li>
+<li><strong>2. AGENTS.md como padrão universal</strong>: o arquivo de configuração de contexto de projeto já é adotado por Claude Code, Codex, Cursor, Aider, Copilot, Gemini CLI e Windsurf, consolidando-se como convenção cross-ferramenta.</li>
+<li><strong>3. MCP como camada padrão de integração de ferramentas</strong>: com CrewAI (parâmetro <code>mcps</code>) e LangChain (<code>langchain-mcp-adapters</code>) plugando servidores MCP direto em frameworks multi-agente, o protocolo se firma como a "USB" de agentes — mas com os problemas de segurança citados acima.</li>
+<li><strong>4. DSPy para otimização programática de prompts</strong>: em vez de prompt engineering manual, pipelines de produção vêm adotando otimização automatizada de prompts e few-shot examples via DSPy.</li>
+<li><strong>5. Avaliação de agentes como disciplina própria (agent eval)</strong>: ferramentas como DeepEval cobrem avaliação de RAG, teste de agentes, benchmarking e testes de regressão — eval deixou de ser só "rodar o modelo de novo" e ganhou pipeline próprio, separado de testes de software tradicionais.</li>
+<li><strong>6. Terminal agents / CLI-first</strong>: repositórios como HKUDS/CLI-Anything e o survey acadêmico sobre agentes em ambientes de linha de comando (arXiv 2608.20485) reforçam a tendência de usar o terminal como interface universal para agentes operarem qualquer software.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>AutoEnvScaling</strong> (13/10/2026) — agentes geram suas próprias tarefas de treinamento em ambiente de terminal a partir das próprias falhas, automatizando o "data flywheel" para terminal agents sem curadoria humana de tasks.</li>
+<li><strong>AgentPerfBench</strong> (arXiv 2609.34683) — suite de benchmarking e avaliação para performance de inferência de LLMs agentic, cobrindo workloads multi-turn que benchmarks de chatbot single-turn não capturam.</li>
+<li><strong>SWE Refactor Bench</strong> (12/10/2026) — testa se agentes de código conseguem completar migrações de stack em repositórios inteiros e de longo horizonte, preservando o comportamento original do programa.</li>
+<li><strong>CWE-Bench</strong> (12/10/2026) — avalia a capacidade de agentes de código de gerar patches corretos para vulnerabilidades reais, catalogadas por CWE.</li>
+<li><strong>Terminal Agents: A Survey of AI Agents in Command-Line Environments</strong> (arXiv 2608.20485) — levantamento acadêmico sobre o estado da arte de agentes operando em ambientes de linha de comando.</li>
+<li><strong>AgentAtlas: Beyond Outcome Leaderboards for LLM Agents</strong> (arXiv 2605.20530) — propõe avaliação de agentes além do score binário de sucesso/falha, olhando para processo e eficiência da execução.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.analyticsvidhya.com/blog/2026/06/ai-engineering-tools-everyone-is-using-in-2026/">Top 10 AI Engineering Tools Everyone is Using in 2026 — Analytics Vidhya</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">Qodo launches CLI agent framework — SD Times</a></li>
+<li><a href="https://releasebot.io/updates/anthropic">Anthropic Release Notes — October 2026 — Releasebot</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, daily</a></li>
+<li><a href="https://stacklok.com/resources/state-of-mcp-in-software-2026/">State of Model Context Protocol in Software 2026 — Stacklok</a></li>
+<li><a href="https://www.mintmcp.com/blog/mcp-deployment-statistics">MCP Deployment Statistics — MintMCP</a></li>
+<li><a href="https://www.dreamfactory.com/hub/mcp-server-statistics">35 MCP Server Statistics Every Enterprise Should Know in 2026 — DreamFactory</a></li>
+<li><a href="https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html">Context Engineering for Coding Agents — Martin Fowler</a></li>
+<li><a href="https://alexcloudstar.com/blog/context-engineering-ai-coding-2026/">Context Engineering in 2026 — Alex Cloudstar</a></li>
+<li><a href="https://www.alphaxiv.org/">AutoEnvScaling — alphaXiv</a></li>
+<li><a href="https://arxiv.org/abs/2609.34683">AgentPerfBench — arXiv 2609.34683</a></li>
+<li><a href="https://www.morphllm.com/best-ai-coding-agents-2026">Best AI Coding Agents (October 2026) — MorphLLM</a></li>
+<li><a href="https://arxiv.org/pdf/2608.20485">Terminal Agents: A Survey of AI Agents in Command-Line Environments — arXiv 2608.20485</a></li>
+<li><a href="https://arxiv.org/html/2605.20530v1">AgentAtlas: Beyond Outcome Leaderboards for LLM Agents — arXiv 2605.20530</a></li>
+<li><a href="https://www.datalearner.com/en/benchmarks/SWE-bench-Verified">SWE-bench Verified Leaderboard — DataLearner</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 15/10/2026</div>
+</body></html>
