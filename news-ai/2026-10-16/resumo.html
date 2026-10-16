@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 16/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 16/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude 5.5 (Opus/Sonnet/Haiku)</strong> (07/10/2026): segundo rastreadores de preços, a Anthropic completou a linha 5.5 com os três modelos compartilhando janela de contexto de 1M tokens e saída máxima de 128K — preços reportados de ~US$0,10/milhão (Haiku 5.5), ~US$2 (Sonnet 5.5) e ~US$4 (Opus 5.5) de input, uma queda de ~20% frente ao Opus anterior. Dados vêm de agregadores terceiros (não da página oficial da Anthropic), então confira o pricing oficial antes de orçar custo de produção.</li>
+<li><strong>Claude Code v2.1.296</strong> (09/10/2026): 25 releases nos últimos 30 dias segundo rastreadores da comunidade. Destaques do mês: v2.1.293 trocou o modelo padrão para uma variante Haiku; v2.1.295 adicionou hooks capazes de bloquear ações quando falham.</li>
+<li><strong>MCP spec 2026-07-28</strong>: a revisão mais profunda do Model Context Protocol desde o lançamento (nov/2024) removeu o mecanismo de sessão em nível de protocolo — cada request agora carrega seu próprio estado — depreciou Roots/Sampling/Logging e endureceu requisitos de OAuth. OpenAI, Google, Microsoft e AWS já integraram a nova spec nos seus stacks de agentes; NSA e CISA emitiram orientação formal depois que scans independentes encontraram falhas exploráveis em boa parte dos servidores MCP públicos.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LlamaIndex Workflows 1.0</strong>: chegou à versão estável (jul/2026), entregando uma camada de orquestração stateful pronta para produção pela primeira vez no framework.</li>
+<li><strong>CrewAI</strong>: lançou backends plugáveis de memória e flow, com integração nativa a Snowflake, além de cadeias A2A assíncronas.</li>
+<li><strong>Codex CLI 0.145.0</strong>: passou a permitir configurar modelo, nível de reasoning, papel (role) e concorrência por subagente em trabalho multi-agente.</li>
+<li><strong>GitHub Agent Plugins 1.0</strong> (ago/2026): spec pública alcançou disponibilidade geral no VS Code, Copilot CLI, Copilot SDK e no app do Copilot.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Anthropic Managed Agents (beta)</strong> (09/10/2026): permite gerar e executar workflows multi-fase do lado do servidor, sem o dev precisar orquestrar o loop de agente manualmente.</li>
+<li><strong>AWS Bedrock AgentCore</strong>: adicionou lifecycle hooks em torno de chamadas de ferramenta e suporte a TypeScript para frameworks de agente.</li>
+<li><strong>anthropics/claude-plugins-official</strong>: diretório oficial de plugins do Claude Code está em alta no GitHub Trending (39.752 estrelas totais, +1.552 em um dia), sinal de adoção crescente do ecossistema de plugins.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>tokenspeed</strong> (lightseekorg): novo engine de inferência para LLMs entrou no GitHub Trending (2.638 estrelas, +374 em um dia).</li>
+<li><strong>Observabilidade de vector DB</strong>: Pinecone lançou stack de monitoramento open-source (dashboards Grafana + coleta Prometheus) para Pinecone Serverless e BYOC; Monte Carlo lançou monitores de volume dedicados a Pinecone.</li>
+<li><strong>Consolidação de observabilidade LLM</strong>: ClickHouse levantou Series D de US$400 milhões e adquiriu a Langfuse (jan/2026); a LangChain anunciou a SmithDB, engine de storage dedicada a trace data (mai/2026).</li>
+<li><strong>Prompt caching sob pressão</strong>: o paper "Don't Break the Cache" mostra que agentes de código como Claude Code e Cursor rotineiramente executam 30-50+ tool calls em uma única sessão, degradando a taxa de acerto de cache de prompt em tarefas longas — ponto crítico para quem calcula custo de inferência de agentes.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>debpalash/VoiceStudio</strong> (Python, +2.301 ⭐ hoje / 70.013 total) — ferramenta local e open-source para clonagem e design de voz, dublagem, dictation e criação de audiobooks.</li>
+<li><strong>ifixai-ai/iFixAi</strong> (Python, +1.587 ⭐ hoje / 28.509 total) — ferramenta de auditoria independente que verifica se agentes de IA estão realmente fazendo o que deveriam fazer.</li>
+<li><strong>anthropics/claude-plugins-official</strong> (Python, +1.552 ⭐ hoje / 39.752 total) — diretório oficial de plugins do Claude Code mantido pela Anthropic.</li>
+<li><strong>K-Dense-AI/scientific-agent-skills</strong> (Python, +1.158 ⭐ hoje / 51.028 total) — biblioteca de skills validadas e bases científicas para transformar agentes de IA em assistentes de pesquisa.</li>
+<li><strong>HKUDS/CLI-Anything</strong> (+716 ⭐ hoje / 53.175 total) — projeto que busca tornar qualquer software utilizável por agentes de IA via interface de linha de comando.</li>
+<li><strong>lightseekorg/tokenspeed</strong> (+374 ⭐ hoje / 2.638 total) — novo engine de inferência para LLMs focado em performance.</li>
+<li><strong>rohitg00/ai-engineering-from-scratch</strong> (+613 ⭐ hoje / 70.017 total) — recurso de aprendizado de AI engineering com projetos práticos "mão na massa".</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li>1. <strong>Context Engineering</strong>: sucessor do prompt engineering como disciplina central de 2026. O foco migrou de "como escrever o melhor prompt" para como o sistema de agente gerencia estado em runtime, memória, ferramentas, protocolos de aprovação e execução de longo horizonte — tema central do repositório curado Awesome-Context-Engineering (mar/2026).</li>
+<li>2. <strong>Prompt caching em agentes de longo horizonte</strong>: com sessões de 30-50+ tool calls (Claude Code, Cursor), manter o prefixo do prompt estável para maximizar cache hit virou tática de redução de custo tão importante quanto a escolha do modelo, segundo o paper "Don't Break the Cache".</li>
+<li>3. <strong>Agentic RAG</strong>: em vez de um pipeline fixo de retrieval, o modelo decide quando e como buscar. O framework A-RAG (arXiv 2602.03442) propõe interfaces hierárquicas de retrieval que dão autonomia real ao agente, e uma survey do ACL Findings 2026 mapeia a área sob uma ótica data-centric.</li>
+<li>4. <strong>MCP stateless</strong>: a remoção de sessões em nível de protocolo na spec 2026-07-28 obriga servidores MCP existentes a serem reescritos para carregar estado por request — já forçando empresas de ad-tech e integradores a reconstruir seus servidores de agente.</li>
+<li>5. <strong>Stacks híbridos RAG + fine-tuning + agentes</strong>: praticamente todo stack de produção "sério" em 2026 combina os três — RAG para conhecimento privado/dinâmico, fine-tuning (SFT, preference tuning DPO/RLHF-style, LoRA/QLoRA) para comportamento e estilo consistentes, e agentes para ação.</li>
+<li>6. <strong>Subagentes com effort/reasoning configurável</strong>: Claude Code adicionou um "effort setting" por subagente e o Codex CLI 0.145.0 permite configurar modelo, nível de reasoning, papel e concorrência por subagente — dando controle fino de custo x qualidade em workflows multi-agente.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Don't Break the Cache: An Evaluation of Prompt Caching for Long-Horizon Agentic Tasks</strong> (arXiv 2601.06007) — mede como sessões longas de agentes de código degradam a taxa de acerto de prompt caching e o que isso custa em produção.</li>
+<li><strong>Coding Agents Have Converged: Why the SWE-bench Leaderboard Can No Longer Order Its Top Entries, and What to Measure Instead</strong> (arXiv 2609.17394) — argumenta que os melhores agentes de código já superam 70% no SWE-bench Verified, saturando o benchmark, e propõe novas métricas de diferenciação.</li>
+<li><strong>SWE-bench Science: Can Coding Agents Resolve Engineering Tasks in Science?</strong> (arXiv 2608.19799) — estende a avaliação de agentes de código para tarefas de engenharia em contextos científicos, fora do domínio tradicional de software.</li>
+<li><strong>A-RAG</strong> (arXiv 2602.03442) — framework de RAG agêntico com interfaces hierárquicas de retrieval, único entre os avaliados a satisfazer todos os critérios de autonomia agêntica definidos pelos autores.</li>
+<li><strong>Is Agentic RAG worth it?</strong> (arXiv 2601.07711) — comparação empírica entre RAG tradicional "enhanced" e RAG agêntico, pesando ganho de performance contra custo adicional em múltiplos cenários.</li>
+<li><strong>Data-Centric Perspectives on Agentic RAG: A Survey</strong> (ACL Findings 2026) — survey que mapeia RAG agêntico sob uma ótica centrada em dados, cobrindo curadoria, qualidade e pipelines.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://aiagentstore.ai/ai-agent-news/topic/coding/2026-10-06">aiagentstore.ai — Coding Weekly AI News (out/2026)</a></li>
+<li><a href="https://select.keenable.ai/r/agentic-coding-solutions-harnesses-last-365-days/N1ROYCMxjqFF-4PdiIZzMQ">keenable.ai — Agentic coding harnesses, últimos 365 dias</a></li>
+<li><a href="https://www.theregister.com/a/5276722">theregister.com — cobertura MCP 2026-07-28</a></li>
+<li><a href="https://www.developersdigest.tech/blog/mcp-2026-07-28-breaking-changes">developersdigest.tech — MCP 2026-07-28 breaking changes</a></li>
+<li><a href="https://aaif.io/blog/mcp-2026-07-28-whats-changing-and-how-to-migrate">aaif.io — guia de migração MCP 2026-07-28</a></li>
+<li><a href="https://www.havoptic.com/releases/claude-code/2026/10">havoptic.com — Claude Code, releases de outubro/2026</a></li>
+<li><a href="https://github.com/trending/python?since=daily">github.com/trending — Python, hoje</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">github.com/trending — geral, hoje</a></li>
+<li><a href="https://www.runtimewire.com/article/claude-sonnet-5-leak-pricing-1m-context">runtimewire.com — Claude Sonnet 5, pricing e contexto</a></li>
+<li><a href="https://www.usagepricing.com/blueprint/activity/anthropic-2026-10-05-opus-5-5-price-cut">usagepricing.com — corte de preço Opus 5.5 (05/10/2026)</a></li>
+<li><a href="https://www.orcarouter.ai/es/blog/claude-opus-5-5">orcarouter.ai — Claude Opus 5.5</a></li>
+<li><a href="https://openobserve.ai/blog/langfuse-vs-langsmith.md">openobserve.ai — comparação de observabilidade LLM 2026</a></li>
+<li><a href="https://arxiv.org/pdf/2601.06007">arXiv 2601.06007 — Don't Break the Cache</a></li>
+<li><a href="https://arxiv.org/pdf/2609.17394">arXiv 2609.17394 — Coding Agents Have Converged</a></li>
+<li><a href="https://arxiv.org/pdf/2608.19799">arXiv 2608.19799 — SWE-bench Science</a></li>
+<li><a href="https://arxiv.org/pdf/2602.03442">arXiv 2602.03442 — A-RAG</a></li>
+<li><a href="https://arxiv.org/abs/2601.07711v1">arXiv 2601.07711 — Is Agentic RAG worth it?</a></li>
+<li><a href="https://github.com/Meirtz/Awesome-Context-Engineering">github.com — Awesome Context Engineering</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 16/10/2026</div>
+</body></html>
