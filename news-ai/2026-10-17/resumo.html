@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 17/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 17/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (lançado em 22/09/2026): a Anthropic já havia liberado o modelo focado em coding, debugging de repositórios grandes e agentes de execução longa; a <strong>Claude Haiku 5.5</strong> segue anunciada como "nas próximas semanas", sem data fechada — fique de olho no changelog da API.</li>
+<li><strong>Gemini 4</strong> (Google): segundo o The Information, o modelo entrou em fase de post-training e deve sair ainda em 2026; o Google recuou de um Gemini 3.5 Pro prometido anteriormente e priorizou modelos Flash menores e mais baratos no meio do ano.</li>
+<li><strong>GPT-6</strong> (OpenAI): relatos conflitantes — uma fonte cita lançamento em 07/10/2026 no ChatGPT com variantes "Sol" (pago) e "Luna" (grátis) sem mudança de preço na API; outra lista apenas um "gpt-6.1-sol" lançado em 29/09/2026. Nenhum anúncio oficial da OpenAI confirma a nomenclatura — trate como rumor até sair no blog oficial.</li>
+<li><strong>MCP (Model Context Protocol) 2026-07-28</strong>: a maior revisão desde o lançamento do protocolo. Tornou-se totalmente stateless (removeu o handshake initialize/initialized e o header Mcp-Session-Id), depreciou Roots, Sampling e Logging, e apertou os requisitos de OAuth. SDKs oficiais mantêm as duas gerações do protocolo rodando em paralelo para compatibilidade. Governança do MCP migrou para a Agentic AI Foundation (Linux Foundation) em dez/2025, e um programa de certificação foi lançado em 13/09/2026.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LlamaIndex Workflows 1.0</strong> (estável desde jul/2026): camada de orquestração stateful pronta para produção; junto com o AgentWorkflow, reduz a distância em relação ao LangGraph.</li>
+<li><strong>CrewAI 1.0</strong> (lançado 08/03/2026): trouxe Flows e sistema de memória melhorado; atualizações recentes adicionaram backends plugáveis de memória/flow com integração nativa ao Snowflake e cadeias A2A assíncronas.</li>
+<li><strong>LangChain / LangGraph</strong>: o ecossistema está estável na v1.0 desde out/2025, com o LangGraph recomendado para toda implementação nova. A LangChain lançou em 02/07/2026 o OpenWiki, uma CLI open-source que gera e mantém documentação de código automaticamente.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Codex CLI 0.145.0</strong> (OpenAI): expandiu o Multi-Agent V2 com modelos de subagente configuráveis, níveis de reasoning por papel e controle de concorrência.</li>
+<li><strong>Qodo Gen CLI</strong>: framework de agentes que permite criar agentes de desenvolvimento inteiros via arquivos de configuração, sem código.</li>
+<li><strong>Novo framework de agentes da Microsoft</strong> (Python e .NET): inclui agent loops, planejamento, memória, recuperação de falhas (crash recovery), fluxo de aprovações, gestão de contexto e observabilidade nativa — mirando substituir stacks caseiras de orquestração.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Observabilidade de RAG</strong> está se estendendo ao vector DB: padronização em torno de OpenTelemetry/OpenInference, com spans dedicados para reescrita de query e embedding, além de métricas operacionais do banco vetorial (saúde, volume, capacidade) — porque uma falha de retrieval hoje é frequentemente confundida com erro do LLM.</li>
+<li>Cargas de trabalho de agentes elevam a régua de latência: um turno de agente dispara entre <strong>3 e 10 queries vetoriais</strong>, com meta de latência p99 em torno de <strong>30ms</strong> — bem mais rígido que os 200ms aceitáveis no RAG single-turn de 2023.</li>
+<li>Ferramentas citadas para avaliação/observabilidade: <strong>RAGAS</strong> (avaliação em lote de retrieval+generation) e <strong>TruLens</strong>/<strong>Langfuse</strong> (observabilidade em tempo real por componente, combinadas com vLLM e FAISS).</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>anthropics/claude-code</strong> — CLI agêntica de coding da Anthropic; entre os maiores ganhos de estrelas dos últimos 28 dias segundo o OSS Insight (+5,1 mil).</li>
+<li><strong>opencode</strong> (TypeScript) — alternativa open-source a assistentes de coding em terminal; +3,3 mil estrelas no mesmo período, puxada por integração com múltiplos provedores de modelo.</li>
+<li><strong>block/goose</strong> — agente de desenvolvimento open-source extensível via MCP, citado entre os "top movers" de IA do GitHub.</li>
+<li><strong>openai/codex</strong> — CLI de coding agêntica da OpenAI, companheira do Codex CLI 0.145 mencionado acima.</li>
+<li><strong>ggml-org/llama.cpp</strong> — inferência de LLM em C/C++ para CPU/GPU local; segue como base de boa parte do tooling de LLM local (Ollama, LM Studio, etc.).</li>
+<li><strong>DeepSeek — agent harness</strong> (preview de desenvolvedor) — somou cerca de 191 mil estrelas em um único mês (ago/2026) segundo roundup da Analytics Vidhya; ainda sinaliza breaking changes frequentes, mas virou referência de harness agêntico open-source.</li>
+<li><strong>FlowiseAI/Flowise</strong> — construtor visual (low-code) de fluxos de agentes e LLM; ultrapassou 51,5 mil estrelas, segue como opção popular para prototipagem rápida de RAG/agentes sem muito código.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agentic RAG</strong>: em vez de um único passo de retrieval, o agente busca e raciocina em múltiplas etapas, refinando queries sobre o resultado anterior. Guias de prática de 2026 relatam que praticamente todo stack de produção sério hoje combina RAG, fine-tuning e agentes juntos — não mais uma técnica isolada.</li>
+<li><strong>Fine-tuning paramétrico leve (LoRA/QLoRA)</strong>: treinar apenas um adaptador pequeno em vez do modelo inteiro segue como abordagem padrão para comportamento específico, vocabulário de domínio ou redução de custo/latência, enquanto RAG continua sendo a escolha padrão para conhecimento que muda com frequência.</li>
+<li><strong>Preference tuning (DPO / estilo RLHF)</strong>: usado para alinhar tom e comportamento do modelo sem re-treinar do zero, complementando supervised fine-tuning em pipelines de pós-treino.</li>
+<li><strong>AgentOps / observabilidade de agentes em produção</strong>: monitorar agentes já é tratado como disciplina própria — arquitetura de agentes, frameworks de orquestração (LangGraph) e instrumentação de cada etapa do raciocínio, não só do output final.</li>
+<li><strong>Servidores MCP com postura de segurança mais rígida</strong>: com a migração para o protocolo stateless do MCP 2026-07-28 e alertas da NSA/CISA sobre falhas exploráveis em servidores MCP públicos, validar OAuth e superfície de ferramentas exposta virou passo obrigatório antes de publicar um servidor MCP.</li>
+<li><strong>Verificação de código gerado por agente como gargalo</strong>: múltiplos guias de 2026 apontam que o gargalo do desenvolvimento assistido por IA deixou de ser "escrever código" e passou a ser "revisar e verificar" o que o agente propôs — elevando a importância de rastreabilidade (ver por que o agente fez uma mudança) como critério de escolha de ferramenta.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>RealtimeBench</strong> (arXiv, listado 16/10/2026): 180 tarefas em seis tipos de jogo para avaliar agentes enquanto o ambiente continua rodando durante a inferência. Em testes pareados, o modelo "GPT-6.1-sol" supera o mais rápido "Jev" quando o jogo é pausado, mas perde quando o jogo roda em tempo real — evidência de que benchmarks estáticos superestimam agentes lentos.</li>
+<li><strong>EnterpriseBench</strong> (arXiv 2609.37658, 29/09/2026): avalia agentes LLM em raciocínio estratégico corporativo, com estudos de caso estilo consultoria de gestão e uma versão adaptada do "Beer Game" de simulação de cadeia de suprimentos.</li>
+<li><strong>Agent Evaluation Reliability</strong> (arXiv 2610.00651): investiga se simplesmente adicionar mais tarefas a um leaderboard de agentes melhora a confiabilidade do ranking — conclusão prática: nem sempre, e às vezes piora a variância.</li>
+<li><strong>Measuring Harness-Induced Belief Divergence in Multi-Step LLM Agents</strong> (09/10/2026): mede como o próprio harness/framework de execução do agente distorce as "crenças" internas do modelo ao longo de tarefas de múltiplos passos — relevante para quem está depurando por que um agente "trava" em loops.</li>
+<li><strong>Toward Skill-Native LLMs: Skill Entropy for Benchmarking and Training Long-Horizon Reasoning</strong> (arXiv 2608.05139): propõe "entropia de skill" como métrica para treinar e medir raciocínio de horizonte longo em LLMs nativamente orientados a skills.</li>
+<li><strong>A Survey of Agentic Reasoning for Large Language Models</strong> (arXiv 2601.12538): survey sobre agentes recursivamente auto-aprimoráveis e sistemas multiagente coletivos — bom ponto de partida para quem quer mapear o estado da arte em arquiteturas de agentes.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026">The Minimal AI Engineer Toolkit for 2026 — KDnuggets</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">Qodo launches CLI agent framework — SD Times</a></li>
+<li><a href="https://proflead.substack.com/p/ai-news-for-developers-28-codex-multi">AI news for developers #28 — Codex multi-agent</a></li>
+<li><a href="https://itbrief.co.uk/story/ai-to-reshape-developer-roles-skills-teams-by-2026-survey-finds">AI to reshape developer roles & skills by 2026 — IT Brief</a></li>
+<li><a href="https://radar.firstaimovers.com/fine-tuning-llms-vs-rag-2026.md">Fine-Tuning LLMs vs RAG 2026 — First AI Movers</a></li>
+<li><a href="https://arxiv.org/list/cs.AI/current">arXiv cs.AI — new listings, outubro 2026</a></li>
+<li><a href="https://arxiv.org/abs/2609.37658">EnterpriseBench (arXiv 2609.37658)</a></li>
+<li><a href="https://github.com/zachysun/DailyArXiv/issues/580">DailyArXiv — Latest 20 Papers, 13/10/2026</a></li>
+<li><a href="https://pub.towardsai.net/mcp-2-0-what-changed-what-remained-and-how-it-impacts-practitioners-8f553e62448c">MCP 2.0 — O que mudou — Towards AI</a></li>
+<li><a href="https://forkast.news/glossary/model-context-protocol/">Model Context Protocol — Forkast</a></li>
+<li><a href="https://www.dio.me/en/articles/rag-observability-em-2026-do-tracing-ao-vector-db-82cdc4a4e752">RAG Observability em 2026 — DIO</a></li>
+<li><a href="https://futureagi.com/glossary/vector-database/">What Is a Vector Database? — Future AGI</a></li>
+<li><a href="https://www.analyticsvidhya.com/?p=257339">Top 10 GitHub Repositories Trending in August 2026 — Analytics Vidhya</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSS Insight — AI Trending</a></li>
+<li><a href="https://fungies.io/top-github-repositories-ai-agent-frameworks-2026/">Top 20 GitHub Repositories for AI Agents in 2026 — Fungies</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário)</a></li>
+<li><a href="https://www.sequenzy.com/email-examples/brands/the-information/emails/editor-s-pick-google-nears-release-of-flagship-gemini-4-ai-model">Google nears release of flagship Gemini 4 — The Information</a></li>
+<li><a href="https://andrew.ooo/answers/what-changed-latest-openai-model-release-gpt-6-october-2026/">What changed — latest OpenAI model release (GPT-6) — Oct 2026</a></li>
+<li><a href="https://qcode.cc/en/ai-model-releases-october-2026">AI Model Releases — October 2026 — QCode</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 17/10/2026</div>
+</body></html>
