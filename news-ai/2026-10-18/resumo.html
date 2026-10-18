@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 18/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 18/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Sonnet 5.5</strong> (Anthropic, 28/09/2026): salta de 10,3% para 70,6% no Terminal-Bench 4.0 (benchmark de agentes em terminal) segundo números internos da Anthropic, superando o próprio Opus 5.5 (66,4% no mesmo relatório); saída >30% mais rápida, custo por tarefa até 30% menor, contexto de 1M tokens e raciocínio adaptativo por padrão. Mantém preço de $2/$10 por MTok e exige Claude Code v2.1.284+.</li>
+<li><strong>Claude Opus 5.5</strong>: preço caiu para $4 input / $20 output por MTok (de $5/$25 do Opus 5). Não aparece no board público do Terminal-Bench 4.0 (tbench.ai, 1º/10/2026), mas um mirror da Vals AI (27/09/2026) o coloca em 1º lugar com 61,62%.</li>
+<li><strong>GPT-6 Astra</strong> (OpenAI, via agente Codex): lidera o board oficial do Terminal-Bench 4.0 com 58,18% (±2,79 pontos), estatisticamente empatado com Claude Fable 5.1 no Claude Code (57,88%).</li>
+<li><strong>Meta Muse Spark Open</strong> (15/10/2026): modelo de pesos abertos com 816B parâmetros totais (42B ativos por token) e contexto de 1M tokens, sob a "Muse Model License" (exige atribuição e limita APIs comerciais de terceiros acima de US$ 20M de receita agregada). Precisa de ~700GB de VRAM em NVFP4 ou 2TB em BF16; dois Mac Studio com MLX são citados como a rota local mais acessível.</li>
+<li><strong>Kimi K3</strong> (Moonshot AI, MoE 2,8T parâmetros totais / ~104B ativos) e <strong>GLM-5.3</strong> (Z.ai, base de 743B reaproveitada da GLM-5.2 com pós-treino refeito, +50% sobre a GLM-5.2 no benchmark interno Z.ai Code Bench) seguem como as principais alternativas de peso aberto para coding. GLM-5.3 custa $1,40/$4,40 por MTok contra $3,00/$15,00 do Kimi K3.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Qodo Gen CLI</strong>: framework de agentes via linha de comando que permite criar e customizar agentes de código por arquivos de configuração, com agentes pré-prontos para code review, cobertura de testes e geração de release notes.</li>
+<li><strong>Microsoft Agent Framework</strong>: novo harness para Python e .NET com loop de agente, memória, recuperação de falhas, aprovações, gerenciamento de contexto e observabilidade integrados.</li>
+<li><strong>AGENTS.md</strong> se consolidou como arquivo de configuração de contexto padrão entre Claude Code, Codex, Cursor, Aider, Copilot, Gemini CLI e Windsurf.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol) 2.0</strong> — especificação 2026-07-28, finalizada em 28/07/2026 (release candidate travado em 21/05/2026): remove o handshake de sessão (initialize/initialized e header Mcp-Session-Id), facilitando escalonamento horizontal em infraestrutura com load balancer; adiciona Multi Round-Trip Requests, roteamento por header, discovery cacheável, framework formal de extensões, Tasks e MCP Apps.</li>
+<li><strong>Governança e segurança do MCP</strong>: o protocolo passou para a Agentic AI Foundation (Linux Foundation); certificação MCPA lançada em 13/09/2026 para validar implementações vendor-neutral. Em paralelo, scans independentes encontraram falhas exploráveis em parcela relevante de servidores MCP públicos, levando NSA e CISA a emitir orientação formal sobre o protocolo.</li>
+<li><strong>Claude Code</strong> lidera o crescimento entre repositórios de agentes de IA no GitHub (OSS Insight, últimos 28 dias): +5,1k estrelas, seguido por <strong>opencode</strong> (+3,3k), <strong>goose</strong> da Block (+1,8k), <strong>codex</strong> da OpenAI (+1,4k) e <strong>llama.cpp</strong> (+942).</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Context engineering</strong> se firma como técnica central para agentes de código: relatos de prática mostram um agente alimentado com ~5K tokens de retrieval direcionado superando outro alimentado com um resumo de 100K tokens do mesmo repositório — a Anthropic atribui isso à qualidade do contexto, não ao volume, como fator limitante para conclusão de tarefas.</li>
+<li><strong>Fine-tuning de pesos abertos</strong>: guias de prática de 2026 recomendam QLoRA via Unsloth como receita padrão, testando prompting/RAG antes de decidir por fine-tuning; regra de bolso corrente: RAG para conhecimento que muda, fine-tuning para comportamento novo ou habilidade estreita em modelo pequeno.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>anthropics/claude-code</strong> (TypeScript) — CLI de agente de código da Anthropic; líder de crescimento em estrelas entre repositórios de IA nos últimos 28 dias (+5,1k), segundo o OSS Insight.</li>
+<li><strong>opencode</strong> — agente de código open-source concorrente do Claude Code; +3,3k estrelas em 28 dias.</li>
+<li><strong>block/goose</strong> — agente de desenvolvimento open-source da Block (ex-Square), com foco em extensibilidade via MCP; +1,8k estrelas em 28 dias.</li>
+<li><strong>openai/codex</strong> — CLI de agente de código da OpenAI; +1,4k estrelas em 28 dias, recebeu modelos de subagente configuráveis e suporte multi-pasta.</li>
+<li><strong>ggml-org/llama.cpp</strong> (C/C++) — runtime para inferência local de LLMs quantizados; +942 estrelas em 28 dias, base comum para rodar localmente modelos abertos como Kimi K3, GLM-5.3 e Muse Spark Open.</li>
+<li><strong>NVIDIA/cutlass</strong> (C++) — templates CUDA e DSLs em Python para álgebra linear de alta performance, usados em kernels de treino/inferência; entrou no top 10 geral do GitHub Trending hoje (+11 estrelas no dia).</li>
+<li><strong>microsoft/onnxruntime</strong> — runtime de inferência cross-platform para modelos ONNX; segue entre os repositórios de ML mais vistos no Trending geral do GitHub.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Context Engineering</strong> — Curadoria do que entra no contexto do agente, não só a quantidade de tokens. Agentes com retrieval direcionado e pequeno (ex. 5K tokens relevantes) superam agentes alimentados com resumos grandes (100K tokens) do mesmo repositório. AGENTS.md virou o arquivo de configuração padrão entre as principais ferramentas (Claude Code, Codex, Cursor, Aider, Copilot, Gemini CLI, Windsurf).</li>
+<li><strong>2. Agentic coding via terminal (CLI agents)</strong> — Terminal-Bench 4.0 se tornou o benchmark de referência para medir agentes operando em ambiente de shell/terminal real. No board oficial (tbench.ai, 1º/10/2026), GPT-6 Astra no agente Codex lidera com 58,18%, empatado estatisticamente com Claude Fable 5.1 no Claude Code (57,88%); números internos de fornecedores (fora do board oficial) chegam a 61–70% para Opus/Sonnet 5.5.</li>
+<li><strong>3. MCP 2.0 (arquitetura stateless)</strong> — A especificação finalizada em 28/07/2026 elimina o handshake de sessão, facilitando balanceamento de carga horizontal para servidores MCP em produção, e formaliza Tasks e MCP Apps. Resultado prático: menos estado por conexão e mais previsibilidade para quem expõe ferramentas via MCP em escala.</li>
+<li><strong>4. Agent Ops / avaliação contínua de agentes</strong> — Disciplina emergente de monitorar e auditar agentes em produção (equivalente ao MLOps para agentes), com ferramentas como DeepEval cobrindo avaliação de RAG, teste de agentes, benchmarking e testes de regressão — citada entre as habilidades mais demandadas em vagas de 2026.</li>
+<li><strong>5. Fine-tuning seletivo com QLoRA/Unsloth</strong> — Guias de prática de 2026 recomendam reservar fine-tuning para comportamento novo ou habilidades estreitas em modelos pequenos, usando QLoRA via Unsloth como receita padrão, preferindo RAG quando o que muda é o conhecimento e não o comportamento do modelo.</li>
+<li><strong>6. Orquestração multi-agente</strong> — Frameworks como o novo Microsoft Agent Framework (Python/.NET, com loop de agente, memória e recuperação de falha) e LangGraph seguem como escolha dominante para workflows multi-agente, com MCP como camada padrão de ferramentas.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>OctoBench</strong> (ACL 2026) — Testa se agentes de código seguem as regras do próprio scaffold (não só se resolvem a tarefa) em ambientes baseados em repositório real: 217 tarefas em 34 ambientes, 7.098 itens de checklist objetivos, 3 tipos de scaffold. Testando 8 modelos, os autores encontram um gap consistente entre "resolver a tarefa" e "seguir as instruções do scaffold". <a href="https://preview.aclanthology.org/ingest-acl/2026.acl-long.269/">Link</a></li>
+<li><strong>OmniCode</strong> (ACL 2026 Findings) — Argumenta que benchmarks como HumanEval e SWE-Bench supervalorizam a geração isolada de patch. Propõe 1.794 tarefas em Python, Java e C++ cobrindo correção de bugs, geração de testes, correção de review de código e correção de estilo, com validação manual para reduzir vazamento de dados de treino.</li>
+<li><strong>Beyond RAG for Agent Memory: Retrieval by Decoupling and Aggregation</strong> (arXiv 2602.02007, fev/2026) — Propõe o xMemory, que organiza memórias de agente em hierarquia e faz retrieval estrutural em vez do pipeline RAG padrão (embed + top-k + concatenar), questionando se o RAG tradicional serve bem para memória de agentes de longa duração. <a href="https://arxiv.org/html/2602.02007">Link</a></li>
+<li><strong>Retrieval-Augmented LLM Agents: Learning to Learn from Experience</strong> (arXiv 2603.18272, mar/2026) — Combina fine-tuning via LoRA com recuperação de trajetórias passadas do próprio agente para melhorar generalização a tarefas não vistas. <a href="https://arxiv.org/abs/2603.18272">Link</a></li>
+<li><strong>A-ProS: Towards Reliable Autonomous Programming Through Multi-Model Feedback</strong> (arXiv 2605.18073) — Propõe feedback entre múltiplos modelos para aumentar a confiabilidade de programação autônoma, atacando o problema de agentes que "alucinam sucesso" em tarefas de código. <a href="https://arxiv.org/pdf/2605.18073">Link</a></li>
+<li><strong>Vibe Coding: Practice, Performance, Productivity, and Risk — A State-of-the-Art Review</strong> (arXiv 2608.20446) — Revisão sistemática do "vibe coding" (programar delegando ao agente e validando pelo resultado), mapeando ganhos de produtividade reportados contra riscos de qualidade e segurança do código gerado. <a href="https://arxiv.org/pdf/2608.20446">Link</a></li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.morphllm.com/best-ai-coding-agents-2026">MorphLLM — Best AI Coding Agents (October 2026)</a></li>
+<li><a href="https://blog.logrocket.com/ai-dev-tool-power-rankings/">LogRocket — AI dev tool power rankings (Oct. 2026)</a></li>
+<li><a href="https://pasqualepillitteri.it/en/news/24368/best-open-weight-models-october-2026-compared">Pasquale Pillitteri — Best open-weight models in October 2026</a></li>
+<li><a href="https://pasqualepillitteri.it/en/news/24330/meta-muse-spark-open-816b-open-weights">Pasquale Pillitteri — Meta releases Muse Spark Open, 816B</a></li>
+<li><a href="https://tenbin.ai/media/ai_news/claude-sonnet-5-5-release">Tenbin AI — Claude Sonnet 5.5 release</a></li>
+<li><a href="https://www.usagepricing.com/blueprint/activity/claude-code-2026-10-05-opus-5-5-price-cut">UsagePricing — Claude Code Opus 5.5 price cut</a></li>
+<li><a href="https://presenc.ai/research/terminal-bench-leaderboard-2026">Presenc AI — Terminal-Bench leaderboard 2026</a></li>
+<li><a href="https://artificialanalysis.ai/evaluations/terminalbench-4-0">Artificial Analysis — Terminal-Bench 4.0 evaluations</a></li>
+<li><a href="https://huggingface.co/zai-org/glm-5.3">Hugging Face — GLM-5.3 model card</a></li>
+<li><a href="https://anotherwrapper.com/llm-pricing/glm-5.3/kimi-k3">AnotherWrapper — GLM-5.3 vs Kimi K3</a></li>
+<li><a href="https://wec.wiline.com/docs/news/mcp-2026-07-28-spec/">WEC Wiline — MCP 2026-07-28 spec</a></li>
+<li><a href="https://pub.towardsai.net/mcp-2-0-what-changed-what-remained-and-how-it-impacts-practitioners-8f553e62448c">Towards AI — MCP 2.0: what changed</a></li>
+<li><a href="https://aaif.io/blog/mcp-2026-07-28-whats-changing-and-how-to-migrate">Agentic AI Foundation — MCP 2026-07-28 migration guide</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSS Insight — Trending AI repositories</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, English)</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">SD Times — Qodo launches CLI agent framework</a></li>
+<li><a href="https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html">Martin Fowler — Context Engineering for Coding Agents</a></li>
+<li><a href="https://hackernoon.com/this-skill-makes-ai-coding-work-navigating-context-engineering-in-2026">HackerNoon — Context Engineering in 2026</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2026/06/ai-engineering-tools-everyone-is-using-in-2026/">Analytics Vidhya — Top 10 AI Engineering Tools 2026</a></li>
+<li><a href="https://www.kunalganglani.com/blog/fine-tune-open-source-llm-lora-qlora.md">Kunal Ganglani — Fine-Tune Open-Source LLMs: LoRA, QLoRA</a></li>
+<li><a href="https://preview.aclanthology.org/ingest-acl/2026.acl-long.269/">ACL Anthology — OctoBench</a></li>
+<li><a href="https://arxiv.org/html/2602.02007">arXiv 2602.02007 — Beyond RAG for Agent Memory</a></li>
+<li><a href="https://arxiv.org/abs/2603.18272">arXiv 2603.18272 — Retrieval-Augmented LLM Agents</a></li>
+<li><a href="https://arxiv.org/pdf/2605.18073">arXiv 2605.18073 — A-ProS</a></li>
+<li><a href="https://arxiv.org/pdf/2608.20446">arXiv 2608.20446 — Vibe Coding review</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 18/10/2026</div>
+</body></html>
