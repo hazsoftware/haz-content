@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 19/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 19/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol) 2026-07-28</strong>: maior revisão do protocolo desde seu lançamento em novembro de 2024. Release candidate saiu em 21/05/2026 e a spec final em 28/07/2026. Remove sessões em nível de protocolo (design stateless — o estado passa a viver no campo <code>_meta</code> de cada request), deprecia os recursos Sampling e Roots, e adiciona MCP Apps, Tasks e OAuth mais estrito. OpenAI, Google, Microsoft e AWS já integraram MCP nos seus stacks de agentes.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>CrewAI v1.15.24</strong> (07/10/2026): adicionou o comando <code>crewai eval</code>, que gera um brief em markdown quando executado por um agente, além de integrações com Oracle. A release anterior, v1.15.19 (04/09/2026), trouxe um cliente de integração Clipper e atualizou <code>pypdf</code>/<code>nltk</code> por vulnerabilidades de segurança reportadas.</li>
+<li><strong>vLLM</strong> e <strong>LlamaFactory</strong> continuam como referências de mercado para serving/inferência de alto throughput e fine-tuning unificado de LLMs open-source, respectivamente — ambos aparecem recorrentemente em discussões de stack de produção em 2026.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Terminal-first coding agents em alta</strong>: segundo ranking da OSS Insight (ganho de estrelas nos últimos 28 dias), <strong>anthropics/claude-code</strong> lidera entre ferramentas de agente de código, seguido por <strong>opencode</strong> e <strong>sst/goose</strong> — sinal de que agentes integrados ao terminal/CLI continuam ganhando terreno sobre soluções baseadas em IDE completo.</li>
+<li><strong>Pesquisa com +500 devs seniores</strong>: 65% acreditam que seus cargos serão redefinidos até 2026 por conta de IA, e 61% já planejam integrar código gerado por IA no fluxo de trabalho diário.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>Análise de mercado de trabalho indica queda de ~22% em vagas tradicionais de "software developer" nos EUA/UK no mesmo período em que crescem vagas que combinam coding com "AI expertise" — RAG, MLOps e governança de IA (defesa contra prompt injection, sanitização de output, handling de PII) estão deixando de ser diferencial e virando requisito padrão em descrições de vaga.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>anthropics/claude-code</strong> — agente de coding terminal-first da Anthropic; líder em ganho de estrelas nos últimos 28 dias segundo a <a href="https://ossinsight.io/trending/ai">OSS Insight</a>.</li>
+<li><strong>opencode</strong> — alternativa open-source a agentes de coding proprietários, entre os maiores crescimentos de estrelas do período recente.</li>
+<li><strong>sst/goose</strong> — framework de agente de código open-source, também entre os top movers mais recentes do GitHub.</li>
+<li><strong>vllm-project/vllm</strong> — motor de inferência/serving de alto throughput e eficiente em memória para LLMs; referência padrão em deploy de produção.</li>
+<li><strong>hiyouga/LLaMA-Factory</strong> — framework unificado de fine-tuning para LLMs open-source (Llama, Qwen e outros).</li>
+<li><strong>ollama/ollama</strong> — runtime local para rodar LLMs, seguindo entre os mais estrelados do tópico LLM no GitHub.</li>
+<li><strong>mlabonne/llm-course</strong> — curso prático de LLMs com roadmaps e notebooks Colab, recorrente nos trending de conteúdo educacional em IA.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Agent orchestration com LangGraph/CrewAI</strong>: sistemas multi-agente estão saindo da fase de experimentação para produção em 2026. O CrewAI já está na v1.15.x com recursos de avaliação nativa (<code>crewai eval</code>), sinal de que orquestração de agentes está ganhando maturidade operacional, não só prototipagem.</li>
+<li><strong>2. RAG + fine-tuning combinados</strong>: guias técnicos de 2026 convergem num framework de decisão: fine-tuning muda o comportamento/estilo/latência do modelo, RAG muda o que ele sabe (conhecimento que muda com frequência) — produção madura combina os dois em vez de escolher só um.</li>
+<li><strong>3. Migração para MCP stateless</strong>: com a spec 2026-07-28, quem mantém servidor MCP em produção precisa migrar sessão para o campo <code>_meta</code> de cada request e revisar compatibilidade, já que Sampling e Roots foram depreciados — trabalho de migração ativo para times que expõem tools via MCP.</li>
+<li><strong>4. AI governance e defesa contra prompt injection</strong>: com milhares de servidores MCP públicos registrados e falhas exploráveis documentadas em parte relevante deles, NSA e CISA emitiram orientação formal de segurança — sanitização de output e handling de PII virou skill cobrada diretamente em descrições de vaga.</li>
+<li><strong>5. Agent evaluation nativo</strong>: o novo <code>crewai eval</code> e ferramentas como DeepEval (testes de LLM, RAG e agentes, com regression testing) indicam que "testar agente como se testa código" deixou de ser nicho e virou prática padrão de engenharia.</li>
+<li><strong>6. Preferência por CLI sobre IDE completo em coding agents</strong>: claude-code, opencode e goose dominando o crescimento de estrelas no GitHub mostra que devs estão preferindo agentes integrados ao terminal para tarefas autônomas de coding, em vez de extensões de IDE tradicionais.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375) — estuda combinar fine-tuning e RAG para ensinar habilidades novas a um LLM; libera scripts de treino e avaliação para reprodução.</li>
+<li><strong>PaperArena</strong> (arXiv 2510.10909) — benchmark de agentic reasoning com uso de ferramentas (tool-augmented) aplicado à literatura científica, testando se agentes conseguem navegar múltiplas fontes/ferramentas para responder perguntas de pesquisa.</li>
+<li><strong>AcadReason</strong> (arXiv 2510.11652) — testa os limites de modelos de reasoning em problemas reais de pesquisa acadêmica; reporta que mesmo um modelo de ponta como o GPT-5 atinge apenas 16 pontos no benchmark, evidenciando o gap entre testes sintéticos e problemas acadêmicos reais.</li>
+<li><strong>Agent-X</strong> (alphaxiv, maio/2026) — benchmark com 828 tarefas agentic multimodais em contextos visuais autênticos, medindo reasoning multi-step vision-centric.</li>
+<li><strong>Agentick</strong> (maio/2026) — benchmark de agentes onde o GPT-5 mini lidera com score oracle-normalizado de apenas 0,309, mostrando quanto espaço ainda existe para melhorar agentes generalistas.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">Model Context Protocol — Wikipedia</a></li>
+<li><a href="https://www.developersdigest.tech/blog/mcp-2026-07-28-breaking-changes">MCP 2026-07-28 breaking changes</a></li>
+<li><a href="https://aaif.io/blog/mcp-2026-07-28-whats-changing-and-how-to-migrate">Agentic AI Foundation — MCP 2026-07-28 migration guide</a></li>
+<li><a href="https://wec.wiline.com/docs/news/category/mcp/">MCP biggest update ever</a></li>
+<li><a href="https://ppc.land/mcp-forces-ad-tech-to-rebuild-agent-servers-as-sessions-disappear/">MCP forces ad tech to rebuild agent servers</a></li>
+<li><a href="https://docs.crewai.com/v1.15.24/en/changelog.md">CrewAI v1.15.24 changelog</a></li>
+<li><a href="https://releasebot.io/updates/crewai">CrewAI release notes</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSS Insight — AI repositories trending</a></li>
+<li><a href="https://github.com/trending">GitHub Trending</a></li>
+<li><a href="https://github.com/topics/llm">GitHub Topics — LLM</a></li>
+<li><a href="https://github.com/yuxiaopeng/Github-Ranking-AI">Github-Ranking-AI</a></li>
+<li><a href="https://trendshift.io/repositories/22315">Trendshift</a></li>
+<li><a href="https://gittrend.io/trending/ai-agent">gittrend.io — AI agent</a></li>
+<li><a href="https://itbrief.co.uk/story/ai-to-reshape-developer-roles-skills-teams-by-2026-survey-finds">AI to reshape developer roles & skills by 2026 — survey</a></li>
+<li><a href="https://www.metaintro.com/blog/what-tech-workers-need-to-learn-ai-skills-job-postings-2026">What tech workers need to learn as AI skills take over job postings</a></li>
+<li><a href="https://futurense.com/blog/ai-skills-in-demand">Top AI Skills in Demand for 2026</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2026/06/ai-engineering-tools-everyone-is-using-in-2026/">Top 10 AI Engineering Tools Everyone is Using in 2026</a></li>
+<li><a href="https://arxiv.org/pdf/2510.01375">Fine-tuning with RAG for Improving LLM Learning of New Skills (arXiv 2510.01375)</a></li>
+<li><a href="https://arxiv.org/pdf/2510.10909">PaperArena (arXiv 2510.10909)</a></li>
+<li><a href="https://arxiv.org/html/2510.11652v1">AcadReason (arXiv 2510.11652)</a></li>
+<li><a href="https://alphaxiv.org/abs/2505.24876">Agent-X</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 19/10/2026</div>
+</body></html>
