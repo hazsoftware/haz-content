@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 20/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 20/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>SWE-bench Verified (08/10/2026)</strong>: relato não oficial (af.net) aponta o <strong>Claude Opus 5</strong> no topo com 96% no SWE-bench Verified; tratar como número autorreportado e não confirmado na leaderboard oficial.</li>
+<li><strong>SWE-bench Pro V2 (Scale Labs, 22/09/2026)</strong>: versão atualizada do benchmark com 642 tarefas em 11 repositórios (não comparável 1:1 com o dataset original de 731 tarefas); Claude Opus 5 aparece com 99,40 na tabela da Scale Labs.</li>
+<li><strong>Lançamentos aguardados para outubro/2026</strong>: mercados de previsão (Manifold) listam como candidatos ainda não confirmados Qwen 4, Claude Haiku 5.5 e Gemini 4 Flash — vale acompanhar os blogs oficiais da Anthropic, OpenAI, Google e xAI.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Qodo Gen CLI</strong>: framework de agentes configurável via arquivos, com agentes prontos para code review e cobertura de testes, integrando com pipelines de CI/CD e servidores MCP.</li>
+<li><strong>Vercel abre o "eve"</strong>: a Vercel open-sourçou seu framework interno de agentes, o mesmo usado para construir e operar os próprios agentes da empresa — que hoje respondem por mais da metade dos commits na plataforma da Vercel, segundo a empresa.</li>
+<li><strong>LlamaIndex v0.14.23 (24/06/2026)</strong>: adiciona síntese e query engines multimodais, suporte a modelos Claude mais recentes, upgrade do mem0 para a série 2.x e campos de "reasoning" compatíveis com OpenAI/vLLM.</li>
+<li><strong>Unsloth</strong> consolidado como caminho padrão para fine-tuning em GPU de consumidor, baixando a barreira para startups e devs solo.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP spec 2026-07-28</strong>: a maior revisão do Model Context Protocol desde o lançamento em novembro/2024. O handshake stateful (initialize/initialized) e o header Mcp-Session-Id foram removidos, tornando o protocolo stateless; Roots/Sampling/Logging foram descontinuados e entraram MCP Apps, Tasks e OAuth mais rígido. SDKs oficiais mantêm as duas gerações do protocolo vivas por ora, então a quebra não é imediata.</li>
+<li><strong>Segurança de servidores MCP</strong>: scans independentes encontraram falhas exploráveis em uma parcela grande dos servidores MCP públicos, levando NSA e CISA a publicarem orientação formal sobre o tema.</li>
+<li><strong>Microsoft Agent Framework Harness</strong> (Python e .NET): framework cobrindo loop de agente, planejamento, memória, recuperação de falhas, aprovações humanas, gestão de contexto e observabilidade prontos de fábrica.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>vLLM</strong> continua como motor de referência para inferência e serving de LLMs de alto throughput, aparecendo hoje no GitHub Trending (⭐98 no dia).</li>
+<li><strong>headroom (headroomlabs-ai)</strong>: nova ferramenta que comprime saídas de tools, logs e chunks de RAG antes de chegarem ao LLM — ganhou ⭐555 estrelas em um único dia no GitHub, sinal de demanda por redução de custo/tokens em pipelines agênticos.</li>
+<li><strong>RAG + fine-tuning + agentes combinados</strong>: a visão de prática de 2026 é que a maioria dos stacks de produção já usa os três juntos ("agentic RAG" — o agente itera entre recuperação e raciocínio); fine-tuning de modelos de 3B–7B pode superar modelos genéricos maiores em tarefas estreitas a um custo 10–50x menor.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<p>(github.com/trending, hoje, estrelas ganhas no dia)</p>
+<ul>
+<li><strong>MadsLorentzen/ai-job-search</strong> (Python, ⭐3.890 hoje) — framework local baseado no Claude Code para avaliar vagas, adaptar currículos e preparar entrevistas.</li>
+<li><strong>Comfy-Org/ComfyUI</strong> (Python, ⭐1.201 hoje) — GUI/API em nós para modelos de difusão; segue como base dominante para workflows de imagem generativa.</li>
+<li><strong>Graphify-Labs/graphify</strong> (Python, ⭐751 hoje) — transforma codebases e documentos em um knowledge graph consultável, distribuído como skill para Claude Code, Cursor, Codex e Gemini CLI.</li>
+<li><strong>HKUDS/CLI-Anything</strong> (Python, ⭐628 hoje) — propõe tornar qualquer software "usável" por agentes de IA via interface de linha de comando.</li>
+<li><strong>google/artemis</strong> (Python, ⭐597 hoje) — converte instruções em linguagem natural em automação Android, integrando com assistentes de código de IA.</li>
+<li><strong>headroomlabs-ai/headroom</strong> (Python, ⭐555 hoje) — comprime tool outputs, logs e chunks de RAG antes de enviá-los ao LLM.</li>
+<li><strong>vllm-project/vllm</strong> (Python, ⭐98 hoje) — engine de inferência/serving de alto throughput para LLMs.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agentic RAG</strong>: em vez de uma única recuperação seguida de geração, o agente itera entre buscar e raciocinar várias vezes antes de responder. É descrita como padrão de fato nos stacks de produção de 2026, combinada com fine-tuning e orquestração de agentes.</li>
+<li><strong>Compressão de contexto para agentes/RAG</strong>: ferramentas como o headroom comprimem saídas de tools, logs e chunks de RAG antes de entrarem na janela de contexto do LLM, cortando tokens e custo — a tração imediata no GitHub (555 estrelas em um dia) indica demanda real por essa camada.</li>
+<li><strong>Fine-tuning leve com Unsloth em GPU de consumidor</strong>: modelos de 3B–7B ajustados numa tarefa estreita podem superar modelos genéricos muito maiores, a um custo 10–50x menor, tornando fine-tuning viável para startups e devs solo em hardware comum.</li>
+<li><strong>Migração para MCP stateless (spec 2026-07-28)</strong>: remoção do handshake initialize/initialized e do header Mcp-Session-Id obriga quem mantém servidores/clientes MCP a revisar integrações; os novos MCP Tasks viabilizam operações assíncronas longas e MCP Apps embute UI diretamente no protocolo.</li>
+<li><strong>Raciocínio híbrido/latente em agentes</strong>: linha de pesquisa que tenta combinar raciocínio em espaço latente (mais eficiente internamente) com a necessidade de manter acesso a ferramentas e transparência via texto — tema do paper "Hybrid Reasoning Agents" (ver seção de papers).</li>
+<li><strong>Test-time scaling de agentes</strong>: em vez de só aumentar o modelo, escala-se o agente em tempo de inferência — por interação mais longa ou por amostrar múltiplas trajetórias e escolher a melhor — com benchmarks dedicados surgindo para medir esse ganho em tarefas de busca, código e uso de ferramentas.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Hybrid Reasoning Agents</strong> (arXiv 2610.18861) — propõe agentes LLM que raciocinam além da linguagem natural, em espaço latente, mas continuam agindo e expondo transparência via texto/ferramentas; é o paper mais recente da leva (cerca de 7 dias).</li>
+<li><strong>Evaluating Test-Time Scaling of General LLM Agents</strong> (arXiv 2602.18998) — introduz benchmark cobrindo busca, código, raciocínio e uso de ferramentas para comparar escalar agentes por interação estendida versus amostragem de múltiplas trajetórias.</li>
+<li><strong>Do More Agents Help? Controlled and Protocol-Aligned Evaluation of LLM Agent Workflows</strong> (arXiv 2606.05670) — apresenta o BenchAgent, protocolo padronizado de execução e logging para comparar workflows single-agent e multi-agent de forma justa.</li>
+<li><strong>A Comprehensive Evaluation of LLM Reasoning: From Single-Model to Multi-Agent Paradigms</strong> (arXiv 2601.13243) — mapeia a transição de avaliação de raciocínio de modelo único para paradigmas multi-agente.</li>
+<li><strong>ReasonBENCH: Benchmarking the (In)Stability of LLM Reasoning</strong> (arXiv 2512.07795) — mostra que scores de raciocínio variam entre execuções repetidas mesmo a temperatura 0, defendendo avaliação distribucional em vez de score pontual.</li>
+<li><strong>From Static Benchmarks to Dynamic Protocol: Agent-Centric Text Anomaly Detection for Evaluating LLM Reasoning</strong> (arXiv 2602.23729) — propõe um protocolo dinâmico, centrado em agentes, para avaliar raciocínio de LLM via detecção de anomalias em texto.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, en)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (daily)</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">SD Times — Qodo launches CLI agent framework</a></li>
+<li><a href="https://www.opensourceforu.com/?p=99793">Open Source For You — Vercel Open Sources 'eve'</a></li>
+<li><a href="https://pub.towardsai.net/mcp-2-0-what-changed-what-remained-and-how-it-impacts-practitioners-8f553e62448c">Towards AI — MCP 2.0: What Changed, What Remained</a></li>
+<li><a href="https://aaif.io/blog/mcp-2026-07-28-whats-changing-and-how-to-migrate">Agentic AI Foundation — MCP 2026-07-28: What's Changing and How to Migrate</a></li>
+<li><a href="https://www.theregister.com/a/5276722">The Register — MCP update coverage</a></li>
+<li><a href="https://releasebot.io/updates/run-llama/llamaindex">Releasebot — LlamaIndex Updates & Release Notes</a></li>
+<li><a href="https://newreleases.io/project/github/run-llama/llama_index/release/v0.14.23">NewReleases — llama_index v0.14.23</a></li>
+<li><a href="https://radar.firstaimovers.com/fine-tuning-llms-vs-rag-2026.md">First AI Movers — Fine-Tuning LLMs vs RAG in 2026</a></li>
+<li><a href="https://aiagentrank.io/blog/rag-vs-fine-tuning-vs-agents-2026">AI Agent Rank — RAG vs Fine-Tuning vs Agents 2026</a></li>
+<li><a href="https://af.net/?p=125041">af.net — SWE-bench Verified coverage</a></li>
+<li><a href="https://www.datalearner.com/en/benchmarks/swe-bench-pro-v2">DataLearner — SWE-Bench Pro V2 leaderboard</a></li>
+<li><a href="https://manifold.markets/prismatic/october-2026-ai-model-releases">Manifold Markets — October 2026 AI model releases</a></li>
+<li><a href="https://benchlm.ai/md/model-updates/releases.md">BenchLM — AI model release timeline</a></li>
+<li><a href="https://arxiv.org/abs/2610.18861">arXiv 2610.18861 — Hybrid Reasoning Agents</a></li>
+<li><a href="https://arxiv.org/abs/2602.18998">arXiv 2602.18998 — Evaluating Test-Time Scaling of General LLM Agents</a></li>
+<li><a href="https://arxiv.org/abs/2606.05670">arXiv 2606.05670 — Do More Agents Help?</a></li>
+<li><a href="https://arxiv.org/abs/2601.13243">arXiv 2601.13243 — A Comprehensive Evaluation of LLM Reasoning</a></li>
+<li><a href="https://arxiv.org/abs/2512.07795">arXiv 2512.07795 — ReasonBENCH</a></li>
+<li><a href="https://arxiv.org/abs/2602.23729">arXiv 2602.23729 — From Static Benchmarks to Dynamic Protocol</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 20/10/2026</div>
+</body></html>
