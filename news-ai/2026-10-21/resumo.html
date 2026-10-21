@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 21/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 21/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5 e Claude Sonnet 5.5</strong> (Anthropic, 22/09 e 28/09/2026) — a Anthropic lançou os dois modelos em sequência no final de setembro; são a base dos lançamentos mais recentes da família Claude usados em Claude Code e na API.</li>
+<li><strong>GPT-6 Sol e GPT-6 Luna</strong> (OpenAI) — Sol é voltado a coding e trabalho profissional, com rollout em ChatGPT Work e Codex (ainda não disponível no Chat padrão); Luna é um modelo companion mais barato, com preço de API de US$ 0,10/milhão de tokens de entrada e US$ 0,50/milhão de saída.</li>
+<li><strong>Gemini 4 Argon</strong> (Google, lançado 30/09/2026) — ainda restrito a usuários selecionados; o Gemini 4 completo está em fase de pós-treinamento, com lançamento esperado antes do fim de 2026, sem data oficial de outubro confirmada.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain 1.0 / LangGraph</strong> — desde a 1.0 (out/2025), o loop de agentes do LangChain roda sobre o engine de execução do LangGraph via a abstração <code>create_agent</code>; o LangGraph v1.2 (mai/2026) adicionou node timeouts e um Studio v2.</li>
+<li><strong>Microsoft Agent Framework 1.0</strong> — sucessor oficial do AutoGen, que a Microsoft colocou em modo de manutenção em outubro/2025; atingiu disponibilidade geral em abril/2026. O fork comunitário AG2 (Apache 2.0) continua em desenvolvimento independente.</li>
+<li><strong>CrewAI OSS v1.0</strong> (lançado 20/10/2025) — a versão enterprise soma recursos como FedRAMP High e SSO; a empresa reporta (dado não verificado de forma independente) mais de 450 milhões de workflows agênticos executados por mês na plataforma.</li>
+<li><strong>Vercel "eve"</strong> — framework de agentes open-source da Vercel, descrito como "opinativo" para construir e escalar agentes em produção.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol) — spec 2026-07-28</strong> — maior revisão da história do protocolo: remove o mecanismo de sessão stateful que existia desde novembro/2024, e introduz Multi Round-Trip Requests, roteamento por headers, "Tasks" (unidades assíncronas de trabalho) e "MCP Apps" (UIs embutidas em respostas de tool). A mudança pode quebrar compatibilidade retroativa, forçando quem mantém servidores MCP a reescrever o transporte. NSA e CISA emitiram orientação formal de segurança depois que scans encontraram falhas exploráveis em boa parte dos servidores MCP públicos.</li>
+<li><strong>Codex CLI 0.145.0</strong> (OpenAI) — evolução do "Multi-Agent V2", com modelos de subagente configuráveis, níveis de raciocínio, papéis e controle de concorrência entre agentes.</li>
+<li><strong>Qodo Gen CLI</strong> — framework de agente de linha de comando lançado pela Qodo para construção de agentes de código customizados.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Mercado de vector DBs maduro</strong> — Pinecone, Weaviate, Milvus/Zilliz, Qdrant e Chroma hoje cobrem nichos distintos: de managed zero-ops a escala de bilhões de vetores até prototipagem local.</li>
+<li><strong>RAG observability na camada de retrieval</strong> — a tendência é correlacionar spans de retrieval, indexação e geração (não só tracing de prompt), com padronização em torno de OpenTelemetry/OpenInference; exemplos práticos combinam Langfuse para tracing com vLLM para serving e FAISS para retrieval.</li>
+<li><strong>Prompt caching em produção</strong> — o paper "Don't Break the Cache" (arXiv:2601.06007) mostra que intercalar prompts estáticos com saídas dinâmicas de ferramentas prejudica o reuso de cache em tarefas agênticas longas; guias recentes recomendam um prefixo cacheável estável combinado com compactação server-side, já oferecida nativamente por Anthropic e OpenAI.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>f/prompts.chat</strong> (HTML, 173.779⭐, +124 hoje) — plataforma comunitária para compartilhar e descobrir prompts de IA (ex-Awesome ChatGPT Prompts), pode ser self-hosted.</li>
+<li><strong>Dao-AILab/flash-attention</strong> (Python, 25.181⭐, +7 hoje) — implementação rápida e eficiente em memória de atenção exata para transformers; é hoje padrão de facto em treinamento e inferência de LLMs.</li>
+<li><strong>astroautomata/PySR</strong> (Python, 4.081⭐, +94 hoje) — regressão simbólica em Python/Julia para descobrir equações interpretáveis a partir de dados, alternativa a modelos caixa-preta em certos problemas científicos.</li>
+<li><strong>apache/airflow</strong> (Python, 47.240⭐, +13 hoje) — orquestrador de pipelines, amplamente usado para orquestrar workflows de treinamento de ML e ingestão para RAG.</li>
+<li><strong>gitleaks/gitleaks</strong> (Go, 30.184⭐, +39 hoje) — ferramenta de detecção de secrets em código, relevante para quem lida com chaves de API de LLM em repositórios.</li>
+<li><strong>makeplane/plane</strong> (TypeScript, 61.218⭐, +54 hoje) — alternativa open-source a Jira/Linear/ClickUp, cada vez mais usada como backend de gestão de tarefas para agentes de dev.</li>
+<li><strong>immich-app/immich</strong> (TypeScript, 116.816⭐, +94 hoje) — gerenciamento self-hosted de fotos/vídeos que usa modelos de ML locais para reconhecimento facial e busca semântica.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Context Engineering</strong> — substitui o prompt engineering como disciplina central: decidir o que entra na janela de contexto a cada chamada, o que é compactado/descartado e o que vive fora (arquivos, índice de retrieval). Guias de final de outubro/2026 recomendam prefixo cacheável estável + compactação server-side como padrão de produção — recurso que Anthropic e OpenAI já oferecem nativamente.</li>
+<li><strong>2. Prompt caching com prefixo estável</strong> — o paper arXiv:2601.06007 ("Don't Break the Cache") mede custo e latência de diferentes estratégias de caching em benchmark agêntico multi-turn, e mostra que interleaving de conteúdo dinâmico no meio do prompt quebra o reuso de cache, exigindo desenho cuidadoso da ordem do contexto.</li>
+<li><strong>3. Spec-Driven Development (SDD)</strong> — a especificação escrita passa a ser a fonte da verdade, e o código um artefato gerado/verificado. O paper arXiv:2602.00180 (fev/2026) propõe três níveis de rigor (spec-first, spec-anchored, spec-as-source) com framework para decidir quando o overhead compensa. Pipeline típico: Spec → Plan → Tasks → Code, popularizado pelo GitHub Spec Kit (open-sourced em set/2025), com concorrentes como OpenSpec, Tessl e o Kiro da AWS.</li>
+<li><strong>4. Agent swarms / verification swarms</strong> — padrão em que um "Coder Agent" gera a solução, que só é mergeada depois de passar por um enxame de agentes revisores ("Verification Swarm"); fornecedores como a Zencoder descrevem essa arquitetura caminhando de "padrão interessante" para default em times que fazem dev assistido por IA em produção.</li>
+<li><strong>5. Fine-tuning de modelos compactos especializados</strong> — modelos como Llama 3.2/4, Phi-3/4, Gemma e Qwen, quando especializados via fine-tuning para uma tarefa, igualam ou superam modelos antigos de 20B+ parâmetros nessa tarefa, reduzindo custo de inferência — ponto repetido em múltiplos guias de decisão RAG-vs-fine-tuning publicados em 2026.</li>
+<li><strong>6. MCP com Tasks e MCP Apps</strong> — a adoção da spec 2026-07-28 do MCP exige migrar servidores do modelo stateful antigo para o novo núcleo sem sessão, usando "Tasks" para trabalho assíncrono e "MCP Apps" para UIs embutidas nas respostas de tool — uma skill que passa a ser necessária para quem mantém integrações MCP em produção.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Benchmarking and Enhancing Agentic Causal Discovery</strong> (arXiv:2610.22846, submetido 16/10/2026) — mostra que um LLM que vê apenas os nomes das variáveis já acerta 99% das direções causais nos pares Tübingen, sugerindo que benchmarks atuais de descoberta causal vazam sinal pelo naming; propõe avaliar se agentes conseguem diagnosticar e corrigir erros de algoritmos de causal discovery, não só executá-los.</li>
+<li><strong>A Closer Look at Agentic BBO</strong> (arXiv:2610.12183, 08/10/2026) — introduz o AgenticBBO-Bench, benchmark cross-domain (funções sintéticas, tuning de hiperparâmetros, tuning de banco de dados, chip design, design molecular); agentes superam métodos diretos baseados em LLM nos 5 domínios, mas ferramentas numéricas extras não ajudam de forma confiável.</li>
+<li><strong>DeepSWE</strong> (arXiv:2607.07946, jul/2026) — benchmark com 113 tarefas originais de engenharia de software de longo horizonte; os autores reportam que um juiz LLM independente discorda do verificador do DeepSWE em apenas 1,4% dos casos, contra 32,4% de discordância nos testes herdados do SWE-Bench Pro, e liberam benchmark, verificadores e trajetórias de avaliação.</li>
+<li><strong>Don't Break the Cache: An Evaluation of Prompt Caching for Long-Horizon Agentic Tasks</strong> (arXiv:2601.06007, jan/2026) — primeira avaliação sistemática de estratégias de prompt caching em tarefas agênticas multi-turn; mede custo e latência e mostra que intercalar prompts estáticos com saída dinâmica de ferramentas prejudica o reuso do cache.</li>
+<li><strong>Spec-driven development framework</strong> (arXiv:2602.00180, fev/2026) — formaliza o Spec-Driven Development com três níveis de rigor (spec-first, spec-anchored, spec-as-source) e um framework de decisão sobre quando vale manter a especificação como fonte da verdade em vez do código.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário)</a></li>
+<li><a href="https://arxiv.org/abs/2610.22846">arXiv:2610.22846 — Benchmarking and Enhancing Agentic Causal Discovery</a></li>
+<li><a href="https://arxiv.org/abs/2610.12183v1">arXiv:2610.12183 — A Closer Look at Agentic BBO</a></li>
+<li><a href="https://arxiv.org/abs/2607.07946">arXiv:2607.07946 — DeepSWE</a></li>
+<li><a href="https://arxiv.org/pdf/2601.06007">arXiv:2601.06007 — Don't Break the Cache</a></li>
+<li><a href="https://arxiv.org/abs/2602.00180v1">arXiv:2602.00180 — Spec-Driven Development framework</a></li>
+<li><a href="https://www.thehansindia.com/tech/upcoming-ai-updates-in-october-2026-major-developments-to-watch-1127036">Upcoming AI Updates in October 2026 (The Hans India)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">Model Context Protocol — Wikipedia</a></li>
+<li><a href="https://wec.wiline.com/docs/news/category/mcp/">MCP Just Shipped Its Biggest Update Ever</a></li>
+<li><a href="https://ppc.land/mcp-forces-ad-tech-to-rebuild-agent-servers-as-sessions-disappear/">MCP forces ad tech to rebuild agent servers as sessions disappear</a></li>
+<li><a href="https://pub.towardsai.net/mcp-grows-up-six-changes-production-teams-need-to-plan-for-cffb8a9e50c2">MCP Grows Up: Six Changes Production Teams Need to Plan For</a></li>
+<li><a href="https://www.n-ix.com/langgraph-vs-crewai-vs-autogen/">LangGraph vs CrewAI vs AutoGen (N-iX)</a></li>
+<li><a href="https://labmemo.com/ai-agent-framework-langgraph-crewai-autogen-2026/">Comparativo de frameworks de agentes 2026 (LabMemo)</a></li>
+<li><a href="https://www.byteplus.com/en/topic/578754">Mercado de vector databases 2026 (BytePlus)</a></li>
+<li><a href="https://www.dio.me/articles/rag-observability-em-2026-do-tracing-ao-vector-db-82cdc4a4e752">RAG observability em 2026: do tracing ao vector DB</a></li>
+<li><a href="https://www.louisbouchard.ai/context-engineering-2026/">Context Engineering 2026 (Louis Bouchard)</a></li>
+<li><a href="https://medium.com/@visrow/spec-driven-development-is-eating-software-engineering-a-map-of-30-agentic-coding-frameworks-6ac0b5e2b484">Spec-Driven Development Is Eating Software Engineering</a></li>
+<li><a href="https://zencoder.ai/newsletter/ai-trends-for-2026-beyond-the-hype">AI Trends for 2026 — Beyond the Hype (Zencoder)</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">Qodo launches CLI agent framework</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 21/10/2026</div>
+</body></html>
