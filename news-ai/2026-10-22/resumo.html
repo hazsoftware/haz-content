@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 22/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 22/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>OpenAI DevDay refresh</strong> (final de set/início de out 2026): a Agents API ganhou suporte a computer-use, e o Codex recebeu projetos reutilizáveis na nuvem, uma CLI renovada e o <strong>Codex Security Cloud</strong> (scanning de segurança) — recursos voltados a planos Pro/Enterprise.</li>
+<li><strong>gpt-6.1-sol</strong> (OpenAI, lançado 29/09/2026): é o modelo citado por trás do Codex nos benchmarks de outubro mencionados abaixo.</li>
+<li><strong>Terminal-Bench 4.0</strong> (out/2026): segundo um guia da Labellerr, Claude Code com Opus 5.5 marcou 64,8% — o melhor resultado do mês — contra 58,2% do Codex com GPT-6.1 Sol no mesmo benchmark (números de fonte única, ainda sem confirmação independente).</li>
+<li><strong>GitHub Copilot</strong>: a mesma fonte reporta disponibilidade geral de sandboxing local em outubro/2026.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain/LangGraph</strong> seguem estáveis na v1.0 (desde out/2025), com LangGraph recomendado para toda implementação nova.</li>
+<li><strong>LlamaIndex</strong> reduziu a distância em orquestração frente ao LangChain graças a gerenciamento de estado nativo via Workflows e AgentWorkflow.</li>
+<li><strong>CrewAI</strong> continua Python-only — limitação relevante na escolha de stack multiagente.</li>
+<li><strong>BerriAI/litellm</strong> (Python/Rust) apareceu no trending do GitHub hoje: gateway de IA com core em Rust e SDK Python para chamar mais de 100 APIs de LLM no formato OpenAI.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol)</strong>: a revisão de spec de 28/07/2026 tornou o protocolo stateless, removendo o handshake initialize/initialized e o header Mcp-Session-Id — a maior mudança desde o lançamento, com partes não retrocompatíveis.</li>
+<li>A governança do MCP migrou para a <strong>Agentic AI Foundation</strong> (AAIF, Linux Foundation) em dez/2025; downloads mensais do SDK já passam de 97 milhões segundo análises do setor.</li>
+<li><strong>headroomlabs-ai/headroom</strong> entrou no trending do GitHub hoje: comprime saídas de tools, logs, arquivos e chunks de RAG para reduzir tokens enviados a LLMs — ataca direto o custo de contexto em agentes.</li>
+<li><strong>anthropics/knowledge-work-plugins</strong> subiu no trending: plugins oficiais para Claude Cowork voltados a trabalhadores de conhecimento.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>vllm-project/vllm</strong> continua em alta no GitHub: motor de inferência/serving de LLMs de alto throughput e uso eficiente de memória.</li>
+<li>O <strong>SWE-bench Verified</strong> foi arquivado pela Vals por saturação, segundo reportagens do setor — o ecossistema de benchmarks de coding agents migra para Terminal-Bench, SlopCodeBench e ProgramBench.</li>
+<li>Mercado de trabalho: vagas exigindo expertise em IA já giram em torno de 25% do total nos EUA/UK, enquanto postagens para "software developer" genérico caíram 22% desde 2021 — function calling, structured outputs e uso de tools virou competência básica, não diferencial.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>anthropics/knowledge-work-plugins</strong> (+303 ⭐ hoje) — plugins oficiais da Anthropic para Claude Cowork voltados a trabalhadores de conhecimento.</li>
+<li><strong>Graphify-Labs/graphify</strong> (+1.407 ⭐ hoje) — transforma bases de código, docs, schemas e PDFs em um grafo de conhecimento pesquisável, com skill nativa para Claude Code e outros agentes.</li>
+<li><strong>vllm-project/vllm</strong> (Python, +469 ⭐ hoje) — motor de inferência/serving de LLMs de alto throughput, referência de produção.</li>
+<li><strong>headroomlabs-ai/headroom</strong> (+552 ⭐ hoje) — comprime saídas de tools, logs, arquivos e chunks de RAG para cortar tokens enviados a LLMs.</li>
+<li><strong>shiyu-coder/Kronos</strong> (+512 ⭐ hoje) — modelo de fundação para dados de mercado financeiro.</li>
+<li><strong>BerriAI/litellm</strong> (Python/Rust, +101 ⭐ hoje) — gateway de IA para chamar mais de 100 APIs de LLM no formato OpenAI, virou padrão de facto para abstrair providers.</li>
+<li><strong>luongnv89/claude-howto</strong> (+428 ⭐ hoje) — guia visual com exemplos práticos e templates prontos para uso do Claude Code.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Combinação RAG + fine-tuning + prompt engineering</strong>: guias de 2026 convergem para um framework único — fine-tuning muda o comportamento do modelo, RAG muda o que ele sabe, prompt engineering molda os dois sem tocar na infra; a maioria dos stacks de produção em 2026 já combina as três técnicas.</li>
+<li><strong>Fine-tuning com RAG para novas skills</strong> (arXiv 2510.01375): paper propõe combinar retrieval com fine-tuning para ensinar habilidades novas ao modelo, com código reproduzível e seeds fixas; referencia trabalhos consolidados como FireAct e QLoRA.</li>
+<li><strong>Gestão de memória de agentes (long-term + short-term)</strong>: linha de pesquisa em alta em 2026 — o paper Agentic Memory (ACL 2026) usa RL para unificar memória de curto e longo prazo e supera baselines em vários backbones de LLM; LiCoMemory (Findings ACL 2026) usa grafo hierárquico leve para melhorar raciocínio temporal e eficiência de retrieval.</li>
+<li><strong>Memória episódica e ativa em agentes</strong>: ActiveMem (arXiv 2606.10532) propõe memória ativa distribuída inspirada na separação entre controle executivo e memória na cognição humana, atacando o trade-off entre overload de contexto e perda irreversível de informação; E-mem (arXiv 2601.21714, ICML 2026) defende reconstrução de contexto episódico em vez de compressão em embeddings/grafos fixos.</li>
+<li><strong>Avaliação multi-turno de coding agents</strong>: MTAC-IFBench (arXiv 2609.14992) mede instruction-following em coding agents ao longo de interações multi-turno, expondo falhas que benchmarks de turno único (como o já saturado SWE-bench Verified) não capturam.</li>
+<li><strong>Agentes implementando extensões de pesquisa em IA</strong>: RExBench (ACL 2026) testa se coding agents conseguem implementar extensões de papers de pesquisa de forma autônoma; o melhor agente avaliado teve ~33% de taxa de sucesso, mostrando o quanto falta para automação de P&D.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (<a href="https://arxiv.org/pdf/2510.01375">arXiv 2510.01375</a>) — combina retrieval e fine-tuning para ensinar skills novas a LLMs, com setup reproduzível (código anonimizado, seeds fixas).</li>
+<li><strong>MTAC-IFBench: Benchmarking Instruction-Following in Multi-Turn Agentic Coding</strong> (<a href="https://arxiv.org/pdf/2609.14992">arXiv 2609.14992</a>) — benchmark focado em seguir instruções ao longo de múltiplos turnos em tarefas de coding agent, área pouco coberta pelos benchmarks tradicionais.</li>
+<li><strong>RExBench: Can coding agents autonomously implement AI research extensions?</strong> (<a href="https://preview.aclanthology.org/ingest-acl/2026.acl-long.745/">ACL 2026</a>) — avalia agentes de coding implementando extensões de papers de pesquisa sem supervisão; melhor agente atinge ~33% de sucesso.</li>
+<li><strong>ActiveMem</strong> (<a href="https://www.emergentmind.com/papers/2606.10532">arXiv 2606.10532</a>) — memória ativa distribuída para agentes LLM, buscando equilibrar overload de contexto e perda de informação.</li>
+<li><strong>E-mem: Multi-agent based Episodic Context Reconstruction for LLM Agent Memory</strong> (<a href="https://papers.cool/arxiv/2601.21714">arXiv 2601.21714</a>, ICML 2026) — reconstrução episódica de contexto em vez de compressão em embeddings/grafos, para preservar integridade de raciocínio profundo.</li>
+<li><strong>LiCoMemory: Lightweight and Cognitive Agentic Memory for Efficient Long-Term Reasoning</strong> (<a href="https://preview.aclanthology.org/ingest-acl/2026.findings-acl.1835/">Findings of ACL 2026</a>) — memória agêntica leve baseada em grafo hierárquico, com ganhos em raciocínio temporal e eficiência de retrieval.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.labellerr.com/blog/10-best-ai-coding-agents/">10 Best AI Coding Agents in 2026 (Labellerr)</a></li>
+<li><a href="https://www.groovyweb.co/blog/langchain-vs-llamaindex-comparison">LangChain vs LlamaIndex Comparison (GroovyWeb)</a></li>
+<li><a href="https://pub.towardsai.net/mcp-grows-up-six-changes-production-teams-need-to-plan-for-cffb8a9e50c2">MCP Grows Up: Six Changes Production Teams Need to Plan For (Towards AI)</a></li>
+<li><a href="https://pub.towardsai.net/mcp-2-0-what-changed-what-remained-and-how-it-impacts-practitioners-8f553e62448c">MCP 2.0? What Changed, What Remained (Towards AI)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (daily)</a></li>
+<li><a href="https://www.metaintro.com/blog/what-tech-workers-need-to-learn-ai-skills-job-postings-2026">What Tech Workers Need to Learn as AI Skills Take Over Job Postings (MetaIntro)</a></li>
+<li><a href="https://futurense.com/blog/ai-skills-in-demand">Top AI Skills in Demand for 2026 (Futurense)</a></li>
+<li><a href="https://radar.firstaimovers.com/fine-tuning-llms-vs-rag-2026.md">Fine-Tuning Large Language Models in 2026: When It Beats RAG (First AI Movers)</a></li>
+<li><a href="https://arxiv.org/pdf/2510.01375">arXiv 2510.01375 — Fine-tuning with RAG</a></li>
+<li><a href="https://arxiv.org/pdf/2609.14992">arXiv 2609.14992 — MTAC-IFBench</a></li>
+<li><a href="https://preview.aclanthology.org/ingest-acl/2026.acl-long.745/">RExBench (ACL Anthology)</a></li>
+<li><a href="https://www.emergentmind.com/papers/2606.10532">ActiveMem (Emergent Mind)</a></li>
+<li><a href="https://papers.cool/arxiv/2601.21714">E-mem (papers.cool)</a></li>
+<li><a href="https://preview.aclanthology.org/ingest-acl/2026.findings-acl.1835/">LiCoMemory (ACL Anthology)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 22/10/2026</div>
+</body></html>
