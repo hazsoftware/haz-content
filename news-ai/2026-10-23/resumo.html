@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 23/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 23/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Managed Agents da Anthropic</strong> (beta anunciado 09/10/2026): agentes gerenciados no servidor passam a gerar e executar <em>workflows</em> multi-fase sozinhos ("dynamic workflows"), sem o dev precisar orquestrar cada etapa manualmente via API.</li>
+<li><strong>Tracker BenchLM</strong> (dado de fonte única, out/2026): confirma 20 lançamentos de modelos por 16 provedores só em outubro — incluindo <strong>Grok Voice 3.0</strong> (xAI, 14/10), <strong>Muse Spark</strong> (Meta, 15/10) e <strong>Jais 3</strong> (IFM, 15/10).</li>
+<li><strong>GPT-6.1 Sol</strong> (OpenAI, 29/09/2026) continua como o modelo citado por trás do Codex nos benchmarks de coding deste mês (ver Terminal-Bench 4.0, coberto na edição de ontem).</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>UiPath for Coding Agents</strong> (public preview desde jul/2026): orquestra agentes de coding a partir de Claude Code, Cursor e Codex CLI direto do ecossistema UiPath, visando times que já automatizam processos com RPA.</li>
+<li><strong>DeepEval</strong> segue como a ferramenta de referência para teste e regressão de LLMs, pipelines RAG e agentes — avaliação automatizada virou etapa obrigatória de CI para quem roda agentes em produção, não só checagem manual de output.</li>
+<li><strong>LangChain</strong> (Python) aparece hoje no trending diário do GitHub com +89⭐ — reforça a tração contínua da plataforma de "agent engineering" mesmo um ano após a 1.0.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>AWS Bedrock AgentCore</strong> (atualização out/2026): ganhou <em>lifecycle hooks</em> (before/after tool-call) para interceptar e modificar chamadas de ferramenta em tempo de execução, mais um Consent Portal para fluxos de identidade/autorização de agentes.</li>
+<li><strong>Microsoft Agent Framework</strong>: o README do AutoGen já exibe aviso de modo de manutenção, redirecionando formalmente quem usa o framework para o Agent Framework (GA desde abr/2026) como caminho oficial.</li>
+<li><strong>GitHub Agent Plugins 1.0</strong> (GA desde ago/2026): disponível no VS Code, Copilot CLI, Copilot SDK e no app Copilot — padroniza como plugins de agente são empacotados e distribuídos no ecossistema Copilot.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Unstructured-IO/unstructured</strong> está no trending de hoje do GitHub: converte PDFs, HTML e documentos complexos em dados estruturados para alimentar pipelines de RAG — peça comum na camada de ingestão.</li>
+<li><strong>microsoft/onnxruntime</strong> (C++, +17⭐ hoje) segue como acelerador cross-platform de referência para inferência e treinamento de modelos de ML em produção.</li>
+<li>Consolidação de stack: guias de deploy de 2026 convergem para Langfuse (tracing) + vLLM (serving) + FAISS/vector DB dedicado (retrieval) como combinação padrão para observabilidade ponta a ponta em RAG.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>supabase/supabase</strong> (TypeScript, +693⭐ hoje) — plataforma de desenvolvimento sobre Postgres para apps web, mobile e de IA; líder do trending geral hoje.</li>
+<li><strong>f/prompts.chat</strong> (HTML, +148⭐ hoje) — plataforma comunitária para compartilhar, descobrir e self-hostar prompts de IA (ex-Awesome ChatGPT Prompts).</li>
+<li><strong>langchain-ai/langchain</strong> (Python, +89⭐ hoje) — plataforma de "agent engineering", núcleo de orquestração de agentes LLM mais usado do ecossistema.</li>
+<li><strong>microsoft/onnxruntime</strong> (C++, +17⭐ hoje) — acelerador cross-platform para inferência e treinamento de modelos de ML.</li>
+<li><strong>Unstructured-IO/unstructured</strong> (HTML, +5⭐ hoje) — converte documentos complexos (PDF, HTML, scans) em dados estruturados para LLMs e pipelines de RAG.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Divisão de trabalho entre fine-tuning e RAG (PUR)</strong>: o paper arXiv 2610.15921 propõe mandar conhecimento "central" e estável para fine-tuning/PEFT e deixar consultas periféricas e voláteis para retrieval — ganho de acurácia e menor latência de inferência frente a usar só uma das duas técnicas isoladamente.</li>
+<li><strong>Fine-tuning supera RAG em world models</strong>: arXiv 2610.02542 (01/10/2026) mostra que modelos de mundo ajustados via fine-tuning dão a agentes recompensas maiores em 15 de 20 cenários testados, enquanto RAG se mantém mais eficiente em dados — referência direta para quem decide entre as duas abordagens em sistemas de planejamento de agentes.</li>
+<li><strong>Preservar segurança durante fine-tuning via reparametrização do espaço de pesos</strong>: arXiv 2610.26443 (19/10/2026, spotlight NeurIPS 2026) ataca o problema de fine-tuning downstream degradar guardrails de segurança do modelo base, propondo reparametrização do espaço de pesos para manter o alinhamento original intacto.</li>
+<li><strong>Tuning automatizado de redes neurais especializadas via multiagente</strong>: arXiv 2610.13663 (09/10/2026) usa um sistema multiagente de LLMs para automatizar a busca de hiperparâmetros e arquitetura em modelos especializados, reduzindo o trabalho manual de tuning que hoje recai sobre times de ML.</li>
+<li><strong>Agentic RAG sob escrutínio de custo-benefício</strong>: paper industrial do ACL 2026 compara RAG "enhanced" (pipeline fixo) contra "agentic" (com decisões autônomas de busca/raciocínio) em múltiplos cenários — conclusão prática: agentic RAG nem sempre compensa o custo extra de inferência frente ao ganho de qualidade.</li>
+<li><strong>Avaliação contínua (eval-driven development)</strong>: com DeepEval e ferramentas equivalentes, suites de teste para LLM/RAG/agentes virando parte do pipeline de CI, não mais checagem manual pontual — tendência citada em múltiplos guias de stack de 2026 como pré-requisito para deploy em produção.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>How To Train Your World Model: Fine-tuning vs RAG for LM-based World Modeling</strong> (<a href="https://arxiv.org/abs/2610.02542">arXiv 2610.02542</a>, 01/10/2026) — compara fine-tuning e RAG para modelagem de mundo baseada em LM; fine-tuning vence em 15/20 settings de recompensa de agente, RAG é mais eficiente em dados.</li>
+<li><strong>Fast and Accurate: Improving Personalized LLM Performance by Semantic Concentration Inspired Workload Split between RAG and Fine-Tuning</strong> (<a href="https://arxiv.org/abs/2610.15921">arXiv 2610.15921</a>) — propõe o método PUR, que divide a carga de personalização entre PEFT (conhecimento central) e RAG (consultas periféricas).</li>
+<li><strong>Rethinking LLM Fine-Tuning via Weight Space Reparameterization: Preserving Safety during Downstream Adaptation</strong> (<a href="https://arxiv.org/abs/2610.26443">arXiv 2610.26443</a>, 19/10/2026, NeurIPS 2026 spotlight) — reparametriza o espaço de pesos para preservar guardrails de segurança durante fine-tuning downstream.</li>
+<li><strong>A Multi-Agent LLM System for Automated Tuning of Specialized Neural Network Models</strong> (<a href="https://arxiv.org/abs/2610.13663">arXiv 2610.13663</a>, 09/10/2026) — sistema multiagente de LLMs para automatizar tuning de hiperparâmetros/arquitetura de redes especializadas.</li>
+<li><strong>Is Agentic RAG worth it? An experimental comparison of RAG approaches</strong> (<a href="https://preview.aclanthology.org/ingest-acl/2026.acl-industry.5/">ACL 2026, industry track</a>) — comparação experimental entre RAG "enhanced" e "agentic" em múltiplos cenários de custo e performance.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://aiagentstore.ai/ai-agent-news/topic/coding/2026-10-06">Coding Weekly AI News — 06/10/2026 (AI Agent Store)</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/topic/coding/2026-08-25/detailed">Coding Weekly AI News — 25/08/2026 (AI Agent Store)</a></li>
+<li><a href="https://docs.uipath.com/coding-agents/standalone/latest/release-notes/july-2026.md">UiPath for Coding Agents — Release Notes Jul/2026</a></li>
+<li><a href="https://af.net/es/realtime/confirmed-ai-model-releases-for-october-2026/">Confirmed AI Model Releases for October 2026 (AF.NET)</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário)</a></li>
+<li><a href="https://arxiv.org/abs/2610.02542">arXiv 2610.02542 — How To Train Your World Model</a></li>
+<li><a href="https://arxiv.org/abs/2610.15921">arXiv 2610.15921 — Fast and Accurate (PUR)</a></li>
+<li><a href="https://arxiv.org/abs/2610.26443">arXiv 2610.26443 — Rethinking LLM Fine-Tuning via Weight Space Reparameterization</a></li>
+<li><a href="https://arxiv.org/abs/2610.13663">arXiv 2610.13663 — Multi-Agent LLM System for Automated Tuning</a></li>
+<li><a href="https://preview.aclanthology.org/ingest-acl/2026.acl-industry.5/">Is Agentic RAG worth it? (ACL 2026 industry track)</a></li>
+<li><a href="https://online.iitkgp.ac.in/blog/ai-development-tools-frameworks">Tools and Frameworks for AI Software Engineers in 2026 (IIT KGP)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 23/10/2026</div>
+</body></html>
