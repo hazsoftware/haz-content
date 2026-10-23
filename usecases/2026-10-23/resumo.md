@@ -1,0 +1,7 @@
+# Usecases de IA — 23/10/2026
+
+- **Claude Code — Devs usam o agente para "desburrar" Smart TVs**: desenvolvedores estão apontando o Claude Code para TVs baseadas em Android (ex. Xiaomi) para remover bloatware, anúncios e telemetria direto via Wi-Fi, chegando a desinstalar dezenas de pacotes e criar um novo launcher. Resultados são mistos — alguns relatam TVs "brickadas" no processo. Fonte: [aiweekly.co](https://aiweekly.co/alerts/developers-use-claude-code-to-make-smart-tvs-dumb-again) e [BigGo Finance](https://finance.biggo.com/news/241f874a-3b79-487d-a7d2-3774ed007a45).
+
+- **Hermes Agent (Nous Research) — Treina um robô real a partir de um único prompt na GTC Berlin**: o Hermes Agent foi destaque no keynote de Jensen Huang na GTC Berlin, rodando um pipeline de treinamento sim-to-real que levou um pequeno robô físico do prompt em linguagem natural até a execução real, sem intervenção manual no meio do processo. Fonte: [AlphaSignal](https://alphasignal.ai/news/nous-research-s-hermes-agent-trained-a-real-robot-from-a-single-prompt).
+
+- **OpenClaw — Lança app mobile gratuito para rodar agentes pelo celular**: a OpenClaw liberou um app open-source para Android e iOS que se conecta ao OpenClaw Gateway, permitindo iniciar e acompanhar agentes de IA diretamente do smartphone; a notícia veio junto da revelação de que o criador do projeto gastou cerca de US$ 10 milhões em tokens no mês passado. Fonte: [mezha.net](https://mezha.net/eng/news/mezha-5969f47e001e52349caaf106_openclaw_creator_estimates).
