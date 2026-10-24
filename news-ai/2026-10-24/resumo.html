@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 24/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 24/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>DeepSeek V4.1 Flash (snapshot 1017)</strong> e <strong>MiniMax M3.1 Flash</strong> (20/10/2026): lançados no mesmo dia, segundo trackers independentes (Artificial Analysis, BenchLM). DeepSeek V4.1 Flash marca ~45 no Intelligence Index e 42,3 no Terminal-Bench 4.0 (agentic coding); MiniMax M3.1 Flash fica em ~42-43 no Intelligence Index mas lidera em Humanity's Last Exam (48% vs 43%) e em CyberGym (82%). Preço do DeepSeek V4.1 Flash varia entre $0,15-0,30/M tokens de entrada e $0,60-1,20/M de saída dependendo do provedor — vale comparar antes de trocar de modelo em produção.</li>
+<li><strong>Qwen3.6 27B</strong> (Alibaba, 21/10/2026): novo modelo de porte médio com GPQA de 90,4%, próximo do DeepSeek V4.1 Flash (90,9%) — reforça a tendência de modelos menores e mais baratos encostando nos "flagships" em benchmarks de raciocínio.</li>
+<li><strong>Ling 3.1 Flash</strong> (InclusionAI, atualizado 22/10/2026): 560B parâmetros, lançado originalmente em set/2026, segue como um dos modelos abertos mais ativos nos trackers de atualização diária.</li>
+<li><strong>Strata 0.2.4</strong>: motor de inferência local ganhou suporte para rodar o DeepSeek V4.1-Flash (763B parâmetros, build comprimida) em PC gamer comum — útil pra quem quer testar modelos de ponta sem GPU de datacenter, ainda que com velocidade baixa.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol) — spec 2026-07-28</strong> consolidada sob a Agentic AI Foundation (Linux Foundation): tornou os servidores MCP <em>stateless</em>, adicionou handshake <code>server/discover</code> e reescreveu a API de Tasks para um modelo baseado em polling (<code>tasks/get</code>, <code>tasks/update</code>, <code>tasks/cancel</code> cooperativo) — quebra compatibilidade com quem usava a API experimental de Tasks de 25/11/2025. Roots, Sampling e Logging entraram em janela de depreciação de 12 meses. Quem mantém servidores MCP precisa migrar.</li>
+<li><strong>langchain-ai/langchain</strong> se reposiciona como "agent engineering platform" (ver seção de repositórios) — sinal de que o framework está empurrando mais para orquestração de agentes do que só chains de RAG.</li>
+<li><strong>Unstructured-IO/unstructured</strong>: biblioteca de parsing de documentos para pipelines de LLM/RAG ganhando tração constante nos trends diários do GitHub.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MAS-Shield</strong> (arXiv:2511.22924v2, revisado em fev/2026): defesa em três estágios para sistemas multiagente — seleciona agentes críticos, roda auditoria leve e só escala casos ambíguos para um comitê pesado. Reporta 92,5% de taxa de recuperação contra cenários adversariais diversos, relevante para quem está colocando múltiplos agentes LLM em produção sem guardrails.</li>
+<li><strong>MAScope</strong> (arXiv:2603.04469, mar/2026): detector "execution-aware" de ataques cross-agent, com F1-score de 85,3% na detecção a nível de nó e 66,7% a nível de caminho completo de execução.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>Projetos de <em>serving</em> continuam concentrando estrelas no GitHub: <strong>vLLM</strong> (~93,7k estrelas) e <strong>llama.cpp</strong> (~131,1k estrelas) seguem como base padrão para inferência self-hosted de LLMs abertos.</li>
+<li><strong>microsoft/onnxruntime</strong> ganhou 7 estrelas só hoje — acelerador de inferência/treino cross-platform continua relevante para quem precisa rodar modelos fora da nuvem dos grandes provedores.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>f/prompts.chat</strong> (HTML, +241 ⭐ hoje, 174k total) — plataforma self-hostable para compartilhar e coletar prompts da comunidade; útil como biblioteca de prompts de referência em times.</li>
+<li><strong>langchain-ai/langchain</strong> (Python, +59 ⭐ hoje, 148k total) — se descreve agora como "agent engineering platform"; principal framework de orquestração de agentes/RAG em Python.</li>
+<li><strong>supabase/supabase</strong> (TypeScript, +428 ⭐ hoje, 114k total) — plataforma Postgres para apps web/mobile/AI, com extensões de vetor usadas em stacks de RAG.</li>
+<li><strong>apache/doris</strong> (Java, +4 ⭐ hoje, 16,1k total) — banco de analytics em tempo real com busca híbrida voltado para agentes de IA que precisam de lookup rápido sobre grandes volumes de dados.</li>
+<li><strong>Unstructured-IO/unstructured</strong> (HTML, +11 ⭐ hoje, 15,6k total) — converte documentos (PDF, Word, HTML) em dados estruturados prontos para alimentar LLMs, peça comum em pipelines de RAG.</li>
+<li><strong>microsoft/onnxruntime</strong> (C++, +7 ⭐ hoje, 22,2k total) — acelerador de inferência e treino ML cross-platform, usado para rodar modelos fora de runtimes proprietários.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Stacks híbridos RAG + fine-tuning + agents:</strong> análises de 2026 convergem no diagnóstico de que praticamente todo stack de produção sério hoje combina as três abordagens — RAG para conhecimento, fine-tuning para comportamento, agentes para ação —, em vez de escolher uma só. Vale desenhar a arquitetura pensando nas três camadas desde o início.</li>
+<li><strong>2. LoRA/QLoRA com Unsloth:</strong> continua sendo o caminho padrão para fine-tuning de modelos abertos em GPU de consumidor, permitindo customizar modelos de 7-30B sem infraestrutura de datacenter.</li>
+<li><strong>3. Modelos pequenos especializados:</strong> arquiteturas compactas (ex. Qwen3.6 27B) fine-tunadas para uma tarefa específica estão igualando ou superando modelos antigos de 20B+ em benchmarks como GPQA — reduz custo de inferência sem perder qualidade no domínio.</li>
+<li><strong>4. Guardrails para sistemas multiagente:</strong> com múltiplos agentes LLM cooperando, defesas em camadas tipo MAS-Shield (seleção de agentes críticos + auditoria + escalonamento) e detectores como MAScope (F1 85,3% nível-nó) ganham espaço como item obrigatório antes de ir para produção.</li>
+<li><strong>5. Orquestração assíncrona via MCP Tasks (stateless):</strong> a reescrita da spec MCP (2026-07-28) para um modelo stateless com polling de tasks muda como agentes de longa duração reportam progresso — quem construiu em cima da API experimental anterior precisa migrar os fluxos de tasks.</li>
+<li><strong>6. Function calling sob "interface drift":</strong> técnicas para lidar com agentes de longa duração cujas ferramentas mudam de schema/assinatura em tempo de execução vêm aparecendo em digests de papers recentes, respondendo a um problema prático de manter agentes estáveis quando as APIs externas evoluem.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>MAS-Shield</strong> (arXiv:2511.22924v2, revisado fev/2026) — defesa em três estágios para sistemas multiagente LLM com 92,5% de recuperação contra ataques adversariais; referência para quem precisa de guardrails em produção multiagente.</li>
+<li><strong>MAScope</strong> (arXiv:2603.04469, mar/2026) — detector "execution-aware" de ataques cross-agent, F1 85,3% (nó) / 66,7% (caminho completo); complementa o MAS-Shield como camada de detecção.</li>
+<li><strong>Annotrace</strong> (digest arXiv 20/10/2026) — workbench para anotação step-level de traces de agentes, facilitando debugging e avaliação de decisões intermediárias em pipelines agenticos longos.</li>
+<li><strong>Benchmark de "carryover attacks" em agentes LLM</strong> (datado 20/10/2026) — avalia como falhas de segurança "carregam" de uma etapa para outra em agentes multi-step, expondo um vetor de ataque pouco coberto até então.</li>
+<li><strong>Cache engineering e credit assignment para agentic RL</strong> (aceito EMNLP 2026, digest 21/10/2026) — propõe técnicas de memória/cache para treinar agentes com reinforcement learning de forma mais eficiente em tarefas longas.</li>
+<li><strong>"Harness-induced belief divergence" em agentes LLM multi-step</strong> (digest arXiv 13/10/2026) — investiga como o próprio arcabouço de execução (harness) do agente pode induzir o modelo a formar crenças incorretas sobre o estado da tarefa ao longo de múltiplos passos.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, EN)</a></li>
+<li><a href="https://opper.ai/model-releases">Opper.ai — AI Model Release Tracker</a></li>
+<li><a href="https://llmgateway.io/timeline">LLM Gateway — New AI Models Timeline</a></li>
+<li><a href="https://benchlm.ai/model-updates">BenchLM — New Models Today</a></li>
+<li><a href="https://www.linuxcompatible.org/story/strata-024-released-run-a-763billionparameter-ai-model-locally-on-your-gaming-pc">LinuxCompatible — Strata 0.2.4 release</a></li>
+<li><a href="https://benchlm.ai/md/compare/deepseek-v4-1-flash-vs-qwen3-6-27b.md">BenchLM — DeepSeek V4.1 Flash vs Qwen3.6-27B</a></li>
+<li><a href="https://myclaw.ai/blog/minimax-m3-1-flash-vs-deepseek-v4-1-flash">MyClaw.ai — MiniMax M3.1 Flash vs DeepSeek V4.1 Flash</a></li>
+<li><a href="https://llm-stats.com/models/compare/deepseek-v4-flash-max-vs-ling-3.1-flash">LLM-Stats — Ling 3.1 Flash comparison</a></li>
+<li><a href="https://blog.mcpservers.org/posts/mcp-spec-2026-07-28">MCP Servers Blog — The 2026-07-28 MCP Specification</a></li>
+<li><a href="https://www.truefoundry.com/blog/mcp-2026-07-28-spec-apps-tasks-governance-revisited">TrueFoundry — MCP 2026-07-28 spec, Apps, Tasks, governance</a></li>
+<li><a href="https://mer.vin/news/mcps-new-roadmap-whats-next-for-the-protocol/">Mer.vin — MCP's new roadmap</a></li>
+<li><a href="https://www.theregister.com/a/5280027">The Register — Agentic AI Foundation / MCP update</a></li>
+<li><a href="https://arxiv.org/abs/2511.22924v2">arXiv:2511.22924v2 — MAS-Shield</a></li>
+<li><a href="https://arxiv.org/html/2603.04469">arXiv:2603.04469 — MAScope</a></li>
+<li><a href="https://github.com/bddk520/DailyArXiv/issues/419">DailyArXiv — Latest 15 Papers, 22/10/2026</a></li>
+<li><a href="https://github.com/somewordstoolate/DailyArXiv/issues/351">DailyArXiv — Latest 15 Papers, 21/10/2026</a></li>
+<li><a href="https://github.com/somewordstoolate/DailyArXiv/issues/350">DailyArXiv — Latest 15 Papers, 20/10/2026</a></li>
+<li><a href="https://github.com/somewordstoolate/DailyArXiv/issues/345">DailyArXiv — Latest 15 Papers, 13/10/2026</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 24/10/2026</div>
+</body></html>
