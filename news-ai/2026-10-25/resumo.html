@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 25/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 25/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>LLM CLI 0.35</strong> (07/09/2026): o tool de Simon Willison para rodar LLMs via linha de comando adicionou entrada para o modelo <strong>GPT-6 Astra</strong>, mantendo o padrão plugin-based que já cobre dezenas de provedores — útil pra quem automatiza troca de modelo em scripts sem reescrever integração.</li>
+<li><strong>Olmo-core 3</strong>, da <strong>Ai2</strong> (01/10/2026): framework de treinamento open-source para LLMs, parte do ecossistema OLMo que libera pesos, dados e código de treino — alternativa auditável a pipelines fechados para quem precisa reproduzir ou fine-tunar do zero.</li>
+<li>Um tracker setorial do mercado (nocode.mba) contabilizou <strong>263 releases de modelos/LLMs</strong> nos últimos 90 dias entre os principais labs até 02/10/2026, mas poucos com avaliação independente publicada — sinal de fragmentação que torna benchmarking próprio ainda necessário antes de trocar de modelo em produção.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Claude Code v2.1.292/293</strong> (outubro/2026): novo parâmetro <strong>effort</strong> para controlar o nível de raciocínio de subagentes individualmente, ajustes no comportamento de tool-use em thinking mode e suporte a instalação direta de marketplace de plugins.</li>
+<li><strong>Claude Code Dynamic Workflows</strong> (beta, 09/10/2026): managed agent passa a gerar e executar workflows multi-fase no servidor a partir de um prompt, sem o dev precisar orquestrar cada etapa manualmente.</li>
+<li><strong>Microsoft AutoGen</strong> (outubro/2026): o README do repositório entrou oficialmente em modo manutenção, direcionando quem usa o framework para o <strong>Microsoft Agent Framework</strong> como sucessor — migração recomendada para novos projetos.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol) — spec 2026-07-28</strong>: a maior revisão desde o lançamento do protocolo. Tornou o MCP <strong>stateless</strong>, removendo o handshake de <code>initialize</code> e o header <code>Mcp-Session-Id</code> (SEP-2575 / SEP-2567), além de adicionar <strong>Tasks</strong> e <strong>MCP Apps</strong> e reforçar autorização. O Python SDK saltou para a versão <strong>2.0</strong> na mesma semana e renomeou um import comum sem alias de compatibilidade — pode quebrar builds que ainda não migraram.</li>
+<li><strong>MCPA</strong> — programa de certificação para MCP lançado em <strong>13/09/2026</strong> sob a <strong>Agentic AI Foundation</strong> (Linux Foundation), que assumiu a governança do protocolo em dezembro/2025.</li>
+<li><strong>AWS AgentCore</strong> (release de outubro/2026): adicionou <strong>lifecycle hooks</strong> (before/after tool-call), um <strong>Consent Portal</strong> para gestão de identidade e consentimento de agentes, e suporte de avaliação para frameworks de agentes em TypeScript.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>SGLang v0.5.21</strong> (02/10/2026): release que integrou <strong>779 pull requests de 227 contribuidores</strong> — ritmo de desenvolvimento que reforça o SGLang como opção madura para serving de alta performance ao lado do vLLM. O pacote 0.5.22 já apareceu no PyPI em 16/10/2026.</li>
+<li><strong>vLLM v0.31.0</strong> (reportado para 05/10/2026, não confirmado nas release notes oficiais no momento desta checagem): sucessor do v0.30.0 (22/09/2026) — vale confirmar a changelog oficial antes de fixar versão em produção.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>debpalash/VoiceStudio</strong> (Python, ⭐ 1.588 hoje) — ferramenta local e open-source para clonagem de voz, dublagem, transcrição e criação de audiobooks.</li>
+<li><strong>experientiallabs/experiential</strong> (Python, ⭐ 1.224 hoje) — gateway LLM self-hosted que roteia requisições entre múltiplos modelos e permite treinar um modelo especializado a partir do tráfego.</li>
+<li><strong>SnailSploit/Claude-Red</strong> (Python, ⭐ 630 hoje) — biblioteca de skill files ofensivos que guiam o Claude por técnicas de ataque específicas; relevante para quem faz red team/pentest autorizado e quer entender o vetor em agentes de código.</li>
+<li><strong>TauricResearch/TradingAgents</strong> (Python, ⭐ 309 hoje) — framework multi-agente LLM para trading financeiro automatizado.</li>
+<li><strong>AstrBotDevs/AstrBot</strong> (Python, ⭐ 225 hoje) — framework de agente de IA que conecta plataformas de chat, LLMs e plugins em um só runtime.</li>
+<li><strong>Shubhamsaboo/awesome-llm-apps</strong> (Python, ⭐ 131 hoje) — coleção com mais de 100 exemplos de aplicações de agentes de IA, agent skills e RAG prontos para referência.</li>
+<li><strong>aws/agent-toolkit-for-aws</strong> (Python, ⭐ 13 hoje) — servidores MCP e skills mantidos pela AWS para ajudar agentes de IA a operar serviços AWS diretamente.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Protocolo MCP stateless</strong>: com a spec 2026-07-28 eliminando o handshake de sessão, servidores MCP passam a ser mais fáceis de escalar horizontalmente e de rodar serverless — quem mantém servidor MCP próprio precisa revisar a migração para a versão 2.0 do SDK antes do fim do ciclo de suporte da versão anterior.</li>
+<li><strong>Stacks combinando RAG + fine-tuning + agentes</strong>: guias de prática de 2026 descrevem esse tripé como padrão em produção — RAG traz conhecimento atualizado, fine-tuning muda comportamento/estilo do modelo, e a camada de agente decide quando usar cada um; a escolha isolada entre "RAG vs. fine-tuning" já é tratada como falsa dicotomia pela maioria dos times.</li>
+<li><strong>Function calling, structured outputs e Responses API como base de produção</strong>: guias de skills para 2026 colocam esses três itens como pré-requisito técnico central para quem constrói com LLM, acima de prompt engineering genérico.</li>
+<li><strong>Harnesses de execução certificada para agentes</strong>: papers recentes (ex. "Certified Execution Harness") propõem controle supervisório via redes de Petri entre a camada de raciocínio e a de ação do agente, limitando formalmente o que um agente autônomo pode executar — resposta direta ao aumento de agentes com acesso a ferramentas de produção.</li>
+<li><strong>Avaliação contínua (eval-driven development)</strong>: ferramentas como DeepEval consolidam LLM evaluation, RAG evaluation, agent testing, benchmarking e regression testing num único pipeline, tratando avaliação como parte do CI/CD e não como etapa manual pontual.</li>
+<li><strong>Inference-time scaling sem re-treino</strong>: técnicas como "Decoupled Marginal Sharpening" (digest arXiv de 19/10/2026) ganham espaço como forma de melhorar reasoning em tempo de inferência sem custo de fine-tuning, útil quando trocar de modelo base não é opção.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>EnterpriseBench</strong> (arXiv 2609.37658, submetido 29/09/2026, revisado 03/10/2026) — benchmark para agentes LLM em raciocínio estratégico e tomada de decisão no nível empresarial; testa 9 métodos de agente sob 4 modelos-base diferentes e expõe gaps grandes entre agentes "de papel" e cenários corporativos reais.</li>
+<li><strong>EpiSEM-Bench</strong> (22/10/2026) — avalia segurança e recuperação de evidência em agentes LLM quando a evidência necessária está ausente ou incompleta; mede se o agente reconhece a lacuna em vez de inventar resposta.</li>
+<li><strong>AfterDeleteBench</strong> — audita se agentes LLM realmente deixam de usar/reter uma informação depois que ela é marcada para exclusão, relevante para compliance (LGPD/GDPR) em sistemas com memória persistente.</li>
+<li><strong>Certified Execution Harness</strong> — propõe controle supervisório baseado em redes de Petri entre a etapa de raciocínio e a de ação de um agente, formalizando limites de execução antes do agente tocar em sistemas reais.</li>
+<li><strong>ChaosBench-Logic</strong> (digest de 19/10/2026) — benchmark de raciocínio lógico e simbólico aplicado a sistemas dinâmicos caóticos, área onde LLMs atuais ainda mostram degradação acentuada.</li>
+<li><strong>Decoupled Marginal Sharpening</strong> (digest de 19/10/2026) — método training-free de inference-time scaling para melhorar reasoning sem re-treinar o modelo.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://aiagentstore.ai/ai-agent-news/topic/coding/2026-10-06">Coding Weekly AI News — aiagentstore.ai</a></li>
+<li><a href="https://pub.towardsai.net/mcp-2-0-what-changed-what-remained-and-how-it-impacts-practitioners-8f553e62448c">MCP 2.0 — Towards AI</a></li>
+<li><a href="https://pub.towardsai.net/mcp-grows-up-six-changes-production-teams-need-to-plan-for-cffb8a9e50c2">MCP Grows Up — Towards AI</a></li>
+<li><a href="https://mer.vin/news/mcps-new-roadmap-whats-next-for-the-protocol/">MCP's New Roadmap — mer.vin</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, EN)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending Python (daily)</a></li>
+<li><a href="https://arxiv.org/abs/2609.37658v1">EnterpriseBench — arXiv 2609.37658</a></li>
+<li><a href="https://github.com/somewordstoolate/DailyArXiv/issues/353">DailyArXiv — Latest 15 Papers, 25/10/2026</a></li>
+<li><a href="https://github.com/NeoFii/DailyArXiv/issues/182">DailyArXiv — Latest 50 Papers, 19/10/2026</a></li>
+<li><a href="https://www.nocode.mba/ai-release-tracker">AI Release Tracker — nocode.mba</a></li>
+<li><a href="https://letsdatascience.com/news/llm-035-adds-gpt-6-astra-model-entry-61fa8936">LLM 0.35 Adds GPT-6 Astra — Let's Data Science</a></li>
+<li><a href="https://tech-insider.org/?p=37723">SGLang Setup — Tech Insider</a></li>
+<li><a href="https://www.morphllm.com/comparisons/sglang-vs-vllm">SGLang vs vLLM (2026) — MorphLLM</a></li>
+<li><a href="https://www.developersdigest.tech/local-models/runtimes/compare/vllm-vs-sglang">vLLM vs SGLang — Developers Digest</a></li>
+<li><a href="https://futurense.com/blog/ai-skills-in-demand">Top AI Skills in Demand for 2026 — Futurense</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2026/06/ai-engineering-tools-everyone-is-using-in-2026/">Top 10 AI Engineering Tools — Analytics Vidhya</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 25/10/2026</div>
+</body></html>
