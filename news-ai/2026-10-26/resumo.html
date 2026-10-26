@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 26/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 26/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6 Astra, GPT-6.1 Sol e GPT-6 Luna</strong> (21/10/2026): a OpenAI começou a disponibilizar os três modelos no Google Cloud Model Garden, em preview privado para clientes enterprise selecionados — primeira vez que modelos OpenAI aparecem oficialmente dentro do Model Garden do Google.</li>
+<li><strong>Kimi K3.1 Pro Highspeed</strong> (23/10/2026): a Moonshot AI lançou a variante "Highspeed" do K3.1 Pro, focada em latência menor para uso em produção.</li>
+<li><strong>MiniMax M3.1 Flash</strong> (semana de 20-26/10/2026): a MiniMax anunciou inferência online quase 3x mais rápida em relação à geração anterior, visando casos de agentes que precisam de resposta em tempo real.</li>
+<li><strong>Gemini 4 Argon</strong> (13/10/2026): Google lançou variante "batch" do Gemini 4 Argon, voltada a processamento assíncrono de grandes volumes de requisições a custo menor.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Qodo Gen CLI</strong>: a Qodo lançou um framework de agentes configuráveis via arquivo — vem com agentes pré-construídos para code review, cobertura de testes e release notes, e permite expor qualquer agente como servidor MCP.</li>
+<li><strong>LangChain/LangGraph 1.0</strong>: ambos estáveis desde out/2025, sem breaking changes prometidos até a 2.0; LangGraph é a recomendação atual para novas implementações de agentes, com LangGraph Platform (agora LangSmith Deployment) em GA.</li>
+<li><strong>CrewAI</strong>: atualizações de 2026 adicionaram chains A2A (agent-to-agent) assíncronas nativas e mecanismos de atualização configuráveis (poll, stream, push) entre agentes.</li>
+<li><strong>MCP (Model Context Protocol)</strong>: migrado para a Linux Foundation (dez/2025), hoje suportado nativamente por OpenAI, Google e os principais frameworks de agentes — consolidando-se como padrão de facto para integração de tools.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>NVIDIA/SkillSpector</strong> (trending hoje no GitHub, 203 ⭐ no dia): scanner de segurança open-source para "skills" de agentes de IA — audita o que um skill pode acessar e executar antes de ser instalado, resposta direta ao crescimento de marketplaces de skills para Claude Code e similares.</li>
+<li><strong>AgriciDaniel/claude-seo</strong> (1.539 ⭐ no dia): skill universal de SEO para Claude Code com 26 sub-skills e 19 sub-agentes — exemplo do padrão "skill pack" modular que vem dominando o ecossistema de agentes de coding.</li>
+<li><strong>Panniantong/Agent-Reach</strong> (723 ⭐ no dia): dá a agentes de IA capacidade de navegação irrestrita pela internet, em vez de busca limitada por API — abordagem que vem ganhando tração para agentes de pesquisa.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>vLLM, Ollama e llama.cpp</strong> continuam como as engines de inferência/serving local mais adotadas entre os projetos open-source mais estrelados da categoria LLM — vLLM como motor de serving de alto throughput e baixa memória, Ollama/llama.cpp dominando inferência local em desenvolvimento.</li>
+<li><strong>DeepEval</strong> se consolidou como ferramenta de referência para testes de regressão de LLM, RAG e agentes antes de ir para produção — avaliação automatizada é tratada como prática obrigatória, não opcional, em times de IA aplicada em 2026.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>debpalash/VoiceStudio</strong> (Python, 2.292 ⭐ hoje) — alternativa open-source e totalmente local ao ElevenLabs: clonagem de voz, dublagem e transcrição sem depender de API paga.</li>
+<li><strong>AgriciDaniel/claude-seo</strong> (Python, 1.539 ⭐ hoje) — skill de SEO para Claude Code com 26 sub-skills e 19 sub-agentes, mostrando o apetite por pacotes de skills verticais prontos para uso.</li>
+<li><strong>TauricResearch/TradingAgents</strong> (Python, 1.376 ⭐ hoje) — framework multi-agente baseado em LLM para trading financeiro, com agentes especializados colaborando em decisões.</li>
+<li><strong>Panniantong/Agent-Reach</strong> (Python, 723 ⭐ hoje) — dá a agentes de IA acesso de navegação a toda a internet, não só a resultados de busca via API.</li>
+<li><strong>Alishahryar1/free-claude-code</strong> (Python, 358 ⭐ hoje) — permite usar Claude Code, Codex, Antigravity, VSCode, Pi, OpenCode e outros harnesses de agente gratuitamente, via roteamento de créditos/contas.</li>
+<li><strong>higgsfield-ai/skills</strong> (Python, 253 ⭐ hoje) — repositório de skills para agentes de IA, parte do movimento de "skill marketplaces" que ganhou força em 2026.</li>
+<li><strong>NVIDIA/SkillSpector</strong> (Python, 203 ⭐ hoje) — scanner de segurança para skills de agentes de IA, auditando permissões e comportamento antes da instalação.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agentic RAG:</strong> em vez de um pipeline de retrieval único, o agente decide iterativamente quando buscar, re-buscar e reformular a query, combinando raciocínio com recuperação de contexto. Analistas de mercado em 2026 apontam que stacks de produção cada vez mais combinam RAG, fine-tuning e agentes em vez de escolher só um.</li>
+<li><strong>Fine-tuning com LoRA/QLoRA para modelos pequenos especializados:</strong> guias práticos de 2026 recomendam fine-tuning não para "ensinar fatos novos" (isso é papel do RAG), mas para fixar comportamento e estilo em modelos abertos menores, reduzindo custo de inferência em produção.</li>
+<li><strong>Auditoria de segurança de "skills" de agentes:</strong> com o crescimento de marketplaces de skills (Claude Code, higgsfield-ai/skills), ferramentas como NVIDIA/SkillSpector surgiram para escanear permissões e comportamento de skills de terceiros antes da instalação — resposta direta a vetores de prompt injection via skill malicioso.</li>
+<li><strong>Defesa contra prompt injection e output filtering:</strong> roadmaps de carreira de 2026 citam isso como gap entre capacidade de IA e maturidade de governança nas empresas — cada vez mais tratado como skill obrigatória, não opcional, para quem constrói agentes expostos a conteúdo externo (ex.: IssueTrojanBench mostrou agentes como Cursor e Claude Code sendo manipulados por instruções maliciosas escondidas em issues do GitHub).</li>
+<li><strong>Orquestração multi-agente com chains A2A assíncronas:</strong> CrewAI adicionou em 2026 comunicação agent-to-agent nativa com mecanismos de atualização configuráveis (poll/stream/push), reduzindo a necessidade de orquestração manual entre agentes especializados.</li>
+<li><strong>MCP como padrão de integração de tools:</strong> com a migração para a Linux Foundation e adoção por OpenAI e Google além da Anthropic, expor funcionalidades via servidor MCP (como fez a Qodo com seus agentes de CLI) se tornou o caminho padrão para dar a agentes acesso a ferramentas externas.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>GenXR-Bench</strong> (arXiv 2610.29014, 21/10/2026) — benchmark para agentes de coding construindo aplicações de realidade estendida (XR) interativas; relata falhas recorrentes em lifecycle de sensores e fundamentação física/espacial, mostrando o limite atual de agentes fora do domínio "código de tela".</li>
+<li><strong>Benchmarking Coding Agents for System-Level Performance Optimization</strong> (arXiv 2610.29695, 21/10/2026) — argumenta que benchmarks de coding avaliam majoritariamente no nível de função/repositório; achado principal: a falha mais comum é código correto e dentro das restrições, mas que não melhora a performance real de ponta a ponta.</li>
+<li><strong>LSCBench (Last Secure Code Benchmark)</strong> (arXiv 2610.14766, atualizado 14/10/2026) — mede não só se o código do agente passa testes funcionais, mas se é seguro; o melhor agente avaliado passou 91,3% dos testes funcionais, mas só 25,1% atingiu o critério combinado "funciona e é seguro" — gap relevante para quem usa agentes de coding sem revisão de segurança adicional.</li>
+<li><strong>IssueTrojanBench</strong> (arXiv 2607.20759, jul/2026) — testa se agentes como Cursor e Claude Code podem ser desviados por instruções maliciosas escondidas em issues/PRs do GitHub, relevante para quem conecta agentes a repositórios com colaboradores externos.</li>
+<li><strong>SWE-Chain</strong> (arXiv 2605.14415) — benchmark para agentes de coding em cadeias de upgrade de pacotes em nível de release, avaliando se o agente consegue navegar múltiplas versões e dependências quebradas em sequência.</li>
+<li><strong>FeatureBench</strong> (arXiv 2602.10975) — benchmark de coding agêntico para desenvolvimento de features complexas de ponta a ponta, indo além de bug-fixing isolado para avaliar entrega de funcionalidade completa.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.analyticsvidhya.com/blog/2026/06/ai-engineering-tools-everyone-is-using-in-2026/">Top 10 AI Engineering Tools Everyone is Using in 2026 — Analytics Vidhya</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">Qodo launches CLI agent framework — SD Times</a></li>
+<li><a href="https://proflead.substack.com/p/ai-news-for-developers-28-codex-multi">AI news for developers #28 — proflead.substack.com</a></li>
+<li><a href="https://guptadeepak.com/tools/top-10-mcp-frameworks-2026/">Top 10 MCP Frameworks 2026 — guptadeepak.com</a></li>
+<li><a href="https://metavert.io/compare/llamaindex-vs-crewai">LlamaIndex vs CrewAI — metavert.io</a></li>
+<li><a href="https://llmgateway.io/timeline">New AI Models — October 2026 LLM Releases — llmgateway.io</a></li>
+<li><a href="https://opper.ai/model-releases">AI Model Release Tracker — opper.ai</a></li>
+<li><a href="https://lmmarketcap.com/llm-updates">LLM Updates (October 2026) — lmmarketcap.com</a></li>
+<li><a href="https://arxiv.org/abs/2610.29014">GenXR-Bench — arXiv 2610.29014</a></li>
+<li><a href="https://arxiv.org/abs/2610.29695">Benchmarking Coding Agents for System-Level Performance Optimization — arXiv 2610.29695</a></li>
+<li><a href="https://arxiv.org/pdf/2602.10975">FeatureBench — arXiv 2602.10975</a></li>
+<li><a href="https://arxiv.org/pdf/2605.14415">SWE-Chain — arXiv 2605.14415</a></li>
+<li><a href="https://arxiv.org/abs/2607.20759v1">IssueTrojanBench — arXiv 2607.20759</a></li>
+<li><a href="https://tech-insider.org/ai-coding-agents-91-percent-tests-25-percent-secure-2026/">AI Coding Agents: 91% Pass Tests, Only 25% Secure — tech-insider.org</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, daily</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — daily, English</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 26/10/2026</div>
+</body></html>
