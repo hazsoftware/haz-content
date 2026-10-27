@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 27/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 27/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Code v2.1.308</strong> (21/10/2026): release de estabilidade/correção de bugs; segundo trackers de release, a ferramenta já somou cerca de 25 releases no último mês, ritmo de iteração bem acima da média de CLIs de IA.</li>
+<li><strong>GitHub Copilot CLI v1.0.102 e Copilot no VS Code v1.143</strong> (21/10/2026): entrou em preview público o recurso "Computer Use" no Copilot CLI e nos apps desktop, permitindo que o agente controle a tela além de só editar arquivos.</li>
+<li><strong>Cursor — "Remote control for local agents"</strong> (06/10/2026): novo recurso para supervisionar e pilotar agentes que rodam em máquinas remotas a partir do editor local.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>CrewAI 1.15.10</strong> (31/07/2026, ainda a versão estável mais recente confirmada): ganhou suporte nativo aos protocolos <strong>MCP</strong> e <strong>A2A</strong>, eliminando boa parte do código de integração manual entre agentes de frameworks diferentes.</li>
+<li><strong>LangGraph 1.0 / create_agent do LangChain</strong>: desde out/2025 o <code>create_agent</code> do LangChain passou a rodar sobre o motor de execução do LangGraph; em mar/2026 o LangGraph já estava na v1.0.10, consolidando gerenciamento de estado e execução durável como padrão para agentes em produção.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP spec 2026-07-28</strong>: a maior revisão do protocolo até agora — removeu o handshake <code>initialize/initialized</code> e o header <code>Mcp-Session-Id</code>, tornando servidores MCP stateless e permitindo escalar atrás de load balancers HTTP padrão.</li>
+<li><strong>Governança do MCP</strong>: o protocolo passou a ser mantido pela <strong>Agentic AI Foundation (AAIF)</strong>, projeto da Linux Foundation (desde dez/2025); em 13/09/2026 foi lançado o programa de certificação <strong>MCPA</strong> para implementações.</li>
+<li><strong>Segurança MCP</strong>: varreduras independentes encontraram falhas exploráveis em uma parcela significativa de servidores MCP públicos, levando NSA e CISA a publicarem orientações formais de hardening — relevante para quem expõe servidores MCP em produção.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Observabilidade de RAG</strong> (artigo de 22/08/2026): a instrumentação está deixando de ser só tracing de prompt e passando a cobrir também métricas operacionais do vector DB (saúde, volume, capacidade), com padronização em torno de <strong>OpenTelemetry/OpenInference</strong>.</li>
+<li><strong>Tracing de pipeline RAG</strong>: ferramentas como <strong>Phoenix + OpenInference</strong> e a combinação <strong>Langfuse + vLLM + FAISS</strong> (tutorial de 15/06/2026) são citadas para tracing span-level de retrieval → rerank → geração, com scores de grounding por chunk.</li>
+<li><strong>Mercado de vector DBs maduro em 2026</strong>: Pinecone, Weaviate, Milvus/Zilliz, Qdrant e Chroma seguem como as opções mais citadas, cada uma com posicionamento distinto (gerenciado vs. self-hosted, escala vs. simplicidade).</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>anthropics/claude-code</strong> — CLI de coding agent da Anthropic; aparece entre os líderes de agentes de código no ranking de 28 dias do OSS Insight para repositórios de IA.</li>
+<li><strong>sst/opencode</strong> — agente de código open source alternativo ao Claude Code/Copilot, também entre os destaques recentes de agentes de IA no OSS Insight.</li>
+<li><strong>block/goose</strong> — framework open source de agente de desenvolvimento da Block, citado entre os projetos de agentes em alta.</li>
+<li><strong>openai/codex</strong> — CLI de coding agent da OpenAI, no mesmo grupo de destaque de agentes de código.</li>
+<li><strong>ggml-org/llama.cpp</strong> — segue como o projeto de referência na categoria de motores de inferência local no ranking do OSS Insight.</li>
+<li><strong>vercel/eve</strong> — framework de agentes que a Vercel abriu como open source; no post de lançamento a empresa afirma que, no início do ano, menos de 3% dos deploys internos vinham de agentes de código e hoje agentes já respondem por mais da metade dos commits.</li>
+<li><strong>jcode (novo projeto, 21/07/2026)</strong> — framework de code agent em estágio inicial que entrou no GitHub Trending, sinal do interesse contínuo em agentes autônomos focados em engenharia de software.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Orquestração multi-agente via MCP + A2A</strong>: com o CrewAI 1.15.10 (31/07/2026) suportando nativamente MCP e A2A, agentes de frameworks diferentes passam a interoperar sem camada de integração customizada — reduz boilerplate em arquiteturas multi-agente.</li>
+<li><strong>Agentes sobre motor de execução do LangGraph</strong>: desde que o <code>create_agent</code> do LangChain roda sobre o LangGraph (v1.0.10 em mar/2026), o padrão de produção passou a combinar grafo de estados + execução durável, em vez de loops de agente "na mão".</li>
+<li><strong>Observabilidade de RAG span-level</strong>: tracing granular de cada etapa (query rewriting → embedding → busca vetorial → retrieval → geração) com métricas de grounding por chunk, usando OpenTelemetry/OpenInference como padrão emergente — ajuda a isolar em qual etapa um RAG está falhando.</li>
+<li><strong>Decisão fine-tuning vs. RAG vs. prompt engineering</strong>: o framework de 2026 consolidado nos guias é: fine-tuning muda comportamento/latência/custo, RAG muda o conhecimento, prompt engineering molda os dois sem tocar infraestrutura; ferramentas como <strong>Unsloth</strong> tornam viável fine-tunar modelos pequenos open-weight em GPU de consumidor.</li>
+<li><strong>MCP stateless para escalar agentes</strong>: a remoção do handshake de sessão na spec 2026-07-28 permite rodar servidores MCP atrás de load balancers padrão — importante para quem está colocando ferramentas MCP em produção com múltiplas réplicas.</li>
+<li><strong>"Computer use" e controle remoto de agentes em CLIs</strong>: Copilot CLI/desktop (preview, out/2026) e o "remote control for local agents" do Cursor (06/10/2026) indicam uma tendência de dar aos agentes de código acesso a tela e a máquinas remotas, não só ao editor/terminal local.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375) — combina fine-tuning e RAG para ensinar novas habilidades ao modelo, atacando o problema de fine-tuning puro degradar capacidades gerais e RAG puro não capturar conhecimento procedural.</li>
+<li><strong>DAB — Can AI Agents Answer Your Data Questions?</strong> (arXiv 2603.20576, revisado em 07/10/2026) — benchmark com 104 queries em 17 datasets e 4 sistemas de banco de dados; o melhor agente avaliado atingiu só 57% de pass@1, mostrando que agentes de dados ainda erram muito em tarefas analíticas multi-etapa.</li>
+<li><strong>AGC-Bench</strong> (listado em 26/10/2026 no alphaXiv) — benchmark executável que usa o código do Apollo Guidance Computer; dar ao agente acesso a um simulador aumentou bastante a confiabilidade ao traçar comportamento de código legado, e testes exaustivos pegaram reescritas quebradas que testes por amostragem não detectaram.</li>
+<li><strong>Benchmark de violação de restrições orientada a resultado</strong> (arXiv 2512.20798) — avalia se agentes autônomos violam restrições de segurança/negócio para atingir uma meta, relevante para quem está desenhando guardrails de agentes em produção.</li>
+<li><strong>Terminal Agents: A Survey of AI Agents in Command-Line Environments</strong> (arXiv 2608.20485) — survey mapeando como agentes de linha de comando (no estilo Claude Code, Codex) são construídos e avaliados, útil como mapa do estado da arte em coding agents de terminal.</li>
+<li><strong>OmegaUse-OfficeVal</strong> (arXiv 2607.27155) — benchmark de agentes LLM em tarefas longas de suíte de escritório com embasamento econômico, medindo utilidade real de agentes em trabalho de conhecimento, não só em tarefas de código.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.havoptic.com/">AI Coding Tool Releases — Timeline (havoptic.com)</a></li>
+<li><a href="https://www.havoptic.com/r/cursor-3.0">Cursor release tracker</a></li>
+<li><a href="https://www.havoptic.com/r/claude-code-2.1.308">Claude Code v2.1.308 release tracker</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">Model Context Protocol — Wikipedia</a></li>
+<li><a href="https://pub.towardsai.net/mcp-2-0-what-changed-what-remained-and-how-it-impacts-practitioners-8f553e62448c">MCP 2.0: What Changed, What Remained — Towards AI</a></li>
+<li><a href="https://pub.towardsai.net/mcp-in-2026-it-stopped-being-a-tool-connector-c16f246f96aa">MCP in 2026: It Stopped Being a Tool Connector — Towards AI</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/tags/working-groups/">The New MCP Roadmap — modelcontextprotocol.io</a></li>
+<li><a href="https://www.dio.me/articles/rag-observability-em-2026-do-tracing-ao-vector-db-82cdc4a4e752">RAG observability em 2026 — DIO</a></li>
+<li><a href="https://futureagi.com/blog/what-is-rag-observability-2026/">What is RAG Observability — FutureAGI</a></li>
+<li><a href="https://www.byteplus.com/en/topic/578754">Vector database landscape 2026 — BytePlus</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSS Insight — AI trending repositories</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily)</a></li>
+<li><a href="https://aitoolly.com/ai-news/article/2026-07-21-jcode-emerges-as-a-new-intelligent-code-agent-framework-on-github">Jcode — novo code agent framework</a></li>
+<li><a href="https://www.opensourceforu.com/?p=99793">Vercel Open Sources 'eve' — Open Source For U</a></li>
+<li><a href="https://arxiv.org/pdf/2510.01375">arXiv:2510.01375 — Fine-tuning with RAG for Improving LLM Learning of New Skills</a></li>
+<li><a href="https://arxiv.org/abs/2603.20576">arXiv:2603.20576 — DAB: Can AI Agents Answer Your Data Questions?</a></li>
+<li><a href="https://www.alphaxiv.org/">alphaXiv — AGC-Bench</a></li>
+<li><a href="https://arxiv.org/pdf/2512.20798">arXiv:2512.20798 — Benchmark for Outcome-Driven Constraint Violations in Autonomous AI Agents</a></li>
+<li><a href="https://arxiv.org/pdf/2608.20485">arXiv:2608.20485 — Terminal Agents: A Survey of AI Agents in Command-Line Environments</a></li>
+<li><a href="https://arxiv.org/pdf/2607.27155">arXiv:2607.27155 — OmegaUse-OfficeVal</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 27/10/2026</div>
+</body></html>
