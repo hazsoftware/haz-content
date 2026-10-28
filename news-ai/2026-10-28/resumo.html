@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 28/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 28/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Gemini 4 Argon</strong> (13/10/2026): o Google DeepMind tornou estável o primeiro modelo da família Gemini 4, com janela de contexto de 1M tokens. Preço introdutório de US$ 2,00/milhão de tokens de entrada e US$ 10,00/milhão de saída, subindo para US$ 4,00/US$ 20,00 a partir de 1º/12/2026 — vale travar uso agora se o orçamento for sensível a custo de API.</li>
+<li><strong>GPT-6.1 Terra</strong> (26/10/2026): segundo as notas de release da OpenAI, o modelo está em rollout na API como <code>gpt-6.1-terra</code> e no ChatGPT Work e Codex — mais uma opção para quem já usa Codex como agente de código integrado ao workflow.</li>
+<li><strong>Claude Duet</strong> (preview de pesquisa, Anthropic): Claude atuando como agente proativo em segundo plano, monitorando apps conectados e pedindo aprovação antes de ações importantes. Acesso limitado por waitlist a assinantes Pro/Max nos EUA — sinaliza a direção da Anthropic para agentes "always-on" com human-in-the-loop.</li>
+<li><strong>DeepSeek V4.1-Flash 1017</strong> (17/10/2026): atualização com pesos abertos sob licença MIT, já disponível nos apps e na API da DeepSeek — opção relevante para quem quer self-host sem restrição de licença.</li>
+<li><strong>Kimi K3.1 Pro e Pro Highspeed</strong> (23/10/2026), da Moonshot AI: novas variantes focadas em velocidade de inferência, ampliando a disputa por modelos chineses competitivos em custo.</li>
+<li><strong>Liquid AI LFM3</strong>: família de seis modelos pequenos o suficiente para rodar em celular ou laptop — relevante para quem trabalha com inferência on-device.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>AutoGen</strong> segue em modo manutenção desde outubro/2025 (só bugfix e patches de segurança). O sucessor oficial da Microsoft é o <strong>Microsoft Agent Framework (MAF)</strong>, que atingiu GA 1.0 em 02/04/2026 para Python e .NET, com loops de agente, planejamento, memória, recuperação de falhas, aprovações e observabilidade embutidos.</li>
+<li><strong>CrewAI</strong> continua em desenvolvimento ativo, com a v1.15.22 em uso em setembro/2026 — segue como alternativa mais leve ao MAF para orquestração multi-agente.</li>
+<li><strong>LangChain</strong> lançou o <strong>OpenWiki</strong> (02/07/2026), CLI open-source que gera e atualiza automaticamente a documentação de um codebase a partir do próprio código.</li>
+<li><strong>JetBrains Context</strong>: cria um índice semântico do repositório para uso direto por Claude, Codex e Junie — reduz o trabalho de dar contexto manual ao agente a cada sessão.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li>Previsão da <strong>Gartner</strong>: 40% das aplicações corporativas terão agentes de IA especializados por tarefa até o fim de 2026, partindo de menos de 5% em 2025 — mostra a velocidade de adoção de agentes em produção, não só em prova de conceito.</li>
+<li><strong>n8n</strong> (TypeScript) lidera o GitHub Trending de hoje com +161 estrelas, impulsionado por recursos nativos de IA e mais de 400 integrações — reforça a automação low-code/no-code com IA embutida como padrão de mercado.</li>
+<li>Tendência de modelos pequenos especializados (3B–8B parâmetros) como "sweet spot" para agentes de produção em suporte, roteamento e sumarização, após fine-tuning — custo de inferência menor que modelos frontier para tarefas bem definidas.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol)</strong>: a revisão de spec de 28/07/2026 (SEP-2575, SEP-2567) tornou o protocolo stateless no core, removendo o handshake initialize/initialized e o header <code>Mcp-Session-Id</code> — capacidades agora são extensões versionadas e opt-in. Recursos deprecados continuam funcionando por pelo menos 12 meses. Roadmap atualizado em 22/08/2026.</li>
+<li><strong>pgvector</strong> (C) aparece no GitHub Trending de hoje (+17 estrelas) — busca por similaridade vetorial direto no Postgres continua ganhando tração como alternativa a vector DBs dedicados.</li>
+<li>Padrão de observabilidade para RAG se consolidando como camada própria: tracing de texto da query, IDs/scores de documentos recuperados, contexto passado ao LLM e contagem de tokens — stack comum combina Langfuse + vLLM + FAISS.</li>
+<li>Consenso prático sobre RAG vs. fine-tuning: RAG para fatos que mudam, fine-tuning (LoRA/QLoRA) para comportamento que não muda — a maioria dos sistemas em produção em 2026 usa os dois combinados, não um ou outro.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, ⭐ +161 hoje) — plataforma de automação de workflows com recursos de IA nativos e 400+ integrações.</li>
+<li><strong>huggingface/transformers</strong> (Python, ⭐ +55 hoje) — framework de referência para modelos de texto, visão, áudio e multimodais.</li>
+<li><strong>upscayl/upscayl</strong> (TypeScript, ⭐ +76 hoje) — upscaler de imagem por IA, open-source, para Linux/macOS/Windows.</li>
+<li><strong>run-llama/llama_index</strong> (Python, ⭐ +23 hoje) — plataforma de processamento de documentos para construir aplicações de IA e LLM, base comum de pipelines RAG.</li>
+<li><strong>pgvector/pgvector</strong> (C, ⭐ +17 hoje) — busca por similaridade vetorial open-source direto no Postgres.</li>
+<li><strong>datahub-project/datahub</strong> (Python, ⭐ +10 hoje) — plataforma de metadados/contexto para gerenciar dados e stack de IA.</li>
+<li><strong>gitleaks/gitleaks</strong> (Go, ⭐ +35 hoje) — ferramenta para encontrar segredos vazados no código, relevante para quem automatiza pipelines de CI com agentes de IA.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. RAG + fine-tuning híbrido</strong>: em vez de tratar como escolha binária, times de produção combinam RAG (para fatos que mudam com frequência) com fine-tuning via LoRA/QLoRA (para comportamento e estilo estáveis). É o padrão dominante em sistemas 2026, não a excecão.</li>
+<li><strong>2. Fine-tuning eficiente com LoRA/QLoRA</strong>: full fine-tuning é considerado caro e raramente necessário em 2026; adaptadores de baixo posto sobre os pesos base dominam, com ferramentas como Axolotl, Unsloth, TRL e LLaMA-Factory disputando espaço.</li>
+<li><strong>3. MCP stateless</strong>: a migração para a spec 28/07/2026 exige revisar servidores MCP que dependiam do handshake de sessão — quem mantém servidores MCP precisa migrar antes do fim da janela de deprecação (12 meses).</li>
+<li><strong>4. Orquestração multi-agente com recuperação de falhas</strong>: frameworks como Microsoft Agent Framework e CrewAI agora tratam crash recovery, aprovações humanas e memória como requisitos de primeira classe, não extensões — reflexo de agentes saindo de POC para produção.</li>
+<li><strong>5. Observabilidade de RAG como camada própria</strong>: tracing span-by-span (query → retrieval → re-rank → generation) com Langfuse, vLLM e FAISS vem substituindo APM tradicional, que não captura falhas específicas de recuperação/relevância.</li>
+<li><strong>6. Modelos pequenos especializados (3B–8B)</strong> para tarefas de agente bem definidas (suporte, roteamento, sumarização), reduzindo custo de inferência frente a modelos frontier quando a tarefa não exige raciocínio geral amplo.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Concordat: Typed Sessions for LLM Agents</strong> (arXiv 2610.37461) — propõe sessões tipadas para agentes LLM, buscando dar garantias de protocolo mais fortes em interações multi-turno, relevante para quem constrói agentes stateful pós-mudança do MCP.</li>
+<li><strong>Scaling Laws for Tool-Use Agents via Controllable Environment Synthesis</strong> (arXiv 2610.37648) — investiga leis de escala para agentes que usam ferramentas, sintetizando ambientes controláveis para medir como desempenho escala com dados/parâmetros de treino.</li>
+<li><strong>GEPA-Curator: Curated Learning for Self Improving Agents</strong> (arXiv 2610.37651) — framework de aprendizado curado para agentes autoaprimoráveis, no mesmo eixo de "harnesses" recursivos que vêm ganhando tração em pesquisa de agentes.</li>
+<li><strong>AgentSentry: Mitigating Indirect Prompt Injection in LLM Agents via Temporal Causal Diagnostics and Context Purification</strong> (arXiv 2602.22724) — técnica de defesa contra prompt injection indireto em agentes, usando diagnóstico causal temporal e purificação de contexto; relevante para quem expõe agentes a conteúdo externo não confiável.</li>
+<li><strong>The Envelope Layer: An Underestimated Surface of LLM Agent Defense</strong> (arXiv 2610.37415) — identifica a "camada de envelope" (metadados/transporte em torno das mensagens do agente) como superfície de ataque subestimada em defesas de agentes LLM.</li>
+<li><strong>BenchMeUp: Building Software Engineering Benchmarks from Natural-Language Specifications</strong> (arXiv 2610.37283) — propõe gerar benchmarks de engenharia de software diretamente de especificações em linguagem natural, útil para avaliar agentes de codificação de forma mais realista.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário)</a></li>
+<li><a href="https://github.com/somewordstoolate/DailyArXiv/issues/356">DailyArXiv — Latest 15 Papers, 28/10/2026</a></li>
+<li><a href="https://llmgateway.io/timeline">LLM Gateway — New AI Models timeline, outubro 2026</a></li>
+<li><a href="https://www.evertune.ai/resources/ai-model-tracker">AI Model Release Tracker (Evertune)</a></li>
+<li><a href="https://help.openai.com/en/articles/9624314-model-release-notes">OpenAI — Model Release Notes</a></li>
+<li><a href="https://www.techzine.eu/news/infrastructure/136758/model-context-protocol-receives-major-update-on-its-first-anniversary">Techzine — MCP spec update (28/07/2026)</a></li>
+<li><a href="https://www.cometapi.com/what-is-gemini-4-argon/">CometAPI — Gemini 4 Argon specs e pricing</a></li>
+<li><a href="https://dasroot.net/posts/2026/04/llm-agent-frameworks-langchain-crewai-autogen-comparison/">LangChain vs CrewAI vs AutoGen — comparativo 2026</a></li>
+<li><a href="https://futureagi.com/blog/rag-vs-fine-tuning-decision-framework-2026">RAG vs Fine-Tuning Decision Framework 2026</a></li>
+<li><a href="https://aiagentrank.io/blog/rag-vs-fine-tuning-vs-agents-2026">RAG vs Fine-Tuning vs Agents 2026 — previsão Gartner</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 28/10/2026</div>
+</body></html>
