@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 29/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 29/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Haiku 5.5</strong> (07/10/2026): Anthropic lançou o modelo pequeno mais rápido e capaz da linha, voltado para subagentes de alto volume e automação de navegador — pensado para orquestração onde custo por chamada importa mais que profundidade de raciocínio.</li>
+<li><strong>Claude Sonnet 5.5</strong> (28/09/2026): roda 30%+ mais rápido e custa até 30% menos que o Sonnet 5 para a maioria das tarefas, sem trocar de tier de preço — upgrade direto para quem já usa Sonnet em produção.</li>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): lidera em codificação agentiva e trabalho de conhecimento, com custo de execução ~40% menor que o Opus 5 em cargas típicas.</li>
+<li><strong>AWS Bedrock AgentCore</strong> (atualização de outubro/2026): adicionou lifecycle hooks em chamadas de ferramentas, um portal de consentimento para identidade, suporte a avaliação de frameworks de agentes em TypeScript, e no Gateway, TLS com CA privada e rate limits configuráveis.</li>
+<li><strong>Google Nano Banana 2.1</strong> (06/10/2026): novo modelo de geração/edição de imagem; a versão anterior é desligada em 29/10, deixando janela curta de migração para quem consome via API.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Agent Skills doado à Agentic AI Foundation</strong> (22/10/2026): Anthropic entregou o padrão aberto de "Agent Skills" à fundação; mais de 70 plataformas de agentes já adotaram o formato, reduzindo lock-in entre ferramentas diferentes.</li>
+<li><strong>strands-agents/harness-sdk</strong> (GitHub, ~9k★): SDK open-source para agentes de produção em Python e TypeScript, mantido pela equipe Strands Agents.</li>
+<li><strong>github/spec-kit</strong>: toolkit oficial do GitHub para desenvolvimento orientado por spec (spec-driven development), em alta no trending de hoje (361★ no dia).</li>
+<li><strong>CopilotKit/CopilotKit</strong>: stack front-end para agentes e UI generativa, mantenedores do protocolo AG-UI, usado como base para vários dos "AI coworkers" que apareceram no trending de hoje.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>nightly-labs/openbot</strong> (1.054★ hoje): workspace desktop local-first para "teammates" de IA persistentes, rodando Codex, Claude e Grok simultaneamente com colaboração agente-a-agente.</li>
+<li><strong>CopilotKit/OpenBot</strong> (240★ hoje): "AI coworkers" open-source, cada um com seu próprio navegador, arquivos e ferramentas — ações gated e logadas para auditoria.</li>
+<li><strong>KeygraphHQ/shannon</strong> (476★ hoje): "AI pentester" que analisa código-fonte e tenta exploits reais para verificar vulnerabilidades, em vez de só apontar padrões suspeitos.</li>
+<li><strong>vectorize-io/hindsight</strong> (1.352★ hoje, líder do trending Python): memória de agente que aprende continuamente ao longo das sessões.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>volcengine/OpenViking</strong> (103★ hoje): banco de contexto "self-evolving" para agentes que combina memória de agente, RAG de conhecimento e skills em uma única camada.</li>
+<li><strong>thedotmack/claude-mem</strong> (324★ hoje): captura a atividade de sessões de agentes, compacta com IA e reinjeta o contexto resumido em sessões futuras — técnica de context compaction para reduzir custo de token a longo prazo.</li>
+<li><strong>AWS Bedrock AgentCore</strong>: ver detalhes em Modelos e APIs — os lifecycle hooks e o Gateway com TLS de CA privada afetam diretamente pipelines de deploy de agentes em produção na AWS.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>vectorize-io/hindsight</strong> (Python, 1.352★ hoje) — memória de agente que aprende continuamente; líder do trending Python de hoje entre os projetos de IA.</li>
+<li><strong>HKUDS/DeepTutor</strong> (Python, 2.371★ hoje) — projeto de tutoria personalizada com IA, maior ganho de estrelas do dia entre os relacionados a IA.</li>
+<li><strong>milind-soni/OpenMausBot</strong> (TypeScript, 1.190★ hoje) — alternativa open-source a bot estilo Grok, com VM que os próprios bots podem operar.</li>
+<li><strong>JetBrains/thinkrail</strong> (TypeScript, 1.068★ hoje) — IDE leve para "vibe coding" que se adapta ao estilo de trabalho do dev.</li>
+<li><strong>nightly-labs/openbot</strong> (TypeScript, 1.054★ hoje) — workspace desktop multi-agente (Codex, Claude, Grok) com colaboração agente-a-agente.</li>
+<li><strong>gitroomhq/postiz-app</strong> (TypeScript, 893★ hoje) — ferramenta agentiva de agendamento de redes sociais.</li>
+<li><strong>KeygraphHQ/shannon</strong> (TypeScript, 476★ hoje) — "AI pentester" que valida vulnerabilidades tentando exploits reais a partir do código-fonte.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Spec-driven development (SDD)</strong>: benchmark da Uvik em 50 tickets reais de produção em Python mostrou a ferramenta OpenSpec com 42/50 merges aceitos contra 36/50 do grupo controle sem spec — ganho concentrado em features novas e pipelines de dados, sem vantagem em bug fixes ou refactors. O toolkit github/spec-kit formaliza essa abordagem.</li>
+<li><strong>2. Context engineering / context compaction</strong>: prática de fornecer convenções do projeto, padrões de código e critérios de sucesso ao agente antes de deixá-lo trabalhar. O repositório claude-mem (324★ hoje) implementa essa ideia de forma concreta, compactando sessões antigas com IA e reinjetando o resumo em sessões novas para controlar custo de token.</li>
+<li><strong>3. Agent memory como camada própria</strong>: hindsight (1.352★ hoje) e OpenViking (103★ hoje) tratam memória de agente como um componente separado de RAG tradicional, combinando aprendizado contínuo, conhecimento recuperável e skills reutilizáveis na mesma base.</li>
+<li><strong>4. Orquestração multi-agente / "AI teammates"</strong>: openbot (nightly-labs) e OpenBot (CopilotKit) propõem múltiplos agentes especializados rodando em paralelo (Codex, Claude, Grok) com ações logadas e auditáveis, em vez de um único agente generalista.</li>
+<li><strong>5. Segurança assistida por LLM (AI-driven pentesting)</strong>: shannon (KeygraphHQ, 476★ hoje) usa um LLM para ler o código-fonte e tentar exploits reais contra ele, validando vulnerabilidades em vez de apenas sinalizar padrões suspeitos como um linter de segurança tradicional.</li>
+<li><strong>6. Skills como padrão aberto entre plataformas</strong>: com a doação do formato Agent Skills da Anthropic à Agentic AI Foundation (22/10/2026) e adoção por 70+ plataformas, escrever uma "skill" reutilizável deixa de ser específico de um único agente e passa a ser portável entre ferramentas diferentes.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>CodeGrep</strong> (arXiv 2608.05886): agente de recuperação com 14B parâmetros treinado via RL para encontrar arquivos candidatos para agentes de codificação "congelados"; relata ganho na taxa de resolução no SWE-Bench Verified com menos rounds e menos tokens consumidos.</li>
+<li><strong>A Phased Workflow for Operating LLM-Based Coding Agents</strong> (arXiv 2608.30701): relatório prático da equipe de pesquisa em IA da Infobip sobre como estruturar o trabalho com agentes de código em fases para obter resultados confiáveis.</li>
+<li><strong>Inside the Scaffold</strong> (arXiv 2604.03515): taxonomia de arquiteturas de agentes de codificação construída a partir da análise de código-fonte de 13 scaffolds open-source.</li>
+<li><strong>A Survey of Vibe Coding with Large Language Models</strong> (arXiv 2510.12399): survey sobre a prática de "vibe coding" — desenvolvimento guiado por prompts e iteração rápida com LLMs — mapeando técnicas e riscos.</li>
+<li><strong>AI Agentic Programming: A Survey of Techniques, Challenges, and Opportunities</strong> (arXiv 2508.11126): survey abrangente sobre técnicas, desafios e oportunidades em programação agentiva com LLMs.</li>
+<li><strong>Promises, Perils, and (Timely) Heuristics for Mining Coding Agent Activity</strong> (arXiv 2601.18345, aceito na MSR 2026): estudo sobre como minerar e interpretar corretamente a atividade de agentes de codificação em repositórios do GitHub.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.anthropic.com/news">Anthropic News</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (geral, diário)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (diário)</a></li>
+<li><a href="https://github.com/trending/typescript?since=daily">GitHub Trending — TypeScript (diário)</a></li>
+<li><a href="https://github.com/topics/llm-agent">GitHub Topics — llm-agent</a></li>
+<li><a href="https://explainx.ai/blog/topics/google">ExplainX — timeline de novidades Google/Gemini</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/topic/coding/2026-10-06">AI Agent Store — notícias de agentes de codificação</a></li>
+<li><a href="https://uvik.net/blog/ai-trends/">Uvik — AI trends e benchmark de spec-driven development</a></li>
+<li><a href="https://arxiv.org/pdf/2608.05886">arXiv 2608.05886 — CodeGrep</a></li>
+<li><a href="https://arxiv.org/pdf/2608.30701">arXiv 2608.30701 — A Phased Workflow for Operating LLM-Based Coding Agents</a></li>
+<li><a href="https://arxiv.org/abs/2604.03515">arXiv 2604.03515 — Inside the Scaffold</a></li>
+<li><a href="https://arxiv.org/html/2510.12399v1">arXiv 2510.12399 — A Survey of Vibe Coding with Large Language Models</a></li>
+<li><a href="https://arxiv.org/html/2508.11126">arXiv 2508.11126 — AI Agentic Programming: A Survey</a></li>
+<li><a href="https://arxiv.org/abs/2601.18345v1">arXiv 2601.18345 — Promises, Perils, and (Timely) Heuristics for Mining Coding Agent Activity</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 29/10/2026</div>
+</body></html>
