@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 30/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 30/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Onda de lançamentos de outubro/2026</strong>: a BenchLM confirmou 20 modelos lançados por 16 provedores em outubro de 2026, incluindo <strong>Grok Voice 3.0</strong> (xAI), <strong>Muse Spark</strong> (Meta) e <strong>Jais 3</strong> (IFM) — divulgado em 16/10.</li>
+<li><strong>OpenAI engaveta GPT-6.1 "Astra"</strong>: segundo a Reuters (28/09), a OpenAI decidiu não lançar o modelo depois que testes internos levantaram preocupações de segurança e alinhamento.</li>
+<li><strong>Gemini 4 (Google DeepMind)</strong>: entrou na fase de post-training e é esperado ainda em 2026, sem data de outubro confirmada oficialmente.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>TanStack AI 1.0</strong>: lançado em outubro/2026 com 76 pacotes estáveis, 23 adapters de provedores e 8 frameworks de UI. Inclui cliente MCP (<code>@tanstack/ai-mcp</code>) com CLI geradora de tipos e <code>mcpTool()</code> roteado por provedor; o harness de agentes ainda roda em linha 0.x, sem compromisso de compatibilidade.</li>
+<li><strong>Archestra 1.4</strong>: gateway que unifica chamadas LLM e servidores MCP sob um único token para Claude Code, Codex e Cursor, com limites de custo e guardrails.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Agentic AI Foundation (Linux Foundation)</strong> anunciou em 22/10/2026 quatro novos projetos doados, elevando o total hospedado para 10: <strong>Agent Skills</strong> (doado pela Anthropic — formato aberto de habilidades para agentes), <strong>Open Responses</strong> (OpenAI — spec multi-provedor baseada na Responses API), <strong>OpenEnv</strong> (Hugging Face — interface de ambientes de RL portável entre sistemas de treino) e <strong>OpenSandbox</strong> (Alibaba — plataforma de sandbox para apps de IA).</li>
+<li><strong>Microsoft Agent Framework</strong>: em 17/10 estava em Python 1.22 e .NET 1.25, com preview em Go e um novo pacote de MCP hosting que expõe agentes e workflows como ferramentas MCP.</li>
+<li><strong>Bubble Agent 2 + Bubble MCP (beta)</strong>: apresentados em AMA de 26/10 — integração de MCP que roda dentro do Claude e do ChatGPT.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Milvus</strong> (vector DB cloud-native para busca ANN em escala) aparece hoje no GitHub Trending (Go, 12 stars no dia) — sinal de adoção contínua em pipelines de RAG.</li>
+<li><strong>vectorize-io/hindsight</strong> ganha tração (1.454 stars hoje) como sistema de memória de agente que "aprende" com o uso — parte da onda de ferramentas de memória persistente para agentes.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>anthropics/skills</strong> (Python, 287 ⭐ hoje) — repositório oficial do padrão Agent Skills, agora sob governança da Agentic AI Foundation; define como descrever habilidades que agentes podem carregar sob demanda.</li>
+<li><strong>vectorize-io/hindsight</strong> (1.454 ⭐ hoje) — "Agent Memory That Learns": sistema de memória para agentes que se ajusta com o histórico de uso, benchmarkado contra outras soluções de memória.</li>
+<li><strong>thedotmack/claude-mem</strong> (TypeScript, 1.145 ⭐ hoje) — contexto persistente entre sessões para qualquer agente, resolvendo o problema de "amnésia" de agentes de código.</li>
+<li><strong>langchain-ai/deepagents</strong> (Python, 60 ⭐ hoje) — harness de agentes "batteries-included" do time LangChain, pronto para workflows complexos sem montar a stack do zero.</li>
+<li><strong>QwenLM/qwen-code</strong> (TypeScript, 40 ⭐ hoje) — agente de código open-source que roda no terminal, concorrente direto de Claude Code e Codex.</li>
+<li><strong>KeygraphHQ/shannon</strong> (334 ⭐ hoje) — AI pentester para aplicações web e APIs, automatizando descoberta de vulnerabilidades com agentes.</li>
+<li><strong>milvus-io/milvus</strong> (Go, 12 ⭐ hoje) — vector database cloud-native de alta performance para ANN search, peça comum em stacks de RAG.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agent Skills como padrão aberto</strong>: formato de habilidades textuais para agentes, criado pela Anthropic e doado em 22/10/2026 à Agentic AI Foundation (Linux Foundation) para governança neutra — sinal de que "skills" deixam de ser recurso proprietário e vão virar interoperáveis entre ferramentas.</li>
+<li><strong>Nova revisão do MCP (Model Context Protocol)</strong>: a próxima spec remove o handshake original e introduz um framework formal de extensões, movendo o protocolo para um modelo mais modular de integração de ferramentas.</li>
+<li><strong>RAG + fine-tuning leve combinados</strong>: full fine-tuning é tratado como caro e raramente necessário em produção em 2026; o padrão é RAG para fatos que mudam + adapters LoRA/QLoRA para comportamento estável, reduzindo custo de treino sem perder especialização.</li>
+<li><strong>Memória persistente de agentes entre sessões</strong>: tendência confirmada por múltiplos repositórios virais no GitHub hoje (claude-mem, hindsight, deepagents) — foco em dar a agentes de código contexto que sobrevive ao fim da sessão, atacando o problema de "amnésia" entre execuções.</li>
+<li><strong>Sandboxing isolado para agentes de código</strong>: OpenSandbox (Alibaba, via AAIF) e o TanStack AI 1.0 (11 provedores de sandbox integrados, incluindo Daytona, E2B e Vercel Sandboxes) mostram sandboxing como peça obrigatória para rodar agentes autônomos com segurança.</li>
+<li><strong>Avaliação e observabilidade de agentes multi-step</strong>: demanda crescente por skills de AI evaluation e tracing (DeepEval, LangSmith citados como ferramentas de referência), reforçada por benchmarks novos como AgentDecept e Agentic BBO que medem comportamento de agentes sob pressão ou em tarefas complexas.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>AgentDecept</strong> (arXiv:2610.39377, submetido 29/10/2026) — benchmark executável de comportamento enganoso em agentes LLM que usam ferramentas sob pressão; contém 477 variantes de pressão derivadas de 257 tarefas-base em 6 fontes de pressão distintas, cada uma pareada com uma versão sem pressão.</li>
+<li><strong>Benchmarking and Enhancing Agentic Causal Discovery</strong> (arXiv:2610.22846) — separa, em datasets simulados anônimos, o quanto do ganho de um agente vem de um algoritmo melhor vs. de uma investigação de dados mais cuidadosa; testado com 3 LLMs diferentes.</li>
+<li><strong>A Closer Look at Agentic BBO</strong> (arXiv:2610.12183, submetido 08/10/2026) — benchmark cross-domínio para agentes LLM em otimização black-box; a abordagem agêntica supera métodos diretos baseados em LLM nos 5 domínios testados.</li>
+<li><strong>Quant-Arena</strong> (arXiv:2610.30113) — benchmark de agentes em loops de pesquisa de trading quantitativo, citado em digest de arXiv de 23/10/2026.</li>
+<li><strong>HGM-Dual</strong> (arXiv:2610.30042) — técnica de otimização dual para harness de agentes, também listada no mesmo digest de 23/10/2026.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.linuxfoundation.org/press/agentic-ai-foundation-announces-four-new-projects-agent-skills-open-responses-openenv-and-opensandbox">Linux Foundation — Agentic AI Foundation Announces Four New Projects</a></li>
+<li><a href="https://tanstack.com/blog/tanstack-ai-1-0">TanStack AI 1.0: Still Your AI, Still Your Way</a></li>
+<li><a href="https://www.developersdigest.tech/blog/microsoft-agent-framework-whats-new-2026">Microsoft Agent Framework in October 2026: What Changed Since 1.0</a></li>
+<li><a href="https://munderdiffl.in/blog/agent-tools-today-2026-10-23/">Agent Tools Today (23 Oct 2026): Launches, Skills, MCP Servers</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agents News — Week of October 29, 2026</a></li>
+<li><a href="https://af.net/realtime/confirmed-ai-model-releases-for-october-2026/">AF.NET — Confirmed AI Model Releases for October 2026</a></li>
+<li><a href="https://digg.com/ai/oau7hs52">Digg — AI releases week of October 2026</a></li>
+<li><a href="https://github.com/845421145-lang/agents-radar/issues/596">ArXiv AI Research Digest 2026-10-23 (agents-radar)</a></li>
+<li><a href="https://arxiv.org/abs/2610.39377">arXiv:2610.39377 — AgentDecept</a></li>
+<li><a href="https://arxiv.org/abs/2610.22846">arXiv:2610.22846 — Benchmarking and Enhancing Agentic Causal Discovery</a></li>
+<li><a href="https://arxiv.org/abs/2610.12183v1">arXiv:2610.12183 — A Closer Look at Agentic BBO</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily (English)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, Daily</a></li>
+<li><a href="https://github.com/trending/typescript?since=daily">GitHub Trending — TypeScript, Daily</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSS Insight — AI Trending Repositories</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 30/10/2026</div>
+</body></html>
