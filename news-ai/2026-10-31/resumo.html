@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 31/10/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 31/10/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>BenchLM Leaderboard</strong> (02/10/2026): publicou ranking de 214 LLMs comparando <strong>GPT-6 Astra</strong>, <strong>Claude Opus 5.5</strong> e <strong>Gemini 3.1 Pro</strong> em coding, reasoning e multimodal — referência útil para escolher modelo por caso de uso.</li>
+<li><strong>BenchLM</strong> (16/10/2026): confirmou 20 lançamentos de modelos de 16 fornecedores só em outubro/2026, incluindo <strong>Grok Voice 3.0</strong> (xAI) e <strong>Muse Spark</strong> (Meta) — o ritmo mensal de releases segue acelerado.</li>
+<li><strong>GPT-6 Astra</strong> (lançado 03/09/2026): atingiu 72,6% no benchmark de computer-use <strong>OSWorld V2-Offline</strong>, sinalizando avanço de agentes que operam GUIs diretamente.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>AWS Bedrock AgentCore</strong> (out/2026): adicionou lifecycle hooks em torno de chamadas de ferramentas e suporte a TypeScript para frameworks de agentes como <strong>LangGraph</strong> e <strong>Strands</strong>.</li>
+<li><strong>LangChain.js 1.5.16</strong> (08/10/2026): correções no framework de agentes e no cliente MCP.</li>
+<li><strong>GitHub</strong> (out/2026): sandboxing local chegou a GA (general availability) e foi adicionado computer use para aplicações desktop.</li>
+<li><strong>Claude Code</strong> (26/10/2026): ganhou contexto multi-repositório, permitindo trabalhar com várias bases de código numa única sessão.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Especificação MCP 2026-07-28</strong>: maior revisão desde o lançamento do protocolo — núcleo stateless, descontinua Roots/Sampling/Logging, adiciona MCP Apps e Tasks, remove o handshake initialize/initialized e o header Mcp-Session-Id, e introduz roteamento por header, requisições multi round-trip, resultados de listagem cacheáveis e OAuth/DCR mais rígido.</li>
+<li><strong>NSA e DoD</strong> (02/06/2026): publicaram guia de segurança específico para MCP — sinal de que o protocolo virou infraestrutura crítica para agentes.</li>
+<li><strong>AGNTCon + MCPCon North America</strong> (22-23/10/2026, San Jose): evento dedicado ao ecossistema de agentes e MCP.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Redis</strong> (atualizado 19/08/2026): bancos vetoriais em produção já são infraestrutura padrão — a HubSpot roda busca semântica sobre 20 bilhões de vetores.</li>
+<li><strong>RAG observability</strong>: adoção crescente de OpenTelemetry com semantic conventions GenAI para rastrear cada etapa do pipeline de retrieval; <strong>Langfuse</strong> e <strong>LangSmith</strong> lideram entre plataformas de observabilidade RAG.</li>
+<li><strong>Vector DBs</strong>: mercado consolidando em torno de Pinecone, Weaviate, Milvus e Qdrant.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<p>Dados de hoje (31/10/2026), estrelas ganhas nas últimas 24h:</p>
+<ul>
+<li><strong>thedotmack/claude-mem</strong> (TypeScript, ⭐ 1.723 hoje) — mantém contexto entre sessões de agentes (Claude Code, Codex, Gemini), comprimindo a atividade com IA e reinjetando o que importa depois.</li>
+<li><strong>HKUDS/DeepTutor</strong> (Python, ⭐ 1.035 hoje) — tutoria por IA personalizada e de longo prazo para quem está aprendendo.</li>
+<li><strong>anthropics/skills</strong> (Python, ⭐ 756 hoje) — repositório público de Agent Skills da Anthropic.</li>
+<li><strong>CopilotKit/OpenBot</strong> (TypeScript, ⭐ 610 hoje) — "coworkers" de IA com browser, arquivos e ferramentas próprios, com ações revisadas antes de executar; compatível com qualquer agente AG-UI.</li>
+<li><strong>vectorize-io/hindsight</strong> (Python, ⭐ 411 hoje) — sistema de memória de agentes que aprende com o tempo.</li>
+<li><strong>n8n-io/n8n</strong> (TypeScript, ⭐ 140 hoje) — plataforma de automação de workflows com IA nativa e mais de 400 integrações.</li>
+<li><strong>langchain-ai/deepagents</strong> (Python, ⭐ 46 hoje) — harness de agentes "batteries-included" da equipe LangChain.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agent memory / long-term context</strong>: sistemas como hindsight e mempalace tratam memória de agentes como camada própria (não só RAG), guardando aprendizado entre sessões; claude-mem (1.723⭐ hoje) aplica a mesma ideia a sessões de coding agents.</li>
+<li><strong>MCP Apps e Tasks</strong>: com a spec 2026-07-28, agentes passam a expor UI interativa e tarefas assíncronas de longa duração via MCP, não só chamadas de ferramenta síncronas.</li>
+<li><strong>Avaliação de agentes com task flows reais</strong>: paper de outubro/2026 analisou 4.782 sessões reais de IDE (JetBrains) e mostrou que usuários alternam entre planejamento, revisão e refatoração no mesmo fluxo; em piloto com 700 tasks do SWE-Bench Pro, forçar execução sequencial por etapas dobrou o custo do agente sem melhorar a taxa de resolução.</li>
+<li><strong>Computer-use agents</strong>: GPT-6 Astra atingiu 72,6% no OSWorld V2-Offline e o GitHub lançou computer use para apps desktop em outubro — operar GUI diretamente via agente está virando caso de uso mainstream.</li>
+<li><strong>LoRA/QLoRA como padrão de fine-tuning</strong>: full fine-tuning continua caro e raramente necessário; modelos de 3-8B parâmetros são apontados como "sweet spot" para muitos agentes de produção depois de fine-tuned.</li>
+<li><strong>RAG com fine-tuning especializado</strong>: paper (arXiv 2505.10792) reporta +21,2% de acurácia factual ao combinar RAG com fine-tuning voltado para retrieval imperfeito do mundo real, contrariando estudos anteriores que só viam perda de performance.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>FeatureArc</strong> (arXiv:2610.37434, 27/10/2026) — benchmark que testa se agentes de código conseguem evoluir uma feature em estágios sucessivos, em 4 linguagens; 10 agentes testados em 73 tasks revisadas manualmente concluem que evolução multi-estágio autônoma ainda é difícil.</li>
+<li><strong>Coding-Agent Benchmarks Should Match Their Users' Task Flows</strong> (arXiv:2610.09633, 07/10/2026) — análise de 4.782 sessões reais de IDE (JetBrains); piloto com 700 tasks do SWE-Bench Pro mostrou que forçar execução sequencial por etapas dobra o custo sem ganho estável na taxa de resolução.</li>
+<li><strong>IssueTrojanBench</strong> (arXiv:2607.20759, jul/2026) — 66,5% das issues maliciosas testadas passaram pelos guardrails de agentes de código, expondo risco de prompt injection via issues do GitHub.</li>
+<li><strong>Mnemis</strong> (arXiv:2602.15313) — abordagem de dual-route retrieval sobre grafos hierárquicos para memória de longo prazo em LLMs.</li>
+<li><strong>Case-aware LLM-as-a-judge para RAG enterprise</strong> (arXiv:2602.20379) — avaliação de sistemas RAG em escala enterprise usando LLM como juiz sensível ao caso de uso.</li>
+<li><strong>Proxy state-based evaluation para agentes multi-turn com tool-calling</strong> (arXiv:2602.16246) — proposta de avaliação que usa estado proxy para medir agentes que fazem várias chamadas de ferramenta ao longo de uma conversa.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://af.net/realtime/benchlm-releases-october-2026-leaderboard-ranking-214-large-language-models/">BenchLM releases October 2026 leaderboard</a></li>
+<li><a href="https://tech-insider.org/build-llm-benchmark-test-ai-models-2026/">Build an LLM Benchmark: Test 6 AI Models in 13 Steps (2026)</a></li>
+<li><a href="https://aiagentstore.ai/ai-agent-news/topic/coding/2026-10-06">Coding Weekly AI News — 2026-10-06</a></li>
+<li><a href="https://skillsllm.com/news/ai-news-2026-10-26">AI News — 2026-10-26</a></li>
+<li><a href="https://www.techzine.eu/news/infrastructure/136758/model-context-protocol-receives-major-update-on-its-first-anniversary">Model Context Protocol receives major update on its first anniversary</a></li>
+<li><a href="https://arcade.dev/mcp26">Guide to MCP '26</a></li>
+<li><a href="https://redis.io/blog/vector-search-database-news-2026-guide.md">Vector search database: news & 2026 guide (Redis)</a></li>
+<li><a href="https://www.getmaxim.ai/articles/top-5-rag-observability-platforms-in-2026.md">Top 5 RAG observability platforms in 2026</a></li>
+<li><a href="https://radar.firstaimovers.com/fine-tuning-llms-vs-rag-2026.md">Fine-Tuning Large Language Models in 2026: When It Beats RAG</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (daily)</a></li>
+<li><a href="https://github.com/trending/typescript?since=daily">GitHub Trending — TypeScript (daily)</a></li>
+<li><a href="https://arxiv.org/abs/2610.37434">FeatureArc (arXiv:2610.37434)</a></li>
+<li><a href="https://arxiv.org/abs/2610.09633">Coding-Agent Benchmarks Should Match Their Users' Task Flows (arXiv:2610.09633)</a></li>
+<li><a href="https://arxiv.org/abs/2607.20759">IssueTrojanBench (arXiv:2607.20759)</a></li>
+<li><a href="https://www.opentrain.ai/papers/archive/54/">OpenTrain arXiv archive (Mnemis, LLM-as-judge RAG, proxy state evaluation)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 31/10/2026</div>
+</body></html>
