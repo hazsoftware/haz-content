@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 01/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 01/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Corrida Claude vs. GPT nos agentes de código</strong>: Anthropic lançou o Claude Opus 5 em jul/2026 focado em coding complexo e tarefas de agente de longa duração, e o Claude Sonnet 5 em 30/jun/2026; a disputa mais recente é Claude Opus 4.6 vs. GPT-5.3 Codex, ambos otimizados para fluxos de codificação agentiva.</li>
+<li><strong>GPT-6.1 "Astra" engavetado</strong> (Reuters, 28/set/2026): a OpenAI decidiu não lançar o modelo, previsto para outubro/2026, após testes internos levantarem preocupações de segurança e alinhamento.</li>
+<li><strong>Gemini 4 em post-training</strong>: relatos de mercado apontam que o Google DeepMind está na fase de post-training do Gemini 4, com lançamento esperado antes do fim de 2026 — sem data oficial confirmada ainda.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Agent Plugins 1.0</strong>: a especificação pública de plugins para agentes de código atingiu suporte amplo entre clientes (ago/2026), padronizando como extensões são distribuídas entre diferentes harnesses de coding agent.</li>
+<li><strong>OpenSpec</strong>: o "Spec Framework for Coding Agents" continua dominando trackers de releases 2026, com mais de 27 mil stars no GitHub, usado para formalizar specs antes de delegar implementação a agentes.</li>
+<li><strong>Anthropic Agent Skills</strong>: o repositório <a href="https://github.com/anthropics/skills">anthropics/skills</a> formaliza o formato SKILL.md (instruções + metadados + scripts) para empacotar competências reutilizáveis em agentes Claude; hoje está em alta no GitHub Trending com 438 stars no dia.</li>
+<li><strong>LangChain Core v1.4.2</strong> (jun/2026): atualização menor do core, parte do ciclo contínuo de releases do LangChain cobrindo também integrações com n8n, Ollama e Vercel AI SDK.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP como camada padrão de integração</strong>: o Model Context Protocol se consolidou em 2026 como integração default em boa parte dos produtos de IA para conectar agentes a ferramentas, APIs e bancos de dados.</li>
+<li><strong>Serena</strong> (<a href="https://github.com/oraios/serena">oraios/serena</a>, 57 stars hoje): toolkit MCP que dá a agentes de código busca e edição semântica de código em vez de regex/grep puro — em alta no GitHub hoje.</li>
+<li><strong>AiSOC</strong> (<a href="https://github.com/beenuar/AiSOC">beenuar/AiSOC</a>, 436 stars hoje): SOC open-source self-hostable que usa agentes LLM para triagem de alertas, com servidor MCP próprio — exemplo concreto de agentes saindo do coding e entrando em operações de segurança.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>LoRA/QLoRA como padrão prático</strong>: fine-tuning completo é tratado como caro e raramente necessário em 2026; fontes da área apontam modelos de 3-8B parâmetros como "sweet spot" para agentes de produção depois de fine-tuned com métodos parameter-efficient.</li>
+<li><strong>Observabilidade específica para IA</strong>: DeepEval e LangSmith são citados como ferramentas padrão para testes e monitoramento de sistemas LLM, já que APM tradicional não captura falhas específicas de IA (hallucination, drift de prompt, degradação de RAG).</li>
+<li><strong>FreeToken</strong> (<a href="https://github.com/FlashML-org/FreeToken">FlashML-org/FreeToken</a>, 232 stars hoje): projeto para servir localmente modelos muito grandes em hardware de desktop, reduzindo dependência de API paga para inferência.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>shiyu-coder/Kronos</strong> (Python, 611⭐ hoje) — foundation model para dados de mercado financeiro; mostra foundation models saindo do NLP/visão e entrando em séries temporais financeiras.</li>
+<li><strong>calesthio/OpenMontage</strong> (Python, 583⭐ hoje) — sistema agentivo de produção de vídeo com múltiplos pipelines, integrado a assistentes de código de IA.</li>
+<li><strong>anthropics/skills</strong> (438⭐ hoje) — coleção oficial de Agent Skills da Anthropic, com spec, template e skill-creator para construir novas skills para Claude.</li>
+<li><strong>beenuar/AiSOC</strong> (436⭐ hoje) — SOC self-hostable com agentes LLM para triagem de alertas e servidor MCP embutido.</li>
+<li><strong>FlashML-org/FreeToken</strong> (232⭐ hoje) — serving local de modelos muito grandes visando hardware de desktop comum.</li>
+<li><strong>ethanplusai/harvey</strong> (Python, 218⭐ hoje) — agente de vendas autônomo que roda sobre assinaturas do Claude Code ou Codex, em vez de chamadas de API pagas separadamente.</li>
+<li><strong>oraios/serena</strong> (Python, 57⭐ hoje) — toolkit MCP de busca e edição semântica de código para agentes de coding.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agent Skills (SKILL.md)</strong>: formato da Anthropic para empacotar instruções + metadados + scripts como competências reutilizáveis e carregáveis sob demanda por um agente Claude; virou o modelo de referência que outros projetos (ex. Scenario MCP) estão copiando para suas próprias skills.</li>
+<li><strong>Memória programática em vez de RAG vetorial para agentes de longo horizonte</strong>: o paper PRO-LONG (jul/2026, Duke) propõe que o agente acumule um log completo e o releia via busca baseada em código (grep/Python) em vez de embeddings; reportou 97,4% de best@2 em tarefas longas com um custo total de US$ 1.750.</li>
+<li><strong>Fine-tuning parameter-efficient como padrão (LoRA/QLoRA)</strong>: full fine-tuning é visto como caro e raramente necessário em 2026; o mercado está migrando para modelos especializados de 3-8B parâmetros ajustados via LoRA/QLoRA para tarefas de produção.</li>
+<li><strong>Benchmarks de coding agent focados em compliance, não só em "resolver a tarefa"</strong>: o OctoBench (arXiv 2601.10343, ACL 2026) testa se agentes seguem regras específicas do scaffold/repositório enquanto resolvem 217 tarefas em 34 ambientes, expondo um gap entre "resolver" e "obedecer às regras do projeto".</li>
+<li><strong>Stacks híbridos RAG + fine-tuning + agente</strong>: padrão de produção consolidado em 2026 combina modelo fine-tuned para uma tarefa específica (ex. voz), RAG para fatos que mudam com frequência e um agente para orquestrar fluxos multi-etapa — cada técnica cobrindo uma lacuna diferente.</li>
+<li><strong>Scaffolds de memória nem sempre ajudam</strong>: um estudo citado como "Beyond pass@1" (arXiv 2603.29231, mar/2026) reporta que adicionar um scaffold de memória a modelos piorou a confiabilidade em tarefas longas em 6 de 10 modelos testados — um contraponto importante ao hype de "dar mais memória sempre ajuda".</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>PRO-LONG: Programmatic Memory Enables Long-Horizon Reasoning</strong> (arXiv 2607.20064, jul/2026, Duke) — memória como log + busca via código em vez de vetor; 97,4% best@2 a custo de US$ 1.750 em tarefas de raciocínio de longo horizonte.</li>
+<li><strong>Memex(RL)</strong> (arXiv 2603.04257, mar/2026, Accenture) — memória de experiência indexada: resumo compacto em contexto + arquivo externo completo recuperável por índice; treino por RL decide o que resumir/arquivar/recuperar, melhorando sucesso em tarefas longas com contexto de trabalho muito menor.</li>
+<li><strong>OctoBench</strong> (arXiv 2601.10343, ACL 2026) — benchmark de 217 tarefas em 34 ambientes para medir se agentes de coding seguem instruções específicas do scaffold/repositório, não só se resolvem a tarefa.</li>
+<li><strong>SWE-Compass</strong> (arXiv 2511.05459, nov/2025) — benchmark unificado com 2.000 instâncias comparando 10 LLMs sob harnesses como SWE-Agent e Claude Code para avaliação de capacidade de coding agentivo.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (arXiv 2510.01375, submissão ICLR 2026) — extrai "dicas" de falhas do agente, gera trajetórias de professor melhores com RAG e faz fine-tuning do modelo aluno nessas trajetórias para aprender skills novas de forma mais eficaz.</li>
+<li><strong>"Beyond pass@1"</strong> (arXiv 2603.29231, mar/2026) — mostra que scaffolds de memória adicionados a modelos de agente pioraram a confiabilidade em tarefas de longo horizonte em 6 de 10 modelos avaliados, questionando a suposição de que mais memória estruturada sempre melhora performance.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (daily)</a></li>
+<li><a href="https://github.com/anthropics/skills">github.com/anthropics/skills</a></li>
+<li><a href="https://github.com/oraios/serena">github.com/oraios/serena</a></li>
+<li><a href="https://github.com/beenuar/AiSOC">github.com/beenuar/AiSOC</a></li>
+<li><a href="https://github.com/FlashML-org/FreeToken">github.com/FlashML-org/FreeToken</a></li>
+<li><a href="https://arxiv.org/abs/2607.20064">arXiv 2607.20064 — PRO-LONG</a></li>
+<li><a href="https://arxiv.org/abs/2603.04257">arXiv 2603.04257 — Memex(RL)</a></li>
+<li><a href="https://arxiv.org/html/2601.10343v2">arXiv 2601.10343 — OctoBench</a></li>
+<li><a href="https://arxiv.org/html/2511.05459v1">arXiv 2511.05459 — SWE-Compass</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">arXiv 2510.01375 — Fine-tuning with RAG for Improving LLM Learning of New Skills</a></li>
+<li><a href="https://uvik.net/python-ai-agent-frameworks/">uvik.net — Python AI Agent Frameworks: The 2026 Comparison</a></li>
+<li><a href="https://select.keenable.ai/r/major-ai-coding-agents-and-models-launched-in-2026/3qwmfH7EBQR3hv0sSiNnDA">keenable.ai — Major AI coding agents and models launched in 2026</a></li>
+<li><a href="https://emergent.sh/news/anthropic-google-openai-prepare-new-ai-models">emergent.sh — Anthropic, Google, OpenAI prepare new AI models</a></li>
+<li><a href="https://tradersunion.com/news/financial-news/show/1411566-openai-and-anthropic-intensify-ai/">tradersunion.com — OpenAI and Anthropic intensify AI coding race</a></li>
+<li><a href="https://skillselion.com/guides/anthropic-skills-official-guide">skillselion.com — Anthropic Agent Skills official guide</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 01/11/2026</div>
+</body></html>
