@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 02/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 02/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>DeepSeek V4.1 Flash Cyber</strong> (29/10/2026): versão mais recente listada por agregadores de lançamentos (LLMGateway), focada em baixa latência para agentes rápidos; reportado em 90,6 no Terminal-Bench 2.1 (dado divulgado pelo próprio fornecedor, sem verificação independente).</li>
+<li><strong>Kimi K3.1 Pro Highspeed</strong> (23/10/2026): variante de alta velocidade do Kimi K3 da Moonshot AI, sucedendo o K3 original (88,3 no Terminal-Bench 2.1, publicado em julho/2026).</li>
+<li><strong>Qwen3.6 27B</strong> (21/10/2026): nova versão da família Qwen (Alibaba) com 27B parâmetros, mantendo a faixa 3B-27B como alvo de fine-tuning em produção.</li>
+<li><strong>GPT-6.1 Terra</strong> (15/10/2026): segundo agregadores de releases, OpenAI lançou essa variante em outubro; ranking BenchLM (métrica própria "BenchAlign", não auditada) coloca GPT-6 Astra em 86,29 e GPT-6.1 Sol em 86,07.</li>
+<li><strong>Meta Muse Spark Open</strong> (outubro/2026): modelo aberto multimodal da Meta com 816B de parâmetros totais (arquitetura MoE), divulgado como o maior lançamento aberto da Meta no mês.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain OpenWiki</strong> (02/07/2026): CLI open-source da LangChain para gerar documentação/wiki automaticamente a partir de bases de código, construída sobre a base estável do LangChain 1.0 (desde out/2025), que recomenda LangGraph para toda nova implementação.</li>
+<li><strong>LlamaIndex Workflows 1.0</strong> (fim de junho/2026): versão estável do motor de orquestração de workflows/agentes da LlamaIndex.</li>
+<li><strong>CrewAI 1.14.6 "Enterprise Update"</strong>: adiciona cadeias A2A (agent-to-agent) assíncronas nativas e mecanismos de atualização configuráveis (poll, stream, push), fortalecendo o uso enterprise do framework.</li>
+<li><strong>Consolidação de observability em LLMOps</strong>: ClickHouse adquiriu o Langfuse (jan/2026, ~US$400M Series D) e a LangChain lançou o SmithDB (mai/2026), motor de armazenamento de traces dedicado — sinal de que OpenTelemetry está virando o padrão comum de instrumentação para LLM, RAG e vector DB.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP sob a Agentic AI Foundation</strong>: desde a doação pela Anthropic em jan/2026, o protocolo reporta (segundo agregadores) mais de 110 milhões de downloads mensais de SDKs e mais de 12 mil servidores públicos em 2026.</li>
+<li><strong>Revisão grande do spec MCP</strong> (28/07/2026): maior mudança desde o lançamento do protocolo — move o núcleo para design stateless e depreca handshakes/session IDs obrigatórios, Roots/Sampling/Logging.</li>
+<li><strong>Segurança de servidores MCP</strong>: mais de 30 CVEs registrados contra implementações MCP nos primeiros meses de 2026, com foco em "tool poisoning" e prompt injection via servidores expostos.</li>
+<li><strong>AGNTCon + MCPCon North America</strong> (22-23/10/2026, San Jose): evento reuniu o ecossistema de agentes e MCP, reforçando SSO/auth e audit trails como prioridades de 2026 para adoção enterprise.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Qdrant Cloud</strong>: lançou funcionalidades de alta performance voltadas a workloads de IA, ainda referenciadas como estado atual do produto.</li>
+<li><strong>Grafana Cloud — VectorDB Observability</strong>: dashboard dedicado cobrindo latência/throughput de queries, taxa de sucesso de operações, uso de memória/CPU e crescimento de storage em bancos vetoriais.</li>
+<li><strong>LoRA e QLoRA</strong> continuam reduzindo custo de fine-tuning em 60-80%, consolidando modelos na faixa de 3B-8B como "sweet spot" para agentes fine-tuned em produção, combinados com RAG e orquestração de agentes no mesmo stack (não mais RAG vs. fine-tuning como escolha binária).</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>MiniMax-AI/mcode-stack</strong> (Python, 505★) — workflows e skills open-source usados internamente pelo time MiniMax Code para construir seu próprio agente de coding; útil como referência de stack de produção.</li>
+<li><strong>N1nEmAn/sapper-v2</strong> (Python, 571★) — "legião" autônoma de pentest com comandante de IA + swarm de workers e grafo de fatos/intenções; venceu a competição Tencent Intelligent Attack-Defense (634 times, 8h sem supervisão, 1B tokens superando um modelo de 4,5B).</li>
+<li><strong>khanhtq29vn/contextcraft</strong> (Rust, 64★) — compressor de bases de código para LLMs com AST-aware e PageRank personalizado, otimizando token budget para agentes de coding em repositórios grandes.</li>
+<li><strong>YOLOW92/pagesift</strong> (Rust, 185★) — crawler/scraper web para agentes de IA (URLs, PDFs, Office → Markdown/JSON limpo), compatível com APIs Firecrawl e Jina Reader, com servidor MCP incluso.</li>
+<li><strong>wanghao-SunSky/cs329z-chinese</strong> (HTML, 420★) — tradução/adaptação do curso de Stanford CS329Z "Engineering AI Agents", com 19 aulas e 4 projetos práticos cobrindo LLM, RAG, tool calling, memória, multiagentes e avaliação de segurança.</li>
+<li><strong>h9-tec/ai-roadmap-2026</strong> (182★) — roadmap de estudo 2026 cobrindo Fundamentos → LLM Engineering → Agentes → Avaliação → Produção, com recursos gratuitos verificados e mini-projeto por camada.</li>
+<li><strong>Motionsites-AI/claude-skill</strong> (Python, 1.456★) — skill gratuita para Claude construir landing pages "cinematográficas", exemplo do crescimento de skills especializadas para agentes de coding.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context Engineering</strong>: curadoria explícita do que entra na janela de contexto do agente (memória, RAG, compressão) virou disciplina própria e uma das skills mais citadas para devs de IA em 2026 — pipelines de RAG com fine-tuning especializado para recuperação imperfeita já reportam ganho de 21,2% em acurácia factual sobre o modelo base (arXiv 2505.10792).</li>
+<li><strong>RAG + Fine-tuning + Agentes no mesmo stack</strong>: guias de produção de 2026 apontam que quase todo stack sério já combina as três técnicas simultaneamente, abandonando a escolha binária "RAG vs. fine-tuning" (fine-tuning muda como o modelo se comporta, RAG muda o que ele sabe).</li>
+<li><strong>Compressão de codebase para LLMs</strong>: ferramentas como o contextcraft (AST-aware, ranking tipo PageRank) comprimem repositórios inteiros dentro de um orçamento de tokens, tendência crescente para quem usa Claude Code/Codex em bases de código grandes.</li>
+<li><strong>Hardening de servidores MCP</strong>: com mais de 30 CVEs documentados em 2026 e ataques de "tool poisoning" em alta, auditar servidores MCP expostos tornou-se skill obrigatória para quem integra ferramentas via protocolo.</li>
+<li><strong>Observabilidade unificada via OpenTelemetry</strong>: tracing de LLM, RAG e vector DB convergindo para um padrão único (OTel), com Langfuse (agora sob ClickHouse) e LangSmith/SmithDB como camadas de armazenamento de traces.</li>
+<li><strong>Orquestração multiagente assíncrona (A2A)</strong>: frameworks como CrewAI adicionaram cadeias agent-to-agent assíncronas nativas, empurrando devs a desenhar pipelines que não bloqueiam esperando resposta de outro agente.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>AgentPhishing</strong> (22/10/2026) — benchmark de agentes de e-mail LLM sob ataques de phishing adaptativos, medindo robustez de agentes de automação de caixa de entrada.</li>
+<li><strong>Async-RBench</strong> (23/10/2026) — benchmark de execução assíncrona de tarefas em agentes LLM, com código público; relevante para quem constrói agentes não-bloqueantes.</li>
+<li><strong>SCI-AGENT-EXAM</strong> (23/10/2026) — avalia agentes LLM em tarefas reais de pesquisa científica.</li>
+<li><strong>PatentAgentBench</strong> (26/10/2026) — benchmark de agentes LLM em suítes de tarefas profissionais de patentes.</li>
+<li><strong>FinHopper</strong> (19/10/2026) — benchmark multi-hop progressivo para agentes financeiros complexos, com avaliação passo a passo.</li>
+<li><strong>EpiSEM-Bench</strong> (22/10/2026) — avalia segurança e recuperação de evidências em agentes LLM quando há evidências faltantes, medindo risco de alucinação em cenários críticos.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://llmgateway.io/timeline">LLMGateway — New AI Models Timeline (outubro/2026)</a></li>
+<li><a href="https://www.morphllm.com/best-open-source-llm">MorphLLM — Best Open Source LLMs (outubro/2026)</a></li>
+<li><a href="https://benchlm.ai/">BenchLM — LLM Leaderboard (outubro/2026)</a></li>
+<li><a href="https://www.youngju.dev/blog/culture/2026-05-16-ai-agent-frameworks-langchain-langgraph-llamaindex-crewai-autogen-pydanticai-mastra-dspy-mcp-2026-deep-dive">AI Agent Frameworks Deep Dive 2026 (LangChain, LlamaIndex, CrewAI, MCP)</a></li>
+<li><a href="https://openobserve.ai/blog/langfuse-vs-langsmith.md">OpenObserve — Langfuse vs LangSmith vs OpenObserve (2026)</a></li>
+<li><a href="https://grafana.com/docs/grafana-cloud/monitor-applications/ai-observability/vectordb-observability/">Grafana Cloud — VectorDB Observability</a></li>
+<li><a href="https://www.pulse.bot/ai/news/qdrant-cloud-launches-high-performance-vector-database-features-for-ai-workloads-2b7a0559-73d3-420b-8b1c-51659d755557/">Qdrant Cloud — High-Performance Vector Database Features</a></li>
+<li><a href="https://devbytes.co.in/news/model-context-protocol-releases-roadmap-for-2026">Model Context Protocol — Roadmap 2026</a></li>
+<li><a href="https://ecosistemastartup.com/mcp-110m-descargas-y-mas-facil-de-usar-en-2026/">MCP — 110M downloads em 2026</a></li>
+<li><a href="https://www.developersdigest.tech/blog/mcp-2026-07-28-breaking-changes">MCP — Breaking Changes 2026-07-28</a></li>
+<li><a href="https://arcade.dev/mcp26">Arcade — Guide to MCP '26 / AGNTCon+MCPCon</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSS Insight — AI Repositories Trending</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily</a></li>
+<li><a href="https://github.com/MiniMax-AI/mcode-stack">github.com/MiniMax-AI/mcode-stack</a></li>
+<li><a href="https://github.com/N1nEmAn/sapper-v2">github.com/N1nEmAn/sapper-v2</a></li>
+<li><a href="https://github.com/khanhtq29vn/contextcraft">github.com/khanhtq29vn/contextcraft</a></li>
+<li><a href="https://github.com/YOLOW92/pagesift">github.com/YOLOW92/pagesift</a></li>
+<li><a href="https://github.com/wanghao-SunSky/cs329z-chinese">github.com/wanghao-SunSky/cs329z-chinese</a></li>
+<li><a href="https://github.com/h9-tec/ai-roadmap-2026">github.com/h9-tec/ai-roadmap-2026</a></li>
+<li><a href="https://github.com/Motionsites-AI/claude-skill">github.com/Motionsites-AI/claude-skill</a></li>
+<li><a href="https://github.com/somewordstoolate/DailyArXiv/issues/354">DailyArXiv — Latest Papers, 26/10/2026</a></li>
+<li><a href="https://github.com/zachysun/DailyArXiv/issues/583">DailyArXiv — Latest 20 Papers, 19/10/2026</a></li>
+<li><a href="https://arxiv.org/abs/2505.10792">arXiv 2505.10792 — RAG com fine-tuning para recuperação imperfeita</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 02/11/2026</div>
+</body></html>
