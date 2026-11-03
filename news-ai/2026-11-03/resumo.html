@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 03/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 03/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5 e Sonnet 5.5</strong> (set/2026): a Anthropic lançou o Opus 5.5 em 22/09 e o Sonnet 5.5 em 28/09, abrindo a família Claude 5.5. Sonnet 5.5 manteve o preço do Sonnet 5 ($2 input / $10 output por milhão de tokens), ganhou contexto de 1M tokens e fica >30% mais rápido; Haiku 5.5 chegou em 07/10. Opus 5.5 é indicado para tarefas complexas, Sonnet 5.5 para tarefas bem definidas do dia a dia.</li>
+<li><strong>karpathy/nanochat</strong>: projeto educacional de ~8.000 linhas de PyTorch (licença MIT) que permite treinar um clone do ChatGPT por ~$100 em 4h num node 8×H100, ou uma versão de ~$1.000/42h já capaz de resolver matemática e coding básicos. Entrou hoje no trending do GitHub com +321 estrelas no dia.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Android Studio Rabbit 2 — Bring Your Own Agent (BYOA)</strong>: o Google estabilizou o suporte a agentes de terceiros dentro da IDE via protocolo aberto <strong>Agent Client Protocol (ACP)</strong>, com mais de 40 agentes disponíveis (Claude Agent, Codex, Antigravity, Junie) e acesso nativo a build diagnostics, SDK tools, terminal e emulador.</li>
+<li><strong>github/copilot-cli</strong>: traz o agente do GitHub Copilot para o terminal; apareceu no trending Python de hoje do GitHub.</li>
+<li><strong>Paradev</strong> (rebrand da Superset, YC): captou seed de $11,5M liderado pela Union Square Ventures. App desktop (Electron) que roda Claude Code, Codex e OpenCode em paralelo, cada task isolada em worktree/branch git próprio; plano Pro a $20/mês com workspaces remotos.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>DeepSeek "Harness"</strong>: a empresa formou um time dedicado a agentes de código e reporta integração do DeepSeek V4 com Claude Code, OpenClaw e OpenCode — ainda sem anúncio técnico oficial detalhado.</li>
+<li><strong>Agent Skills (SKILL.md) como padrão cross-tool</strong>: o mesmo arquivo SKILL.md já roda sem alteração em Claude Code, Codex CLI, Cursor Agents e Gemini CLI; o repositório oficial <code>anthropics/skills</code> dobrou para ~149k estrelas desde fev/2026. Exemplos do trending de hoje: <strong>jordan-gibbs/hyperresearch</strong> (transforma Claude Code/Codex em agente de pesquisa que monta uma wiki pesquisável) e <strong>agent0ai/agent-zero</strong>, framework de agentes open source.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>FlashML-org/FreeToken</strong>: serving local de modelos grandes com infraestrutura estilo datacenter — +653 estrelas hoje no GitHub.</li>
+<li><strong>MakazhanAlpamys/Soup</strong>: fine-tuning de LLMs a partir de um único arquivo YAML, com layer streaming para GPUs com pouca VRAM.</li>
+<li><strong>Observability de LLM</strong>: ClickHouse adquiriu o Langfuse (plataforma open-source de observability mais usada para LLM) após rodada Series D de $400M (jan/2026); a LangChain lançou o SmithDB, storage engine dedicado a trace data com P50 de 92ms (mai/2026); a Qdrant Cloud lançou features de alta performance para workloads de IA (abr/2026).</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>shiyu-coder/Kronos</strong> (Python, ⭐857 hoje) — modelo de fundação para a "linguagem" dos mercados financeiros.</li>
+<li><strong>calesthio/OpenMontage</strong> (Python, ⭐693 hoje) — sistema agente de produção de vídeo, com pipelines e skill files para assistentes de código de IA.</li>
+<li><strong>FlashML-org/FreeToken</strong> (Python, ⭐653 hoje) — executa modelos grandes localmente com serving estilo datacenter.</li>
+<li><strong>blader/humanizer</strong> (Python, ⭐460 hoje) — agent skill que remove marcas de texto gerado por IA.</li>
+<li><strong>p-e-w/heretic</strong> (Python, ⭐420 hoje) — modifica LLMs sem retraining para remover censura, "slop" e sycophancy.</li>
+<li><strong>kornia/kornia</strong> (Python, ⭐412 hoje) — biblioteca de visão computacional geométrica para "spatial AI".</li>
+<li><strong>karpathy/nanochat</strong> (Python, ⭐321 hoje) — pipeline completo para treinar um clone do ChatGPT por ~$100.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Agent Skills (SKILL.md) cross-tool</strong>: formato de skill único passou a rodar sem alteração em Claude Code, Codex CLI, Cursor Agents e Gemini CLI, virando a unidade padrão de distribuição de comportamento de agente; o repositório oficial <code>anthropics/skills</code> dobrou para ~149k estrelas desde fevereiro/2026.</li>
+<li><strong>2. Bring Your Own Agent (BYOA) via ACP</strong>: o Agent Client Protocol se consolida como padrão de interoperabilidade entre IDE e agentes de código — o Android Studio Rabbit 2 já suporta 40+ agentes trocáveis dentro do editor.</li>
+<li><strong>3. Fine-tuning leve orientado a YAML + layer streaming</strong>: ferramentas como o Soup permitem fine-tuning em GPUs de baixa VRAM a partir de um único arquivo de configuração, sem código de treino.</li>
+<li><strong>4. Stack combinado RAG + fine-tuning + agentes</strong>: guias de 2026 convergem na fórmula "RAG = conhecimento, fine-tuning = comportamento, agentes = ação"; um estudo citado (arXiv 2505.10792) reporta ganho de 21,2% em acurácia factual ao combinar RAG com fine-tuning especializado para cenários de retrieval imperfeito.</li>
+<li><strong>5. Observability de LLM via OpenTelemetry</strong>: o Collector do OTel está sendo estendido com transforms específicos para LLM (redação de PII em prompts, sampling de dimensão de embeddings), consolidando-se como base de tracing para agentes em produção.</li>
+<li><strong>6. Modelos locais pequenos (3-8B) fine-tunados</strong>: apontados por guias de infraestrutura como o "sweet spot" atual para agentes de produção, reservando modelos maiores para raciocínio profundo e tarefas multi-tool.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Fine-Tuning or Fine-Failing? Debunking Performance Myths in LLMs</strong> (<a href="https://arxiv.org/abs/2406.11201">arXiv 2406.11201</a>) — mostra que fine-tuning pode piorar o desempenho de LLMs em setups de RAG com dados de telecom, ao contrário dos ganhos vistos em aplicações standalone.</li>
+<li><strong>Estudo sobre RAG + fine-tuning especializado</strong> (arXiv 2505.10792, citado via <a href="https://elephas.app/blog/rag-vs-llm-fine-tuning.md">Elephas</a>) — reporta melhora de 21,2% em acurácia factual sobre o LLM base ao combinar RAG com fine-tuning especializado em cenários de retrieval imperfeito.</li>
+<li><strong>Agentic Context Engineering (ACE)</strong> (<a href="https://arxiv.org/abs/2510.04618">arXiv 2510.04618</a>) — trata o contexto de agentes como um "playbook" evolutivo, com geração, reflexão e curadoria modulares; aceito para o ICLR 2026.</li>
+<li><strong>Context Engineering 2.0</strong> (<a href="https://arxiv.org/abs/2510.26493">arXiv 2510.26493</a>) — paper conceitual que traça uma progressão de paradigmas de context engineering.</li>
+<li><strong>Intent Engineering para arquitetura multi-agente enterprise</strong> (arXiv 2603.09619, mar/2026) — estende context engineering para coordenação de múltiplos agentes em ambiente corporativo.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (geral, diário)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending Python (diário)</a></li>
+<li><a href="https://github.com/karpathy/nanochat">github.com/karpathy/nanochat</a></li>
+<li><a href="https://github.com/shiyu-coder/Kronos">github.com/shiyu-coder/Kronos</a></li>
+<li><a href="https://github.com/calesthio/OpenMontage">github.com/calesthio/OpenMontage</a></li>
+<li><a href="https://github.com/FlashML-org/FreeToken">github.com/FlashML-org/FreeToken</a></li>
+<li><a href="https://github.com/p-e-w/heretic">github.com/p-e-w/heretic</a></li>
+<li><a href="https://github.com/kornia/kornia">github.com/kornia/kornia</a></li>
+<li><a href="https://github.com/blader/humanizer">github.com/blader/humanizer</a></li>
+<li><a href="https://github.com/github/copilot-cli">github.com/github/copilot-cli</a></li>
+<li><a href="https://github.com/agent0ai/agent-zero">github.com/agent0ai/agent-zero</a></li>
+<li><a href="https://github.com/jordan-gibbs/hyperresearch">github.com/jordan-gibbs/hyperresearch</a></li>
+<li><a href="https://github.com/MakazhanAlpamys/Soup">github.com/MakazhanAlpamys/Soup</a></li>
+<li><a href="https://developer.android.com/blog/posts/ai-agents-android-studio-integration">Android Developers Blog — AI agents integration (Rabbit 2 BYOA)</a></li>
+<li><a href="https://www.everydev.ai/tools/paradev">everydev.ai — Paradev (ex-Superset)</a></li>
+<li><a href="https://technews.tw/?p=1619859">technews.tw — Claude Opus 5.5 / Sonnet 5.5</a></li>
+<li><a href="https://www.dimsumdaily.hk/deepseek-unveils-harness-team-for-coding-agents/">dimsumdaily.hk — DeepSeek Harness team</a></li>
+<li><a href="https://developertoolkit.ai/en/developer-scorecard-guide/agent-skills/">developertoolkit.ai — Agent Skills marketplaces</a></li>
+<li><a href="https://openobserve.ai/blog/langfuse-vs-langsmith.md">openobserve.ai — Langfuse vs LangSmith (ClickHouse/SmithDB)</a></li>
+<li><a href="https://www.pulse.bot/ai/news/qdrant-cloud-launches-high-performance-vector-database-features-for-ai-workloads-2b7a0559-73d3-420b-8b1c-51659d755557/">pulse.bot — Qdrant Cloud high-performance features</a></li>
+<li><a href="https://dev.to/thecybersidekick/opentelemetry-graduation-makes-standardized-ai-observability-non-negotiable-for-production-llm-8di">dev.to — OpenTelemetry e observability de LLM</a></li>
+<li><a href="https://arxiv.org/abs/2406.11201">arXiv 2406.11201</a></li>
+<li><a href="https://arxiv.org/abs/2510.04618">arXiv 2510.04618</a></li>
+<li><a href="https://arxiv.org/abs/2510.26493">arXiv 2510.26493</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 03/11/2026</div>
+</body></html>
