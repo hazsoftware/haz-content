@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 04/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 04/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Kimi K3.1 Pro</strong> (Moonshot, API desde 23/10/2026): MoE de 2,8T de parâmetros totais com 104B ativos e contexto de 1M tokens; a liberação dos pesos abertos estava prometida para hoje (04/11), mas ainda não foi confirmada até o momento desta compilação. Preço de API em torno de US$2/US$10 por milhão de tokens (input/output).</li>
+<li><strong>Claude Mythos 5.1</strong> (Anthropic): modelo restrito a organizações verificadas, com janela de contexto de 1M tokens e preço de US$10/US$50 por milhão de tokens; um rótulo "Mythos 5.5" apareceu brevemente no markup do site da Anthropic e foi removido, sem data de lançamento confirmada.</li>
+<li><strong>LongCat-2.5-Preview</strong> (Meituan, final de setembro/2026): MoE de 1,6T de parâmetros totais com ~48B ativos, disponível apenas via API.</li>
+<li><strong>World Labs</strong> adquirida pela AMD por ~US$8,2B em ações, com Fei-Fei Li assumindo como chief scientist da AMD; fechamento previsto para o fim de 2026. O produto Atlas da World Labs continua em early access.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Apple Siri AI Developer Preview</strong> (03/11/2026): incluído nas betas do iOS/macOS 27.3. Apps podem expor ações ao Siri via App Intents e agrupá-las em "skills"; a Apple disponibilizou o Xcode Siri Integration Advisor e um framework de Siri Evaluations. Testers externos via TestFlight ainda não têm acesso, e submissões na App Store só abrem na primavera (hemisfério norte).</li>
+<li><strong>spotify/portal-ai-plugins</strong> (~3,1k stars, Apache-2.0): plugins que conectam o portal de desenvolvedores do Spotify a Claude Code, Codex, Cursor e pi; o componente <strong>shunt</strong> roteia tarefas pesadas para modelos mais baratos, hoje só com suporte a Claude Code.</li>
+<li><strong>storytold/craft-anything</strong> (~9,0k stars, MIT/Apache-2.0): motor em Rust puro onde um agente estuda um site, app ou jogo e o reconstrói, depois faz diff do resultado; expõe ~320 ferramentas MCP e usa Claude Code como builder principal. Ainda em alpha, sem sandbox segundo o próprio README.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>CUA-Master</strong> (arXiv:2611.03126): agentes de computer-use que geram, criticam e refinam seus próprios dados de interação, com ganhos relatados acima de 30% em benchmarks de automação web.</li>
+<li><strong>Action Verification through Conjecture and Refutation</strong> (arXiv:2611.02950): agentes testam ações propostas contra contraexemplos antes de executá-las, com redução relatada de 42% no uso inseguro de ferramentas — relevante para quem constrói agentes com permissões de execução real.</li>
+<li><strong>kimi-code</strong> (Moonshot, MIT, ~8,1k stars): agente de terminal separado do modelo hospedado K3, ativamente mantido.</li>
+<li>ServiceNow anunciou (21/10/2026) o agente <strong>Arc</strong> e o <strong>AI Passport</strong>, voltados a identidade e governança de agentes em ambientes corporativos.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>Segundo o Financial Times, a Nvidia estaria sujeita a uma <strong>"regra dos 51%"</strong>: novos contratos de nuvem e datacenter precisariam ter pelo menos 51% das vendas de serviço fora da China (não confirmado pela empresa).</li>
+<li>Reportagem da Digitimes indica pedido da <strong>DeepSeek/Huawei</strong> de 160.000 chips Ascend 950DT para um site de 1GW na Mongólia Interior, com planos de pré-treinar o modelo V5 nesses chips (não confirmado).</li>
+<li><strong>Fal</strong> levantou US$1,3B numa rodada que avalia a empresa em US$16B, reforçando o mercado de infraestrutura de inferência.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>vercel-labs/agent-desktop</strong> (13,2k stars totais, +3,8k hoje) — continua como o repositório em maior alta do dia; ambiente desktop para rodar e orquestrar agentes.</li>
+<li><strong>calesthio/OpenMontage</strong> (+814 hoje) — sistema agentic de produção de vídeo com 12 pipelines, 100+ ferramentas e 700+ arquivos de skill de agente.</li>
+<li><strong>p-e-w/heretic</strong> (+701 hoje) — modifica modelos de linguagem sem retreino para remover censura, reduzir sicofantia e suprimir "slop" nas respostas.</li>
+<li><strong>FlashML-org/FreeToken</strong> (+608 hoje) — roda modelos grandes localmente com serving no estilo datacenter.</li>
+<li><strong>shiyu-coder/Kronos</strong> (+503 hoje) — modelo fundacional para dados de mercado financeiro.</li>
+<li><strong>karpathy/nanochat</strong> (+479 hoje) — modelo estilo ChatGPT de baixo custo, construível por ~US$100.</li>
+<li><strong>heydamir/unslop</strong> (~7,7k stars, CC BY 4.0) — skill que audita UI com "cara de IA" e a redesenha após aprovação; instala copiando uma pasta para <code>~/.claude/skills/</code>.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Regularização de "sharpening" no pós-treino</strong> — técnica de repeat-sampling para RLHF que preserva diversidade de saída mantendo os ganhos de alinhamento; benefícios maiores relatados em tarefas difíceis (paper arXiv:2611.03146). Útil para quem faz fine-tuning e nota perda de criatividade/variedade após RLHF.</li>
+<li><strong>Currículo para tarefas web de longo horizonte</strong> — treina primeiro ações primitivas de navegação web, depois as encadeia para workflows multi-etapa com recompensa esparsa (arXiv:2611.03116). Abordagem direta para quem constrói agentes de automação de browser.</li>
+<li><strong>Auto-crítica em agentes de computer-use</strong> — o padrão do CUA-Master, em que o próprio agente gera, critica e refina seus dados de treino de interação, com ganho de mais de 30% em benchmarks de automação web (arXiv:2611.03126).</li>
+<li><strong>Verificação de ações por conjectura e refutação</strong> — agentes testam a ação proposta contra contraexemplos antes de executá-la; redução de 42% em uso inseguro de ferramentas (arXiv:2611.02950), relevante para agentes com acesso a sistemas de produção.</li>
+<li><strong>Roteamento de custo entre modelos ("shunt")</strong> — padrão visto no spotify/portal-ai-plugins: detectar tarefas pesadas e redirecioná-las para modelos mais baratos automaticamente, hoje implementado só para Claude Code.</li>
+<li><strong>Skills como pastas instaláveis</strong> — consolidação do padrão <code>~/.claude/skills/</code> (visto em unslop e outros projetos) como forma leve de empacotar comportamento/instruções especializadas para agentes de código, sem precisar de plugin completo.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Controlling Sharpening in LLM Post-Training</strong> (arXiv:2611.03146) — regularizador de repeat-sampling para manter diversidade de saída durante RLHF, com ganhos concentrados em tarefas difíceis.</li>
+<li><strong>From Local Skills to Long-Horizon Web Tasks</strong> (arXiv:2611.03116) — currículo que treina ações web primitivas antes de encadeá-las em tarefas multi-etapa com recompensa esparsa.</li>
+<li><strong>Exact Fusion of Softmax Attention Heads</strong> (arXiv:2611.02943) — resultado teórico mostrando que fundir múltiplas cabeças de atenção em uma só pode exigir um número exponencial de pares chave-valor, limitando compressões ingênuas de arquitetura transformer.</li>
+<li><strong>CUA-Master</strong> (arXiv:2611.03126) — agentes de computer-use que geram, criticam e refinam os próprios dados de interação; +30% em benchmarks de automação web.</li>
+<li><strong>Action Verification through Conjecture and Refutation</strong> (arXiv:2611.02950) — verificação de ações de agentes contra contraexemplos antes da execução; -42% em uso inseguro de ferramentas.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/diclogic/ai-daily-digest/issues/203">AI Daily Digest — 2026-11-04, Issue #203 (GitHub)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, diário</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — geral, diário</a></li>
+<li><a href="https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c">Moonshot Releases Kimi K3.1 Pro API, Open Weights Due Nov 4 — Let's Data Science</a></li>
+<li><a href="https://www.vals.ai/models/kimi_kimi-k3.1-pro">Kimi K3.1 Pro — vals.ai</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 04/11/2026</div>
+</body></html>
