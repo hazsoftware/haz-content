@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 05/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 05/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-5.3-Codex</strong> (OpenAI, 24/02/2026): modelo agente de codificação que substitui GPT-5.2 e GPT-5.2-Codex, unificando coding e reasoning geral. Terminal-Bench 2.0: 77,3% (vs. 64,0% do GPT-5.2-Codex); SWE-bench Pro (Public): 56,8%; OSWorld-Verified (uso de computador): 64,7% (vs. 38,2% antes) — salto grande em agentes que operam GUI/terminal. Roda ~25% mais rápido e consome menos tokens; é o primeiro modelo classificado como "high capability" em risco de cibersegurança no Preparedness Framework da OpenAI.</li>
+<li><strong>Claude Opus 4.6</strong> (Anthropic): adicionou "agent teams" e janela de contexto de 1M tokens, movimento direto para competir com o Codex em tarefas longas e multiagente.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Microsoft Agent Framework Harness</strong> (22/07/2026, Python e .NET): harness estável com loop de chamada de ferramentas com limite de iterações, persistência do histórico após cada chamada ao modelo (recuperação de falhas), modo plan/execute com todo-list persistente e memória de arquivo entre turnos. API: <code>create_harness_agent</code> em Python, <code>HarnessAgent</code> em .NET. Recursos opt-in ainda não liberados: agentes em background para subtarefas concorrentes e acesso a arquivos com escopo restrito.</li>
+<li><strong>JetBrains Context</strong> (lançado 07/2026): indexação semântica incremental de repositórios para agentes (Claude Code, Codex CLI, Junie CLI); permite busca multi-repo mesmo em repositórios não clonados localmente, evitando releitura repetida de arquivos. Acesso via licença JetBrains AI (Free/Pro/Ultimate/Enterprise); a documentação oficial descreve retenção de 14 dias de vetores em nuvem após a última busca.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol)</strong> continua se consolidando como camada padrão de integração entre agentes e ferramentas/dados externos, citado como uma das mudanças de adoção mais relevantes de 2026.</li>
+<li><strong>Replit Agent</strong>: cadência de lançamento semanal (~7 dias); última build rastreada em 30/10/2026, a 44ª release do agente só em 2026.</li>
+<li><strong>Cursor 3</strong> (22/04/2026): redesenho que substitui o editor de código tradicional por uma "Agents Window" como interface primária do produto.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Fine-tuning vs. RAG</strong>: RAG continua como ponto de partida padrão para atualizar conhecimento (indexação em vector DB + retrieval); fine-tuning com LoRA/QLoRA fica reservado para ajustar comportamento, estilo ou tarefas estreitas. Estudo citado nas análises de 2026 mostra que combinar RAG com fine-tuning especializado para lidar com retrieval imperfeito do mundo real melhora acurácia factual em 21,2% sobre o LLM base.</li>
+<li><strong>Avaliação/observabilidade de IA</strong> virou prática central para produção — ferramentas como DeepEval fazem benchmark e teste de confiabilidade de sistemas de IA, já que APMs tradicionais não capturam falhas específicas de IA (drift de prompt, hallucination, degradação de retrieval).</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, 104⭐ hoje) — plataforma de automação de workflows com recursos de IA e mais de 400 integrações; peça central para orquestrar agentes e automações.</li>
+<li><strong>immich-app/immich</strong> (TypeScript, 105⭐ hoje) — gerenciamento self-hosted de fotos/vídeos com reconhecimento facial e de objetos via ML.</li>
+<li><strong>openai/whisper</strong> (Python, 87⭐ hoje) — modelo de reconhecimento de fala treinado com weak supervision em larga escala; ainda gera forks e derivados ativos.</li>
+<li><strong>chidiwilliams/buzz</strong> (Python, 32⭐ hoje) — app de transcrição/tradução de áudio offline construído sobre o Whisper.</li>
+<li><strong>huggingface/diffusers</strong> (Python, 11⭐ hoje) — biblioteca de referência para modelos de difusão (imagem, vídeo, áudio).</li>
+<li><strong>microsoft/onnxruntime</strong> (C++, 3⭐ hoje) — acelerador multiplataforma para inferência e treino de ML, usado como runtime de produção para modelos exportados.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. MCP como integração padrão</strong>: virou a camada default de conexão entre LLMs e ferramentas/dados externos em grande parte dos produtos de IA lançados em 2026, reduzindo a necessidade de integrações proprietárias ponto-a-ponto.</li>
+<li><strong>2. Fine-tuning vs. RAG como decisão de arquitetura</strong>: RAG para conhecimento dinâmico (indexação + retrieval), LoRA/QLoRA para ajustar comportamento e estilo; a combinação das duas técnicas elevou acurácia factual em 21,2% sobre o modelo base em estudo citado nas análises de 2026.</li>
+<li><strong>3. Indexação semântica de repositório para agentes</strong>: o JetBrains Context (07/2026) populariza indexação incremental multi-repo (inclusive repos não clonados localmente) para dar contexto a Claude Code, Codex CLI e Junie sem precisar reler arquivos repetidamente.</li>
+<li><strong>4. Harness de agente com recuperação de falha e plan/execute</strong>: padrão consolidado pelo Microsoft Agent Framework Harness (22/07/2026) — persistência de histórico a cada chamada de modelo para resistir a crashes, todo-list persistente e memória de arquivo entre turnos.</li>
+<li><strong>5. Avaliação contínua (LLM eval/observability) como prática central</strong>: ferramentas como DeepEval tratam avaliação como parte do pipeline de produção, cobrindo falhas que APMs tradicionais não capturam.</li>
+<li><strong>6. Agentes operando GUI/computador (computer use)</strong>: o salto de 38,2% para 64,7% no benchmark OSWorld-Verified entre GPT-5.2-Codex e GPT-5.3-Codex mostra agentes cada vez mais capazes de operar interfaces gráficas e terminais de forma autônoma, não só gerar código.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>AutoVend</strong> (<a href="https://arxiv.org/abs/2610.36980">arXiv:2610.36980</a>, 27/10/2026) — benchmark em que um agente LLM administra 20 máquinas de venda simuladas por 180 dias; 4 de 5 agentes avaliados ficam abaixo de uma baseline simples de controle de estoque baseada em regras, expondo o limite prático de agentes autônomos em operações de longo horizonte.</li>
+<li><strong>Req2Test-Bench</strong> (<a href="https://arxiv.org/abs/2610.36584">arXiv:2610.36584</a>, 27/10/2026) — 5.086 instâncias de teste extraídas de artefatos BDD reais em 8 projetos open-source; avaliação de 8 configurações agente-modelo revela gap grande entre "passar o teste" e gerar testes comportamentalmente adequados.</li>
+<li><strong>PatentAgentBench</strong> (<a href="https://arxiv.org/abs/2610.35031">arXiv:2610.35031</a>, 26/10/2026) — 510 instâncias em 8 tarefas (busca de novidade, claim charting, redação de patente); 7 LLMs em 4 harnesses de agente ainda falham em avaliar risco e identificar novidade de forma confiável.</li>
+<li><strong>Agent Planning Benchmark v4</strong> (<a href="https://arxiv.org/abs/2606.04874">arXiv:2606.04874</a>, revisado 27/10/2026) — 4.209 casos multimodais em 22 domínios e 5 configurações, focado em planejamento, robustez de uso de ferramentas e tarefas insolúveis — referência para medir agentes além de benchmarks de código puro.</li>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation</strong> (<a href="https://arxiv.org/abs/2603.07379">arXiv:2603.07379</a>, 03/2026) — taxonomia e levantamento de arquiteturas, avaliação e direções de pesquisa para RAG agêntico; mapa de referência para quem está desenhando pipelines RAG com agentes.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.neowin.net/news/openai-debuts-gpt-53-codex-25-faster-and-setting-new-coding-benchmark-records/">OpenAI debuts GPT-5.3-Codex (Neowin)</a></li>
+<li><a href="https://www.datacamp.com/blog/gpt-5-3-codex">GPT-5.3-Codex overview (DataCamp)</a></li>
+<li><a href="https://thebiggish.pages.dev/news/anthropic-s-opus-4-6-adds-agent-teams-1m-context-window-to-counter-openai-codex">Anthropic Opus 4.6 agent teams / 1M context</a></li>
+<li><a href="https://devblogs.microsoft.com/agent-framework/the-microsoft-agent-framework-harness-is-now-released/">Microsoft Agent Framework Harness release</a></li>
+<li><a href="https://blog.jetbrains.com/ai/2026/07/introducing-jetbrains-context-repository-intelligence-for-coding-agents/">Introducing JetBrains Context (JetBrains blog)</a></li>
+<li><a href="https://www.jetbrains.com/help/jetbrains-console/main/getting-started-with-jetbrains-context.html">JetBrains Context — getting started docs</a></li>
+<li><a href="https://www.havoptic.com/r/replit-agent-2026-10-30">Replit Agent 2026-10-30 tracker</a></li>
+<li><a href="https://coven-landing.pages.dev/blog/coding-agent-wars-april-2026.html">The Coding Agent Wars — Cursor 3 e outros (abril 2026)</a></li>
+<li><a href="https://radar.firstaimovers.com/fine-tuning-llms-vs-rag-2026">Fine-Tuning LLMs vs RAG em 2026</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2026/06/ai-engineering-tools-everyone-is-using-in-2026/">Top 10 AI Engineering Tools 2026 (Analytics Vidhya)</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — hoje</a></li>
+<li><a href="https://arxiv.org/abs/2610.36980">arXiv:2610.36980 — AutoVend</a></li>
+<li><a href="https://arxiv.org/abs/2610.36584">arXiv:2610.36584 — Req2Test-Bench</a></li>
+<li><a href="https://arxiv.org/abs/2610.35031">arXiv:2610.35031 — PatentAgentBench</a></li>
+<li><a href="https://arxiv.org/abs/2606.04874">arXiv:2606.04874 — Agent Planning Benchmark</a></li>
+<li><a href="https://arxiv.org/abs/2603.07379">arXiv:2603.07379 — SoK: Agentic RAG</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 05/11/2026</div>
+</body></html>
