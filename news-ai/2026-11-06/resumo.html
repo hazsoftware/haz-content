@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 06/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 06/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude API versão 2026-10-21</strong> (Anthropic, 21/out/2026): nova versão da API acompanhada de bump de major version nos SDKs oficiais (Python, TypeScript, C#, Go, Java, PHP, Ruby) e na CLI; traz breaking changes independentes da versão da API — migração via header de versão na requisição ou atualização do SDK para a major mais recente.</li>
+<li><strong>GPT-5.3-Codex</strong> (OpenAI): novo modelo agentic de codificação, sucessor do GPT-5.2-Codex, voltado a fluxos ponta a ponta em editor e CLI.</li>
+<li><strong>Microsoft Agent Framework</strong> atingiu release candidate em 19/fev/2026 para .NET e Python — posicionado como sucessor oficial do Semantic Kernel e do AutoGen.</li>
+<li><strong>Qwen3.6 27B</strong> (Alibaba, 21/out/2026) e <strong>Kimi K3.1 Pro</strong> (Moonshot AI, 23/out/2026): lançamentos de modelos chineses na mesma semana, acirrando a disputa por modelos abertos/comerciais de custo menor com desempenho competitivo.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Vercel open-sourced "eve"</strong>: framework interno de agentes usado pela Vercel para construir, rodar, avaliar e escalar agentes de IA; a empresa afirma que agentes de IA já respondem por mais da metade dos commits internos.</li>
+<li><strong>Qodo Gen CLI</strong>: framework que permite criar agentes de codificação autônomos via arquivos de configuração, cobrindo múltiplas etapas do ciclo de vida de desenvolvimento de software.</li>
+<li><strong>LangChain 1.0</strong>: lançamento da versão estável 1.0 do framework; em paralelo, o <strong>AutoGen</strong> entrou em modo de manutenção, com o caminho de evolução migrando para o Microsoft Agent Framework.</li>
+<li><strong>LangChain OpenWiki</strong> (CLI open-source, lançado em jul/2026): gera e mantém documentação de codebase automaticamente a partir do código-fonte.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Especificação MCP de 28/07/2026</strong>: maior revisão do Model Context Protocol desde o lançamento — remove o handshake initialize/initialized e o header Mcp-Session-Id (protocolo agora stateless), depreca Roots/Sampling/Logging e introduz MCP Apps e Tasks (workflows assíncronos).</li>
+<li><strong>Segurança do MCP</strong>: NSA e DoD publicaram orientação de segurança para o protocolo em 02/06/2026; mais de 30 CVEs relacionados ao MCP já registrados em 2026, com "tool poisoning" como principal vetor de preocupação.</li>
+<li><strong>Adoção do MCP</strong>: o número de servidores MCP rastreados pelo ecossistema saltou de algumas centenas para mais de 10.000 ao longo de 2026.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Pinecone Nexus</strong> entrou em preview público: camada de orquestração sobre bancos vetoriais voltada a RAG em produção.</li>
+<li><strong>n8n</strong> (automação de workflows com IA nativa e 400+ integrações) segue entre os repositórios mais populares do GitHub, refletindo a demanda por orquestração low-code de pipelines de IA.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, ⭐103 hoje) — plataforma de automação de workflows com IA nativa e 400+ integrações; base popular para orquestrar agentes e pipelines sem código.</li>
+<li><strong>openai/whisper</strong> (Python, ⭐89 hoje) — modelo de reconhecimento de fala treinado com weak supervision em larga escala; referência para transcrição open-source.</li>
+<li><strong>chidiwilliams/buzz</strong> (Python, ⭐30 hoje) — app de transcrição e tradução offline construído sobre o Whisper, útil para pipelines de voz sem depender de API paga.</li>
+<li><strong>microsoft/onnxruntime</strong> (C++, ⭐21 hoje) — runtime de inferência e treino multiplataforma, peça central para rodar modelos otimizados fora da nuvem.</li>
+<li><strong>huggingface/diffusers</strong> (Python, ⭐10 hoje) — biblioteca de referência para modelos de difusão (imagem, vídeo, áudio), mantida pela Hugging Face.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agentic RAG</strong>: incorpora agentes autônomos no pipeline de retrieval (decidindo quando, onde e como buscar) em vez do fluxo fixo retrieve-then-generate; surveys recentes (arXiv 2501.09136, revisão 2026, e o SoK arXiv 2603.07379) mostram que praticamente todo stack de produção sério em 2026 combina RAG + fine-tuning + agentes.</li>
+<li><strong>Fine-tuning paramétrico-eficiente (PEFT: LoRA/QLoRA)</strong>: guias técnicos de 2026 reportam que modelos fine-tunados de 3-7B podem superar modelos genéricos muito maiores em tarefas estreitas, a um custo 10-50x menor — viabilizando fine-tuning para times pequenos.</li>
+<li><strong>Context engineering</strong>: disciplina que ganhou peso conforme o papel do dev migra para supervisionar outputs de IA, cobrindo como estruturar prompts, memória e ferramentas disponíveis para agentes de longa duração.</li>
+<li><strong>Servidores e clientes MCP stateless</strong>: com a spec de jul/2026 removendo sessão e handshake, conectar agentes a APIs e dados corporativos via MCP virou prática padrão — mas exige hardening diante dos +30 CVEs registrados em 2026.</li>
+<li><strong>Avaliação de agentes via benchmarks de longo horizonte</strong>: papers recentes (RoadmapBench, arXiv 2605.15846; StaminaBench, arXiv 2606.19613; SWE-Compass, arXiv 2511.05459) medem quantas tarefas consecutivas um agente resolve antes de falhar, substituindo benchmarks de tarefa única como critério de maturidade.</li>
+<li><strong>Memória de longo prazo para agentes</strong> (ex. Mem0): frameworks de memória escalável para agentes de produção ganharam tração como camada separada do RAG, permitindo que agentes mantenham estado entre sessões sem reprocessar todo o contexto.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>SoK: Agentic Retrieval-Augmented Generation (RAG)</strong> (arXiv 2603.07379) — taxonomia sistemática de arquiteturas, avaliação e direções de pesquisa para RAG agentic; mapa de referência para quem desenha pipelines híbridos.</li>
+<li><strong>Agentic Retrieval-Augmented Generation: A Survey</strong> (arXiv 2501.09136, revisão 2026) — survey que formaliza a integração de agentes autônomos no pipeline de retrieval.</li>
+<li><strong>RoadmapBench</strong> (arXiv 2605.15846, mai/2026) — benchmark de desenvolvimento agentic de longo horizonte testando agentes em upgrades de versão de software real; nenhum dos 13 modelos de fronteira testados resolve o benchmark por completo.</li>
+<li><strong>StaminaBench</strong> (arXiv 2606.19613, jun/2026, AWS) — mede quantas requisições de mudança consecutivas um agente de codificação suporta antes de falhar, expondo limites de "fadiga" em sessões longas.</li>
+<li><strong>SWE-Compass</strong> (arXiv 2511.05459) — benchmark com 2.000 instâncias comparando 10 LLMs sob frameworks como SWE-Agent e Claude Code, padronizando avaliação de capacidade agentic em engenharia de software.</li>
+<li><strong>Is Agentic RAG worth it?</strong> (ACL 2026 Industry) — comparação experimental entre RAG agentic e RAG convencional em custo e performance, útil para decidir quando a complexidade extra de agentes compensa o ganho de qualidade.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://dev.to/roobia/api-de-claude-version-2026-10-21-que-cambio-y-como-actualizar-de-forma-segura-4991">API de Claude versión 2026-10-21</a></li>
+<li><a href="https://letsdatascience.com/news/openai-releases-gpt-53-codex-agentic-coding-model-4451de0d">OpenAI Releases GPT-5.3-Codex</a></li>
+<li><a href="https://atmarkit.itmedia.co.jp/ait/spv/2603/27/news057.html">Microsoft Agent Framework (release candidate)</a></li>
+<li><a href="https://blog.mean.ceo/new-ai-model-releases-news-november-2026/">New AI Model Releases News — November 2026</a></li>
+<li><a href="https://www.opensourceforu.com/?p=99793">Vercel Open Sources 'eve'</a></li>
+<li><a href="https://peliqan.io/blog/autogen-vs-langchain/">AutoGen vs LangChain</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">Qodo launches CLI agent framework</a></li>
+<li><a href="https://wec.wiline.com/docs/news/category/mcp/">MCP update — o que muda para devs</a></li>
+<li><a href="https://www.techzine.eu/news/infrastructure/136758/model-context-protocol-receives-major-update-on-its-first-anniversary">MCP recebe atualização importante</a></li>
+<li><a href="https://pub.towardsai.net/mcp-in-2026-it-stopped-being-a-tool-connector-c16f246f96aa">MCP in 2026: It Stopped Being a Tool Connector</a></li>
+<li><a href="https://www.developersdigest.tech/blog/mcp-2026-07-28-breaking-changes">MCP 2026-07-28 breaking changes</a></li>
+<li><a href="https://serpapi.com/blog/the-state-of-mcp-everything-that-changed-in-h1-2026/">The State of MCP — everything that changed in H1 2026</a></li>
+<li><a href="https://www.pinecone.io/newsroom/pinecone-and-datadog-collaborate-to-deliver-enterprise-grade-observability-and-monitoring-to-vector-databases-and-generative-ai-applications/">Pinecone Nexus / Pinecone-Datadog</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — diário</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">SoK: Agentic RAG (arXiv 2603.07379)</a></li>
+<li><a href="https://arxiv.org/pdf/2501.09136v4">Agentic RAG: A Survey (arXiv 2501.09136)</a></li>
+<li><a href="https://arxiv.org/html/2605.15846">RoadmapBench (arXiv 2605.15846)</a></li>
+<li><a href="https://arxiv.org/html/2606.19613">StaminaBench (arXiv 2606.19613)</a></li>
+<li><a href="https://arxiv.org/html/2511.05459v1">SWE-Compass (arXiv 2511.05459)</a></li>
+<li><a href="https://preview.aclanthology.org/ingest-acl/2026.acl-industry.5/">Is Agentic RAG worth it? (ACL 2026 Industry)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 06/11/2026</div>
+</body></html>
