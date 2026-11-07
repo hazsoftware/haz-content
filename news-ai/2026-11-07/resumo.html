@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 07/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 07/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6.1 Terra</strong> (26/10/2026): OpenAI liberou o modelo para usuários Plus, Pro, Enterprise e Edu dentro do ChatGPT Work e do Codex, e disponibilizou via API como <code>gpt-6.1-terra</code>. É o sucessor direto usado em fluxos de codificação agntica no Codex.</li>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026) e <strong>GPT-6.1 Sol</strong> (29/09/2026): segundo trackers de changelog (BenchLM), substituíram respectivamente Claude Opus 4.6 e GPT-5.4 como topo de linha dos dois fornecedores — vale checar as páginas oficiais de modelo para benchmarks atualizados, já que comparações de terceiros sobre SWE-bench Verified ainda divergem bastante entre si.</li>
+<li><strong>DeepSeek V4 Flash</strong> (31/07/2026): variante "flash" de baixa latência do V4, seguindo a tendência de modelos chinesas abertos focados em custo de inferência.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol) — spec de 28/07/2026</strong>: maior revisão desde o lançamento do protocolo. Remove o handshake de abertura de sessão (protocolo passa a ser stateless), adiciona roteamento baseado em headers, requisições multi round-trip, resultados de listagem cacheáveis, um framework de extensões e reforço de OAuth/DCR. Também deprecia Roots/Sampling/Logging em favor de MCP Apps e Tasks. O registro oficial já passa de ~10 mil servidores públicos rastreados.</li>
+<li><strong>Agent Skills como padrão emergente</strong>: os repositórios <code>google/skills</code> (+534 estrelas hoje) e <code>anthropics/skills</code> (+386 estrelas hoje) estão entre os mais populares do GitHub nas últimas 24h, confirmando "skills" (pacotes de instruções com progressive disclosure) como convenção cada vez mais comum entre frameworks de agentes.</li>
+<li><strong>windmill-labs/windmill</strong> (Rust, +39 estrelas hoje): plataforma open-source "code-first" para workflows, apps internas e agentes de IA, se posicionando como alternativa a Lovable, Retool e n8n.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>aws/agent-toolkit-for-aws</strong>: novo kit da AWS com servidores MCP, skills e plugins prontos para agentes de IA construírem sobre a infraestrutura AWS, reforçando a aposta das big techs em "MCP first-party" dentro de seus próprios SDKs.</li>
+<li><strong>PEFT (LoRA/QLoRA) segue dominante</strong> para quem precisa de fine-tuning: guias práticos de 2026 recomendam parameter-efficient fine-tuning em vez de full fine-tuning pelo custo, com modelos na faixa de 3–8B parâmetros como "sweet spot" atual para agentes de produção depois de fine-tuned.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>SGLang</strong>: o container otimizado pela NVIDIA já está na versão de release mensal 26.10, mantendo cadência de atualização mensal incorporando contribuições upstream do projeto para serving de LLMs de alta performance.</li>
+<li><strong>RAG + fine-tuning combinados</strong>: paper (arXiv 2505.10792) reporta que sistemas RAG com fine-tuning especializado para lidar com retrieval imperfeito do mundo real melhoram a acurácia factual em <strong>21,2%</strong> sobre o modelo base sem RAG — reforça a tese prática de 2026 de "RAG = conhecimento, fine-tuning = comportamento, agentes = ação".</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>NVIDIA/auto-ontology</strong> (Python, +2.015★ hoje) — framework para construir camadas de raciocínio baseadas em grafos sobre dados, voltado a geração determinística de queries e IA explicável para workflows de LLM/agentes.</li>
+<li><strong>microsoft/VibeVoice</strong> (Python, +1.004★ hoje) — modelo de voz open-source "frontier" da Microsoft, para geração e clonagem de voz.</li>
+<li><strong>Usagi-org/ai-goofish-monitor</strong> (Python, +858★ hoje) — sistema de monitoramento multi-tarefa com IA + Playwright para rastrear anúncios em marketplace, com UI de gestão.</li>
+<li><strong>google/skills</strong> (Python, +534★ hoje) — repositório oficial do Google com Agent Skills para produtos e tecnologias do Google.</li>
+<li><strong>anthropics/skills</strong> (Python, +386★ hoje) — repositório público da Anthropic com Agent Skills, usado por Claude e Claude Code.</li>
+<li><strong>jamiepine/voicebox</strong> (Python, +318★ hoje) — estúdio de voz com IA open-source para clonagem de voz, ditado e criação de áudio.</li>
+<li><strong>windmill-labs/windmill</strong> (Rust, +39★ hoje) — plataforma code-first para workflows, apps e agentes de IA.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Agent Skills com progressive disclosure</strong>: em vez de carregar todo o contexto de uma ferramenta de uma vez, frameworks de agentes (Claude Code, Google) carregam instruções sob demanda por meio de "skills" — pacotes modulares de prompt/código. É a técnica por trás da disparada de estrelas em <code>google/skills</code> e <code>anthropics/skills</code> nesta semana.</li>
+<li><strong>2. MCP stateless com Tasks</strong>: a revisão de spec de 28/07/2026 elimina o handshake de sessão do MCP e introduz "Tasks" como primitiva assíncrona, permitindo que agentes disparem operações longas sem manter conexão persistente — importante para quem constrói integrações de agente em produção.</li>
+<li><strong>3. PEFT (LoRA/QLoRA) sobre full fine-tuning</strong>: continua sendo a abordagem padrão de mercado para especializar modelos de 3–8B parâmetros a custo baixo, evitando o full fine-tuning que exige muito mais VRAM e tempo de treino.</li>
+<li><strong>4. RAG combinado com fine-tuning leve</strong>: dado concreto do paper arXiv 2505.10792 (+21,2% de acurácia factual) mostra que tratar RAG e fine-tuning como técnicas complementares — não concorrentes — supera usar apenas uma delas isoladamente em cenários de retrieval imperfeito.</li>
+<li><strong>5. "Agents Window" como paradigma de IDE</strong>: editores de código vêm substituindo a tela de edição tradicional por uma janela dedicada de agentes (visto em redesigns como o do Cursor), onde o dev supervisiona múltiplos agentes trabalhando em paralelo em vez de digitar diretamente no arquivo.</li>
+<li><strong>6. Diagnóstico e recuperação de falhas em agentes</strong>: toolkits open-source como o AgentDebugX (ver seção de papers) sinalizam que "observabilidade de agente" (rastrear por que um agente travou ou alucinou um passo) está virando disciplina própria, separada de observabilidade tradicional de API.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>OneDayAgent</strong> (arXiv 2608.05013) — usando backend GLM-5.2, estabelece novo estado da arte no benchmark AgentIF-OneDay com score geral de 0,821, medindo capacidade de agentes de completar tarefas abertas de "um dia de trabalho".</li>
+<li><strong>CoPlan</strong> (arXiv 2608.05107) — interface de co-planejamento humano-IA em cuidados de saúde, onde agentes especializados propõem intervenções com argumentos a favor e contra, e planejadores humanos podem aceitar, rejeitar ou revisar; combina co-inteligência com "contestabilidade" (contestability) como princípio de design.</li>
+<li><strong>RAG + fine-tuning para retrieval imperfeito</strong> (arXiv 2505.10792) — mostra ganho de 21,2% em acurácia factual ao combinar fine-tuning especializado com RAG em condições realistas de retrieval ruidoso, contrariando a visão de que fine-tuning isolado não ajuda pipelines de RAG.</li>
+<li><strong>AgentDebugX</strong> — toolkit open-source para diagnosticar e recuperar falhas em agentes LLM, cobrindo rastreamento de causa-raiz quando um agente trava ou toma uma ação incorreta em produção.</li>
+<li><strong>AgenticSTS</strong> — testbed de memória limitada ("bounded-memory") para avaliar agentes LLM em tarefas de horizonte longo, medindo degradação de desempenho conforme o contexto útil se esgota.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, EN)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (daily)</a></li>
+<li><a href="https://manifold.markets/event/will-openai-release-a-new-language">Manifold Markets — GPT-6.1 Terra release</a></li>
+<li><a href="https://benchlm.ai/data/ai-model-changes">BenchLM — AI model changes/changelog</a></li>
+<li><a href="https://benchlm.ai/md/model-updates/releases.md">BenchLM — AI model release timeline</a></li>
+<li><a href="https://www.techzine.eu/news/infrastructure/136758/model-context-protocol-receives-major-update-on-its-first-anniversary">Techzine — MCP major spec update (28/07/2026)</a></li>
+<li><a href="https://besthub.dev/articles/new-features-in-anthropic-s-model-context-protocol-tasks-oauth-security-90164b42164e">New Features in MCP: Tasks, OAuth & Security</a></li>
+<li><a href="https://docs.nvidia.com/deeplearning/frameworks/sglang-release-notes/">NVIDIA SGLang Release Notes</a></li>
+<li><a href="https://elephas.app/blog/rag-vs-llm-fine-tuning.md">RAG vs LLM Fine-Tuning (2026) — Elephas</a></li>
+<li><a href="https://radar.firstaimovers.com/fine-tuning-llms-vs-rag-2026">Fine-Tuning LLMs vs RAG 2026 — First AI Movers</a></li>
+<li><a href="https://aiagentrank.io/blog/rag-vs-fine-tuning-vs-agents-2026">RAG vs Fine-Tuning vs Agents 2026</a></li>
+<li><a href="https://coven-landing.pages.dev/blog/coding-agent-wars-april-2026.html">The Coding Agent Wars (abril 2026) — Cursor 3 Agents Window</a></li>
+<li><a href="https://lonepatient.top/2026/08/06/arxiv_papers_2026-08-06.html">arXiv papers digest — 06/08/2026 (OneDayAgent, CoPlan)</a></li>
+<li><a href="https://awesomepapers.io/ai-for-code/topics/cs.AI">awesomepapers.io — cs.AI (AgentDebugX, AgenticSTS)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 07/11/2026</div>
+</body></html>
