@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 08/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 08/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Tencent Hy4</strong> (04/11/2026): a Tencent anunciou a Hy4, sua LLM de nova geração, com entendimento visual nativo e capacidades de <em>computer-use</em> integradas; a empresa prometeu liberar pesos e system cards nos dias seguintes ao anúncio, abrindo caminho para uso self-hosted.</li>
+<li><strong>Protocolo MCP, revisão 2026-07-28</strong>: a atualização removeu sessões em nível de protocolo — cada requisição agora carrega versão, identidade do cliente e capacidades no campo <code>_meta</code> — facilitando rodar servidores MCP atrás de load balancers sem estado. "Tasks" (operações longas) saiu do core e virou extensão, e features descontinuadas (Sampling, Roots) têm janela mínima de 12 meses antes da remoção.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain</strong>: o pacote <code>langchain-core</code> chegou à versão 1.6.4 (21/09/2026) e o pacote principal <code>langchain</code> à 1.3.15 (20/09/2026).</li>
+<li><strong>LlamaIndex</strong>: última release em 21/09/2026, mantendo cadência próxima à do LangChain; continua posicionado como "RAG-first" mas com capacidades crescentes de agentes.</li>
+<li><strong>CrewAI</strong>: última release registrada em 16/09/2026.</li>
+<li><strong>JetBrains Context</strong>: ferramenta que constrói um índice semântico do repositório para uso por agentes como Claude, Codex e Junie, ajudando-os a localizar código relevante sem reindexação manual.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Cursor 3</strong> (22/04/2026): substituiu o editor como interface principal por uma "Agents Window", permitindo rodar múltiplos agentes de codificação em paralelo no mesmo projeto.</li>
+<li><strong>Microsoft Agent Framework Harness</strong> (07/2026): framework para Python e .NET com loops de agente, memória, aprovações humanas e observabilidade integrada.</li>
+<li><strong>ACE (Agentic Context Engineering)</strong>, apresentado na ICLR 2026, trata o contexto do agente como um "playbook" que evolui ao longo da execução em vez de um bloco estático de instruções; um follow-up de janeiro/2026 (<strong>Meta Context Engineering</strong>, MCE) afirma superar o ACE por margem ampla usando arquitetura diferente.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Pinecone Nexus</strong>: nova camada de roteamento/orquestração para bancos vetoriais, em preview público, permitindo gerenciar múltiplos índices e modelos de embedding em pipelines de RAG a partir de um único ponto de entrada.</li>
+<li><strong>Observabilidade de vector DBs</strong>: OpenLIT e OpenObserve consolidam instrumentação automática via OpenTelemetry para bancos como Milvus, cobrindo tracing de queries de embeddings ponta a ponta junto com chamadas de LLM.</li>
+<li><strong>DeepEval</strong> continua como referência para benchmarking e teste de confiabilidade de sistemas de IA em produção, citado como ferramenta padrão de avaliação em pipelines de CI para agentes.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>windmill-labs/windmill</strong> (Rust, 18.467★, +22 hoje) — plataforma open-source para workflows, apps internos e agentes de IA; alternativa a Lovable, Retool e n8n.</li>
+<li><strong>f/prompts.chat</strong> (MDX, 176.376★, +160 hoje) — antigo "Awesome ChatGPT Prompts"; biblioteca para compartilhar e descobrir prompts para modelos de IA.</li>
+<li><strong>dgtlmoon/changedetection.io</strong> (Python, 35.641★, +35 hoje) — monitoramento de mudanças em páginas web, agora com suporte a MCP para integração com agentes.</li>
+<li><strong>OpenBB/OpenBB</strong> (Python, 75.231★, +64 hoje) — plataforma de dados financeiros open-source voltada a analistas, quants e agentes de IA.</li>
+<li><strong>astral-sh/ruff</strong> (Rust, 51.075★, +350 hoje) — linter/formatter Python extremamente rápido, parte do stack padrão em projetos Python com IA.</li>
+<li>Segundo o <strong>OSS Insight</strong> (ranking por estrelas/crescimento nos últimos 28 dias), <strong>claude-code</strong>, <strong>opencode</strong> e <strong>llama.cpp</strong> continuam entre os projetos de IA com maior crescimento no GitHub.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Context Engineering</strong> — tratar o que entra no contexto do agente como engenharia de primeira classe (curadoria, compressão, "playbooks" evolutivos como o ACE), em vez de apenas escrever prompts. Mineração de 2.923 repositórios no GitHub mostrou que arquivos de contexto (Markdown com informações do projeto) já são o mecanismo de configuração dominante, e usuários de Claude Code aplicam o maior leque de mecanismos de configuração entre os agentes estudados.</li>
+<li><strong>2. MCP (Model Context Protocol)</strong> — virou camada padrão de integração de ferramentas para agentes; a revisão 2026-07-28 tornou o protocolo stateless, o que importa para quem hospeda servidores MCP em produção atrás de load balancers.</li>
+<li><strong>3. Orquestração de múltiplos agentes em paralelo</strong> — popularizada pelo Cursor 3 (Agents Window) e pelo Microsoft Agent Framework Harness; muda o fluxo de "um agente, uma tarefa" para supervisionar várias execuções simultâneas.</li>
+<li><strong>4. Stacks híbridos RAG + fine-tuning + agentes</strong> — em vez de escolher uma única técnica, sistemas de produção combinam RAG para conhecimento, fine-tuning (via LoRA/QLoRA) para comportamento e agentes para ação. Um estudo arXiv (2505.10792) mediu ganho de 21,2% em precisão factual ao fazer fine-tuning de um sistema RAG para lidar com recuperação imperfeita.</li>
+<li><strong>5. Agentes de GUI / computer-use</strong> — pesquisa e produtos convergindo para agentes capazes de operar interfaces gráficas como um humano; a Hy4 da Tencent (04/11/2026) é o exemplo mais recente de modelo comercial com essa capacidade nativa.</li>
+<li><strong>6. Observabilidade específica para IA</strong> — ferramentas tradicionais de APM não capturam falhas específicas de LLM (hallucination, drift de prompt, custo por chamada); cresce o uso de instrumentação dedicada (OpenLIT, Langfuse, DeepEval) em pipelines de CI/CD para agentes.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>ACE: Agentic Context Engineering</strong> (ICLR 2026) — trata o contexto de um agente como um playbook que evolui a cada execução em vez de instruções fixas; base de boa parte da discussão atual sobre context engineering.</li>
+<li><strong>Meta Context Engineering</strong> (MCE, 01/2026) — follow-up ao ACE que reporta superá-lo por margem ampla usando uma arquitetura de contexto diferente.</li>
+<li><strong>SkillOS: Learning Skill Curation for Self-Evolving Agents</strong> — propõe curar e reter "skills" aprendidas por agentes ao longo do tempo em vez de reconstruir capacidades do zero a cada tarefa.</li>
+<li><strong>StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction</strong> — técnica de RL para treinar agentes abstraindo trajetórias estratégicas, entre os papers mais votados no Hugging Face Daily Papers.</li>
+<li><strong>SDAR</strong> — paper do Hugging Face Daily Papers que ataca o modo de falha mais comum em treinamento de agentes.</li>
+<li><strong>Fine-tuning de RAG sob recuperação imperfeita</strong> (arXiv 2505.10792) — mostra ganho de 21,2% em acurácia factual ao ajustar o modelo gerador para compensar falhas do retriever, em vez de assumir contexto sempre perfeito.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.nocode.mba/ai-release-tracker/2026/11">AI Models Released in November 2026 — nocode.mba</a></li>
+<li><a href="https://aaif.io/blog/mcp-2026-07-28-whats-changing-and-how-to-migrate">Guia de migração MCP 2026-07-28 — Agentic AI Foundation</a></li>
+<li><a href="https://besthub.dev/articles/new-features-in-anthropic-s-model-context-protocol-tasks-oauth-security-90164b42164e">New Features in Anthropic's Model Context Protocol — besthub.dev</a></li>
+<li><a href="https://www.groovyweb.co/blog/langchain-vs-llamaindex-comparison">LangChain vs LlamaIndex Comparison — groovyweb.co</a></li>
+<li><a href="https://proflead.substack.com/p/ai-news-for-developers-28-codex-multi">AI News for Developers #28 — proflead.substack.com</a></li>
+<li><a href="https://coven-landing.pages.dev/blog/coding-agent-wars-april-2026.html">The Coding Agent Wars: Five Releases in Nine Days — coven-landing.pages.dev</a></li>
+<li><a href="https://dev.to/lizechengnet/context-engineering-is-the-skill-that-actually-separates-good-ai-coding-setups-from-bad-ones-aj3">Context Engineering is the Skill — dev.to</a></li>
+<li><a href="https://api.emergentmind.com/topics/swe-context-bench">SWE Context Bench — emergentmind.com</a></li>
+<li><a href="https://www.pinecone.io/newsroom/pinecone-and-datadog-collaborate-to-deliver-enterprise-grade-observability-and-monitoring-to-vector-databases-and-generative-ai-applications/">Pinecone Newsroom</a></li>
+<li><a href="https://docs.openlit.io/latest/sdk/quickstart-vectordb-observability">OpenLIT — Vector DB Observability Quickstart</a></li>
+<li><a href="https://openobserve.ai/docs/integration/ai/tools/milvus.md">OpenObserve — Milvus Integration</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário)</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSS Insight — AI Trending</a></li>
+<li><a href="https://ml-papers-weekly.vercel.app/">ML Papers Weekly Digest</a></li>
+<li><a href="https://bittide.aicompass.dev/source/huggingface">Bittide — Hugging Face Papers Aggregator</a></li>
+<li><a href="https://elephas.app/blog/rag-vs-llm-fine-tuning.md">RAG vs LLM Fine-Tuning (cita arXiv 2505.10792) — elephas.app</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 08/11/2026</div>
+</body></html>
