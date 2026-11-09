@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 09/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 09/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6 Cyber</strong> (OpenAI, 05/11/2026): modelo focado em segurança ofensiva/defensiva, com acesso restrito a "Daybreak Red Teams" verificados — não é de uso geral ainda, mas sinaliza a aposta da OpenAI em modelos especializados por domínio.</li>
+<li><strong>Gemini Omni 1.2 Flash</strong> (Google, GA em 05/11/2026): multimodal, chegou à disponibilidade geral via API esta semana.</li>
+<li><strong>Gemini 4 Argon</strong> (Google, GA desde 13/10/2026) e <strong>Gemini 4 Carbon</strong> (anunciado 28/10/2026, hoje restrito a times de defesa cibernética, sem API pública): a cobertura da CNBC (02/10) questiona se o Argon realmente alcança a fronteira de OpenAI/Anthropic em benchmarks compostos.</li>
+<li><strong>Claude Opus 5.5</strong>: preço de API consolidado em ~US$ 4 / US$ 20 por milhão de tokens (entrada/saída), cerca de metade do custo do GPT-5.5 (~US$ 5 / US$ 30); Opus 5.5 lidera em Terminal-Bench 4.0 (66,4%) e Humanity's Last Exam (67,7%) em benchmarks reportados pela própria Anthropic.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain 1.4 / LangGraph 1.2</strong>: moveram o suporte a MCP para o core (<code>langchain.mcp</code>, antes beta via adapters), e adicionaram aprovação por chamada (per-call approval), timeouts por nó e o canal <strong>DeltaChannel</strong> para updates incrementais de estado.</li>
+<li><strong>CrewAI 1.15.x</strong>: ganhou suporte nativo a <strong>MCP</strong> e <strong>A2A (Agent2Agent)</strong>, reduzindo a dependência de adapters de terceiros que o LangGraph ainda usa.</li>
+<li><strong><a href="https://github.com/anthropics/skills">anthropics/skills</a></strong>: repositório público da Anthropic com Agent Skills reutilizáveis está em alta no GitHub hoje (792 estrelas no dia), mostrando tração do formato "skill" como unidade de empacotamento de capacidades de agente.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong><a href="https://github.com/SWE-agent/mini-swe-agent">mini-swe-agent</a></strong> (SWE-agent): agente de código aberto com ~100 linhas de código capaz de resolver issues do GitHub e tarefas de linha de comando de forma autônoma — entrou em alta no GitHub hoje como prova de que agentes de coding não precisam de frameworks pesados.</li>
+<li><strong>MAC-Bench</strong> (arXiv:2611.01728): novo benchmark cross-listado em cs.MA/cs.AI/cs.CL para medir colaboração multi-agente em tarefas interconectadas, cobrindo um gap de avaliação que frameworks como CrewAI e LangGraph ainda não endereçam de forma padronizada.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Claude Code</strong>: o "fast mode" do Opus 4.8 será descontinuado em 30/11/2026 — depois dessa data, requisições que pedirem fast mode vão retornar erro em vez de cair para o Opus padrão (fallback silencioso removido). Quem automatiza chamadas via Claude Code precisa ajustar antes do prazo.</li>
+<li><strong>Codex CLI</strong> 0.165.0 e 0.166.0: adicionaram provider Vertex AI e seleção de transcript via teclado, já citando compatibilidade com GPT-6.1 Terra.</li>
+<li><strong>Observabilidade de IA</strong>: comunidade aponta a graduação do OpenTelemetry para status estável da CNCF como ponto de virada para telemetria padronizada em inferência de LLM e bancos vetoriais — hoje tratada como pré-requisito, não opcional, em produção.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong><a href="https://github.com/sherlock-project/sherlock">sherlock-project/sherlock</a></strong> (Python, 2.373⭐ hoje) — ferramenta OSINT que encontra contas por username em centenas de redes; não é IA, mas lidera o trending geral e é usada por pipelines de recon com agentes.</li>
+<li><strong><a href="https://github.com/f/prompts.chat">f/prompts.chat</a></strong> (MDX, 315⭐) — plataforma comunitária para compartilhar e encontrar prompts, self-hostable.</li>
+<li><strong><a href="https://github.com/anthropics/skills">anthropics/skills</a></strong> (792⭐) — repositório público de Agent Skills da Anthropic, referência para empacotar capacidades reutilizáveis de agentes.</li>
+<li><strong><a href="https://github.com/rohitg00/ai-engineering-from-scratch">rohitg00/ai-engineering-from-scratch</a></strong> (449⭐) — trilha de aprendizado prática cobrindo o ciclo de AI engineering, de construção a produção.</li>
+<li><strong><a href="https://github.com/codecrafters-io/build-your-own-x">codecrafters-io/build-your-own-x</a></strong> (324⭐) — guia para reconstruir tecnologias populares do zero, sempre entre os mais estrelados do dia.</li>
+<li><strong><a href="https://github.com/astral-sh/ruff">astral-sh/ruff</a></strong> (Rust, 245⭐) — linter e formatter de Python extremamente rápido, cada vez mais padrão em pipelines de CI de projetos com agentes gerando código.</li>
+<li><strong><a href="https://github.com/SWE-agent/mini-swe-agent">SWE-agent/mini-swe-agent</a></strong> (86⭐) — agente minimalista (~100 linhas) para resolver issues do GitHub e tarefas de CLI.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context engineering</strong>: vem substituindo "prompt engineering" como skill central em guias de carreira de 2026 — foca em como montar memória, retrieval e ferramentas no contexto do agente, não só no texto do prompt.</li>
+<li><strong>PEFT (LoRA/QLoRA)</strong>: domina fine-tuning em produção — em vez de retreinar todos os pesos, aprende pequenas matrizes "adapter" sobre o modelo base, cortando drasticamente custo de GPU e tempo de treino.</li>
+<li><strong>MCP como padrão de fato</strong>: com LangChain 1.4 e CrewAI 1.15 embutindo suporte nativo ao Model Context Protocol, menos projetos ficam travados a um único framework de agentes — ferramentas MCP passam a ser portáteis entre eles.</li>
+<li><strong>Destilação para modelos especializados pequenos</strong>: guias de 2026 convergem na estratégia de usar LLMs grandes para gerar dados/sinais e treinar modelos pequenos especializados por tarefa, reduzindo custo de inferência em produção.</li>
+<li><strong>RAG + fine-tuning combinados</strong> (base: arXiv:2505.10792): para retrieval imperfeito do mundo real, combinar RAG com fine-tuning direcionado pode melhorar acurácia factual em 21,2% sobre o LLM base isolado — útil quando RAG puro não é suficiente.</li>
+<li><strong>Observabilidade de IA via OpenTelemetry</strong>: integrar tracing de vector DBs (ex. Milvus, Zilliz) com APM tradicional (Datadog, Instana) está se tornando prática padrão para correlacionar latência de busca vetorial com falhas de inferência de LLM.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>How Do AI Agents Waste Your Money?</strong> (arXiv:2611.07238) — analisa como agentes de linguagem com memória persistente entre sessões acumulam custo desnecessário ao longo do tempo; relevante para quem opera agentes de longa duração em produção.</li>
+<li><strong>SKIM: Pruning Large Language Model Agents via Selective Knowledge Informed Masking</strong> (arXiv:2611.07558) — aceito na NeurIPS 2026, propõe mascaramento seletivo informado por conhecimento para podar agentes LLM sem perder capacidade essencial.</li>
+<li><strong>Adversarial Speculative Reasoning Improves Long Horizon Agents</strong> (arXiv:2611.05345) — usa raciocínio especulativo adversarial para melhorar desempenho de agentes em tarefas de horizonte longo, onde erros se acumulam passo a passo.</li>
+<li><strong>MAC-Bench: Benchmarking Multi-Agent Collaboration via Interconnected Tasks</strong> (arXiv:2611.01728) — benchmark cross-listado (cs.MA/cs.AI/cs.CL) para medir colaboração real entre múltiplos agentes em tarefas interdependentes, não apenas isoladas.</li>
+<li><strong>Uncertainty-Aware Resource Orchestration for Agentic AI Systems</strong> (arXiv:2611.05392) — propõe orquestração de recursos computacionais para sistemas agenticos que leva em conta incerteza, visando eficiência em deployments multi-agente.</li>
+<li><strong>Autonomous AI Agents Systematically Diverge From Human Preferences in Proof Formalization</strong> (arXiv:2611.06995) — cs.AI/cs.HC, mostra divergência sistemática entre o que agentes autônomos produzem e o que humanos preferem em tarefas de formalização de provas, um alerta para quem usa agentes em verificação formal.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (diário)</a></li>
+<li><a href="https://arxiv.org/list/cs.AI/new">arXiv cs.AI — novos papers</a></li>
+<li><a href="https://arxiv.org/list/cs.CL/new">arXiv cs.CL — novos papers</a></li>
+<li><a href="https://arxiv.org/abs/2611.07238">arXiv:2611.07238</a></li>
+<li><a href="https://arxiv.org/abs/2611.07558">arXiv:2611.07558</a></li>
+<li><a href="https://arxiv.org/abs/2611.05345">arXiv:2611.05345</a></li>
+<li><a href="https://arxiv.org/abs/2611.01728">arXiv:2611.01728</a></li>
+<li><a href="https://arxiv.org/abs/2611.05392">arXiv:2611.05392</a></li>
+<li><a href="https://arxiv.org/abs/2611.06995">arXiv:2611.06995</a></li>
+<li><a href="https://cryptobriefing.com/openai-anthropic-reveal-new-ai-models-products-in-week-45-of-2026/">OpenAI, Anthropic reveal new AI models, products in week 45 of 2026 — Crypto Briefing</a></li>
+<li><a href="https://www.cnbc.com/2026/10/02/tech-download-google-argon-frontier-openai-anthropic.html">Can Google's new model really catch up to OpenAI and Anthropic — CNBC</a></li>
+<li><a href="https://www.developersdigest.tech/blog/langchain-langgraph-whats-new-2026">LangChain and LangGraph in Late 2026: What Is New and Who Should Use It</a></li>
+<li><a href="https://www.morphllm.com/comparisons/langgraph-vs-crewai">LangGraph vs CrewAI: State Machines vs Role-Based Agents</a></li>
+<li><a href="https://releases.sh/collections/coding-agents/digest/2026-10-26.md">Coding agents weekly digest — releases.sh</a></li>
+<li><a href="https://dev.to/thecybersidekick/opentelemetry-graduation-makes-standardized-ai-observability-non-negotiable-for-production-llm-8di">OpenTelemetry graduation makes standardized AI observability non-negotiable — DEV Community</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 09/11/2026</div>
+</body></html>
