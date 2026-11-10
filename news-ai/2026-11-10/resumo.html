@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 10/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 10/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.2 e Claude Mythos 5.2</strong> (09/11/2026): a Anthropic lançou a nova geração da linha Fable/Mythos, anunciada como "os modelos mais capazes para trabalho técnico difícil", com foco em coding, finanças e ciência — ver <a href="https://www.anthropic.com/news">anthropic.com/news</a>.</li>
+<li><strong>Claude Haiku 5.5</strong> (07/10/2026): atualização do modelo leve/rápido da família Claude 5, lançada semanas antes do Fable 5.2, consolidando a geração Claude 5 (Opus 5.5, Sonnet 5.5, Haiku 5.5, Fable 5.2).</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain</strong>: <code>langchain-core</code> na versão 1.6.4 (21/09/2026) e o pacote <code>langchain</code> na 1.3.15 (20/09/2026) — cadência de release semanal mantida.</li>
+<li><strong>LlamaIndex</strong>: último release também em 21/09/2026, cadência equivalente à do LangChain, porém com changelog mais estável.</li>
+<li><strong>CrewAI</strong>: último release por volta de 16/09/2026 — dados de versão de fontes secundárias, vale checar o changelog oficial no GitHub antes de fixar a versão em produção.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Agent Skills migra para a Agentic AI Foundation (AAIF)</strong> (22/10/2026): a Anthropic doou o padrão Agent Skills (nome, logo, organização GitHub <code>agentskills/agentskills</code> e domínio agentskills.io) à AAIF, hospedada pela Linux Foundation, anunciado na AGNTCon + MCPCon North America em San Jose. Números citados: ~1 milhão de skills publicadas, ~280 milhões de instalações e 70+ plataformas integradoras. Arquivos <code>SKILL.md</code> existentes continuam funcionando sem rewrite. No mesmo evento, a AAIF recebeu mais três projetos: <strong>Open Responses</strong> (doado pela OpenAI) e <strong>OpenEnv</strong> (doado pela Hugging Face), além de um quarto projeto (OpenSandbox) — ver <a href="https://simonwillison.net/2026/Oct/22/donating-agent-skills/">simonwillison.net</a>.</li>
+<li><strong>MCP (Model Context Protocol) stateless</strong>: a revisão de spec de 28/07/2026 tornou o protocolo stateless — descrita como a maior mudança desde o lançamento do MCP. Análises de roadmap de agosto/2026 apontam como próximas prioridades: agent identity, progressive discovery, transporte HTTP e primitivas para tarefas longas/delegadas.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Observabilidade de agentes</strong>: DeepEval continua sendo citado como referência para benchmarking de confiabilidade de LLMs, e LangSmith para monitoramento/avaliação de prompts em produção — justificativa recorrente é que ferramentas de APM tradicionais não capturam falhas específicas de IA (hallucination, prompt injection, drift de contexto).</li>
+<li><strong>neuml/txtai</strong> em alta hoje no GitHub (+70 estrelas no dia): framework Python "tudo em um" para busca semântica e workflows de LLM, caso de uso direto para quem monta pipelines de RAG sem acoplar a um framework pesado.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<p>Snapshot real de <a href="https://github.com/trending?since=daily&spoken_language_code=en">github.com/trending</a> (diário, inglês) de hoje:</p>
+<ul>
+<li><strong>google-deepmind/mujoco</strong> (C++, 17.1k⭐, +574 hoje) — simulador de física multi-joint com contato, usado como base de ambientes de treino para RL e robótica.</li>
+<li><strong>rustdesk/rustdesk</strong> (Rust, 128.8k⭐, +145 hoje) — app de acesso remoto self-hosted, alternativa ao TeamViewer; segue como um dos projetos open-source mais populares do GitHub.</li>
+<li><strong>upscayl/upscayl</strong> (TypeScript, 52.1k⭐, +100 hoje) — upscaler de imagem via IA open-source para Linux/macOS/Windows.</li>
+<li><strong>trufflesecurity/trufflehog</strong> (Go, 29.1k⭐, +94 hoje) — encontra, verifica e analisa credenciais vazadas; relevante para quem automatiza checagens de segurança em pipelines de CI que incluem agentes de IA.</li>
+<li><strong>GyulyVGC/sniffnet</strong> (Rust, 42.2k⭐, +152 hoje) — monitoramento de tráfego de rede com interface simples, útil para depurar chamadas de agentes/MCP servers.</li>
+<li><strong>neuml/txtai</strong> (Python, 13.2k⭐, +70 hoje) — framework all-in-one de IA para busca semântica e workflows de LLM (RAG, embeddings, pipelines).</li>
+<li><strong>LibreTranslate/LibreTranslate</strong> (Python, 17.4k⭐, +48 hoje) — API de tradução automática self-hosted e open-source, alternativa a APIs pagas de tradução.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context engineering</strong>: guias de carreira 2026 apontam que o papel do dev migrou de "escrever código" para "gerenciar outputs de IA" — desenho de contexto/prompt para agentes e auditoria de segurança do que o agente produz passam a ser competências centrais, não acessórias.</li>
+<li><strong>LoRA/QLoRA (fine-tuning eficiente em parâmetros)</strong>: continuam como padrão para adaptar modelos sem retrain completo, treinando apenas matrizes "adapter" sobre os pesos base. Guias de 2026 apontam a faixa de 3–8B parâmetros como o "sweet spot" para agentes de produção fine-tuned, reservando 14B+ para raciocínio profundo ou workflows multi-tool.</li>
+<li><strong>RAG + fine-tuning combinados</strong>: um estudo (arXiv 2505.10792) relatado por fontes secundárias aponta +21,2% de acurácia factual ao combinar RAG com fine-tuning especializado para lidar com retrieval imperfeito do mundo real, comparado ao LLM base sem adaptação — vale confirmar o paper original antes de citar o número como definitivo.</li>
+<li><strong>MCP stateless e agent identity</strong>: a virada de protocolo stateful→stateless no MCP (revisão de 28/07/2026) simplifica deploy de MCP servers em escala; a próxima onda de discussão é sobre identidade de agente e descoberta progressiva de ferramentas, não mais só tool-calling básico.</li>
+<li><strong>Agent Skills como padrão vendor-neutral</strong>: com a saída da órbita exclusiva da Anthropic para a Agentic AI Foundation/Linux Foundation (22/10/2026), o formato <code>SKILL.md</code> ganha portabilidade garantida entre plataformas (70+ integrações já declaradas), reduzindo o risco de lock-in para quem construiu automações em torno do padrão.</li>
+<li><strong>Benchmarking crítico de agentes autônomos</strong>: uma auditoria de 12 papers de benchmark de agentes (arXiv 2605.21404) encontrou nota média de 0,38 (de 1,0) em rigor metodológico, e nenhum dos 8 papers avaliados mais a fundo divulga custo de inferência — um alerta prático para quem usa esses benchmarks para decidir qual modelo/agente colocar em produção.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Benchmarking Test-Time Scaling de LLM Agents gerais</strong> (arXiv 2602.18998, fev/2026) — avalia 10 agentes de ponta em busca, coding, raciocínio e uso de ferramentas; mostra queda substancial de desempenho ao sair de testes específicos de domínio para o cenário de "agente geral".</li>
+<li><strong>AgencyBench: Benchmarking the Frontiers of Autonomous Agents in 1M-Token Real-World Contexts</strong> (arXiv 2601.11044, jan/2026) — 138 tarefas em 32 cenários reais com contexto estendido; aponta memória, uso de ferramentas, autocorreção e raciocínio cross-modal sustentados como o principal gargalo de agentes de longo horizonte.</li>
+<li><strong>SoK: Agentic RAG</strong> (arXiv 2603.07379, mar/2026) — sistematiza RAG agentic como processo de decisão sequencial que integra raciocínio, retrieval, memória e interação com ferramentas; útil como mapa de referência para quem está desenhando arquitetura de RAG com agentes.</li>
+<li><strong>AARRI-Bench</strong> (arXiv 2606.07462, jun/2026) — testa comportamentos de pesquisa em vários harnesses de agentes; conclui que sistemas agentic de LLM de ponta ainda não substituem com confiabilidade um estagiário de pesquisa humano, mesmo em tarefas bem delimitadas.</li>
+<li><strong>Auditoria de benchmarks de agentes</strong> (arXiv 2605.21404, mai/2026) — revisa 12 papers de benchmark de agentes e encontra lacunas sistemáticas de reporte (nota média 0,38/1,0 em rigor, nenhum dos 8 papers centrais revela custo de inferência).</li>
+<li><strong>Fine-Tuning or Fine-Failing? Debunking Performance Myths in LLMs</strong> (arXiv 2406.11201) — ainda citado em discussões de 2026 como contraponto ao hype de fine-tuning: reporta queda de desempenho do fine-tuning frente a baselines em avaliações de RAG, reforçando que fine-tuning não é bala de prata.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.anthropic.com/news">anthropic.com/news</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">github.com/trending (diário, inglês)</a></li>
+<li><a href="https://simonwillison.net/2026/Oct/22/donating-agent-skills/">simonwillison.net — Anthropic doa Agent Skills à AAIF</a></li>
+<li><a href="https://letsdatascience.com/news/anthropic-donates-agent-skills-standard-to-agentic-ai-founda-f70093cd">letsdatascience.com — cobertura da doação do Agent Skills</a></li>
+<li><a href="https://fourweekmba.com/ai-anthropic-donates-agent-skills-after-nearly-280m-installs/">fourweekmba.com — números de adoção do Agent Skills</a></li>
+<li><a href="https://buttondown.com/loreai/archive/mcp-goes-stateless-the-biggest-protocol-shake-up/">buttondown.com/loreai — MCP vira stateless</a></li>
+<li><a href="https://www.groovyweb.co/blog/langchain-vs-llamaindex-comparison">groovyweb.co — comparação de versões LangChain/LlamaIndex/CrewAI</a></li>
+<li><a href="https://www.refontelearning.com/blog/ai-developer-engineering-in-2026-mastering-the-future-of-ai-development">refontelearning.com — skills de dev de IA em 2026</a></li>
+<li><a href="https://daily.dev/blog/ai-keep-up-guide-for-developers/">daily.dev — guia de skills para devs</a></li>
+<li><a href="https://arxiv.org/pdf/2602.18998">arXiv 2602.18998</a></li>
+<li><a href="https://fugumt.com/fugumt/paper_check/2601.11044v2_enmode">arXiv 2601.11044 (AgencyBench)</a></li>
+<li><a href="https://arxiv.org/pdf/2603.07379">arXiv 2603.07379 (SoK: Agentic RAG)</a></li>
+<li><a href="https://www.emergentmind.com/papers/2606.07462">arXiv 2606.07462 (AARRI-Bench)</a></li>
+<li><a href="https://arxiv.org/abs/2605.21404">arXiv 2605.21404 (auditoria de benchmarks)</a></li>
+<li><a href="https://arxiv.org/pdf/2406.11201">arXiv 2406.11201 (Fine-Tuning or Fine-Failing?)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 10/11/2026</div>
+</body></html>
