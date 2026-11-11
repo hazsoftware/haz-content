@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 11/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 11/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6 Cyber</strong> (OpenAI, 05/11/2026): modelo especializado em cibersegurança derivado do GPT-6 Astra, focado em descoberta de vulnerabilidades e desenvolvimento de exploits autorizados. Pontua 48,5% no ExploitGym (interno da OpenAI) contra 32,1% do GPT-5.6 Cyber, e mantém aderência de escopo entre 99,93% e 100% nos testes. Classificado como risco "Critical" no Preparedness Framework da OpenAI (acima do "High" do GPT-5.6 Cyber); acesso inicial restrito a clientes aprovados.</li>
+<li><strong>Kimi K3.1 Pro</strong> (Moonshot AI, pesos abertos publicados por volta de 04/11/2026): modelo de 2,8T parâmetros totais / 104B ativos, contexto de 1M tokens, mesma arquitetura do Kimi K3. Nos benchmarks divulgados pela Moonshot, marca 65,7 no Terminal-Bench 4.0 (contra 66,4 do Claude Opus 5.5 e 58,2 do GPT-6 Astra) e 61,2% no Kimi Code Bench 3.0 (acima dos 55,95% do K3 anterior). Dados de cibersegurança foram removidos do treinamento antes da liberação dos pesos. Disponível também via Kimi API, Kimi Work e Kimi Code.</li>
+<li><strong>SWE-2 Flash</strong> (Cognition, 04/11/2026): modelo de codificação rápido e barato, pós-treinado sobre o Inkling-Small (12B ativos, pesos abertos da Thinking Machines). Custa um quinto do SWE-2 e gera tokens ~3x mais rápido. Nos benchmarks da própria Cognition: 20,0% no Terminal-Bench 4.0 (vs. 27,3% do SWE-2), 24,0% no FrontierCode 2.0 (empatando com 23,8% do SWE-2) e salto de 11,3% para 34,8% no ExploitBench. Disponível gratuitamente no Devin Desktop/CLI até 30/11/2026; pesos do modelo permanecem privados.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>MCP spec 2026-07-28</strong> continua sendo a base da adoção atual do Model Context Protocol: removeu o handshake stateful (initialize/initialized e o header Mcp-Session-Id), permitindo que qualquer instância de servidor atrás de um load balancer round-robin atenda qualquer requisição. Adicionou Multi Round-Trip Requests para substituir interrupções de conexão, migrou autenticação para Client ID Metadata Documents (Dynamic Client Registration entra em janela de depreciação de 12 meses) e passou a exigir validação do parâmetro `iss` contra ataques de mix-up. Mantenedores reportam quase meio bilhão de downloads/mês nos SDKs Tier 1, todos já compatíveis com essa revisão.</li>
+<li><strong>Letta Context-Bench</strong>: benchmark que mede a capacidade de agentes decidirem o que recuperar e carregar no contexto — referência prática para quem está ajustando pipelines de RAG agentic.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li>Relatório da <strong>Jellyfish</strong> (2026): agentes de IA já geram cerca de 1 em cada 5 pull requests na empresa mediana, e mais de 50% nos 10% das empresas mais avançadas em adoção de IA — sinal concreto de quanto a geração de código está sendo delegada a agentes em produção.</li>
+<li><strong>Agentic RAG</strong> consolidou-se como baseline em 2026: em vez de recuperação única, o LLM orquestra todo o processo de busca, decidindo quais ações tomar, quando executá-las e se deve iterar — com reformulação de queries em subqueries como principal técnica por trás do ganho de qualidade.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>neuml/txtai</strong> e <strong>facebookresearch/faiss</strong> em alta no GitHub hoje (ver seção de repositórios) — ambos ligados a busca semântica e indexação vetorial, reforçando a demanda por infra de RAG.</li>
+<li><strong>windmill-labs/windmill</strong> ganha tração como plataforma code-first para workflows, apps e agentes de IA, competindo no espaço de orquestração que hoje depende fortemente de MCP.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>google-deepmind/mujoco</strong> (C++, ⭐421 hoje) — simulador de física usado em pesquisa de robótica e RL; não é especificamente um projeto de LLM, mas lidera o trending geral.</li>
+<li><strong>LibreTranslate/LibreTranslate</strong> (Python, ⭐111 hoje) — API de tradução automática open-source e self-hostable, pode rodar totalmente offline.</li>
+<li><strong>facebookresearch/faiss</strong> (C++, ⭐68 hoje) — biblioteca de busca por similaridade e clustering de vetores densos, peça central em pipelines de RAG e embeddings.</li>
+<li><strong>windmill-labs/windmill</strong> (Rust, ⭐43 hoje) — plataforma code-first para workflows, apps e agentes de IA.</li>
+<li><strong>neuml/txtai</strong> (Python, ⭐48 hoje) — framework "all-in-one" para busca semântica, orquestração de LLM e workflows de linguagem.</li>
+<li><strong>chidiwilliams/buzz</strong> (Python, ⭐42 hoje) — transcrição e tradução de áudio offline usando o Whisper da OpenAI.</li>
+<li><strong>siyuan-note/siyuan</strong> (TypeScript, ⭐18 hoje) — workspace de conhecimento self-hosted com colaboração entre humanos e agentes de IA.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Context engineering como disciplina central</strong>: o que entra no contexto do LLM passou a importar mais do que como o prompt é escrito. A Awesome Context Engineering (atualizada em 2026) aponta agentes de codificação como o uso de produção mais visível da técnica, deslocando o foco de "prompt hacking" para design de sistema completo.</li>
+<li><strong>2. Agentic RAG com reformulação de subqueries</strong>: em vez de uma única busca vetorial, o agente decompõe a pergunta em subqueries, decide quando buscar de novo e quando parar. Um paper de junho/2026 sobre compliance regulatório mostra essa abordagem superando RAG híbrido com re-ranking em corpora grandes e em constante mudança, sendo mais barata que fine-tuning dedicado.</li>
+<li><strong>3. MCP stateless (spec 2026-07-28)</strong>: tirar o handshake com estado da arquitetura passou a ser a referência para escalar servidores MCP horizontalmente — qualquer instância atrás de um load balancer pode responder qualquer chamada, o que muda como times desenham sua infra de ferramentas para agentes.</li>
+<li><strong>4. Monitoramento de uso de tokens e degradação de contexto</strong>: times de engenharia estão tratando token budget como métrica operacional, monitorando sinais de "context overload" (respostas degradando com contexto muito longo) como parte do runbook de produção de agentes.</li>
+<li><strong>5. Avaliação contínua integrada ao CI/CD</strong>: ferramentas como Promptfoo, LangSmith e Braintrust estão sendo incorporadas direto no pipeline de CI/CD para testar regressões de prompt e de agente antes do deploy, tratando prompt engineering como disciplina versionada e testável.</li>
+<li><strong>6. Git worktrees para gerenciar modelos locais e contexto grande</strong>: um padrão citado em guias de 2026 usa worktrees do Git para isolar branches de trabalho ao lidar com modelos locais (Ollama/MLX) e arquivos de contexto grandes, evitando contaminação entre sessões de desenvolvimento assistido por IA.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Construct Validity of Coding Benchmarks for LLM-based Agentic Coding Tools</strong> (arXiv:2611.05665, 03/11/2026) — audita nove benchmarks usados para avaliar ferramentas de codificação agentic e conclui que eles reduzem capacidades amplas a um conjunto pequeno de métricas, questionando como comparamos agentes de código hoje.</li>
+<li><strong>ServerBench: How can your coding agents design specialized LLM serving systems?</strong> (arXiv:2611.06841, 04/11/2026) — testa se agentes de codificação conseguem projetar sistemas de serving de LLM, pontuando designs por valor de token por dólar de GPU gasto; foco em como agentes usam feedback de performance para otimizar infraestrutura.</li>
+<li><strong>CompressionBench: How can your coding agents compress LLMs?</strong> (04/11/2026) — avalia agentes de codificação na tarefa de comprimir modelos de linguagem, estendendo a família de benchmarks "pode seu agente fazer X" para infraestrutura de ML.</li>
+<li><strong>Persistent Behavioral Learning for AI Agents</strong> (novembro/2026) — ataca o problema de agentes LLM que não aprendem com correções do usuário entre sessões, propondo mecanismos de memória comportamental persistente.</li>
+<li><strong>Is Agentic RAG worth it?</strong> (ACL 2026, trilha industry) — compara RAG tradicional com agentic RAG (onde o LLM orquestra todo o processo de busca e decide iterar ou não) e discute em que cenários o custo extra de orquestração se paga.</li>
+<li><strong>DSAEval</strong> e <strong>ContextBench</strong> (2026) — novos benchmarks trending: o primeiro avalia agentes de data science em problemas reais variados; o segundo mede recuperação de contexto especificamente em agentes de codificação.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026">The Minimal AI Engineer Toolkit for 2026 — KDnuggets</a></li>
+<li><a href="https://jellyfish.co/library/best-ai-sdlc-tools/">The 23 Best AI SDLC Tools for Engineering Teams — Jellyfish</a></li>
+<li><a href="https://www.pluralsight.com/resources/blog/software-development/popular-AI-tools-software-engineers">The 5 AI tools modern software engineers are using in 2026 — Pluralsight</a></li>
+<li><a href="https://letsdatascience.com/news/openai-releases-gpt-6-cyber-with-better-scope-adherence-f89a9831">OpenAI Releases GPT-6 Cyber With Better Scope Adherence</a></li>
+<li><a href="https://openai.com/id-ID/index/introducing-gpt-6-cyber/">Introducing GPT-6 Cyber — OpenAI</a></li>
+<li><a href="https://kimi.com/en/blog/kimi-k3-1-pro">Introducing Kimi K3.1 Pro — Moonshot AI</a></li>
+<li><a href="https://www.buildmvpfast.com/blog/kimi-k3-1-pro-open-model-coding-pricing-2026">Kimi K3.1 Pro Ties Opus 5.5 on Moonshot's Charts at Half the Price</a></li>
+<li><a href="https://cognition.com/blog/swe-2-flash">Introducing SWE-2 Flash — Cognition</a></li>
+<li><a href="https://benchlm.ai/models/swe-2-flash">SWE-2 Flash — BenchLM</a></li>
+<li><a href="https://thursdai.news/releases/2026-11">Everything AI Released in November 2026 — ThursdAI</a></li>
+<li><a href="https://modelcontextprotocol.io/specification/2026-07-28/changelog">MCP Specification 2026-07-28 Changelog</a></li>
+<li><a href="https://hackernoon.com/mcp-is-deleting-its-own-handshake-inside-the-biggest-spec-rewrite-since-launch">MCP is Deleting Its Own Handshake — HackerNoon</a></li>
+<li><a href="https://letta.com/blog/context-bench">Context-Bench — Letta</a></li>
+<li><a href="https://github.com/Meirtz/Awesome-Context-Engineering">Awesome Context Engineering — GitHub</a></li>
+<li><a href="https://www.startuphub.ai/ai-news/ai-video/2026/agentic-rag-is-the-new-baseline-context-engineering-shifts-from-component-hacks-to-full-system-design">Agentic RAG is the New Baseline — StartupHub.ai</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, EN)</a></li>
+<li><a href="https://arxiv.org/abs/2611.05665">Construct Validity of Coding Benchmarks for LLM-based Agentic Coding Tools — arXiv:2611.05665</a></li>
+<li><a href="https://arxiv.org/abs/2611.06841">ServerBench — arXiv:2611.06841</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL 2026 Industry Track Proceedings</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 11/11/2026</div>
+</body></html>
