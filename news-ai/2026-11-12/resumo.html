@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 12/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 12/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Google ADK (Agent Development Kit) v2.6.0</strong> (novembro/2026): passou a emitir métricas seguindo a convenção semântica <strong>gen_ai</strong> da OpenTelemetry, dando observabilidade nativa (latência, custo, contagem de tokens por chamada) a agentes construídos com o SDK sem instrumentação manual.</li>
+<li><strong>GitHub Copilot</strong> ganhou suporte a <strong>JetBrains</strong> via "Copilot Air", parte do changelog semanal oficial do GitHub publicado em 06/11/2026 (cobrindo a semana de 02/11), que também trouxe a versão 1.145 do Copilot no VS Code.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Codex CLI 0.163.0</strong> (OpenAI) atingiu disponibilidade geral em 15/10/2026.</li>
+<li><strong>LangChain (TypeScript) 1.5.16</strong> (08/10/2026): correções no framework de agentes e no cliente MCP.</li>
+<li><strong>Google descontinua o Jules</strong>: usuários tinham até 11/11/2026 para concluir tarefas em andamento; depois disso o serviço vira somente leitura, com encerramento total previsto para 31/12/2026. O guia de saída oficial da Google recomenda migrar fluxos de trabalho para o Claude Code.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li>Benchmark publicado em 14/10/2026 encontra uma divisão marcante entre código gerado por agentes que <em>passa</em> testes funcionais e código que é <em>realmente seguro</em> — sinal de que taxa de sucesso em testes não é proxy confiável de qualidade/segurança quando o autor é um agente.</li>
+<li><strong>REFLEX com Jev</strong> (arXiv:2609.26532): arquitetura que roteia decisões de baixa incerteza para um modelo pequeno dedicado ("Jev") e só escalona ao LLM forte quando a confiança cai — no limiar τ=0,5, fez <strong>72,7% menos chamadas ao modelo forte</strong> comparado a usar só o modelo forte, cortando custo de inferência em pipelines de agentes.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li>O benchmark <strong>GVGAI-LLM</strong> mede agentes baseados em LLM como <strong>2 a 3 ordens de magnitude mais lentos</strong> que métodos de busca simbólica em jogos — mais um dado concreto a favor de técnicas de roteamento/cache (como o REFLEX acima) na hora de colocar agentes em produção.</li>
+<li>Repositórios em alta hoje no GitHub (ver seção seguinte) reforçam a demanda por infraestrutura de busca vetorial e serving de modelos: <strong>faiss</strong> e <strong>transformers</strong> seguem entre os mais estrelados do dia.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, ⭐220 hoje) — plataforma de automação de workflows com recursos de IA embutidos e mais de 400 integrações; segue como o projeto de maior tração do dia.</li>
+<li><strong>supabase/supabase</strong> (TypeScript, ⭐145 hoje) — plataforma open-source de desenvolvimento sobre Postgres para web, mobile e apps de IA (auth, storage, vetores, funções edge).</li>
+<li><strong>openai/whisper</strong> (Python, ⭐118 hoje) — modelo de reconhecimento de fala treinado com supervisão fraca em larga escala; continua sendo base de inúmeras ferramentas de transcrição.</li>
+<li><strong>facebookresearch/faiss</strong> (C++, ⭐111 hoje) — biblioteca de busca por similaridade e clustering de vetores densos, peça central em pipelines de RAG e embeddings.</li>
+<li><strong>huggingface/transformers</strong> (Python, ⭐98 hoje) — framework de definição de modelos de texto, visão, áudio e multimodais, usado como base por praticamente todo o ecossistema de LLMs open-source.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Roteamento de decisões por custo (REFLEX/Jev)</strong>: em vez de mandar toda decisão para o LLM mais caro, um modelo pequeno dedicado resolve os casos de baixa incerteza e só escala ao modelo forte quando necessário. No benchmark do próprio paper (arXiv:2609.26532), isso reduziu em 72,7% as chamadas ao modelo forte em τ=0,5 — um padrão que está virando prática comum pra baratear agentes em produção.</li>
+<li><strong>2. Memória comportamental persistente</strong>: ao invés de guardar texto cru em memória de longo prazo e recuperá-lo via RAG, o framework "Decision Context" (Forge DC, NeurIPS 2026) converte correções do usuário e falhas de tool-call em regras imperativas injetadas diretamente no contexto do agente. No DC-Bench (71 cenários, 9 dimensões comportamentais), essa abordagem elevou a aderência às regras de 55% para 95%, usando cerca de 10x menos tokens por consulta do que recuperação de memória ingênua.</li>
+<li><strong>3. Context engineering como camada de disputa entre plataformas</strong>: com Gemini CLI migrando para Antigravity CLI e o Jules sendo descontinuado em favor do Claude Code, 2026 consolidou um ciclo rápido de descontinuação de ferramentas de agente de primeira geração em troca de plataformas mais completas (skills, hooks, subagentes) — o que importa cada vez mais é quem gerencia melhor o que entra no contexto do agente, não só a qualidade do modelo por trás.</li>
+<li><strong>4. Observabilidade padronizada de agentes via OpenTelemetry gen_ai</strong>: o Google ADK v2.6.0 passou a emitir métricas na convenção semântica gen_ai da OpenTelemetry nativamente, movimento que outros frameworks de agentes vêm seguindo para padronizar telemetria de custo/latência sem instrumentação manual por projeto.</li>
+<li><strong>5. Separar "passa nos testes" de "é seguro" na avaliação de código de agente</strong>: o benchmark de 14/10/2026 formalizou essa distinção, reforçando a prática de adicionar scanners de segurança (SAST, análise de dependências) como gate de CI separado da suíte de testes funcionais quando o código é escrito por um agente.</li>
+<li><strong>6. Defesa contra manipulação de fact-checking por LLM</strong>: pesquisa recente (arXiv:2601.16890, Universidade de Sheffield) mostra que reformular afirmações com técnicas de persuasão geradas por LLM degrada significativamente a performance de sistemas de fact-checking em FEVER e FEVEROUS — relevante para quem constrói pipelines de verificação/moderação com RAG.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Decision Context: Persistent Behavioral Learning for AI Agents</strong> (NeurIPS 2026, Vahdat &amp; Vaezipoor) — introduz o Forge Decision Context (forge_dc), que transforma correções humanas e falhas de tool-call em regras imperativas injetadas no contexto; 95% de aderência no DC-Bench (71 cenários/9 dimensões) contra 55% de recuperação de memória ingênua, usando ~10x menos tokens por consulta.</li>
+<li><strong>REFLEX with Jev for Efficient Selective Control in LLM Agents</strong> (arXiv:2609.26532) — roteia decisões de baixa incerteza para um modelo pequeno dedicado ("Jev") e escala ao LLM forte só quando necessário; 72,7% menos chamadas ao modelo forte em τ=0,5.</li>
+<li><strong>LLM-Based Adversarial Persuasion Attacks on Fact-Checking Systems</strong> (arXiv:2601.16890, Universidade de Sheffield) — usa um LLM gerador para reformular afirmações com técnicas de persuasão; os ataques degradam substancialmente a verificação e a recuperação de evidências em FEVER/FEVEROUS.</li>
+<li><strong>GVGAI-LLM: Evaluating Large Language Model Agents with Infinite Games</strong> (arXiv:2508.08501) — benchmark de jogos que mede agentes LLM como 2 a 3 ordens de magnitude mais lentos que busca simbólica, dado relevante para discussões de custo/latência em produção.</li>
+<li><strong>SAFTAC: Simulation-Augmented Fine-Tuning of Open-Source LLMs for Analog Circuit Design</strong> (novembro/2026) — aplica fine-tuning aumentado por simulação a LLMs open-source para projeto de circuitos analógicos, exemplo concreto de fine-tuning de domínio altamente especializado.</li>
+<li><strong>Guardrail Erosion in Domain Fine-Tuned Large Language Models</strong> (novembro/2026) — examina como o fine-tuning de modelos biomédicos pode erodir guardrails de segurança originalmente presentes no modelo base, alerta relevante para quem faz fine-tuning de LLMs open-source para domínios regulados.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, EN)</a></li>
+<li><a href="https://fourweekmba.com/ai-google-shuts-jules-exit-guide-points-users-to-claude-code/">Google Shuts Jules; Exit Guide Points Users to Claude Code — FourWeekMBA</a></li>
+<li><a href="https://techradar.com/pro/google-kills-off-jules-its-ai-coding-agent-which-promised-to-do-all-the-jobs-you-didnt-want-to">Google kills off Jules — TechRadar</a></li>
+<li><a href="https://propakistani.pk/2026/11/02/google-is-shutting-down-its-ai-coding-tool/">Google Is Shutting Down Its AI Coding Tool</a></li>
+<li><a href="https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2">GitHub Copilot Weekly Releases — November 2 — GitHub Changelog</a></li>
+<li><a href="https://tech-insider.org/codex-cli-0-163-ai-coding-agents-2026/">Codex CLI 0.163 — AI Coding Agents 2026</a></li>
+<li><a href="https://releases.sh/collections/coding-agents/digest/2026-11-02.md">Coding Agents Digest — releases.sh</a></li>
+<li><a href="https://arxiv.org/pdf/2609.26532">REFLEX with Jev for Efficient Selective Control in LLM Agents — arXiv:2609.26532</a></li>
+<li><a href="https://www.alphaxiv.org/abs/2609.26532">REFLEX/Jev — alphaXiv</a></li>
+<li><a href="https://neurips.cc/virtual/2026/169598">Decision Context: Persistent Behavioral Learning for AI Agents — NeurIPS 2026</a></li>
+<li><a href="https://venturebeat.com/orchestration/enterprise-ai-agents-keep-failing-because-they-forget-what-they-learned">Enterprise AI agents keep failing because they forget what they learned — VentureBeat</a></li>
+<li><a href="https://arxiv.org/html/2601.16890">LLM-Based Adversarial Persuasion Attacks on Fact-Checking Systems — arXiv:2601.16890</a></li>
+<li><a href="https://arxiv.org/pdf/2508.08501">GVGAI-LLM: Evaluating Large Language Model Agents with Infinite Games — arXiv:2508.08501</a></li>
+<li><a href="https://lmmarketcap.com/news/archive/2026/11">November 2026 AI News Archive — lmmarketcap</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 12/11/2026</div>
+</body></html>
