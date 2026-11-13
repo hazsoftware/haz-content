@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 13/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 13/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): primeiro modelo da família Claude 5.5 da Anthropic, com 66,4% no Terminal-Bench 4.0 — cerca de 10 pontos acima do Fable 5.1 e do GPT-6 Astra — e líder do Artificial Analysis Intelligence Index com 58 pontos. Preço de US$ 4 (entrada) / US$ 20 (saída) por milhão de tokens, mas consome ~119 mil tokens de saída por tarefa em esforço máximo (contra ~27 mil do GPT-6 Astra).</li>
+<li><strong>Claude Fable 5.2 e Mythos 5.2</strong> (09/11/2026): Anthropic lançou os dois modelos voltados a trabalho técnico de alta dificuldade. Fable 5.2 marca 49,1% no FrontierCode 2.0 em esforço Xhigh, contra 45,5% do Opus 5.5 e 42,8% do GPT-6 Astra; perde para o Opus 5.5 no AA-Briefcase (1785 vs 1800 Elo). Preço de US$ 8 / US$ 40 por milhão de tokens.</li>
+<li><strong>GPT-6 Astra, Sol e Luna</strong> (03/09/2026 e +19 dias): OpenAI lançou a família GPT-6; Astra supera o Opus 5.5 em AutomationBench (41,4% vs 40,0%) e Terminal-Bench-Science 0.1 (64,6% vs 58,7%), mostrando que a liderança em benchmarks está dividida por tarefa entre os dois laboratórios.</li>
+<li><strong>TPU 8tx e TPU 8i Max</strong> (09/11/2026): Google anunciou novos chips de inferência, reforçando a disputa por custo/latência de serving de LLMs em escala.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Google Antigravity CLI</strong>: substituto oficial do Gemini CLI, construído em Go para workflows multiagente assíncronos em background; a documentação majoritária aponta a transição como concluída em 18/06/2026, com Gemini CLI mantido só via chaves pagas do Gemini Enterprise Agent Platform (uma fonte isolada, não confirmada, cita descontinuação total em 01/11/2026 junto com a marca Jules).</li>
+<li><strong>CrewAI v1.15.25</strong> (out/2026) e atualizações de LangChain e LlamaIndex (últimos releases documentados em set/2026) seguem evoluindo integrações nativas com vLLM para serving de alta performance.</li>
+<li><strong>facebookresearch/faiss</strong> voltou a aparecer no trending do GitHub hoje — biblioteca padrão para busca por similaridade vetorial, base de muitos pipelines de RAG.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Especificação MCP de 28/07/2026</strong>: maior revisão desde o lançamento do protocolo — tornou o core stateless, removendo handshakes de sessão e permitindo que servidores MCP escalem sobre infraestrutura HTTP padrão; iniciou janela de 12 meses de depreciação para versões legadas.</li>
+<li><strong>Roadmap MCP de agosto/2026</strong>: identidade de agente passou a ser prioridade, junto com opções de transporte HTTP e primitivas para tarefas delegadas de longa duração.</li>
+<li><strong>n8n-io/n8n</strong> segue no trending do GitHub — plataforma de automação de workflows com recursos de IA nativos e mais de 400 integrações.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Falha de segurança no Kiro (Amazon)</strong>: pesquisadores da Intezer e Kodem Security descobriram que um pedido rotineiro de resumir uma página web podia levar a execução remota de código, via injeção de prompt que alterava a configuração do agente sem aprovação do usuário — catalogada como CVE-2026-10591 e já corrigida pela AWS. O caso reforça que tratar a aprovação do usuário como barreira de segurança é frágil em ferramentas agentic.</li>
+<li><strong>Avaliação contínua em CI/CD</strong>: guias de engenharia de IA de 2026 recomendam Promptfoo, LangSmith, Braintrust e DeepEval como camada de evals integrada ao pipeline, tratando confiabilidade de LLM como testes automatizados.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>ggml-org/whisper.cpp</strong> (C++, +40 ⭐ hoje) — port em C/C++ do modelo de reconhecimento de fala Whisper da OpenAI, usado para transcrição local sem GPU.</li>
+<li><strong>chidiwilliams/buzz</strong> (Python, +48 ⭐ hoje) — app desktop offline de transcrição e tradução de áudio usando Whisper.</li>
+<li><strong>facebookresearch/faiss</strong> (C++, +81 ⭐ hoje) — biblioteca de busca por similaridade e clustering de vetores densos, peça central em stacks de RAG.</li>
+<li><strong>n8n-io/n8n</strong> (TypeScript, +167 ⭐ hoje) — plataforma de automação de workflows com IA embutida e mais de 400 integrações.</li>
+<li><strong>rustdesk/rustdesk</strong> (Rust, +165 ⭐ hoje) — app de acesso remoto self-hosted, alternativa open source ao TeamViewer.</li>
+<li><strong>immich-app/immich</strong> (TypeScript, +155 ⭐ hoje) — solução self-hosted de gerenciamento de fotos e vídeos, com busca por IA sobre o acervo.</li>
+<li><strong>vinta/awesome-python</strong> (Python, +273 ⭐ hoje) — lista curada de bibliotecas Python, referência rápida para escolher ferramentas de projeto.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Ceticismo com camadas de memória de agente.</strong> Benchmarks de 2026 como o AMA-Bench (arXiv 2602.22769) e o EvoMemBench (arXiv 2605.18421, que compara 15 métodos de memória) mostram que baselines de contexto longo (long-context) continuam competitivos e muitas vezes superam designs de memória dedicados em tarefas longas — antes de adicionar uma camada de memória, vale medir contra simplesmente aumentar a janela de contexto.</li>
+<li><strong>2. Evals como parte do CI/CD.</strong> Promptfoo, LangSmith, Braintrust e DeepEval estão sendo integrados a pipelines de deploy para medir regressão de qualidade de LLM a cada release, tratando prompts e agentes como código com testes automatizados.</li>
+<li><strong>3. MCP stateless em produção.</strong> Com a revisão de 28/07/2026 removendo handshakes de sessão, servidores MCP passaram a escalar em infraestrutura HTTP convencional (load balancers, autoscaling padrão), reduzindo a complexidade operacional de expor ferramentas a agentes.</li>
+<li><strong>4. Questionando o custo do Agentic RAG.</strong> Papers de industry track da ACL 2026 comparam RAG agentic (com múltiplas chamadas de LLM para decidir o que recuperar) contra RAG tradicional, mostrando que o ganho de qualidade nem sempre compensa o custo extra de tokens e latência.</li>
+<li><strong>5. Precisão de contexto acima de recall.</strong> O ContextBench (arXiv 2602.05892, 1.136 tarefas em 66 repositórios e 8 linguagens) mostra que scaffolding complexo de agentes de código traz ganho marginal de recall de contexto e às vezes perde para um baseline simples (mini-SWE-agent) baseado em comandos de shell — o gargalo real está na precisão do que é efetivamente usado, não só recuperado.</li>
+<li><strong>6. Hardening de agentes contra prompt injection.</strong> Após o CVE-2026-10591 no Kiro, a recomendação de segurança que ganhou força é tratar arquivos de configuração de agentes como dados sensíveis e nunca permitir que o próprio agente os altere sem um gate de aprovação fora do loop automático.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>ContextBench</strong> (arXiv 2602.05892) — benchmark de recuperação de contexto para agentes de código, com 1.136 tarefas de resolução de issues em 66 repositórios e 8 linguagens; avalia GPT-5, Claude Sonnet 4.5, Gemini 2.5 Pro e Devstral 2 com cinco scaffolds de agente (mini-SWE-agent, SWE-agent, OpenHands, Agentless, Prometheus).</li>
+<li><strong>AMA-Bench</strong> (arXiv 2602.22769, fev/2026) — benchmark de memória para aplicações agentic com subconjuntos reais e sintéticos; conclui que muitos designs de memória perdem para um baseline de contexto longo em tarefas de longo horizonte.</li>
+<li><strong>EvoMemBench</strong> (arXiv 2605.18421, jun/2026) — compara 15 métodos de memória de agente contra baselines de contexto longo; memória ajuda mais quando o contexto atual é insuficiente, não como padrão.</li>
+<li><strong>MemOps</strong> (arXiv 2607.12893, jul/2026) — trata memória conversacional como operações de ciclo de vida (criar, atualizar, deletar, recuperar); mostra que retrieval no nível de sessão supera o nível de turno, e que mesmo modelos de contexto longo têm dificuldade em reconstruir trajetórias ordenadas de estado de memória.</li>
+<li><strong>MemoryAgentBench</strong> (arXiv 2507.05257v3, ICLR 2026) — converte datasets de contexto longo em interações incrementais multi-turno cobrindo quatro competências de memória, e avalia agentes de memória comerciais.</li>
+<li><strong>"Smarter, not Bigger"</strong> (industry track ACL 2026) — combina fine-tuning de embeddings com RAG para geração automática de testes no setor automotivo, mostrando ganho de qualidade sem precisar de um modelo maior.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026">The Minimal AI Engineer Toolkit for 2026 — KDnuggets</a></li>
+<li><a href="https://jellyfish.co/library/best-ai-sdlc-tools/">The 23 Best AI SDLC Tools for Engineering Teams — Jellyfish</a></li>
+<li><a href="https://cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">The engineering leader's guide to AI tools for developers in 2026 — Cortex</a></li>
+<li><a href="https://releases.sh/collections/coding-agents/digest">AI Coding Agents Digest — releases.sh</a></li>
+<li><a href="https://codex.danielvaughan.com/2026/11/03/agentic-coding-landscape-2026-antigravity-kiro-codex-cli/">The 2026 Agentic Coding Landscape: Antigravity, Kiro, Codex CLI</a></li>
+<li><a href="https://www.theregister.com/ai-ml/2026/05/20/bye-bye-gemini-cli-google-nudges-devs-toward-antigravity/5243605">Bye bye Gemini CLI, Google nudges devs toward Antigravity — The Register</a></li>
+<li><a href="https://thehackernews.com/2026/08/amazon-kiro-prompt-injection-can.html">Amazon Kiro prompt injection can lead to RCE — The Hacker News</a></li>
+<li><a href="https://neuraltrust.ai/blog/cve-2026-0830">CVE-2026-0830 — NeuralTrust</a></li>
+<li><a href="https://venturebeat.com/orchestration/mcp-just-got-its-biggest-update-ever-heres-what-changes-for-ai-agents">MCP just got its biggest update ever — VentureBeat</a></li>
+<li><a href="https://siliconangle.com/2026/07/28/biggest-ever-mcp-update-brings-metadata-cybersecurity-enhancements/">Biggest ever MCP update brings metadata, cybersecurity enhancements — SiliconANGLE</a></li>
+<li><a href="https://officechai.com/ai/claude-opus-5-5-benchmarks/">Anthropic Releases Claude Opus 5.5 — officechai</a></li>
+<li><a href="https://officechai.com/ai/fable-5-2-benchmarks/">Anthropic Launches Fable 5.2 & Mythos 5.2 — officechai</a></li>
+<li><a href="https://decrypt.co/378947/anthropic-claude-opus-5-5-fable-price-comparison">Anthropic's New Claude Opus 5.5 Matches Fable at 60% the Price — Decrypt</a></li>
+<li><a href="https://the-decoder.com/claude-opus-5-5-matches-fable-5-1-at-40-percent-lower-cost-as-anthropic-promises-to-fix-claudish-writing/">Claude Opus 5.5 matches Fable 5.1 at 40% lower cost — The Decoder</a></li>
+<li><a href="https://webiano.digital/claude-fable-5-2-beats-opus-5-5-by-only-3-6-points-on-frontiercode/">Claude Fable 5.2 beats Opus 5.5 by only 3.6 points on FrontierCode</a></li>
+<li><a href="https://arxiv.org/abs/2602.05892">ContextBench: A Benchmark for Context Retrieval in Coding Agents — arXiv</a></li>
+<li><a href="https://arxiv.org/html/2602.22769v2">AMA-Bench — arXiv</a></li>
+<li><a href="https://www.alphaxiv.org/abs/2605.18421.md">EvoMemBench — alphaXiv</a></li>
+<li><a href="https://www.alphaxiv.org/abs/2607.12893">MemOps: Benchmarking Lifecycle Memory Operations — alphaXiv</a></li>
+<li><a href="https://arxiv.org/html/2507.05257v3">MemoryAgentBench — arXiv</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — repositórios diários</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 13/11/2026</div>
+</body></html>
