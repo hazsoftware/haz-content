@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 14/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 14/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-6 Cyber</strong> (OpenAI, lançado 05/11/2026): disponibilizado via acesso restrito "Daybreak Red" para defensores selecionados; classificado no nível "Critical" de risco de cibersegurança da própria OpenAI. Score reportado de 48,5% no benchmark ExploitGym — acesso ainda não é geral via API pública.</li>
+<li><strong>Claude Opus 5.5</strong> (Anthropic, 22/09/2026): primeiro modelo da família Claude 5.5; marca ~94,3% no Global-MMLU e 93,9% no SWE-bench Multilingual. Atenção: o Opus 4.8 fast mode será desativado em 30/11/2026 — quem ainda usa esse modo precisa migrar antes do fim do mês.</li>
+<li><strong>Gemini 4 Argon</strong> (Google, anunciado 30/09, GA 13/10/2026): segundo comparativos de terceiros, lidera benchmarks na frente de GPT-6 Astra e Claude 5.1 Fable em várias categorias — vale conferir antes de trocar de provider em produção.</li>
+<li><strong>MCP (Model Context Protocol) spec 2026-07-28</strong>: maior atualização desde o lançamento do protocolo — arquitetura <em>stateless</em> (fim do handshake initialize/initialized e de sessões sticky), validação obrigatória do parâmetro <code>iss</code> contra ataques de mix-up, e "MCP Apps" (UIs server-rendered dentro do protocolo). SDKs TypeScript e Python já passaram de 1 bilhão de downloads totais, com ~500M/mês combinados nos SDKs Tier-1.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>vLLM v0.33.0</strong> (01-02/11/2026): 927 commits de 389 contribuidores; traz melhorias em speculative decoding, novo decode path para ROCm e endpoint <code>/v1/decisions</code>. Breaking change importante: os artefatos oficiais passam a exigir CUDA 13.0, removendo suporte a CUDA 12.9.</li>
+<li><strong>headroom</strong> (headroomlabs-ai, 120⭐ hoje no GitHub): comprime outputs de ferramentas, logs e chunks de RAG antes de chegarem ao LLM, reduzindo uso de tokens — ferramenta nova diretamente ligada à onda de "context engineering".</li>
+<li><strong>OpenViking</strong> (volcengine, 113⭐ hoje): banco de contexto para agentes que unifica memória, RAG de conhecimento e skills em um único armazenamento.</li>
+<li><strong>mcp-for-blender</strong> (ahujasid, 136⭐ hoje): plugin que expõe o Blender via MCP para controle por qualquer LLM — exemplo do padrão "MCP server para app desktop" se espalhando além de IDEs.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>claude-plugins-official</strong> (Anthropic, 130⭐ hoje): diretório oficial gerenciado de plugins para Claude Code, consolidando a distribuição de skills/plugins em um marketplace first-party.</li>
+<li><strong>NVIDIA SkillSpector</strong> (190⭐ hoje): scanner de segurança open-source que audita "skills" de agentes de IA (Claude Code, MCP) em busca de vulnerabilidades, prompt injection e risco de exfiltração de dados — resposta direta ao crescimento descontrolado de skills de terceiros.</li>
+<li><strong>Dado de adoção (Jellyfish, nov/2026)</strong>: agentes de IA já geram cerca de 1 em cada 5 pull requests na empresa mediana, e mais de 50% nas empresas do top 10% em adoção de IA.</li>
+<li><strong>AI Engineer Code Summit</strong> (10-12/11/2026, São Francisco): edição focada especificamente em coding agents, com acesso presencial mediante inscrição/aplicação.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Conductor Cloud</strong> entra em modo somente leitura em 13/11/2026 e encerra em 20/11/2026, com exclusão de dados a partir dessa data — quem usa precisa migrar workloads antes do prazo.</li>
+<li><strong>Cloudflare Workers AI</strong> também remove um conjunto de modelos do catálogo em 20/11/2026 — checar se algum modelo em produção está na lista de descontinuados.</li>
+<li>vLLM v0.33.0 (ver acima) reforça a tendência de 2026 de serving stacks investindo pesado em speculative decoding e suporte a hardware alternativo (ROCm) além de CUDA.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>Alishahryar1/free-claude-code</strong> (Python, 787⭐ hoje) — ferramenta que permite usar Claude Code e outros agentes de coding sem custo, integrando terminal, IDE, app e browser.</li>
+<li><strong>NVIDIA/SkillSpector</strong> (Python, 190⭐ hoje) — scanner de segurança para skills de agentes de IA, detectando prompt injection e exfiltração de dados.</li>
+<li><strong>ahujasid/mcp-for-blender</strong> (Python, 136⭐ hoje) — plugin MCP que conecta o Blender 3D a qualquer LLM.</li>
+<li><strong>anthropics/claude-plugins-official</strong> (130⭐ hoje) — diretório oficial de plugins para Claude Code mantido pela Anthropic.</li>
+<li><strong>headroomlabs-ai/headroom</strong> (Python, 120⭐ hoje) — comprime logs, outputs de ferramentas e chunks de RAG antes de enviá-los ao LLM, para economizar tokens.</li>
+<li><strong>volcengine/OpenViking</strong> (Python, 113⭐ hoje) — banco de contexto unificado (memória + RAG + skills) para agentes de IA.</li>
+<li><strong>langchain-ai/langgraph</strong> (Python, 49⭐ hoje) — framework para construir agentes resilientes, segue como referência mesmo em meio à onda de frameworks mais novos.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context Engineering</strong>: substituiu "prompt engineering" como o termo dominante em 2026 para descrever o trabalho real de fazer agentes funcionarem bem — não é só escrever o prompt, é curar e comprimir tudo que entra na janela de contexto (memória, chunks de RAG, outputs de ferramentas). A ferramenta <strong>headroom</strong> (120⭐ hoje no GitHub) existe especificamente para isso: comprimir outputs antes de chegarem ao LLM.</li>
+<li><strong>Spec-driven development</strong>: proposto como alternativa "production-grade" ao vibe coding, com ferramentas como Speckit e OpenSpec formalizando specs antes de gerar código. Crítica recorrente (inclusive de equipes da Tencent): essas ferramentas assumem um planejamento linear e único, que não reflete bem o desenvolvimento iterativo real.</li>
+<li><strong>Agentic RAG</strong>: em vez de um pipeline fixo de retrieval, um LLM orquestrador decide quais ações tomar e se deve iterar a busca. O paper "Is Agentic RAG worth it?" (ACL 2026, industry track) faz uma comparação experimental direta entre essa abordagem e RAG tradicional.</li>
+<li><strong>Auditoria de segurança de skills/plugins de agentes</strong>: com o crescimento do marketplace oficial de plugins do Claude Code e do ecossistema MCP, ferramentas como o NVIDIA SkillSpector (190⭐ em um dia) endereçam o risco de skills de terceiros carregarem prompt injection ou exfiltração de dados.</li>
+<li><strong>Orquestração multi-agente como skill central</strong>: segundo levantamento da LeadDev, 47% dos devs querem se especializar especificamente em prompt engineering e gerenciamento de múltiplos agentes — o papel do dev está migrando de "escrever cada linha" para "orquestrar e validar o que os agentes produzem".</li>
+<li><strong>MLOps de produção</strong>: análise da Stack Overflow de outubro/2026 mostra uso de MLflow triplicando entre devs, sinalizando que a skill em alta não é mais só treinar modelos, mas rastrear e monitorar modelos já em produção.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Is Agentic RAG worth it?</strong> (ACL 2026, Industry Track) — comparação experimental entre RAG agentic (LLM decide ações e iteração) e pipelines de RAG tradicionais, medindo quando a orquestração extra realmente compensa o custo.</li>
+<li><strong>Smarter, not Bigger: Fine-Tuned RAG-Enhanced LLMs for Automotive HIL Testing</strong> (arXiv 2511.22584) — combina fine-tuning de embeddings com RAG para gerar casos de teste hardware-in-the-loop no setor automotivo, mostrando ganhos sem aumentar o tamanho do modelo.</li>
+<li><strong>SAFTAC</strong> — fine-tuning aumentado por simulação para LLMs open-source aplicados a design de circuitos analógicos; parte de uma onda maior de modelos fine-tuned por domínio específico, especialmente em engenharia e biomedicina.</li>
+<li><strong>Decision Context: Persistent Behavioral Learning for AI Agents</strong> — ataca o problema de agentes que não aprendem com correções do usuário entre sessões, propondo memória comportamental persistente.</li>
+<li><strong>Digital nudges para decisões rápidas sem geração</strong> — propõe modelos de decisão baratos como alternativa a loops de agentes LLM lentos e caros para decisões simples e repetitivas.</li>
+<li><strong>DSAEval</strong> — benchmark para avaliar agentes de data science em um conjunto amplo de problemas reais, em alta nos rankings de papers da awesomepapers.io.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://releases.sh/collections/coding-agents/digest/2026-11-02">releases.sh — digest de coding agents, 02/11/2026</a></li>
+<li><a href="https://www.everydev.ai/p/news-weekly-ai-dev-news-digest-november-1-november-6-2026">EveryDev.ai — digest semanal 01-06/11/2026</a></li>
+<li><a href="https://www.havoptic.com/blog/weekly-digest-week-44-2026">Havoptic — AI Dev Tools Weekly, semana 44/2026</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Stack Overflow Blog — Is AI really reshaping the developer market? (22/10/2026)</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">LeadDev — Engineering skills are being rewritten by AI</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — daily (en)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, daily</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL Anthology — ACL 2026 Industry Track</a></li>
+<li><a href="https://papers.cool/arxiv/2511.22584">papers.cool — arXiv 2511.22584</a></li>
+<li><a href="https://awesomepapers.io/llm-papers/topics/LLMs">awesomepapers.io — LLM papers em alta</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Model Context Protocol — changelog da spec 2026-07-28</a></li>
+<li><a href="https://aaif.io/blog/mcp-graduates-to-enterprise-infrastructure-stateless-architecture-formal-governance-and-security">Agentic AI Foundation — MCP graduates to enterprise infrastructure</a></li>
+<li><a href="https://composio.dev/content/mcp-2026-07-28-update-statelessness-apps-auth">Composio — The MCP 2026-07-28 Update</a></li>
+<li><a href="https://www.softwarereviews.com/vendor-technology-notes/big-5-ai-vendor-roundup-week-of-november-2-2026">SoftwareReviews — Big 5 AI Vendor Roundup, semana de 02/11/2026</a></li>
+<li><a href="https://thursdai.news/releases/2026-11">ThursdAI — Everything AI Released in November 2026</a></li>
+<li><a href="https://labmemo.com/vllm-v0-33-0-cuda13-speculative-2026-11/">labmemo.com — vLLM v0.33.0, CUDA13, speculative decoding (11/2026)</a></li>
+<li><a href="https://alexcloudstar.com/blog/context-engineering-ai-coding-2026/">alexcloudstar.com — Context Engineering in 2026</a></li>
+<li><a href="https://thenewstack.io/rag-isnt-dead-but-context-engineering-is-the-new-hotness/">The New Stack — RAG isn't dead, but context engineering is the new hotness</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 14/11/2026</div>
+</body></html>
