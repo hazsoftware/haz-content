@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 15/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 15/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>GPT-5.6 (Sol/Terra/Luna)</strong> da OpenAI continua dominando benchmarks de coding agents meses após o lançamento: Sol marca 88,8% no Terminal-Bench 2.1 (Sol Ultra chega a 91,9%) e lidera o Agents' Last Exam com 53,6%. Terra entrega resultado próximo de Sol por bem menos custo — referência de preço/benchmark pra quem escolhe modelo pra agentes de código.</li>
+<li><strong>Claude Haiku 5.5</strong> (Anthropic, lançado 07/10/2026) segue como opção de baixo custo/baixa latência pra workloads de produção que não precisam do modelo "flagship".</li>
+<li><strong>MCP 2026-07-28</strong>: a especificação do Model Context Protocol migrou pra um núcleo <em>stateless</em> (de protocolo bidirecional stateful pra request/response), com Tasks virando extensão oficial e novos headers <code>Mcp-Method</code>/<code>Mcp-Name</code> pra roteamento em gateways sem inspecionar o corpo da requisição. Governança passou pra Agentic AI Foundation, sob a Linux Foundation; recursos deprecados continuam funcionando por pelo menos 12 meses.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Claude Code</strong> (Anthropic) lançou três releases em novembro/2026: v2.1.317 (02/11) trouxe relatório de custo pra admins de gateway e hooks do Agent SDK que agora podem bloquear a execução em caso de falha; v2.1.318 (03/11) adicionou avisos antecipados antes da expiração do login claude.ai; v2.1.319 (06/11) seguiu o ciclo semanal de patches.</li>
+<li><strong>Atenção</strong>: o fast mode do Opus 4.8 no Claude Code será desativado em 30/11/2026 — depois disso, requisições em fast mode nesse modelo retornam erro em vez de cair pro Opus 4.8 padrão.</li>
+<li><strong>Cursor</strong> segue investindo em agentes em nuvem que rodam por dias e controle de agentes locais via iPhone (desde 06/10/2026), continuação do redesign agent-first "Cursor 3" lançado em abril/2026.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li>Dado de adoção (Jellyfish): agentes de IA já geram ~1 em cada 5 pull requests na empresa mediana, e mais de 50% nas top 10% das empresas mais avançadas em adoção de IA — sinal de que orquestrar múltiplos agentes está virando parte central do papel de dev.</li>
+<li><strong>AI Engineer Code Summit</strong> (10–12/11, San Francisco) reuniu o ecossistema de coding agents nesta semana, junto do KubeCon (09–12/11) e das Hinton Lectures (09–11/11).</li>
+<li>Brownouts programados nas GitHub Actions que usam <code>pull_request_target</code> em repositórios públicos ocorrem em 09 e 16/11 — times com CI dependente desse trigger devem revisar workflows antes da janela de 16/11.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Computer Use do Gemini</strong> (Google) virou GA na semana de 26/10–01/11/2026, tanto na Gemini API quanto na Enterprise Agent Platform — mais uma opção de controle de UI/browser por agente pra produção, concorrendo direto com o computer use da Anthropic.</li>
+<li>Avisos de desligamento pra quem depende de infra de terceiros: Conductor Cloud fica read-only em 13/11 e começa a deletar dados em 20/11; Cloudflare Workers AI remove alguns modelos em 20/11 — vale migrar workloads antes dessas datas.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>langchain-ai/langchain</strong> (Python, +55⭐ hoje) — framework de orquestração de agentes, segue no trending diário mesmo anos após o lançamento.</li>
+<li><strong>facebookresearch/faiss</strong> (C++, +66⭐ hoje) — biblioteca de busca por similaridade/clustering vetorial, base de boa parte das stacks de RAG.</li>
+<li><strong>lance-format/lance</strong> (Rust, +4⭐ hoje) — formato de "lakehouse" aberto pra dados multimodais com indexação vetorial e versionamento, ganhando espaço como alternativa ao Parquet em pipelines de IA.</li>
+<li><strong>microsoft/playwright</strong> (TypeScript, +77⭐ hoje) — automação de browser que virou peça-chave em agentes com "computer use"/navegação web.</li>
+<li><strong>QwenLM/qwen-code</strong> — agente de coding open-source que vive no terminal, aparecendo no trending do GitHub como alternativa aberta ao Claude Code/Codex CLI.</li>
+<li><strong>ollama/ollama</strong> (Go, ~183k⭐ no total) — segue como motor padrão pra rodar LLMs quantizados localmente, peça central do "local-first toolkit" de 2026.</li>
+<li><strong>infiniflow/ragflow</strong> (Python, ~92k⭐ no total) — motor de RAG open-source, referência pra quem monta pipeline de recuperação aumentada em produção.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Orquestração de múltiplos agentes</strong> — virou a skill central citada por executivos (GitLab) e pela ODSC (22/10/2026): o papel do dev está migrando de "escrever código" pra "orquestrar e validar agentes", reforçado pelo dado da Jellyfish de que agentes já geram 1 em 5 PRs na empresa mediana.</li>
+<li><strong>Migração pro MCP stateless</strong> (spec 2026-07-28) — adaptar servidores MCP pro modelo request/response, usando a extensão oficial de Tasks e os headers Mcp-Method/Mcp-Name pra roteamento em gateway; quem não migrar perde recursos legados em até 12 meses.</li>
+<li><strong>Avaliação (eval) integrada ao CI/CD</strong> — ferramentas como Promptfoo, LangSmith, Braintrust e DeepEval sendo plugadas direto no pipeline de CI, pra pegar regressão de prompt/modelo antes do deploy em vez de só descobrir em produção.</li>
+<li><strong>Stack local-first com modelos quantizados</strong> — Ollama e MLX (Apple Silicon) rodando modelos quantizados com um único comando, reduzindo custo de inferência em dev/teste antes de ir pra produção.</li>
+<li><strong>RAG agentic vs. RAG clássico</strong> — comparações experimentais (ex. "Is Agentic RAG worth it?") mostrando em que cenários vale a pena um agente decidir a estratégia de retrieval em vez de um pipeline fixo de embedding+busca.</li>
+<li><strong>Monitoramento de custo/token em workflows de agentes</strong> — acompanhar uso de tokens e sinais de "context overload" (degradação de resposta por contexto saturado) como prática de produção, não só otimização de custo.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Decision Context: Persistent Behavioral Learning for AI Agents</strong> — propõe mecanismo pra agentes LLM reterem correções do usuário entre sessões, atacando o problema de agentes "esquecerem" feedback repetido.</li>
+<li><strong>SAFTAC: Simulation-Augmented Fine-Tuning of Open-Source LLMs for Analog Circuit Design</strong> — fine-tuning de LLMs open-source com dados de simulação pra projeto de circuitos analógicos, exemplo de fine-tuning de domínio de engenharia especializado.</li>
+<li><strong>Is Agentic RAG worth it? An experimental comparison of RAG approaches</strong> — comparação experimental entre RAG agentic e abordagens tradicionais de RAG, útil pra decidir arquitetura de retrieval.</li>
+<li><strong>SWE-Compass</strong> (arXiv 2511.05459) — benchmark unificado com 2.000 instâncias verificadas (PRs reais do GitHub), cobrindo 8 tipos de tarefa, 8 cenários e 10 linguagens, testando 10 LLMs sob os frameworks SWE-Agent e Claude Code.</li>
+<li><strong>LoCoBench-Agent</strong> (arXiv 2511.13998) — benchmark interativo pra avaliar agentes LLM em engenharia de software de contexto longo, cobrindo interação multi-turno, uso de ferramentas e recuperação de erros.</li>
+<li><strong>ContextBench</strong> — benchmark focado em recuperação de contexto (retrieval) especificamente pra coding agents, medindo quão bem um agente acha o trecho certo de código antes de editar.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026">The Minimal AI Engineer Toolkit for 2026 — KDnuggets</a></li>
+<li><a href="https://jellyfish.co/library/best-ai-sdlc-tools/">The 23 Best AI SDLC Tools for Engineering Teams — Jellyfish</a></li>
+<li><a href="https://www.havoptic.com/blog/weekly-digest-week-44-2026">AI Dev Tools Weekly — Week 44, 2026 — Havoptic</a></li>
+<li><a href="https://www.everydev.ai/p/news-weekly-ai-dev-news-digest-november-1-november-6-2026">Weekly AI Dev News Digest, Nov 1–6 2026 — everydev.ai</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">Engineering skills are being rewritten by AI — LeadDev</a></li>
+<li><a href="https://opendatascience.com/ai-builder-skills-2026/">AI Builder Skills 2026 — Open Data Science</a></li>
+<li><a href="https://lmmarketcap.com/news/archive/2026/11">November 2026 AI News Archive — LM Market Cap</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP 2026-07-28 release notes</a></li>
+<li><a href="https://claude.com/it/blog/bringing-mcp-2026-07-28-to-claude">Bringing MCP 2026-07-28 to Claude — Anthropic</a></li>
+<li><a href="https://artificialanalysis.ai/articles/gpt-5-6-has-landed">GPT-5.6 has landed — Artificial Analysis</a></li>
+<li><a href="https://layerlens.ai/blog/gpt-5-6-benchmark-review-sol-terra-luna">GPT-5.6 Benchmark Review: Sol, Terra, Luna — LayerLens</a></li>
+<li><a href="https://claude-world.com/articles/claude-code-november-2026-whats-new/">What's New in Claude Code: November 2026</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — daily</a></li>
+<li><a href="https://arxiv.org/abs/2511.05459">SWE-Compass — arXiv 2511.05459</a></li>
+<li><a href="https://arxiv.org/abs/2511.13998">LoCoBench-Agent — arXiv 2511.13998</a></li>
+<li><a href="https://awesomepapers.io/llm-papers/topics/LLMs">Awesome LLM Papers — trending topics</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 15/11/2026</div>
+</body></html>
