@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 16/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 16/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Google ADK 2.14.0</strong> (07/11/2026): o Agent Development Kit do Google, framework Python open-source para construir, avaliar e fazer deploy de agentes, chegou à versão 2.14.0 graduando o suporte ao protocolo <strong>A2A</strong> e a sandboxes de execução — relevante pra quem já orquestra múltiplos agentes em produção.</li>
+<li><strong>OpenAI Codex CLI 0.163.0</strong> (GA em 15/10/2026) e sprint <strong>"28 Days of Shipping"</strong> (05/10 a 01/11/2026): série de updates incrementais no CLI de coding agent da OpenAI, parte de um ciclo de lançamentos mensal mais agressivo.</li>
+<li><strong>Google aposenta Gemini CLI e a marca Jules</strong> (01/11/2026): o <strong>Antigravity</strong> passa a ser o agente de coding único do Google, consolidando a oferta anterior fragmentada em três produtos.</li>
+<li><strong>Devin (Cognition)</strong>: digest de novembro reporta aumento do limite de multi-repo scan de 500 para <strong>1.000 repositórios</strong> por varredura, além de controles de "sign-out-everywhere" e compartilhamento de sessão.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol) — spec 2026-07-28</strong>: ainda é a mudança mais relevante em vigor — protocolo migrou de modelo stateful/bidirecional para <strong>request/response stateless</strong>, eliminando o handshake de <code>initialize</code> e o header de sessão, o que permite balanceamento round-robin simples entre instâncias. Validação obrigatória do parâmetro <code>iss</code> fecha uma classe de ataques de mix-up. SDKs Tier 1 somam quase <strong>500 milhões de downloads/mês</strong>.</li>
+<li><strong>Avaliação em CI/CD</strong>: guias de engenharia de IA para 2026 (KDnuggets) recomendam incorporar frameworks de eval como <strong>Promptfoo, LangSmith ou Braintrust</strong> direto no pipeline de CI/CD como prática padrão, não opcional.</li>
+<li><strong>MLflow</strong>: post do Stack Overflow Blog (22/10/2026) reporta <strong>triplicação</strong> de menções a MLflow entre candidatos a vaga, refletindo demanda por quem sabe versionar e rastrear modelos em produção.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Adoção de agentes em PRs</strong>: relatório da Jellyfish (AI Engineering Trends, dados até agosto/2026) mostra que a fração de pull requests gerados por agentes de IA subiu de quase zero no início de 2025 para <strong>~22% na mediana</strong> e <strong>53% no percentil 90</strong> das equipes.</li>
+<li><strong>Sandboxed execution para coding agents</strong>: entrada no Thoughtworks Technology Radar (volume de novembro/2026) reforça sandboxing de execução como prática recomendada para agentes autônomos que rodam código.</li>
+<li><strong>Context engineering</strong>: mesmo Radar trata gestão do context window como preocupação arquitetural central — compressão stateful e sub-agentes para resumir outputs intermediários em workflows longos.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Qdrant e Lance em alta no GitHub</strong> (ver seção de repositórios) — sinal de que vector search e formatos de dados multimodais continuam como peça central de stacks de RAG em produção.</li>
+<li><strong>Observabilidade de LLM/RAG</strong>: sem anúncio específico de novembro confirmado, mas o tema segue em alta — integrações como Zilliz Cloud + Datadog e dashboards nativos de Pinecone/Weaviate (limitados a latência e recall por query) mostram lacuna que ferramentas como Langfuse tentam cobrir.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>qdrant/qdrant</strong> (Rust, ⭐ 15 hoje) — banco de dados vetorial de alta performance para busca semântica em aplicações de IA; peça comum em stacks RAG.</li>
+<li><strong>lance-format/lance</strong> (Rust, ⭐ 18 hoje) — formato de tabela "lakehouse" para dados multimodais, com acesso aleatório rápido e indexação vetorial nativa.</li>
+<li><strong>openai/openai-cookbook</strong> (Jupyter Notebook, ⭐ 40 hoje) — repositório oficial de exemplos e guias práticos para a API da OpenAI, referência rápida para integração.</li>
+<li><strong>f/prompts.chat</strong> (MDX, ⭐ 276 hoje) — plataforma comunitária para compartilhar e coletar prompts de IA, com opção self-hosted para empresas.</li>
+<li><strong>OpenClaw</strong> (~385K stars acumuladas) — assistente pessoal de IA open-source citado como um dos projetos de crescimento mais rápido da história do GitHub em 2026, com arquitetura local-first e múltiplos canais/skills.</li>
+<li><strong>NousResearch/Hermes Agent</strong> (~223K stars acumuladas) — agente autoaprimorável com loop de aprendizado contínuo, mantido pela Nous Research.</li>
+<li><strong>vllm-project/vllm</strong> (~88K stars acumuladas) — motor de serving de LLMs de alto throughput, segue como padrão de facto para inferência em produção.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context engineering</strong>: foco se deslocou de "prompt engineering" para desenhar ativamente o que entra na janela de contexto — compressão stateful de histórico e uso de sub-agentes para resumir etapas intermediárias em workflows longos, técnica destacada no Thoughtworks Radar de novembro/2026 como preocupação arquitetural, não só otimização.</li>
+<li><strong>Harness engineering</strong>: termo que vem ganhando tração para descrever devs construindo suas próprias ferramentas/wrappers em torno de coding agents (CLIs, scripts de orquestração, guardrails customizados) em vez de depender só das ferramentas prontas dos vendors.</li>
+<li><strong>Avaliação contínua (eval-driven development)</strong>: integrar frameworks como Promptfoo, LangSmith ou Braintrust ao CI/CD para testar regressões de prompt/modelo antes do deploy, tratando eval como parte do pipeline de testes padrão.</li>
+<li><strong>Agentic RAG</strong>: abordagem em que o próprio LLM orquestra o processo de retrieval, decidindo quais ações tomar, quando executá-las e se deve iterar — tema de paper do ACL 2026 questionando diretamente se o ganho justifica a complexidade adicional ("Is Agentic RAG Worth It?").</li>
+<li><strong>Orquestração multi-agente como skill central</strong>: hiring posts de 2026 (GitLab, Stack Overflow Blog) descrevem deslocamento do papel do dev de "escrever cada linha" para "orquestrar sistemas e guiar múltiplos agentes de IA", com MLOps e AI security como skills de suporte em alta (MLflow triplicou em menções, segundo o Stack Overflow Blog).</li>
+<li><strong>Persistent behavioral learning em agentes</strong>: linha de pesquisa (arXiv, feed de 09/11/2026) ataca o problema de agentes que não retêm correções entre sessões — ou seja, repetem o mesmo erro corrigido pelo usuário em uma conversa anterior.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>SAFTAC</strong> (arXiv, feed de 09/11/2026) — fine-tuning de LLMs open-source com dados aumentados por simulação, aplicado a design de circuitos analógicos; argumenta que fine-tuning de domínio entrega modelos de alta performance a uma fração do custo de treinar do zero.</li>
+<li><strong>Persistent Behavioral Learning</strong> (arXiv, feed de 09/11/2026) — propõe mecanismo para agentes LLM reterem correções de comportamento entre sessões, hoje perdidas a cada nova conversa.</li>
+<li><strong>Digital nudges para agentes "generation-free"</strong> (arXiv, feed de 09/11/2026) — investiga como guiar agentes sem gerar texto a cada passo, motivado pelo custo e latência de agentes LLM tradicionais.</li>
+<li><strong>RAG-enhanced LLM para suporte a decisão clínica</strong> (arXiv, feed de 09/11/2026) — aplica RAG a cenários de decisão médica, combinando recuperação de literatura com geração contextualizada.</li>
+<li><strong>Is Agentic RAG Worth It?</strong> (ACL 2026, track industry) — comparação entre RAG tradicional e agentic RAG (onde o LLM decide dinamicamente as ações de retrieval), medindo custo-benefício da orquestração adicional.</li>
+<li><strong>Fine-tuning + RAG para testes HIL automotivos</strong> (ACL 2026, track industry) — combina fine-tuning de embeddings em dataset de domínio com indexação vetorial para testes hardware-in-the-loop na indústria automotiva.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.thoughtworks.com/de-de/radar/techniques/model-context-protocol-mcp">Thoughtworks Technology Radar — Model Context Protocol (MCP)</a></li>
+<li><a href="https://www.thoughtworks.com/de-de/radar/techniques/sandboxed-execution-for-ai-agents">Thoughtworks Technology Radar — Sandboxed execution for AI agents</a></li>
+<li><a href="https://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026">KDnuggets — The Minimal AI Engineer Toolkit for 2026</a></li>
+<li><a href="https://jellyfish.co/?p=35658">Jellyfish — The 23 Best AI SDLC Tools for Engineering Teams</a></li>
+<li><a href="https://dev.to/david_whitney/the-ai-engineering-baseline-4213">DEV Community — The AI Engineering Baseline (harness engineering)</a></li>
+<li><a href="https://codex.danielvaughan.com/2026/11/03/agentic-coding-landscape-2026-antigravity-kiro-codex-cli/">The 2026 Agentic Coding Landscape — Antigravity, Kiro, Codex CLI</a></li>
+<li><a href="https://releases.sh/collections/coding-agents/digest/2026-11-02.md">releases.sh — Coding agents digest, 02/11/2026</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Stack Overflow Blog — Is AI really reshaping the developer market?</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Model Context Protocol — Spec update 2026-07-28</a></li>
+<li><a href="https://claude.com/blog/bringing-mcp-2026-07-28-to-claude">Claude — Bringing MCP 2026-07-28 to Claude</a></li>
+<li><a href="https://papers.cool/arxiv/2511.22584">papers.cool — arXiv feed snapshot, 09/11/2026</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL Anthology — Proceedings of ACL 2026 (Industry Track)</a></li>
+<li><a href="https://awesomepapers.io/llm-papers/topics/LLMs">awesomepapers.io — Trending LLM papers</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily (inglês)</a></li>
+<li><a href="https://blog.bytebytego.com/p/top-ai-github-repositories-in-2026">ByteByteGo — Top AI GitHub Repositories in 2026</a></li>
+<li><a href="https://pub.towardsai.net/11-ai-github-repositories-every-developer-is-watching-in-2026-991550639d02">Towards AI — 11 AI GitHub Repositories Every Developer Is Watching in 2026</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 16/11/2026</div>
+</body></html>
