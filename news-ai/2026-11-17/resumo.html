@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 17/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 17/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Google ADK v2.6.0</strong> (novembro/2026): o framework multi-agente do Google chegou à v2.6.0 adicionando métricas na convenção semântica OpenTelemetry gen_ai, padronizando observabilidade de agentes multi-step.</li>
+<li><strong>Grok API — mudança de política de watermarking</strong> (14/11/2026): a xAI tornou a marcação de conteúdo gerado opt-in por padrão em todas as variantes de modelo Grok via API.</li>
+<li><strong>Mistral Large 4</strong> (reportado em 05/11/2026) e <strong>GPT-6 Cyber / GPT-Image 2.6</strong> (OpenAI, 04-05/11/2026) aparecem em trackers de terceiros como lançamentos recentes — números ainda não confirmados em changelog oficial, vale checar antes de depender deles.</li>
+<li><strong>LangChain core v1.6.4</strong> (21/09/2026) e pacote <strong>langchain v1.3.15</strong> (20/09/2026); <strong>CrewAI v1.15.25</strong> (outubro/2026) — releases recentes das libs de orquestração de agentes mais usadas em produção.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain SmithDB</strong>: anunciado no Interrupt 2026, é um banco de dados escrito do zero em Rust para workloads de observabilidade de agentes (árvores de spans grandes e profundas), com P50 de carregamento de trace tree reportado em ~92ms — ~12x mais rápido que a stack anterior (número de agregador, não confirmado no post oficial da LangChain).</li>
+<li><strong>traceAI</strong> e <strong>OpenObserve</strong>: consolidaram instrumentação OpenTelemetry nativa cobrindo LangChain, LlamaIndex, CrewAI, AutoGen e 30+ frameworks, permitindo um único exporter de tracing cross-framework.</li>
+<li><strong>Lance</strong> (<a href="https://github.com/lance-format/lance">lance-format/lance</a>, Rust): formato de lakehouse aberto para dados multimodais de IA com acesso aleatório rápido e indexação vetorial nativa, em alta no GitHub hoje — alternativa ao Parquet para pipelines de ML/RAG.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Codex CLI 0.147.0</strong> (07/08/2026): passou a importar skills no formato do Cursor, mas ainda não importa skills do Claude Code — portabilidade de SKILL.md entre ferramentas continua parcial.</li>
+<li><strong>Cursor</strong>: centralizou plugins, skills, MCPs, subagents, rules, commands e hooks numa página única ("Customize"); o skill <strong>/automate</strong> gera automações a partir de descrição em linguagem natural.</li>
+<li><strong>Claude Code v2.1.215</strong>: parou de rodar automaticamente os skills <code>/verify</code> e <code>/code-review</code> — agora precisam ser invocados manualmente. A v2.1.214 corrigiu um bypass de permissão em PowerShell 5.1 e em redirects do Bash.</li>
+<li><strong>AGENTS.md</strong>: padrão cross-tool para instruções de agentes, doado à Agentic AI Foundation (Linux Foundation) em dezembro/2025, continua como formato de fato para "rules files" entre Claude Code, Codex e Cursor em 2026.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>MCP spec 2026-07-28</strong>: maior revisão do Model Context Protocol desde o lançamento — remove o handshake de <code>initialize</code> e o header <code>Mcp-Session-Id</code>, migrando para arquitetura totalmente stateless; valida obrigatoriamente o parâmetro <code>iss</code> (auth hardening); e a Agentic AI Foundation formalizou política de deprecation de 12 meses.</li>
+<li><strong>MCP Apps</strong>: servidores MCP agora podem enviar suas próprias interfaces interativas renderizadas no servidor, em vez de depender só do cliente.</li>
+<li><strong>Coder</strong> (<a href="https://github.com/coder/coder">coder/coder</a>, Go): em alta no GitHub trending hoje — plataforma de ambientes de desenvolvimento seguros para devs e agentes de IA.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>elementalsouls/Claude-BugHunter</strong> (Python, ⭐ 1.007 hoje) — bundle de skills para Claude Code voltado a bug hunting e trabalho de red-team externo.</li>
+<li><strong>NVIDIA/SkillEvaluator</strong> (Python, ⭐ 969 hoje) — framework da NVIDIA para avaliar skills e plugins de agentes de IA, com quality gates e avaliação em tempo real.</li>
+<li><strong>tradermonty/claude-trading-skills</strong> (Python, ⭐ 771 hoje) — skills de Claude Code para investidores e traders: análise de mercado, gráficos e screeners.</li>
+<li><strong>kajisho5/ffmpeg-skill</strong> (Python, ⭐ 367 hoje) — editor de vídeo local para agentes de código, com 42 ferramentas FFmpeg expostas via servidor MCP.</li>
+<li><strong>usestrix/strix</strong> (Python, ⭐ 325 hoje) — ferramenta open-source de pentest com IA para encontrar e corrigir vulnerabilidades de aplicação.</li>
+<li><strong>google-research/paper-orchestra</strong> (Python, ⭐ 313 hoje) — framework multi-agente do Google Research para escrita automatizada de papers de pesquisa em IA.</li>
+<li><strong>lance-format/lance</strong> (Rust, ⭐ 16 hoje) — formato de lakehouse aberto para dados multimodais de IA com indexação vetorial nativa.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li><strong>1. Context engineering como habilidade estruturante de 2026</strong>: curadoria deliberada de tudo que entra na context window do agente — instruções, código, histórico do git, docs, definições de tools, histórico de conversa — não só o prompt em si. A Anthropic chama isso de "skill de carga" do ano em seu material de engenharia agêntica; Thoughtworks/Martin Fowler documenta o Claude Code como pioneiro na prática. Um estudo citado por blogs do setor encontrou o contraponto: arquivos de contexto gerados por LLM reduziram a taxa de sucesso de agentes e aumentaram o custo de inferência em mais de 20%, ou seja, "mais contexto" nem sempre ajuda.</li>
+<li><strong>2. Skills carregadas sob demanda (SKILL.md)</strong>: em vez de empilhar tudo no system prompt, Claude Code, Codex CLI e Cursor carregam arquivos SKILL.md (com frontmatter YAML) só quando relevantes à tarefa, reduzindo uso de tokens. Portabilidade entre ferramentas ainda é parcial — Codex CLI 0.147.0 lê skills do Cursor mas não do Claude Code.</li>
+<li><strong>3. Orquestração de múltiplos agentes substituindo escrita linha a linha</strong>: pesquisa da LeadDev mostra 47% dos devs buscando upskilling em prompt engineering e gestão de agentes; dado de mercado (vendor, agosto/2026) aponta que agentes já geram ~22% dos PRs na empresa mediana e 53% no percentil 90 de adoção.</li>
+<li><strong>4. Avaliação contínua em CI/CD (LLM evals)</strong>: prompt engineering tratado como disciplina versionada e medível, com evals rodando em pipeline via Promptfoo, LangSmith, Braintrust ou DeepEval, substituindo validação manual ad-hoc antes do deploy.</li>
+<li><strong>5. RAG agêntico vs. RAG tradicional</strong>: paper do ACL 2026 ("Is Agentic RAG worth it?") compara abordagens em que o LLM orquestra todo o processo de retrieval, decidindo dinamicamente quais ações executar, quando executá-las e se deve iterar — em vez de um pipeline fixo de retrieve-then-generate.</li>
+<li><strong>6. Observabilidade nativa para agentes via OpenTelemetry</strong>: adoção da convenção semântica gen_ai (incorporada ao Google ADK v2.6.0) e de exporters cross-framework (traceAI, OpenObserve) como padrão para rastrear chamadas de LLM e spans de agentes, cobrindo falhas específicas de IA que APM tradicional não captura.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Is Agentic RAG worth it? An experimental comparison of RAG approaches</strong> (ACL 2026 Industry) — compara RAG tradicional com RAG agêntico, em que o LLM decide dinamicamente retrieval e iteração; referência direta para quem desenha pipelines de RAG em produção.</li>
+<li><strong>Decision Context: Persistent Behavioral Learning for AI Agents</strong> (arXiv, ~novembro/2026) — propõe mecanismo para agentes reterem correções de comportamento entre sessões, endereçando o problema de agentes que "esquecem" feedback do usuário a cada nova conversa.</li>
+<li><strong>SAFTAC: Simulation-Augmented Fine-Tuning of Open-Source LLMs for Analog Circuit Design</strong> (arXiv, ~novembro/2026) — usa simulação para gerar dados de fine-tuning de LLMs open-source aplicados a design de circuitos analógicos; exemplo de fine-tuning de domínio via dados sintéticos simulados.</li>
+<li><strong>ContextBench: A Benchmark for Context Retrieval in Coding Agents</strong> — benchmark dedicado a medir qualidade de retrieval de contexto especificamente em agentes de codificação, resposta direta à discussão sobre context engineering.</li>
+<li><strong>DSAEval: Evaluating Data Science Agents on a Wide Range of Real-World Data Science Problems</strong> — benchmark para avaliar agentes de ciência de dados em problemas reais de EDA, modelagem e análise.</li>
+<li><strong>Fine-tuned RAG para testes hardware-in-the-loop automotivo</strong> (ACL 2026 Industry) — aplica RAG com fine-tuning a testes de hardware-in-the-loop no setor automotivo, caso prático de RAG especializado em domínio industrial.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026">KDnuggets — The Minimal AI Engineer Toolkit for 2026</a></li>
+<li><a href="https://cortex.io/post/the-engineering-leaders-guide-to-ai-tools-for-developers-in-2026">Cortex — The engineering leader's guide to AI tools for developers in 2026</a></li>
+<li><a href="https://codex.danielvaughan.com/2026/11/03/agentic-coding-landscape-2026-antigravity-kiro-codex-cli/">The 2026 Agentic Coding Landscape</a></li>
+<li><a href="https://releases.sh/collections/coding-agents/digest/2026-11-02.md">releases.sh — Coding agents digest 2026-11-02</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">LeadDev — Engineering skills are being rewritten by AI</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Stack Overflow Blog — Is AI really reshaping the developer market?</a></li>
+<li><a href="https://lmmarketcap.com/news/archive/2026/11">lmmarketcap — November 2026 AI News Archive</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL Anthology — ACL 2026 Industry Proceedings</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — daily (geral)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, daily</a></li>
+<li><a href="https://www.enterpriseaiworld.com/Articles/News/News/The-Agentic-AI-Foundation-Updates-Core-Features-of-the-Model-Context-Protocol-175887.aspx">Enterprise AI World — Agentic AI Foundation updates MCP core features</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">Model Context Protocol — blog da spec 2026-07-28</a></li>
+<li><a href="https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html">Martin Fowler — Context Engineering for Coding Agents</a></li>
+<li><a href="https://blog.premai.io/langchain-vs-llamaindex-2026-complete-production-rag-comparison">PremAI — LangChain vs LlamaIndex (2026)</a></li>
+<li><a href="https://aiweekly.co/alerts/langchain-smithdb-cuts-agent-trace-latency-12x">AI Weekly — LangChain SmithDB cuts agent trace latency 12x</a></li>
+<li><a href="https://dev.to/sattensil888/claude-code-is-the-engine-cursor-is-the-cockpit-7kh">DEV Community — Claude Code is the engine, Cursor is the cockpit</a></li>
+<li><a href="https://www.digitalapplied.com/blog/codex-cli-cross-harness-skill-portability-lock-in">Digital Applied — Codex CLI cross-harness skill portability</a></li>
+<li><a href="https://www.nocode.mba/ai-release-tracker/2026/11">nocode.mba — AI Release Tracker, novembro 2026</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 17/11/2026</div>
+</body></html>
