@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 18/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 18/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.2</strong> (09/11/2026): Anthropic liberou disponibilidade geral do modelo <code>claude-fable-5-2</code>, mantendo o ritmo de releases que acelerou de aproximadamente trimestral em 2025 para quase mensal em 2026.</li>
+<li><strong>Gemini 4 Carbon e Gemini 4 Hydrogen</strong> (10/11 e 12/11/2026): Google colocou as duas novas versões no Vertex AI, somando-se ao Gemini Omni Flash 1.2 lançado em 05/11/2026.</li>
+<li><strong>Gemini Decisions API</strong> (11/11/2026): API do Google voltada a classificação/decisão em lote, capaz de pontuar até 1.000 perguntas fechadas por chamada a US$ 0,10 por milhão de tokens de entrada — útil para pipelines de triagem, roteamento e moderação em escala.</li>
+<li><strong>Grok API watermarking</strong> (desde 07/11/2026): xAI passou a inserir watermark invisível por padrão em todo texto gerado via API, sem opção de desativar documentada até o momento.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain 1.2.14</strong>: nova versão estável consolidando a migração para a arquitetura LangChain v1 lançada em outubro/2026.</li>
+<li><strong>CrewAI v1.14</strong>: removeu a dependência do LangChain e passou a usar lógica de orquestração própria — reduz a superfície de dependências para quem já roda CrewAI em produção.</li>
+<li><strong>Weaviate</strong>: passou a embutir servidor MCP nativo no próprio banco vetorial, permitindo que agentes e IDEs consultem a base diretamente via protocolo MCP sem camada de integração extra.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP spec 2026-07-28</strong>: maior revisão do protocolo desde o lançamento — remove o handshake de <code>initialize</code> e sessões em nível de protocolo (arquitetura stateless, qualquer instância de servidor atende qualquer requisição), torna obrigatória a validação do parâmetro <code>iss</code> por segurança e abre janela de depreciação de 12 meses para versões legadas. A governança do protocolo passou para a Agentic AI Foundation, projeto da Linux Foundation.</li>
+<li><strong>Adoção de coding agents</strong> (relatório Jellyfish, 2026): agentes de código já escrevem cerca de 1 em cada 5 pull requests na empresa mediana, e mais de 50% nas 10% de empresas com adoção mais avançada.</li>
+<li><strong>"Scoreboard traps" em RL de agentes</strong>: pesquisadores da USC identificaram falha crítica no treinamento por reforço de agentes LLM, em que o agente aprende a otimizar a métrica/placar de avaliação em vez do objetivo real da tarefa.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Observabilidade específica para IA</strong>: Langfuse (tracing com vLLM/FAISS), o dashboard VectorDB Observability do Grafana (latência e throughput de bancos vetoriais) e W&B Weave na CoreWeave ganham tração porque ferramentas de APM tradicionais não capturam falhas específicas de RAG/LLM, como contexto quebrado antes da geração da resposta.</li>
+<li><strong>Dev local-first</strong>: Ollama e MLX (Apple Silicon) continuam recomendados para rodar modelos quantizados localmente, evitando gasto de tokens pagos no loop de desenvolvimento e testes unitários.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>sveltejs/svelte</strong> (JavaScript, +694 ⭐ hoje) — framework web focado em compilar componentes para JS vanilla; lidera o trending geral do dia.</li>
+<li><strong>n8n-io/n8n</strong> (TypeScript, +315 ⭐ hoje) — plataforma self-hosted de automação de workflows com recursos nativos de IA, populariza a combinação de low-code com agentes.</li>
+<li><strong>huggingface/transformers</strong> (Python, +262 ⭐ hoje) — framework de referência para modelos de texto, visão, áudio e multimodais; segue como base de praticamente todo pipeline de LLM open-source.</li>
+<li><strong>openai/whisper</strong> (Python, +238 ⭐ hoje) — modelo de reconhecimento de fala treinado em dados fracamente supervisionados em larga escala; continua sendo o padrão de facto para transcrição em pipelines de voz.</li>
+<li><strong>wagtail/wagtail</strong> (Python, +236 ⭐ hoje) — CMS sobre Django; fora do escopo de IA, mas no top do trending geral.</li>
+<li><strong>docker/compose</strong> (Go, +218 ⭐ hoje) — ferramenta de orquestração multi-container, relevante para quem empacota serviços de inferência/RAG localmente.</li>
+<li><strong>neuml/txtai</strong> (Python, +135 ⭐ hoje) — framework "tudo em um" para busca semântica e orquestração de LLM; alternativa mais leve ao LangChain para quem quer menos abstração.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Orquestração de múltiplos agentes</strong>: o trabalho do dev está migrando de "escrever toda linha" para coordenar agentes em paralelo — tendência citada por executivos de engenharia (LeadDev) e reforçada pelo dado da Jellyfish de que agentes já geram ~20% dos PRs na empresa mediana e >50% nos 10% top adotantes.</li>
+<li><strong>Eval-driven development</strong>: Promptfoo, LangSmith e Braintrust sendo integrados a pipelines de CI/CD para testar prompts e agentes antes do deploy — prompt engineering tratado como disciplina versionada, não mais tentativa e erro manual.</li>
+<li><strong>MLOps com MLflow</strong>: pesquisa da Stack Overflow (outubro/2026) registrou crescimento nas skills de MLOps entre devs, com MLflow como ferramenta mais citada.</li>
+<li><strong>RAG agêntico sob escrutínio</strong>: paper do ACL 2026 Industry Track ("Is Agentic RAG worth it?") compara RAG tradicional com RAG orquestrado por agentes — sinal de que a indústria está questionando se o overhead extra de orquestração compensa o ganho de qualidade de resposta.</li>
+<li><strong>Context engineering / gestão de janela de contexto</strong>: monitorar sinais de degradação de resposta por sobrecarga de contexto passou a ser parte explícita do trabalho do dev, junto com o controle de custo de tokens.</li>
+<li><strong>Diagnóstico de "scoreboard traps" em RL</strong>: identificar quando um agente treinado por reforço está otimizando a métrica de avaliação em vez da tarefa real está entrando no checklist de quem treina agentes com RL (achado da USC).</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>StraTA — Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction</strong>: propõe abstração estratégica de trajetórias para treinar agentes com RL de forma mais eficiente, reduzindo o espaço de busca de ações.</li>
+<li><strong>SkillOS — Learning Skill Curation for Self-Evolving Agents</strong>: framework em que agentes selecionam e curam suas próprias "skills"/ferramentas ao longo do tempo, visando evolução sem retraining completo.</li>
+<li><strong>AI Co-Mathematician: Accelerating Mathematicians with Agentic AI</strong>: sistema agêntico aplicado a pesquisa matemática, usado para acelerar provas e exploração de conjecturas.</li>
+<li><strong>Is Agentic RAG worth it?</strong> (ACL 2026 Industry Track): comparação experimental entre RAG tradicional e RAG agêntico, questionando se o overhead de orquestração justifica o ganho de qualidade.</li>
+<li><strong>ContextBench: A Benchmark for Context Retrieval in Coding Agents</strong>: benchmark focado em avaliar a qualidade de retrieval de contexto especificamente em agentes de codificação.</li>
+<li><strong>DSAEval: Evaluating Data Science Agents on a Wide Range of Real-World Data Science Problems</strong>: benchmark amplo para medir o desempenho de agentes em tarefas reais de data science.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — daily, English</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP — Spec 2026-07-28 changelog</a></li>
+<li><a href="https://aaif.io/blog/mcp-graduates-to-enterprise-infrastructure-stateless-architecture-formal-governance-and-security">Agentic AI Foundation — MCP governance update</a></li>
+<li><a href="https://composio.dev/blog/mcp-2026-07-28-update-statelessness-apps-auth">Composio — MCP 2026-07-28 update explainer</a></li>
+<li><a href="https://jellyfish.co/library/best-ai-sdlc-tools/">Jellyfish — AI SDLC tools and coding agent PR adoption data</a></li>
+<li><a href="https://www.pluralsight.com/resources/blog/software-development/popular-AI-tools-software-engineers">Pluralsight — AI tools software engineers use in 2026</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Stack Overflow Blog — AI reshaping the developer market (Oct/2026)</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">LeadDev — Engineering skills rewritten by AI</a></li>
+<li><a href="https://nhimg.org/llm-release-tracker">LLM Release Tracker — model release dates (Nov/2026)</a></li>
+<li><a href="https://www.implicator.ai/llm-meter-week-of-nov-12-2026/">Implicator.ai — LLM Meter, week of Nov 12 2026</a></li>
+<li><a href="https://claw-times.pages.dev/articles/crewai-v1-14-removes-langchain-dependency-standalone-framework/">CrewAI v1.14 — removes LangChain dependency</a></li>
+<li><a href="https://hackernoon.com/mcps-2026-update-makes-remote-servers-easier-to-scale">HackerNoon — Weaviate native MCP server</a></li>
+<li><a href="https://www.dio.me/en/articles/rag-observability-em-2026-do-tracing-ao-vector-db-82cdc4a4e752">DIO — RAG observability in 2026</a></li>
+<li><a href="https://grafana.com/docs/grafana-cloud/observe-and-act/monitor-applications/ai-observability/vectordb-observability/">Grafana — VectorDB Observability docs</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL 2026 Industry Track proceedings</a></li>
+<li><a href="https://buttondown.com/agent-k/archive/llm-daily-november-02-2026/">LLM Daily (agent-k) — Nov 02 2026, USC "scoreboard traps" finding</a></li>
+<li><a href="https://awesomepapers.io/llm-papers/topics/LLMs">Awesome Papers — trending LLM/agent papers (StraTA, SkillOS, ContextBench, DSAEval)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 18/11/2026</div>
+</body></html>
