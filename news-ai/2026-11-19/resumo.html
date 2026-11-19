@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 19/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 19/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): a Anthropic afirma que o modelo equipara o desempenho do Claude Fable 5.1 na maioria das tarefas com custo de execução ~40% menor que o Opus 5 — relevante pra quem roda cargas pesadas de agente em produção e quer cortar custo sem trocar de tier.</li>
+<li><strong>Claude Sonnet 5.5</strong> (28/09/2026): 70,6% no Terminal-Bench 4.0 (tarefas de linha de comando), contra 66,4% do Opus 5.5 e apenas 10,3% do Sonnet 5 — salto grande em tarefas agênticas de terminal. Preço: US$ 2/milhão tokens de entrada e US$ 10/milhão de saída.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>CrewAI 1.15.35</strong> (03/11/2026) — nova versão do framework de agentes multi-papel.</li>
+<li><strong>LangGraph 1.2.19</strong> (30/10/2026) — atualização do framework de orquestração de agentes com estado da LangChain.</li>
+<li><strong>Qodo Gen CLI</strong> — framework de agentes via arquivos de configuração, com agentes pré-construídos para revisão de código e cobertura de testes, pensado pra customização sem escrever o agente do zero.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP (spec 2026-07-28)</strong> segue como a maior revisão do protocolo desde o lançamento: núcleo migrou de handshake bidirecional com estado para request/response sem estado (remove o handshake de <code>initialize</code> e o header de sessão), facilitando deploy em serverless/edge; passou a exigir validação do parâmetro <code>iss</code> pra fechar uma classe de ataques de mix-up de autenticação; política de depreciação garante 12 meses de funcionamento pra recursos marcados como obsoletos. O roadmap seguinte já fala em descoberta progressiva de ferramentas e identidade de agente pra chamadores não-humanos.</li>
+<li>Dado de adoção (Jellyfish): agentes já geram ~1 em cada 5 pull requests na empresa mediana, e mais de 50% nas 10% que mais adotaram IA — mostra que orquestrar agentes virou parte central do fluxo, não só autocomplete.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Weaviate</strong> embutiu um servidor MCP no próprio banco vetorial, ligando o vector DB direto a ecossistemas de agentes e IDEs sem camada de integração extra.</li>
+<li>RAG como camada própria de observabilidade: padrão crescente é tracing de retrieval separado (Langfuse + vLLM + FAISS) e dashboards dedicados (ex. VectorDB Observability do Grafana, cobrindo latência e throughput de query) em vez de tratar RAG como caixa-preta dentro do APM geral.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>google-research/paper-orchestra</strong> (Python, ⭐ 1.197 hoje) — framework multi-agente que automatiza a escrita de papers de pesquisa em IA.</li>
+<li><strong>mvanhorn/last30days-skill</strong> (⭐ 952 hoje) — skill de agente que pesquisa um tópico em Reddit, X, YouTube, HN e Polymarket e gera um resumo consolidado.</li>
+<li><strong>HKUDS/CLI-Anything</strong> (⭐ 899 hoje) — expõe qualquer software como CLI pra agentes de IA operarem via linha de comando, com hub central de CLIs.</li>
+<li><strong>jingyaogong/minimind</strong> (Python, ⭐ 687 hoje) — treina um LLM de 64M de parâmetros do zero em ~2 horas, útil pra quem quer entender/replicar pretraining sem GPU cluster.</li>
+<li><strong>NVIDIA/SkillEvaluator</strong> (⭐ 561 hoje) — framework pra avaliar skills e plugins de agentes de IA, com checagens de qualidade, segurança e comportamento em runtime, incluindo templates de CI.</li>
+<li><strong>p-e-w/heretic</strong> (⭐ 515 hoje) — modifica pesos de LLMs sem retraining pra reduzir censura excessiva, "slop" repetitivo e sycophancy (bajulação do modelo).</li>
+<li><strong>kajisho5/ffmpeg-skill</strong> (⭐ 338 hoje) — toolkit local de edição de vídeo pra agentes de código, com 42 ferramentas FFmpeg expostas via servidor MCP.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Agent Skills empacotadas como repositório</strong>: o padrão de distribuir uma "skill" de agente como pacote de instruções + scripts (visto em <em>last30days-skill</em> e <em>ffmpeg-skill</em>, ambos no topo do trending hoje) está se consolidando como unidade básica de reuso entre agentes, substituindo prompts soltos por pacotes versionáveis e testáveis.</li>
+<li><strong>MCP stateless</strong>: a migração do protocolo pra request/response sem sessão (spec 2026-07-28) é a técnica de arquitetura mais discutida pra servir ferramentas de agente em serverless/edge, eliminando o overhead de manter conexão persistente por sessão.</li>
+<li><strong>Avaliação e CI de skills/plugins de agente</strong>: com o NVIDIA/SkillEvaluator ganhando tração, times estão tratando skills de agente como código de produção — checagem de segurança, qualidade e comportamento em runtime dentro do pipeline de CI, não só revisão manual.</li>
+<li><strong>Abliteration / edição de ativações pós-treino</strong>: técnica usada pelo heretic (515★ hoje) pra remover recusas, repetição e bajulação de um LLM editando ativações internas, sem fine-tuning nem dataset de treino — mais rápido e barato que RLHF customizado pra ajustar comportamento.</li>
+<li><strong>Evals integradas ao CI/CD</strong>: frameworks como Promptfoo, LangSmith e Braintrust estão sendo tratados como etapa obrigatória de pipeline, com prompt engineering tratado como disciplina versionada e medível em vez de tentativa-e-erro manual.</li>
+<li><strong>Orquestração multi-agente em paralelo</strong>: ferramentas como Dodaios (19★ hoje no trending) e o padrão de múltiplos agentes rodando lado a lado na mesma workspace reforçam a tendência de dev humano como "orquestrador" de vários agentes simultâneos em vez de escrever código linha a linha.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>ContextBench</strong> (arXiv 2602.05892) — benchmark de recuperação de contexto em agentes de código: 1.136 instâncias com contexto-ouro verificado por especialistas, testando 4 LLMs de ponta e 5 agentes de código em recall, precisão e eficiência de retrieval.</li>
+<li><strong>SWE-ContextBench</strong> (arXiv 2602.08316) — avalia se agentes conseguem reaproveitar experiência entre tarefas relacionadas, ampliando o SWE-Bench Lite com 300 tarefas-base + 99 tarefas "relacionadas" adicionais.</li>
+<li><strong>Agent Retrieval Bench</strong> (arXiv 2607.24882) — benchmark de recuperação de arquivos de repositório em nível de arquivo, com 427 amostras em 25 repositórios, pra medir se o agente acha o arquivo certo antes de gerar o patch.</li>
+<li><strong>"Is Agentic RAG worth it?"</strong> (ACL 2026 Industry Track) — compara abordagens de RAG onde o próprio LLM orquestra toda a etapa de retrieval contra pipelines RAG tradicionais, questionando se o overhead agêntico se paga em produção.</li>
+<li><strong>"Decision Context: Persistent Behavioral Learning for AI Agents"</strong> — ataca o problema de agentes que não retêm correções entre sessões, propondo contexto de decisão persistente pra que o agente "aprenda" com feedback passado em vez de repetir o mesmo erro.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/">TechCrunch — Anthropic releases Opus 5.5</a></li>
+<li><a href="https://the-decoder.com/claude-opus-5-5-matches-fable-5-1-at-40-percent-lower-cost-as-anthropic-promises-to-fix-claudish-writing/">The Decoder — Claude Opus 5.5 matches Fable 5.1 at 40% lower cost</a></li>
+<li><a href="https://propakistani.pk/2026/09/29/claude-sonnet-5-5-is-faster-smarter-and-up-to-30-cheaper/">ProPakistani — Claude Sonnet 5.5</a></li>
+<li><a href="https://claude.com/resources/articles/bringing-mcp-2026-07-28-to-claude">Anthropic — Bringing MCP 2026-07-28 to Claude</a></li>
+<li><a href="https://composio.dev/blog/mcp-2026-07-28-update-statelessness-apps-auth">Composio — The MCP 2026-07-28 Update</a></li>
+<li><a href="https://obot.ai/?p=3497">Obot.ai — MCP Is Growing Up: The 2026 Roadmap</a></li>
+<li><a href="https://jellyfish.co/library/best-ai-sdlc-tools/">Jellyfish — The 23 Best AI SDLC Tools for Engineering Teams</a></li>
+<li><a href="https://tech-insider.org/langchain-vs-llamaindex-vs-crewai-2026/">Tech Insider — LangChain vs LlamaIndex vs CrewAI 2026</a></li>
+<li><a href="https://sdtimes.com/ai/qodo-launches-cli-agent-framework/">SD Times — Qodo launches CLI agent framework</a></li>
+<li><a href="https://www.dio.me/en/articles/vector-database-em-2026-o-que-mudou-nas-principais-releases-b66ba92aa605">DIO — Vector database em 2026: o que mudou nas principais releases</a></li>
+<li><a href="https://grafana.com/docs/grafana-cloud/observe-and-act/monitor-applications/ai-observability/vectordb-observability/">Grafana — VectorDB Observability</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (daily)</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily, inglês)</a></li>
+<li><a href="https://arxiv.org/html/2602.05892">arXiv 2602.05892 — ContextBench</a></li>
+<li><a href="https://arxiv.org/pdf/2602.08316">arXiv 2602.08316 — SWE-ContextBench</a></li>
+<li><a href="https://arxiv.org/pdf/2607.24882">arXiv 2607.24882 — Agent Retrieval Bench</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL 2026 Industry Track Proceedings</a></li>
+<li><a href="https://lmmarketcap.com/news/archive/2026/11">lmmarketcap — November 2026 AI News Archive</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 19/11/2026</div>
+</body></html>
