@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 20/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 20/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>vLLM v0.34.0</strong> (16/11/2026): o KV cache agora é dimensionado pela memória livre após o warmup, dando mais cache para a maioria dos modelos; remove o Model Runner V1 antigo e adiciona suporte ao Mistral Large 4. Atenção na atualização: o default de <code>--block-size</code> muda de 16 para 64 e <code>VLLM_USE_V2_MODEL_RUNNER=0</code> passa a falhar no startup.</li>
+<li><strong>Mistral Large 4</strong> (lançado por volta de 05/11/2026) e <strong>Tencent Hy4 flash</strong> via API (16/11/2026) ampliam a oferta de modelos de alta performance disponíveis para quem faz self-host ou integra via API.</li>
+<li><strong>MCP (Model Context Protocol) 2026-07-28</strong> continua sendo a maior mudança do protocolo desde o lançamento e segue em rollout: adota modelo stateless request/response (remove o handshake de <code>initialize</code> e o header <code>Mcp-Session-Id</code>) e torna obrigatória a validação do parâmetro <code>iss</code> contra ataques de mix-up. Os SDKs Tier 1 somam quase 500M downloads/mês; a Anthropic confirma rollout do suporte nos produtos Claude.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>SGLang v0.5.23</strong>: traz "Paged Experts" (opt-in), que permite rodar modelos MoE maiores que a VRAM disponível em uma única GPU de consumidor, e passa a suportar TPU7x do Google via SGLang-TorchTPU.</li>
+<li><strong>NVIDIA Dynamo v1.3.0</strong> (GA desde 20/07/2026, ainda referência de infraestrutura de serving em produção): migrou a plataforma para CUDA 13 com engines atualizadas de vLLM, SGLang e TensorRT-LLM.</li>
+<li><strong>github/spec-kit</strong> aparece hoje no trending de Python do GitHub — toolkit para "spec-driven development", ganhando tração entre devs que querem padronizar specs antes de delegar implementação a agentes de código.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>n8n</strong> (TypeScript) foi o repositório com mais estrelas ganhas hoje no trending geral do GitHub (623 no dia), reforçando a adoção de automação de workflows com recursos de IA nativos e 400+ integrações.</li>
+<li><strong>SWE-agent/mini-swe-agent</strong>: agente mínimo que resolve issues do GitHub via linha de comando, em alta no trending Python de hoje (84⭐ no dia).</li>
+<li><strong>agentscope-ai/agentscope</strong>: framework para construir agentes "transparentes e confiáveis", também em alta hoje (67⭐ no dia).</li>
+<li><strong>superdesigndev/treg</strong>: roteador de ferramentas para agentes, descrito como "OpenRouter para agent tools" — sinal da consolidação de camadas de roteamento entre agentes e tool calls.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>PostHog</strong> aparece no trending geral de hoje (62⭐ no dia) com observabilidade de IA e tooling "agent-friendly" compatível com MCP, reforçando a tendência de observabilidade voltada a agentes como parte do stack padrão.</li>
+<li><strong>p-e-w/heretic</strong>, em alta no trending Python de hoje (252⭐), edita pesos de LLMs para remover censura e reduzir sycophancy sem retraining completo — relevante para quem avalia robustez e alinhamento de modelos abertos antes de colocá-los em produção.</li>
+<li>Segundo a Jellyfish (ferramentas de AI SDLC), agentes de IA já geram cerca de <strong>1 em cada 5 pull requests</strong> na empresa mediana, e líderes de engenharia passaram a medir formalmente o impacto de agentes na entrega (lead time, taxa de reversão).</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>elementalsouls/Claude-BugHunter</strong> (Python, 1.349⭐ hoje) — bundle de skills para Claude Code focado em bug hunting e trabalho de red-team.</li>
+<li><strong>google-research/paper-orchestra</strong> (Python, 1.196⭐ hoje) — framework multiagente do Google Research que automatiza a escrita de papers de pesquisa em IA.</li>
+<li><strong>mvanhorn/last30days-skill</strong> (Python, 954⭐ hoje) — skill de agente que pesquisa um tema na web e redes sociais e resume os achados.</li>
+<li><strong>HKUDS/CLI-Anything</strong> (Python, 898⭐ hoje) — torna qualquer software utilizável por agentes de IA por meio de interfaces de linha de comando.</li>
+<li><strong>jingyaogong/minimind</strong> (Python, 238⭐ hoje) — treina um LLM pequeno (~64M parâmetros) do zero em cerca de 2 horas, útil para estudar arquitetura de LLMs na prática.</li>
+<li><strong>SWE-agent/mini-swe-agent</strong> (Python, 84⭐ hoje) — agente mínimo que resolve issues do GitHub via CLI.</li>
+<li><strong>n8n-io/n8n</strong> (TypeScript, 623⭐ hoje) — automação de workflows com recursos nativos de IA e 400+ integrações; líder de estrelas do dia no trending geral do GitHub.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Spec-driven development</strong>: escrever specs estruturadas antes de delegar a implementação a agentes de código. O toolkit <strong>github/spec-kit</strong> está em alta no trending de hoje, sinal de adoção crescente como forma de conter "vibe coding" sem controle.</li>
+<li><strong>Avaliação contínua em CI/CD</strong>: Promptfoo, LangSmith e Braintrust vêm sendo citados como frameworks padrão para versionar e testar prompts dentro do pipeline, tratando prompt engineering como disciplina de engenharia mensurável, não mais tentativa e erro manual.</li>
+<li><strong>Orquestração multiagente para pesquisa e automação</strong>: exemplificada por <strong>google-research/paper-orchestra</strong> (escrita automatizada de papers de pesquisa) e <strong>agentscope-ai/agentscope</strong> (agentes "transparentes e confiáveis"); frameworks como LangGraph e CrewAI continuam como base dessa camada.</li>
+<li><strong>MoE em hardware limitado ("Paged Experts")</strong>: técnica do SGLang v0.5.23 que permite rodar modelos Mixture-of-Experts maiores que a memória de uma única GPU de consumidor, reduzindo o custo de infraestrutura para servir modelos grandes localmente.</li>
+<li><strong>Remoção de guardrails/censura sem retraining</strong>: técnica usada pelo <strong>heretic</strong> (p-e-w/heretic), que edita pesos para remover censura e reduzir sycophancy sem fine-tuning completo — importa para quem testa robustez e alinhamento de modelos abertos antes do deploy.</li>
+<li><strong>Agent-generated PRs como métrica de engenharia</strong>: com cerca de 1 em cada 5 PRs já gerados por agentes na empresa mediana (dado Jellyfish), times de engenharia estão instrumentando dashboards específicos para medir o impacto de código gerado por IA no lead time e na taxa de reversão.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Persistent Behavioral Learning for AI Agents</strong> — propõe mecanismos para que agentes de IA retenham correções e aprendizados entre sessões, atacando o problema comum de agentes "esquecerem" feedback assim que o contexto termina.</li>
+<li><strong>SAFTAC: Simulation-Augmented Fine-Tuning of Open-Source LLMs for Analog Circuit Design</strong> — usa simulação para aumentar dados de fine-tuning de LLMs open-source aplicados a projeto de circuitos analógicos, caso de uso de IA aplicada a EDA.</li>
+<li><strong>Guardrail Erosion in Domain-Tuned Large Language Models</strong> — investiga se modelos biomédicos com fine-tuning de domínio mantêm o comportamento de abstenção/recusa após o ajuste, apontando risco de "erosão" de guardrails de segurança em fine-tuning especializado.</li>
+<li><strong>DSAEval</strong> — benchmark para avaliar agentes de ciência de dados numa gama ampla de problemas reais, útil para quem constrói ou avalia data agents.</li>
+<li><strong>ContextBench</strong> — benchmark para avaliar a recuperação de contexto (retrieval) em agentes de codificação, atacando diretamente o problema de qual trecho de um repositório o agente deveria ver em tarefas de código.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (geral, diário)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending Python (diário)</a></li>
+<li><a href="https://ai-tldr.dev/releases/vllm-v0-34-0/">vLLM v0.34.0 release notes</a></li>
+<li><a href="https://newreleases.io/project/github/sgl-project/sglang/release/v0.5.23">SGLang v0.5.23 release notes</a></li>
+<li><a href="https://docs.dynamo.nvidia.com/dynamo/dev/reference/releases/v1-3-0">NVIDIA Dynamo v1.3.0</a></li>
+<li><a href="https://aaif.io/blog/mcp-graduates-to-enterprise-infrastructure-stateless-architecture-formal-governance-and-security">MCP graduates to enterprise infrastructure (AAIF)</a></li>
+<li><a href="https://claude.com/blog/bringing-mcp-2026-07-28-to-claude">Bringing MCP 2026-07-28 to Claude</a></li>
+<li><a href="https://jellyfish.co/library/best-ai-sdlc-tools/">The 23 Best AI SDLC Tools for Engineering Teams (Jellyfish)</a></li>
+<li><a href="https://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026">The Minimal AI Engineer Toolkit for 2026 (KDnuggets)</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">Engineering skills are being rewritten by AI (LeadDev)</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Is AI really reshaping the developer market? (Stack Overflow Blog)</a></li>
+<li><a href="https://lmmarketcap.com/news/archive/2026/11">November 2026 AI News Archive (lmmarketcap)</a></li>
+<li><a href="https://awesomepapers.io/llm-papers/topics/LLMs">Trending LLM papers (awesomepapers.io)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 20/11/2026</div>
+</body></html>
