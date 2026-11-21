@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 21/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 21/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Kimi K3.1 Pro (04/11/2026)</strong>: pesos abertos sob licença Apache 2.0 — opção viável para quem quer self-hosting sem lock-in de licença restritiva.</li>
+<li><strong>GPT-5.6 Sol — fim do preço promocional (~21/11/2026)</strong>: segundo trackers de release, o preço promocional expira hoje e volta ao padrão de US$ 5 / US$ 30 por milhão de tokens (input/output) — relevante pra quem está calculando custo de produção agora.</li>
+<li><strong>Claude Fable 5.2 (09/11/2026)</strong>: lançamento da Anthropic com uma variante irmã, Mythos 5.2, descrita por trackers como a mesma base sem as salvaguardas de cyber/bio — vale acompanhar discussão sobre uso responsável.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>CrewAI 1.15.40 (11/11/2026)</strong> e <strong>LangGraph 1.2.20 (05/11/2026)</strong>: ambos com releases recentes nesta semana; LangChain core segue estável em 1.6.4 (set/2026), sem atualização de novembro até o momento.</li>
+<li><strong>MCP spec 2026-07-28 em consolidação</strong>: a Agentic AI Foundation (Linux Foundation) reporta perto de 500 milhões de downloads/mês nos SDKs Tier 1; o SDK oficial Ruby acaba de entrar como Tier 1 com suporte à spec atual.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Amazon Kiro Crew</strong>: sistema open-source para rodar múltiplos agentes Kiro coordenados entre sessões, ferramentas e tarefas — mesma linha de "equipe de agentes" que o Thoughtworks Radar Vol. 35 (nov/2026) classifica como técnica em adoção.</li>
+<li><strong>DeepSeek Harness (dsh)</strong>: preview de runtime open-source para agentes autônomos, lançado pela DeepSeek.</li>
+<li><strong>MCP 2026-07-28 — extensão de Tasks (SEP-2663)</strong>: trabalho de longa duração agora é tratado via extensão formal com <code>tasks/get</code> (polling) e <code>tasks/update</code>, em vez de ficar na spec-core.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>RAG agente vs. RAG tradicional</strong>: paper de industry track da ACL 2026 ("Is Agentic RAG worth it?") faz comparação experimental e mostra que RAG agêntico (LLM decide ações e quando iterar) nem sempre compensa o custo extra de latência frente a pipelines RAG fixos — importante antes de adicionar orquestração a um pipeline simples.</li>
+<li><strong>Observabilidade de agentes em alta</strong>: PostHog (34⭐ hoje no GitHub trending) expandiu foco em "AI observability" para debugar comportamento de agentes em produção, ao lado de session replay e error tracking tradicionais.</li>
+<li><strong>MLOps em alta nas vagas</strong>: análise do Stack Overflow Blog (22/10/2026) aponta triplo crescimento de menções a MLflow em postagens de vaga, sinal de que operacionalizar modelos (não só treinar) virou critério de contratação.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, 143⭐ hoje) — plataforma de automação "fair-code" com recursos nativos de IA e 400+ integrações; forte adoção pra orquestrar agentes com ferramentas externas sem código.</li>
+<li><strong>rustdesk/rustdesk</strong> (Rust, 250⭐ hoje) — alternativa open-source ao TeamViewer; não é IA, mas lidera o trending geral de hoje, útil pra contexto de infraestrutura remota usada por agentes de automação de desktop.</li>
+<li><strong>PostHog/posthog</strong> (Python, 34⭐ hoje) — plataforma de product analytics com observabilidade de IA, session replay e feature flags.</li>
+<li><strong>makeplane/plane</strong> (TypeScript, 78⭐ hoje) — alternativa open-source a Jira/Linear, cada vez mais usada como back-end de gestão de tarefas por agentes de engenharia.</li>
+<li><strong>perspective-dev/perspective</strong> (Rust, 43⭐ hoje) — componente de visualização de dados para datasets grandes/streaming, útil em dashboards de monitoramento de modelos.</li>
+<li><strong>pola-rs/polars</strong> (Rust, 17⭐ hoje) — query engine de DataFrames extremamente rápido, cada vez mais usado em pipelines de pré-processamento para fine-tuning e RAG.</li>
+<li><strong>apache/airflow</strong> (Python, 30⭐ hoje) — orquestração de workflows como código, base comum para pipelines de treino/RAG em produção.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context engineering / gestão de contexto</strong>: o Thoughtworks Technology Radar Vol. 35 (nov/2026) trata gestão de contexto como "a preocupação arquitetural fundamental de sistemas de IA modernos" — compressão stateful e sub-agentes resumindo saídas intermediárias em workflows longos, em vez de só aumentar a janela de contexto.</li>
+<li><strong>Sandboxed execution para agentes</strong>: técnica recomendada no mesmo Radar — isolar a execução de código gerado por agentes (containers, VMs efêmeras) virou prática padrão, não opcional, para agentes com acesso a shell/arquivos.</li>
+<li><strong>Team of coding agents (orquestração multi-agente)</strong>: Radar também aponta essa técnica em adoção — múltiplos agentes especializados coordenados (ex. Kiro Crew, JetBrains Air) em vez de um agente único fazendo tudo.</li>
+<li><strong>RAG com grafos de conhecimento em vez de vector-only</strong>: relatório AI Engineering Q1 2026 (ai.engineer) argumenta que RAG puramente vetorial é insuficiente para assistentes corporativos de conhecimento em produção, empurrando adoção de retrieval baseado em grafo.</li>
+<li><strong>MCP by default</strong>: o Radar já trata MCP como escolha padrão para integrar agentes a ferramentas externas, reforçado pelo crescimento de ~500M downloads/mês nos SDKs oficiais.</li>
+<li><strong>Prompt engineering + gestão de agentes como skill de carreira</strong>: pesquisa da LeadDev (nov/2026) mostra 47% dos devs priorizando upskilling nessas duas áreas — reflete a mudança de "escrever código" para "orquestrar e revisar o que o agente produziu".</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Is Agentic RAG worth it?</strong> (ACL 2026 Industry Track) — comparação experimental entre RAG agêntico (LLM decide ações/iterações) e pipelines RAG fixos; relevante para quem está decidindo se vale adicionar orquestração a um sistema de recuperação já funcional.</li>
+<li><strong>Smarter, not Bigger</strong> (ACL 2026 Industry Track) — RAG com fine-tuning aplicado a testes hardware-in-the-loop automotivos, mostrando ganho de precisão sem aumentar o tamanho do modelo base.</li>
+<li><strong>IGPO</strong> (EMNLP 2026 Industry Track) — técnica de otimização de política implantada em produção num sistema comercial de busca por assistente desde maio/2026; teste A/B online de 14 dias mostrou lift relativo de 3,17% em CTR.</li>
+<li><strong>Lunar-R1</strong> (EMNLP 2026 Industry Track) — modelo de raciocínio de 8B parâmetros para ciência lunar e operações de missão, treinado via pré-treino continuado + SFT + RL; exemplo de modelo de raciocínio especializado em domínio científico restrito.</li>
+<li><strong>Arete-27B</strong> (Hugging Face trending, nov/2026) — fine-tune de alinhamento da Nous Research sobre Qwen3.8-27B via supervised fine-tuning, ganhando tração rápida nos trending papers/models do Hugging Face.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.thoughtworks.com/de/radar/techniques?blipid=1035">Thoughtworks Technology Radar Vol. 35 — Techniques</a></li>
+<li><a href="https://www.thoughtworks.com/de-de/radar/techniques/sandboxed-execution-for-ai-agents">Thoughtworks Radar — Sandboxed execution for AI agents</a></li>
+<li><a href="https://www.ai.engineer/AIE_2026_Q1_report.pdf">AI Engineering Q1 2026 report</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP 2026-07-28 spec release — blog oficial</a></li>
+<li><a href="https://aaif.io/blog/mcp-graduates-to-enterprise-infrastructure-stateless-architecture-formal-governance-and-security">Agentic AI Foundation — MCP governance update</a></li>
+<li><a href="https://claude.com/blog/bringing-mcp-2026-07-28-to-claude">Claude — Bringing MCP 2026-07-28 to Claude</a></li>
+<li><a href="https://tech-insider.org/langchain-vs-llamaindex-vs-crewai-2026/">LangChain vs LlamaIndex vs CrewAI — comparativo 2026</a></li>
+<li><a href="https://www.nocode.mba/ai-release-tracker/2026/11">AI Release Tracker — novembro 2026</a></li>
+<li><a href="https://thursdai.news/releases/2026-11">ThursdAI — Everything AI Released in November 2026</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — daily</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL 2026 Industry Track Proceedings</a></li>
+<li><a href="https://aclanthology.org/2026.emnlp-industry/">EMNLP 2026 Industry Track Proceedings</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Stack Overflow Blog — Is AI really reshaping the developer market?</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">LeadDev — Engineering skills are being rewritten by AI</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 21/11/2026</div>
+</body></html>
