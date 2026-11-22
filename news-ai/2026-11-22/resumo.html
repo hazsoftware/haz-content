@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 22/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 22/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Tencent Hunyuan Hy4 Flash</strong> (16/11/2026): lançado na API da Tencent com janela de contexto de 1.048.576 tokens — uma das maiores disponíveis via API comercial, relevante para RAG sobre documentos longos.</li>
+<li><strong>Alibaba Qwen4 Max</strong> (16/11/2026, em preview fechado no Token Plan desde 11/11): novo modelo topo de linha da família Qwen4, liberado em disponibilidade geral depois de uma semana de testes restritos.</li>
+<li><strong>Google Gemini 4 Carbon</strong> (GA em 10/11/2026): versão estável do Gemini 4 Carbon; monitoramento de terceiros aponta que, até o momento, ainda não aparece na tabela pública de preços do AI Studio.</li>
+<li><strong>Anthropic Claude Fable 5.2 e Mythos 5.2</strong> (09/11/2026): Mythos é descrito como a mesma base sem as salvaguardas de cyber e biologia, voltado a casos de uso com controle de acesso mais restrito.</li>
+<li><strong>OpenAI GPT-Image 2.6</strong> (04/11/2026) <strong>e GPT-6 Cyber</strong> (05/11/2026): dois lançamentos consecutivos, um focado em geração de imagem e outro em capacidades de segurança/cyber.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain com MCP nativo</strong>: suporte a Model Context Protocol migrou para o pacote principal (<code>langchain.mcp</code>), instalável via <code>pip install "langchain[mcp]"</code>, sem precisar mais do pacote separado <code>langchain-mcp-adapters</code>.</li>
+<li><strong>CrewAI v1.14.x</strong>: correções recentes no <code>StdioTransport</code> para evitar leakage de variáveis de ambiente ao rodar servidores MCP locais.</li>
+<li><strong>Codex CLI</strong>: novo comando <code>codex agents --no-daemon</code> funciona como centro de comando para orquestração de múltiplas sessões de agente, com seletor de sessões e marcação de resultados não lidos.</li>
+<li><strong>Devin</strong> (semana de 09/11/2026): ganhou Design Mode, página de Devin Review redesenhada e um editor de arquivos de sessão com salvamento explícito — parte de um digest que contou 13 releases na categoria coding-agent só naquela semana.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Amazon Kiro Crew</strong>: sistema open-source para rodar múltiplos agentes Kiro em paralelo, compartilhando sessões, ferramentas e tasks entre si.</li>
+<li><strong>anthropics/skills</strong> no GitHub: repositório oficial de Agent Skills da Anthropic, ~198,7k estrelas, licença Apache 2.0; define a spec de "skill" (pasta com <code>SKILL.md</code> + scripts) carregada sob demanda pelo Claude, um dos repositórios de crescimento mais rápido na semana de 11 a 18/11 (+4.847 estrelas).</li>
+<li><strong>Agent sandboxing</strong> sobe para "Adopt" no Thoughtworks Technology Radar Vol. 35 (nov/2026): a recomendação, que antes valia só para coding agents, agora é tratada como default para qualquer agente autônomo com acesso a sistemas de negócio.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Progressive context disclosure</strong> também vai para "Adopt" no mesmo Radar: carregar ferramentas MCP e agent skills só quando necessárias — em vez de injetar tudo no prompt de sistema — já é prática quase universal em aplicações de produção, segundo a Thoughtworks.</li>
+<li><strong>AI Engineering Report Q1/2026</strong> (ai.engineer): aponta context compaction e GraphRAG como os dois temas centrais de engenharia de 2026, com o gerenciamento da janela de contexto citado como o principal desafio técnico do ano.</li>
+<li><strong>pgvector</strong> em alta no GitHub trending de hoje: extensão de busca por similaridade vetorial para Postgres (+15 estrelas no dia) — sinal de que RAG direto sobre Postgres continua ganhando espaço como alternativa a vector DBs dedicados.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<p style="color:#6b7280;font-size:13px;margin-top:-8px">github.com/trending, hoje (22/11/2026)</p>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, +98 estrelas hoje) — plataforma de automação de workflows com nós de IA nativos; o repo de maior tração do dia entre ferramentas de automação/agentes.</li>
+<li><strong>anthropics/skills</strong> (Markdown, Apache 2.0, +4.847 estrelas na semana) — repositório oficial com a especificação de Agent Skills do Claude e exemplos prontos (docx, pdf, pptx, xlsx, geração de servidor MCP).</li>
+<li><strong>pola-rs/polars</strong> (Rust, +23 estrelas hoje) — engine de DataFrame usado como alternativa performática ao pandas em pipelines de dado para ML.</li>
+<li><strong>apache/airflow</strong> (Python, +16 estrelas hoje) — orquestrador de workflows, continua como base comum para pipelines de treinamento e ingestão de dado para LLM.</li>
+<li><strong>pgvector/pgvector</strong> (C, +15 estrelas hoje) — extensão de busca vetorial para Postgres, usada direto em stacks de RAG sem precisar de vector DB dedicado.</li>
+<li><strong>apache/superset</strong> (Python, +19 estrelas hoje) — plataforma de BI/visualização, cada vez mais citada em stacks de observability para métricas de modelo e de agente.</li>
+<li><strong>perspective-dev/perspective</strong> (Rust, +36 estrelas hoje) — motor de visualização para dados em streaming, usado em dashboards de monitoramento de pipelines de ML em tempo real.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ul>
+<li>1. <strong>Agent sandboxing</strong> — movido para "Adopt" no Thoughtworks Radar Vol. 35 (nov/2026): isolar a execução de agentes autônomos deixou de ser recomendação só para coding agents e passou a ser default para qualquer agente com acesso a sistemas de negócio, com isolamento guiado por threat modeling.</li>
+<li>2. <strong>Progressive context disclosure</strong> — também em "Adopt" no mesmo Radar: carregar ferramentas MCP e agent skills só quando necessárias, em vez de injetar tudo de uma vez no prompt de sistema, já é prática quase universal em aplicações de produção segundo a Thoughtworks.</li>
+<li>3. <strong>Orquestração de múltiplos agentes</strong> — tema central do AI Engineering Report Q1/2026; Codex CLI e Amazon Kiro Crew lançaram, nas últimas semanas, interfaces dedicadas (centro de comando, crew de sessões) só para coordenar e fazer handoff entre vários agentes rodando em paralelo.</li>
+<li>4. <strong>Context compaction</strong> — citado pelo AI Engineering Report Q1/2026 como o principal desafio de engenharia de 2026; harnesses de coding agent (Claude Code, Codex) já compactam contexto automaticamente em tarefas longas para não estourar a janela.</li>
+<li>5. <strong>Agentic RAG com orquestração por LLM</strong> — comparado a RAG tradicional e a fine-tuning no ACL 2026 Industry Track ("Is Agentic RAG worth it?"); a abordagem deixa o próprio LLM decidir quais ações de retrieval tomar e quando iterar, em vez de seguir um pipeline fixo de retrieve-then-generate.</li>
+<li>6. <strong>RAG + fine-tuning híbrido</strong> — múltiplos papers do ACL/EMNLP 2026 Industry Track testam combinar fine-tuning de domínio com RAG no mesmo pipeline, citando casos como QA jurídico e testes automotivos hardware-in-the-loop batendo baselines de modelo único e de RAG puro.</li>
+</ul>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>AutoRAGBench</strong> (arXiv:2611.25582, 19/11/2026) — benchmark que testa se agentes de IA conseguem construir sistemas de RAG do zero; a melhor configuração (GPT-6.1 Sol + Codex CLI) atingiu score médio de 56,1 contra um baseline humano composto de 44,4.</li>
+<li><strong>AppSci-Bench</strong> (arXiv:2611.25360, 20/11/2026) — avalia se LLMs conseguem construir agentes de IA funcionais; o melhor agente (Codex + GPT-6 Astra) teve taxa de sucesso geral de apenas 21,05%, mostrando o quão distante essa meta-tarefa ainda está de "resolvida".</li>
+<li><strong>Visual Cipher Bench</strong> (arXiv:2611.16861, 12/11/2026) — 40 puzzles de raciocínio visual de longo horizonte; mesmo o agente com melhor desempenho resolveu só ~25% das tarefas, e a maioria dos modelos de fronteira falhou quase por completo.</li>
+<li><strong>Singularity-Bench: Can Agents Build Agents?</strong> (arXiv:2611.16591, novembro/2026) — testa agentes construindo outros agentes como proxy de capacidade recursiva e auto-melhoria.</li>
+<li><strong>"Is Agentic RAG worth it?"</strong> (ACL 2026 Industry Track) — comparação experimental entre RAG agentic (LLM decide as ações de retrieval) e pipelines RAG tradicionais; parte das 265 submissões aceitas no Industry Track da EMNLP 2026 sobre aplicação real de LLM em produção.</li>
+<li><strong>"Smarter, not Bigger: Fine-Tuned RAG-Enhanced LLMs for Automotive Hardware-in-the-Loop Testing"</strong> (ACL 2026 Industry Track) — mostra fine-tuning + RAG superando modelos maiores em tarefa de teste de hardware automotivo, defendendo modelos menores e mais especializados sobre força bruta de parâmetros.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.thoughtworks.com/en-ec/radar/tools">Thoughtworks Technology Radar Vol. 35</a></li>
+<li><a href="https://www.thoughtworks.com/de/radar/techniques/subagents-for-context-management">Thoughtworks — Subagents for context management</a></li>
+<li><a href="https://www.thoughtworks.com/de-de/radar/techniques/sandboxed-execution-for-ai-agents">Thoughtworks — Sandboxed execution for AI agents</a></li>
+<li><a href="https://www.ai.engineer/AIE_2026_Q1_report.pdf">AI Engineering Report Q1 2026</a></li>
+<li><a href="https://releases.sh/collections/coding-agents/digest/2026-11-09.md">releases.sh — Coding agents digest, 09/11/2026</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL 2026 Industry Track Proceedings</a></li>
+<li><a href="https://aclanthology.org/2026.emnlp-industry/">EMNLP 2026 Industry Track Proceedings</a></li>
+<li><a href="https://arxiv.org/abs/2611.25582">arXiv:2611.25582 — AutoRAGBench</a></li>
+<li><a href="https://arxiv.org/html/2611.16861v1">arXiv:2611.16861 — Visual Cipher Bench</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — diário</a></li>
+<li><a href="https://github.com/anthropics/skills">github.com/anthropics/skills</a></li>
+<li><a href="https://www.nocode.mba/ai-release-tracker/2026/11">AI Release Tracker — novembro/2026</a></li>
+<li><a href="https://langchain.com/blog/mcp-in-langchain-stateless-protocol-elicitation-and-more">LangChain — MCP nativo no pacote principal</a></li>
+<li><a href="https://docs.crewai.com/en/changelog.md">CrewAI — Changelog</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 22/11/2026</div>
+</body></html>
