@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 23/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 23/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Gemini 4 Carbon</strong> (anunciado 28/10/2026, Google DeepMind): lidera o Artificial Analysis Intelligence Index v5.0 com score 59, e vence 15 de 17 benchmarks comparados diretamente contra Gemini 4 Argon, GPT-6 Astra, Claude Opus 5.5 e Claude Fable 5.1. Lidera também os benchmarks de cibersegurança CWE-bench (71,0%), ExploitGym (54,8%) e SEC-bench Pro (88,2%), mas o acesso segue restrito ao Fairwind Program — em 01/11/2026 ainda não aparecia na API pública do Gemini.</li>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026, Anthropic): entrega desempenho próximo do Fable 5.1 com custo 40% menor que o Opus 5; já disponível na Claude API, Amazon Bedrock, Google Cloud e Microsoft Foundry. Sonnet 5.5 e Haiku 5.5 foram prometidos para as semanas seguintes.</li>
+<li><strong>GPT-6 Cyber</strong> (OpenAI, lançado 05/11/2026 via Daybreak Red): modelo restrito, classificado no nível "Critical" de cibersegurança da própria OpenAI, liberado apenas para defensores selecionados — sinal de que modelos de ponta estão sendo segmentados por risco, não só por capacidade.</li>
+<li><strong>Cadência de releases:</strong> o ritmo de lançamento de modelos frontier da Anthropic dobrou ao longo de 2026 — de um modelo a cada 46 dias no primeiro semestre para um a cada 26 dias no segundo semestre.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>Claude Code</strong>: três releases consecutivos na semana de 09–15/11/2026 (versões 2.1.325 a 2.1.327), parte de uma semana com 97 lançamentos de ferramentas de dev de IA registrados por um digest do setor.</li>
+<li><strong>LangChain</strong>: lançou agentes gerenciados com capacidade de navegador e subagentes em background rodando de forma assíncrona (fim de outubro/2026).</li>
+<li><strong>Vercel AI Gateway</strong>: introduziu "virtual models" reutilizáveis, permitindo trocar o modelo usado por um agente sem alterar código de aplicação.</li>
+<li><strong>Devin (Cognition)</strong>: Design Mode (11/11/2026) ganhou uma prompt bar compacta com edição de propriedades por item, além de redesign do Devin Review e uma API de consumo de sessão diária.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Agentic Resource Discovery Specification</strong>: Google e parceiros anunciaram especificação aberta para que agentes de IA descubram recursos e capacidades disponíveis em um sistema.</li>
+<li><strong>Agent Package Manager</strong>: gerenciador de dependências open-source para configuração de agentes de IA (prompts, skills, ferramentas como artefatos versionáveis), destacado no Thoughtworks Technology Radar Vol. 35 (novembro/2026).</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Thoughtworks Technology Radar Vol. 35</strong> (nov/2026): reforça "sandboxed execution for AI agents" como técnica recomendada e trata "context engineering" como preocupação arquitetural central, não mais tática de otimização pontual; "MCP by default" entra como prática padrão de integração.</li>
+<li><strong>Revisão de código como novo gargalo</strong>: análise da TechEmpower (10/11/2026) argumenta que, com a escrita de código acelerada por IA, a revisão virou o gargalo do ciclo de desenvolvimento; cita a meta da Honeycomb de 25% dos PRs revisados só por máquina.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>elementalsouls/Claude-BugHunter</strong> (+1.716 ⭐ hoje) — bundle de skills para Claude Code voltado a caça de bugs e trabalho de red-team externo.</li>
+<li><strong>HKUDS/CLI-Anything</strong> (+699 ⭐ hoje) — torna qualquer software operável por agentes de IA via interface de linha de comando padronizada.</li>
+<li><strong>mvanhorn/last30days-skill</strong> (+668 ⭐ hoje) — skill de agente que pesquisa um tema em várias plataformas e sintetiza um resumo fundamentado em fontes.</li>
+<li><strong>zhouxiaoka/autoclip</strong> (+641 ⭐ hoje) — ferramenta desktop open-source que corta vídeos longos em clipes curtos com legendas geradas por IA.</li>
+<li><strong>jingyaogong/minimind</strong> (Python, +473 ⭐ hoje) — treina um LLM de 64M parâmetros do zero em cerca de 2 horas, útil como referência didática de pré-treino.</li>
+<li><strong>SWE-agent/mini-swe-agent</strong> (Python, +459 ⭐ hoje) — agente de IA minimalista para resolver issues do GitHub via linha de comando, sem dependência de IDE.</li>
+<li><strong>Tracer-Cloud/opensre</strong> (+399 ⭐ hoje) — agente open-source focado em confiabilidade de pipelines de CI/CD.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context engineering como disciplina arquitetural:</strong> o Thoughtworks Radar Vol. 35 deixa de tratar context engineering como ajuste fino de prompt e passa a tratá-lo como decisão de arquitetura — como orquestrar memória, ferramentas e compressão de estado em agentes de longa duração.</li>
+<li><strong>Sandboxed execution para agentes de IA:</strong> técnica recomendada reforçada no Radar; isola a execução de código gerado por agentes para limitar o raio de ação de comandos destrutivos, cada vez mais necessária com agentes autônomos (Devin, SWE-agent, mini-swe-agent) operando diretamente sobre repositórios reais.</li>
+<li><strong>Orquestração multiagente ("team of coding agents"):</strong> uso de subagentes especializados com compressão de estado para resumir saídas intermediárias, evitando estourar a janela de contexto em workflows longos — apontada por LeadDev e pelo próprio Radar como a skill de maior crescimento de demanda em 2026.</li>
+<li><strong>MCP (Model Context Protocol) como padrão default:</strong> "MCP by default" entra no Radar como prática madura, com Grafana Cloud e outras plataformas de observabilidade já monitorando servidores MCP como componente de infraestrutura de produção.</li>
+<li><strong>Agent Package Manager / dependências de agentes:</strong> gerenciar configurações de agentes (prompts, skills, ferramentas) como artefatos versionáveis, análogo a npm/pip, mas para comportamento de agentes de IA.</li>
+<li><strong>Revisão de código assistida por IA em escala:</strong> com geração de código acelerada, equipes como a da Honeycomb fixam metas explícitas de % de PRs revisados só por máquina (25%), tornando "revisão automatizada confiável" uma skill em alta demanda entre devs seniores.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>PRInTS</strong> (<a href="https://arxiv.org/abs/2511.19314">arXiv:2511.19314</a>) — modelo de recompensa (reward model) para busca de informação de longo horizonte por agentes de IA; avalia a qualidade de passos intermediários de pesquisa, não só o resultado final.</li>
+<li><strong>Fine-tuning vs. RAG para world models</strong> (<a href="https://arxiv.org/abs/2610.02542">arXiv:2610.02542</a>) — compara as duas abordagens em 5 ambientes; fine-tuning venceu em recompensa em 15 de 20 configurações testadas, enquanto RAG se mostrou mais eficiente em dados.</li>
+<li><strong>Fine-tuning with RAG for Improving LLM Learning of New Skills</strong> (<a href="https://arxiv.org/abs/2510.01375">arXiv:2510.01375</a>) — destila orientação de RAG em modelos fine-tunados para eliminar a necessidade de retrieval em tempo de execução; atinge até 91% de sucesso no benchmark ALFWorld vs. 79% das baselines. Em revisão para a ICLR 2026.</li>
+<li><strong>ARC — Agent RAG Cache Mechanism</strong> (<a href="https://arxiv.org/abs/2511.02919">arXiv:2511.02919</a>) — framework de cache que mantém um corpus pequeno e de alto valor por agente RAG, reduzindo o custo de retrieval repetido.</li>
+<li><strong>Balancing Fine-tuning and RAG</strong> (<a href="https://arxiv.org/abs/2510.20260">arXiv:2510.20260</a>) — propõe fine-tuning mensal combinado com refresh via RAG mais frequente para manter LLMs de recomendação atualizados sem retrain constante.</li>
+<li><strong>Is Agentic RAG worth it?</strong> (ACL 2026 Industry Track) — comparação experimental entre abordagens de Agentic RAG e RAG tradicional, questionando se a camada extra de agente compensa o custo adicional em produção.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.thoughtworks.com/de/radar/techniques?blipid=1035">Thoughtworks Technology Radar — Techniques</a></li>
+<li><a href="https://www.thoughtworks.com/de/radar/techniques/subagents-for-context-management">Thoughtworks — Subagents for context management</a></li>
+<li><a href="https://www.thoughtworks.com/de-de/radar/techniques/sandboxed-execution-for-ai-agents">Thoughtworks — Sandboxed execution for AI agents</a></li>
+<li><a href="https://www.techempower.com/blog/tag/aisdlc/">TechEmpower — Your Next Bottleneck Is Code Review</a></li>
+<li><a href="https://www.havoptic.com/blog/weekly-digest-week-44-2026">AI Dev Tools Weekly — Week 44, 2026</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python, Daily</a></li>
+<li><a href="https://arxiv.org/abs/2511.19314">arXiv:2511.19314 — PRInTS</a></li>
+<li><a href="https://arxiv.org/abs/2610.02542">arXiv:2610.02542 — Fine-tuning vs RAG for World Models</a></li>
+<li><a href="https://arxiv.org/abs/2510.01375">arXiv:2510.01375 — Fine-tuning with RAG for New Skills</a></li>
+<li><a href="https://arxiv.org/abs/2511.02919">arXiv:2511.02919 — ARC Agent RAG Cache</a></li>
+<li><a href="https://arxiv.org/abs/2510.20260">arXiv:2510.20260 — Balancing Fine-tuning and RAG</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL 2026 Industry Track Proceedings</a></li>
+<li><a href="https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/">TechCrunch — Anthropic releases Opus 5.5</a></li>
+<li><a href="https://artificialanalysis.ai/models/releases/gemini-4-carbon">Artificial Analysis — Gemini 4 Carbon</a></li>
+<li><a href="https://www.deeplearning.ai/the-batch/gemini-leads-the-pack-again/">The Batch — Gemini Leads the Pack Again</a></li>
+<li><a href="https://9to5google.com/2026/10/28/gemini-4-carbon/">9to5Google — Gemini 4 Carbon</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 23/11/2026</div>
+</body></html>
