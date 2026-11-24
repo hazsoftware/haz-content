@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 24/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 24/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Qwen4 Max</strong> (Alibaba, 16/11/2026): disponibilidade geral após preview dentro do Token Plan desde 11/11; mais um concorrente direto de frontier model full-API para devs que já usam a família Qwen.</li>
+<li><strong>Gemini 4 Hydrogen</strong> (Google, Vertex AI, GA em 12/11/2026): API ID <code>gemini-4-hydrogen</code>, preço listado em torno de US$ 1,50 (input) e US$ 9,00 (output) por milhão de tokens — sem data de retirada anunciada.</li>
+<li><strong>Tencent Hy4</strong> (04/11/2026): preço agressivo de ~US$ 0,834 (input) e US$ 2,501 (output) por milhão de tokens na Tencent Cloud, com suporte a visão e "computer use" nativo.</li>
+<li><strong>OpenAI GPT-6 Cyber e GPT-Image 2.6</strong> (lançados 05/11 e 04/11/2026): expansão da linha GPT-6 e da geração de imagem; <strong>ChatGPT Work e Codex</strong> passaram a ficar disponíveis via API e planos pagos a partir de 17/11/2026, segundo fórum de devs da OpenAI.</li>
+<li><strong>Grok 4.1</strong> (xAI): nova versão com foco em redução de taxa de hallucination, já integrada à busca na web.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol) spec 2026-07-28</strong>: segue em adoção crescente sob a Agentic AI Foundation (Linux Foundation) — quase 500 milhões de downloads/mês somando os SDKs Tier 1. A revisão trouxe core stateless, novo fluxo assíncrono via <code>tasks/get</code> e <code>tasks/update</code> (SEP-2663) e validação obrigatória do parâmetro <code>iss</code> para bloquear ataques de mix-up entre servidores MCP.</li>
+<li><strong>Mistral Vibe</strong>: plataforma de coding agêntico lançada pela Mistral AI, concorrendo direto com Cursor/Codex no espaço de IDEs com agente embutido.</li>
+<li><strong>Devin Desktop</strong> (ex-Windsurf): IDE completa combinando ambiente de desenvolvimento com múltiplos agentes de codificação em um único workspace.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Amazon Kiro Crew</strong>: sistema open-source para orquestrar múltiplos agentes Kiro rodando em paralelo entre sessões, ferramentas e tarefas distintas.</li>
+<li><strong>DeepSeek Harness (dsh)</strong>: developer preview open-source de runtime de execução para construção de agentes autônomos, lançado pela DeepSeek.</li>
+<li><strong>Pizza Bot</strong> (time da AWS, open-source): app self-hosted para deixar agentes de IA executando tarefas em background de forma contínua.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>pgvector</strong> (C) voltou ao trending do GitHub hoje (+12 ⭐) — motor de busca por similaridade vetorial no Postgres, peça central de stacks RAG em produção.</li>
+<li><strong>PostHog</strong> (Python, +32 ⭐ hoje) ganha tração como plataforma de produto com observabilidade de IA nativa, cobrindo um gap que ferramentas de APM tradicionais não cobrem para falhas específicas de LLM.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<p>Trending diário (<a href="https://github.com/trending?since=daily&spoken_language_code=en">github.com/trending</a>), 24/11/2026:</p>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, +180 ⭐ hoje) — automação de workflows com recursos de IA nativos; forte adoção para orquestrar agentes e integrações sem código.</li>
+<li><strong>rustdesk/rustdesk</strong> (Rust, +219 ⭐ hoje) — acesso remoto self-hosted, maior ganho de estrelas do dia entre todos os repositórios.</li>
+<li><strong>paperless-ngx/paperless-ngx</strong> (Python, +48 ⭐ hoje) — gestão documental com extração cada vez mais apoiada em IA.</li>
+<li><strong>perspective-dev/perspective</strong> (Rust, +38 ⭐ hoje) — visualização de dados para datasets grandes/streaming, usado em dashboards de ML.</li>
+<li><strong>PostHog/posthog</strong> (Python, +32 ⭐ hoje) — plataforma de produto com observabilidade de IA.</li>
+<li><strong>pola-rs/polars</strong> (Rust, +28 ⭐ hoje) — engine de DataFrame de alta performance, comum em pipelines de pré-processamento para ML.</li>
+<li><strong>pgvector/pgvector</strong> (C, +12 ⭐ hoje) — busca por similaridade vetorial no Postgres, base de muitas stacks RAG.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context Engineering</strong>: segue deslocando "prompt engineering" como habilidade central de 2026. A AIMultiple reporta ganho de até 13% em acurácia de tarefas ao reestruturar o contexto em vez do prompt isolado; um caso citado (não confirmado na fonte primária da Shopify) relata salto de 71% para 93% de acurácia em ferramentas de IA para merchants apenas reorganizando a arquitetura de contexto, sem troca de modelo.</li>
+<li><strong>Agent Orchestration</strong>: segundo executivo do GitLab citado pela LeadDev, o papel do dev está migrando de "escrever cada linha de código" para orquestrar múltiplos agentes de IA simultaneamente — listada como competência central em guias de carreira para 2026/2027.</li>
+<li><strong>Agentic RAG</strong>: em vez de um pipeline fixo de retrieval, o próprio LLM decide quais ações tomar, quando buscar e quando iterar — tema dominante nos benchmarks recentes (AutoRAGBench, RAGCap-Bench), com adoção crescente em produção.</li>
+<li><strong>MLOps e monitoramento de deploy</strong>: análise de outubro/2026 do Stack Overflow mostra alta sensível em menções a MLflow nas perguntas da comunidade; guias de carreira apontam monitoramento pós-deploy como o que separa devs "experts" de iniciantes em IA.</li>
+<li><strong>Avaliação integrada ao CI/CD</strong>: guias de 2026 recomendam embutir frameworks como Promptfoo, LangSmith ou Braintrust direto no pipeline de CI/CD, testando regressões de LLM antes do merge em vez de QA manual pós-deploy.</li>
+<li><strong>Execução local de modelos quantizados</strong>: Ollama e MLX (Apple Silicon) continuam como padrão para rodar modelos quantizados localmente com um único comando, reduzindo custo de desenvolvimento e teste antes de ir para produção.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>AutoRAGBench</strong> (<a href="https://arxiv.org/abs/2611.25582">arXiv 2611.25582</a>, 19/11/2026) — benchmark que testa se agentes LLM conseguem construir sistemas RAG do zero; avalia 9 configurações de agentes, com GPT-6.1 Sol + Codex CLI atingindo média de 56,1 contra baseline composto Human-SOTA de 44,4.</li>
+<li><strong>RAGCap-Bench</strong> (ACL Anthology, AACL 2026) — benchmark de capacidades intermediárias em pipelines de RAG agêntico; mostra correlação entre desempenho nessas etapas intermediárias e o resultado final end-to-end.</li>
+<li><strong>AstronautBench</strong> (cs.AI, 23/11/2026) — mede o auto-aperfeiçoamento de um agente sob três perspectivas simultâneas: o que ele aprendeu, se a evidência sustenta esse aprendizado, e quanto progresso real ele faz na tarefa.</li>
+<li><strong>CoEvoBench</strong> (cs.AI, novembro/2026) — benchmark em que LLMs atuam como "pesquisadores", coevoluindo modelo e harness de um agente-alvo em cinco domínios agênticos distintos.</li>
+<li><strong>AgentTune</strong> (<a href="https://arxiv.org/pdf/2610.13335">arXiv 2610.13335</a>) — proposta de ciclo de treinamento unificado para agentes LLM que usam ferramentas (tool-using agents).</li>
+<li><strong>Fine-Tuning with RAG</strong> (ICLR 2026, <a href="https://arxiv.org/pdf/2510.01375">arXiv 2510.01375</a>) — compara fine-tuning vs. RAG para LLMs aprenderem novas skills; no benchmark ALFWorld, destilação supera RAG em modelos de 14B (91,04% vs. 82,09%).</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (diário, EN)</a></li>
+<li><a href="https://arxiv.org/abs/2611.25582">AutoRAGBench — arXiv 2611.25582</a></li>
+<li><a href="https://aclanthology.org/2026.aacl-long.245/">RAGCap-Bench — ACL Anthology AACL 2026</a></li>
+<li><a href="https://arxiv.org/list/cs.AI/new">arXiv cs.AI — listagem recente</a></li>
+<li><a href="https://arxiv.org/pdf/2610.13335">AgentTune — arXiv 2610.13335</a></li>
+<li><a href="https://arxiv.org/pdf/2510.01375">Fine-Tuning with RAG — arXiv 2510.01375 (ICLR 2026)</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/tags/release/">MCP Spec 2026-07-28 — Model Context Protocol blog</a></li>
+<li><a href="https://claude.com/blog/bringing-mcp-2026-07-28-to-claude">Bringing MCP 2026-07-28 to Claude — Anthropic</a></li>
+<li><a href="https://aaif.io/blog/mcp-graduates-to-enterprise-infrastructure-stateless-architecture-formal-governance-and-security">MCP graduates to enterprise infrastructure — Agentic AI Foundation</a></li>
+<li><a href="https://www.nocode.mba/ai-release-tracker/2026/11">AI Release Tracker — novembro 2026</a></li>
+<li><a href="https://essamamdani.com/blog/ai-model-releases-november-2026">AI Model Releases: November 2026 Update</a></li>
+<li><a href="https://venturebeat.com/ai/musks-xai-launches-grok-4-1-with-lower-hallucination-rate-on-the-web-and">xAI lança Grok 4.1 — VentureBeat</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">Engineering skills are being rewritten by AI — LeadDev</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Is AI really reshaping the developer market? — Stack Overflow Blog</a></li>
+<li><a href="https://research.aimultiple.com/context-engineering">Context Engineering — AIMultiple</a></li>
+<li><a href="https://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026">The Minimal AI Engineer Toolkit for 2026 — KDnuggets</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 24/11/2026</div>
+</body></html>
