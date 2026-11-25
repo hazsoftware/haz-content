@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 25/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 25/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Fable 5.2</strong> (Anthropic, 09/11/2026): novo modelo da família Claude 5, lançado junto com uma variante restrita (Mythos 5.2), ampliando a linha que já inclui Opus 5.5, Sonnet 5.5 e Haiku 5.5.</li>
+<li><strong>langchain-openai 1.8.3</strong> (18-19/11/2026): passa a habilitar prompt caching da Codex sobre GPT-6.2, cortando custo em chamadas repetidas de contexto longo.</li>
+<li><strong>langchain-core 1.8.4</strong> e <strong>langchain-anthropic 1.7.12</strong> (patches de novembro/2026): correções de compatibilidade na camada core e no provider Anthropic.</li>
+<li><strong>GPT-6 Cyber</strong> e <strong>GPT-Image 2.6</strong> ("Sunburst"/"Flare") — segundo rastreadores independentes de lançamentos (não confirmado oficialmente pela OpenAI), datados de 04-05/11/2026, um modelo focado em segurança/cyber e uma dupla de atualizações de geração de imagem.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>langchain-xai 1.4.1</strong> (18/11/2026): passa a repassar headers do LangSmith Gateway no lado do cliente, facilitando rastreamento de chamadas via xAI.</li>
+<li><strong>CrewAI v1.15.24</strong>: adiciona o comando <code>crewai eval</code> para avaliação programática de crews e suporte nativo ao Gemini 3.8 Flash como modelo de agente.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>MCP spec 2026-07-28</strong> (Model Context Protocol, quinta revisão): torna o core do protocolo totalmente stateless — qualquer instância de servidor pode atender qualquer request atrás de um load balancer round-robin simples, sem storage compartilhado. Estabiliza a extensão Enterprise-Managed Authorization e torna obrigatória a validação do parâmetro <code>iss</code>, fechando uma classe de ataques de mix-up entre servidores. O SDK oficial Ruby passa a Tier 1, com suporte completo à spec.</li>
+<li><strong>Pi 1.0 "Earendil"</strong> (01/10/2026, open-source, MIT): primeiro release estável de um agente de codificação via terminal, com sistema de tool-calling próprio chamado Codemode e suporte nativo a MCP já embutido.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Observability de RAG</strong>: o foco está migrando de tracing puro de LLM para métricas operacionais do vector DB (latência de query, throughput, taxa de sucesso de operação), já que falhas de retrieval costumam aparecer como falha de modelo nos dashboards tradicionais.</li>
+<li><strong>Weaviate</strong> passou a embutir um servidor MCP próprio no banco, e <strong>Qdrant</strong> anunciou reforço de performance e confiabilidade visando cargas de produção agentic.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>elementalsouls/Claude-BugHunter</strong> (Python, ⭐1.826 hoje) — conjunto de skills para Claude Code voltado a bug hunting e trabalho de red-team externo.</li>
+<li><strong>HKUDS/CLI-Anything</strong> (Python, ⭐1.074 hoje) — torna qualquer software existente operável por agentes de IA, expondo-o via interface de linha de comando.</li>
+<li><strong>XiaoYouChR/Ghost-Downloader-3</strong> (Python, ⭐1.092 hoje) — downloader multi-propósito, puxado pela onda de ferramentas de produtividade com integração de agentes.</li>
+<li><strong>zhouxiaoka/autoclip</strong> (Python, ⭐980 hoje) — ferramenta desktop que usa IA para cortar vídeos longos em clipes curtos com legendas e capa geradas automaticamente.</li>
+<li><strong>jingyaogong/minimind</strong> (Python, ⭐727 hoje) — projeto para treinar um LLM do zero com ~64M de parâmetros, útil para entender internals de treinamento sem custo de cluster.</li>
+<li><strong>mvanhorn/last30days-skill</strong> (Python, ⭐703 hoje) — skill de agente que pesquisa um tema em fontes web/sociais dos últimos 30 dias e sintetiza os achados.</li>
+<li><strong>Tracer-Cloud/opensre</strong> (Python, ⭐398 hoje) — agente open-source focado em confiabilidade de CI/CD, automatizando triagem de falhas de pipeline.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Orquestração multi-agente como núcleo do trabalho do dev</strong>: pesquisa da LeadDev mostra 47% dos desenvolvedores priorizando upskilling em prompt engineering e gestão de agentes; GitLab descreve a função mudando de "escrever cada linha de código" para "coordenar múltiplos agentes de IA" em paralelo.</li>
+<li><strong>MCP como camada de integração padrão</strong>: a maioria dos produtos de IA já trata o Model Context Protocol como integração default, segundo a Analytics Vidhya; a revisão 2026-07-28 reforça isso com arquitetura stateless e extensões versionadas (MCP Apps, MCP Tasks) que evitam quebrar compatibilidade a cada nova feature.</li>
+<li><strong>Avaliação de prompts/agentes integrada ao CI/CD</strong>: cresce o uso de frameworks como Promptfoo, LangSmith e Braintrust versionados dentro do pipeline de build, tratando prompt engineering como disciplina mensurável e não mais tentativa-e-erro manual.</li>
+<li><strong>Fluxo de codificação em tickets curtos + TDD guiado por IA</strong>: o workflow descrito por Addy Osmani divide projetos em etapas pequenas e gera testes junto com o código a cada etapa, reduzindo retrabalho de agentes em tarefas longas.</li>
+<li><strong>Inferência local com modelos quantizados</strong>: Ollama e MLX (Apple Silicon) ganham tração para rodar modelos localmente durante desenvolvimento, cortando custo de API e latência de iteração.</li>
+<li><strong>Observabilidade específica de IA</strong>: ferramentas de APM tradicionais não capturam prompt injection nem degradação de contexto; cresce a adoção de scanners de prompt injection e filtros de output dedicados a esse tipo de falha.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Is Agentic RAG worth it?</strong> (ACL 2026, Industry Track) — compara experimentalmente abordagens de RAG agentic contra RAG tradicional, medindo custo-benefício de dar autonomia de busca ao agente.</li>
+<li><strong>PRInTS</strong> (digest arXiv, nov/2025) — reward model para busca de informação de longo horizonte por agentes, usado para treinar agentes a persistir em buscas complexas sem reward hacking.</li>
+<li><strong>Scaling de agentes de busca web sob orçamento de tool-calls</strong> (arXiv, nov/2025) — estuda como limitar o número de chamadas de ferramenta de um agente sem perder qualidade de resposta final.</li>
+<li><strong>ARC</strong> (roundup semanal de papers, nov/2025) — framework de caching dinâmico para agentes RAG, reduzindo custo de re-retrieval ao cachear resultados por similaridade de contexto.</li>
+<li><strong>Fine-tuning com RAG para automação industrial</strong> (ACL 2026, Industry Track) — aplica LLM fine-tunado combinado com RAG a testes hardware-in-the-loop na indústria automotiva.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (diário)</a></li>
+<li><a href="https://releasebot.io/updates/langchain-ai/langchain">LangChain Updates & Release Notes (Releasebot)</a></li>
+<li><a href="https://docs.crewai.com/en/changelog">CrewAI Changelog</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP Spec 2026-07-28 (Model Context Protocol blog)</a></li>
+<li><a href="https://claude.com/ja/blog/bringing-mcp-2026-07-28-to-claude">Bringing MCP 2026-07-28 to Claude</a></li>
+<li><a href="https://aaif.io/blog/mcp-2026-changes-the-rules">MCP 2026 Changes the Rules (Agentic AI Foundation)</a></li>
+<li><a href="https://tech-insider.org/pi-1-0-coding-agent-tokens-cut-2026/">Pi 1.0 coding agent (tech-insider.org)</a></li>
+<li><a href="https://www.techtarget.com/data-technologies/news/366642580/Qdrant-boosts-performance-reliability-to-meet-AI-needs">Qdrant boosts performance, reliability (TechTarget)</a></li>
+<li><a href="https://www.dio.me/en/articles/rag-observability-em-2026-do-tracing-ao-vector-db-82cdc4a4e752">RAG Observability em 2026 (dio.me)</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">Engineering skills are being rewritten by AI (LeadDev)</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Is AI really reshaping the developer market? (Stack Overflow Blog)</a></li>
+<li><a href="https://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026">The Minimal AI Engineer Toolkit for 2026 (KDnuggets)</a></li>
+<li><a href="https://addyosmani.com/blog/ai-coding-workflow/">My LLM coding workflow going into 2026 (Addy Osmani)</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL 2026 Industry Track Proceedings</a></li>
+<li><a href="https://akillness.github.io/posts/top-llm-papers-november-week2-2025">Top LLM Papers — November Week 2 2025 (akillness)</a></li>
+<li><a href="https://2shin0.github.io/arxiv-ai-mailing/LLM/2025-11-26">LLM 관련 주요 논문 — 2025-11-26 (2shin0)</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 25/11/2026</div>
+</body></html>
