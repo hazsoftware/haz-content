@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 26/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 26/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Governança do MCP</strong>: a Anthropic doou o Model Context Protocol para a <strong>Agentic AI Foundation</strong>, um fundo dirigido dentro da Linux Foundation, tirando o protocolo do controle unilateral de um único vendor e abrindo caminho para adoção enterprise mais ampla.</li>
+<li><strong>Especificação MCP 2026-07-28</strong>: tornou-se a spec oficial com núcleo stateless, Multi Round-Trip Requests, roteamento por header e resultados de lista cacheáveis; a extensão <strong>Enterprise-Managed Authorization</strong> já está estável, permitindo provisionar acesso a servidores MCP via IdP central.</li>
+<li><strong>SDK Ruby para MCP</strong> chegou à versão 1.0.0, completando a cobertura de linguagens Tier 1 do protocolo.</li>
+<li><strong>Google Cloud</strong> lançou um pacote de transporte gRPC para MCP e a <strong>Microsoft</strong> lançou suporte a MCP no Azure Functions — ambos miram reduzir latência e complexidade de servers MCP em produção enterprise.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain</strong> lançou agentes gerenciados com navegador embutido e subagentes em background (fim de out/2026), permitindo que agentes operem páginas web de forma assíncrona sem bloquear o processo principal.</li>
+<li><strong>Vercel AI Gateway</strong> introduziu "virtual models" reutilizáveis, permitindo trocar o modelo usado por um agente em produção sem reescrever a integração.</li>
+<li><strong>Bug0</strong> publicou uma biblioteca source-available baseada em Playwright voltada a regressão de navegador orientada a agentes.</li>
+<li>Guias de engenharia de IA de 2026 recomendam integrar <strong>Promptfoo</strong>, <strong>LangSmith</strong> ou <strong>Braintrust</strong> ao CI/CD, tratando prompt engineering como disciplina versionada e testável, não mais um processo ad-hoc.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Devin</strong> (Cognition) recebeu, na semana de 9-15/nov/2026, atualização de Design Mode e uma API de consumo diário de sessão; o editor de arquivos de sessão passou a exigir salvamento explícito (Cmd/Ctrl+S) em vez de autosave, e o <strong>Devin Review</strong> ganhou página redesenhada com opção própria de auto-fix.</li>
+<li>Um levantamento semanal contou <strong>97 lançamentos</strong> de ferramentas de dev de IA só na semana de 9-15/nov/2026 — sinal da velocidade de iteração do setor.</li>
+<li><strong>Google</strong> e parceiros de indústria anunciaram a <strong>Agentic Resource Discovery Specification</strong>, um padrão para que agentes de IA descubram recursos e ferramentas entre diferentes provedores.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Zilliz</strong> (Milvus) lançou o "Vector Lakebase" com três camadas de serviço (Performance-Optimized, Capacity-Optimized, Tiered-Storage), separando custo de armazenamento do custo de query em bancos vetoriais.</li>
+<li><strong>Zilliz + Pliops</strong> fecharam parceria para RAG em escala de bilhões de vetores usando offload de KV-cache acelerado por hardware, reduzindo o custo de storage para retrieval em larga escala.</li>
+<li><strong>Redis</strong> documentou um cliente (HubSpot) operando busca semântica sobre <strong>20 bilhões de vetores</strong>, reforçando memória de agentes como principal driver de crescimento de vector DBs em 2026.</li>
+<li><strong>AWS S3 Vectors</strong> atingiu disponibilidade geral (GA) em jan/2026, com arquitetura "storage-first" para RAG que reduz a necessidade de clusters dedicados de vector DB para cargas de leitura esparsas.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<p style="color:#6b7280;font-size:13px;margin-bottom:12px">Base: <a href="https://github.com/trending?since=daily&amp;spoken_language_code=en">github.com/trending</a> de hoje — a edição diária em inglês teve poucos projetos puramente de IA no topo; os destaques abaixo são os mais relevantes para quem trabalha com IA.</p>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, 161⭐ hoje) — plataforma de automação de workflows com capacidades nativas de IA; um dos projetos mais ativos do dia por combinar automação low-code com chamadas a LLMs.</li>
+<li><strong>PostHog/posthog</strong> (Python, 37⭐ hoje) — plataforma de product analytics que passou a embutir observabilidade de IA e suporte a MCP, útil para instrumentar agentes em produção.</li>
+<li><strong>pgvector/pgvector</strong> (C, 18⭐ hoje) — extensão de busca por similaridade vetorial para Postgres; segue como escolha padrão para RAG sem precisar de um vector DB dedicado.</li>
+<li><strong>apache/airflow</strong> (Python, 17⭐ hoje) — orquestrador de workflows de dados, cada vez mais usado como camada de orquestração para pipelines de fine-tuning e RAG.</li>
+<li><strong>apache/superset</strong> (Python, 22⭐ hoje) — plataforma de BI/visualização, frequentemente acoplada a pipelines de IA para dashboards de observabilidade de modelos.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Orquestração de múltiplos agentes</strong> — pesquisas do GitLab (EMEA) e da O'Reilly em 2026 apontam que o papel do dev está migrando de "escrever toda linha de código" para orquestrar sistemas e guiar vários agentes simultâneos; é citada como a habilidade de maior crescimento nas pesquisas do ano.</li>
+<li><strong>Avaliação (evals) como disciplina de engenharia</strong> — adoção de frameworks como Promptfoo, LangSmith ou Braintrust integrados a pipelines de CI/CD, tratando prompts e agentes com os mesmos princípios de teste automatizado usados em software tradicional.</li>
+<li><strong>MLOps operacional</strong> — análise da Stack Overflow (out/2026) aponta um salto de cerca de 3x no uso do MLflow, indicando que operacionalizar modelos (versionamento, monitoramento, rollback) virou habilidade core, não mais nicho de MLE.</li>
+<li><strong>Engenharia de contexto e gestão de tokens</strong> — guias de 2026 recomendam monitorar degradação de resposta por sobrecarga de contexto como sinal operacional, e usar inferência local (Ollama, MLX) para reduzir custo em loops de teste e desenvolvimento.</li>
+<li><strong>Segurança para IA generativa</strong> — scanners de prompt injection e filtros de output passaram a ser tratados como camada obrigatória de produção, já que ferramentas de APM tradicionais não cobrem falhas específicas de LLM, como jailbreaks e exfiltração via tool-calling.</li>
+<li><strong>MCP como padrão de integração de agentes</strong> — com a doação à Agentic AI Foundation e a extensão de autorização enterprise estável, conectar agentes a ferramentas via MCP (em vez de integrações proprietárias) se consolidou como prática padrão em 2026.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>Potential emergence in LLM agents: a statistical physics perspective</strong> (<a href="https://arxiv.org/abs/2611.27618">arXiv:2611.27618</a>, 20/11/2026) — aplica física estatística para modelar como comportamentos emergentes surgem em populações de agentes LLM; relevante para quem projeta sistemas multiagente.</li>
+<li><strong>Do LLM Agents Compromise Like Humans? Risk and Responsibility in Dyadic Decision-Making</strong> (<a href="https://arxiv.org/abs/2611.29069">arXiv:2611.29069</a>, 21/11/2026) — mostra que agentes LLM com perfis de risco distintos convergem em decisões conjuntas sem ajuste recíproco significativo, um alerta para negociação automatizada entre agentes.</li>
+<li><strong>What LLM Agents See and What Users Say</strong> (<a href="https://arxiv.org/abs/2611.17639">arXiv:2611.17639</a>, 13/11/2026) — usa teoria de pressuposição linguística para decidir quando um agente deve agir sobre um pedido ambíguo do usuário; aplicável a UX de agentes.</li>
+<li><strong>Learning to Reason in Real-Time</strong> (arXiv:2611.33513, 26/11/2026) — trata de agentes de IA que precisam raciocinar sob restrição de tempo real no mundo físico/online.</li>
+<li><strong>Smarter, not Bigger</strong> (ACL 2026 Industry Track, jul/2026) — combina fine-tuning com RAG para testes de hardware automotivo hardware-in-the-loop, um caso real de RAG + fine-tuning substituindo modelos maiores.</li>
+<li><strong>Is Agentic RAG worth it?</strong> (ACL 2026 Industry Track, jul/2026) — avalia uma arquitetura em que o LLM orquestra todo o pipeline de RAG, decidindo quais ações tomar e quando iterar, em vez de um pipeline fixo de retrieval.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://blog.modelcontextprotocol.io/posts/">The New MCP Roadmap — blog.modelcontextprotocol.io</a></li>
+<li><a href="https://workos.com/blog/everything-your-team-needs-to-know-about-mcp-in-2026">Everything your team needs to know about MCP in 2026 — WorkOS</a></li>
+<li><a href="https://www.havoptic.com/blog/weekly-digest-week-44-2026">AI Dev Tools Weekly — Week 44, 2026</a></li>
+<li><a href="https://releases.sh/collections/coding-agents/digest/2026-11-09.md">releases.sh — Coding Agents digest, 9/nov/2026</a></li>
+<li><a href="https://www.infoq.com/ai-coding/news/">InfoQ — AI Coding news</a></li>
+<li><a href="https://redis.io/blog/vector-search-database-news-2026-guide">Vector search database: news &amp; 2026 guide — Redis</a></li>
+<li><a href="https://technode.global/prnasia/zilliz-collaborates-with-pliops-to-enable-billion-scale-vector-search-at-storage-level-costs/">Zilliz + Pliops — billion-scale vector search</a></li>
+<li><a href="https://www.blocksandfiles.com/ai-ml/2026/06/15/zilliz-invents-vector-lakebase/5255542">Zilliz Vector Lakebase — Blocks and Files</a></li>
+<li><a href="https://www.infoq.com/news/2026/01/aws-s3-vectors-ga">AWS S3 Vectors GA — InfoQ</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Is AI really reshaping the developer market? — Stack Overflow Blog</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">Engineering skills are being rewritten by AI — LeadDev</a></li>
+<li><a href="https://www.pluralsight.com/resources/blog/ai-and-data/best-ai-tools-use">The top AI developer tools to use in 2026 — Pluralsight</a></li>
+<li><a href="https://github.com/trending?since=daily&amp;spoken_language_code=en">GitHub Trending — daily</a></li>
+<li><a href="https://arxiv.org/abs/2611.27618">arXiv:2611.27618</a></li>
+<li><a href="https://arxiv.org/abs/2611.29069">arXiv:2611.29069</a></li>
+<li><a href="https://arxiv.org/abs/2611.17639">arXiv:2611.17639</a></li>
+<li><a href="https://arxiv.org/list/cs.AI/new">arXiv cs.AI — new submissions</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL 2026 Industry Track Proceedings</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 26/11/2026</div>
+</body></html>
