@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 27/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 27/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Prazo de migração Fast Mode (30/11/2026)</strong>: usuários de Claude Code, Claude API e Agent SDK em fast mode precisam migrar para Opus 5.5 antes do fim do fast mode legado nesta data — vale checar configs de CI/scripts que fixam modelo antes do fim de semana.</li>
+<li><strong>Claude Opus 5.5</strong> (lançado 22/09/2026): continua no topo do índice de inteligência da Artificial Analysis (score 58, vs. GPT-6 Luna com 28) e reporta 66.4% no Terminal-Bench 4.0, segundo dados da Anthropic.</li>
+<li><strong>GPT-6 Astra/Sol/Luna</strong> (03/09, 22/09 e GPT-6.1 Sol em 29/09/2026): família GPT-6 da OpenAI segmentada por custo/capacidade; Astra foi o primeiro modelo classificado como "Critical" em risco de cibersegurança pela OpenAI.</li>
+<li><strong>Gemini 4 Argon</strong> (rollout global 13/10/2026): nova geração do Google: Gemini; comparações ainda citam a linha 3.8 Flash como referência de custo-benefício em benchmarks anteriores.</li>
+<li><strong>23/11/2026</strong>: OpenAI, Anthropic e Google anunciaram atualizações de modelo no mesmo dia, com preocupações de segurança levantadas na cobertura da imprensa — padrão de lançamentos simultâneos entre os três labs se repetindo.</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong>LangChain v1.4.0</strong>: adiciona suporte nativo a <strong>FastMCP</strong> via namespace <code>langchain.mcp</code>, substituindo o pacote separado <code>langchain-mcp-adapters</code>. <code>langchain-core</code> está em 1.6.4 (21/09/2026) e o pacote principal <code>langchain</code> em 1.3.15 (20/09/2026).</li>
+<li><strong>CrewAI v1.15.25</strong> (outubro/2026): segue com suporte nativo a MCP (desde a v1.4.0, novembro/2025) via transportes stdio, SSE e streamable HTTP pelo campo <code>mcps</code>.</li>
+<li><strong>LlamaIndex Workflows 1.0</strong> (junho/2026) e release atual v0.14.25 (setembro/2026): reestruturação do framework em torno de workflows declarativos.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong>Claude Code 2.1.325–2.1.327</strong>: três releases consecutivas na semana de 09–15/11/2026; uma apuração de terceiros contou 97 lançamentos de ferramentas de dev de IA somente naquela semana (número de fonte secundária, tratar com cautela).</li>
+<li><strong>Devin (Cognition)</strong>: lançou o <strong>Design Mode</strong> com barra de prompt compacta e edição por propriedade, salvamento explícito via Cmd/Ctrl+S no editor de sessão, e nova API de consumo diário de sessões (semana de 09/11/2026); cap de varredura multi-repo elevado para 1.000 repositórios (semana de 02/11/2026).</li>
+<li><strong>Orquestração multiagente</strong> consolidada como competência central: segundo um VP de Engenharia EMEA da GitLab, o papel do dev está migrando de "escrever cada linha" para "orquestrar sistemas e guiar múltiplos agentes".</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong>Avaliação em CI/CD</strong>: Promptfoo, LangSmith e Braintrust continuam como as opções recomendadas para rodar evals dentro do pipeline; DeepEval é citado para benchmarking de confiabilidade de agentes.</li>
+<li><strong>Inferência local</strong>: Ollama e MLX seguem como caminho padrão para rodar modelos quantizados localmente e evitar custo de tokens em tarefas rotineiras de dev.</li>
+<li><strong>pgvector</strong> apareceu no trending do GitHub hoje — busca de similaridade vetorial nativa no Postgres continua ganhando tração como alternativa a vector DBs dedicados para RAG.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>n8n-io/n8n</strong> (TypeScript, 113⭐ hoje) — plataforma de automação de workflows com capacidades nativas de IA; segue como o repo de IA mais forte do trending diário.</li>
+<li><strong>PostHog/posthog</strong> (Python, 36⭐ hoje) — plataforma de product analytics que vem incorporando observabilidade de IA e tooling orientado a agentes.</li>
+<li><strong>apache/airflow</strong> (Python, 24⭐ hoje) — orquestrador de workflows amplamente usado como backbone de pipelines de dados/ML.</li>
+<li><strong>pola-rs/polars</strong> (Rust, 24⭐ hoje) — engine de DataFrame de alta performance, cada vez mais usado em pipelines de pré-processamento para fine-tuning e RAG.</li>
+<li><strong>pgvector/pgvector</strong> (C, 13⭐ hoje) — extensão de similaridade vetorial para Postgres, opção leve para RAG sem subir um vector DB dedicado.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Orquestração de múltiplos agentes</strong>: guias de carreira de 2026 (DZone, LeadDev) colocam "coordenar múltiplos sistemas de IA para atingir objetivos complexos" como a skill técnica mais citada do ano; uma pesquisa da LeadDev aponta 47% dos devs querendo se especializar em prompt engineering e gestão de agentes.</li>
+<li><strong>Avaliação contínua (LLM-as-judge em CI/CD)</strong>: Promptfoo, LangSmith, Braintrust e DeepEval sendo integrados direto no pipeline de CI/CD para travar regressões de qualidade de prompt/agente antes do deploy.</li>
+<li><strong>MCP como protocolo padrão de integração</strong>: LangChain, CrewAI e outros frameworks consolidaram o Model Context Protocol como camada default para conectar modelos a ferramentas e dados, reduzindo boilerplate de integração custom.</li>
+<li><strong>RLVB ("Lazy Agents")</strong>: técnica de RL que treina agentes a só se comprometerem com uma resposta quando a evidência sustenta — resumos de terceiros reportam ganho de 9.3% sobre reward models baseados em LLM-judge usando 1.6x menos GPU-hours.</li>
+<li><strong>MLOps operacional</strong>: levantamento do Stack Overflow registra triplicação nas menções a MLflow entre devs, sinalizando que skills operacionais de MLOps (não só prompting) estão em alta demanda.</li>
+<li><strong>Inferência local com Ollama/MLX</strong>: adotada como skill de redução de custo — rodar modelos quantizados localmente para tarefas repetitivas de desenvolvimento em vez de queimar tokens de API.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>OS-Omni</strong> — benchmark para agentes generalistas de uso de computador (web, mobile, desktop) em workflows de longo horizonte; #3 no ranking de trending do Hugging Face Daily Papers em 27/11/2026.</li>
+<li><strong>RLVB / "Lazy Agents"</strong> — método de RL que ensina agentes a só se comprometerem com uma resposta quando há evidência suficiente; reportado batendo reward models de LLM-judge em 9.3% com 1.6x menos GPU-hours.</li>
+<li><strong>Solve Vision with Code</strong> — argumenta que agentes de codificação são raciocinadores visuais mais fortes que modelos de vídeo; #21 no trending do HF em 27/11/2026.</li>
+<li><strong>StateWeaver</strong> — coordenação multiagente de transições de estado narrativo para geração de vídeo de longo horizonte; #10 no trending do HF em 27/11/2026.</li>
+<li><strong>AIChipBench</strong> (arXiv 2611.33093) — benchmark para agentes LLM aplicados a design automatizado de aceleradores de IA (chips); #29 no trending do HF em 26/11/2026.</li>
+<li><strong>Is Agentic RAG worth it?</strong> — comparação experimental entre abordagens de RAG tradicional e agentic RAG, publicado no industry track da ACL 2026.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://www.havoptic.com/blog/weekly-digest-week-44-2026">AI Dev Tools Weekly — Week 44, 2026 (Havoptic)</a></li>
+<li><a href="https://releases.sh/collections/coding-agents/digest/2026-11-09.md">releases.sh — Coding Agents Digest 09/11/2026</a></li>
+<li><a href="https://releases.sh/collections/coding-agents/digest/2026-11-02.md">releases.sh — Coding Agents Digest 02/11/2026</a></li>
+<li><a href="https://telanganatoday.com/new-ai-models-critical-threshold-and-a-design-debate-a-busy-day-for-ai-industry">Telangana Today — New AI models, critical threshold (23/11/2026)</a></li>
+<li><a href="https://epoch.ai/models/claude-opus-5-5">Epoch AI — Claude Opus 5.5</a></li>
+<li><a href="https://artificialanalysis.ai/models/releases/comparisons/claude-opus-5-5-vs-gpt-6-luna">Artificial Analysis — Claude Opus 5.5 vs GPT-6 Luna</a></li>
+<li><a href="https://artificialanalysis.ai/models/releases/comparisons/gpt-6-astra-vs-claude-opus-5-5">Artificial Analysis — GPT-6 Astra vs Claude Opus 5.5</a></li>
+<li><a href="https://langchain.com/blog/mcp-in-langchain-stateless-protocol-elicitation-and-more">LangChain — MCP in LangChain</a></li>
+<li><a href="https://langchain.com/blog/october-2026-langchain-newsletter">LangChain — October 2026 Newsletter</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">LeadDev — Engineering skills are being rewritten by AI</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Stack Overflow Blog — Is AI really reshaping the developer market?</a></li>
+<li><a href="https://dzone.com/articles/tech-landscape-2026-what-developers-need-to-know">DZone — Tech landscape 2026: what developers need to know</a></li>
+<li><a href="https://huggingface.co/papers">Hugging Face — Daily Papers</a></li>
+<li><a href="https://trendoday.com/hugging-face/papers/2611.33093-aichipbench-benchmarking-llm-agents-for-automated-ai">AIChipBench (arXiv 2611.33093)</a></li>
+<li><a href="https://trendoday.com/hugging-face/papers/2611.34232-os-omni-benchmarking-generalist-computer-using-agents-on">OS-Omni paper</a></li>
+<li><a href="https://trendoday.com/hugging-face/papers/2611.34813-solve-vision-with-code-coding-agents-are-stronger-visual">Solve Vision with Code paper</a></li>
+<li><a href="https://trendoday.com/hugging-face/papers/2611.34290-stateweaver-multi-agent-coordination-of-story-state">StateWeaver paper</a></li>
+<li><a href="https://zerohour.day/item/f717d7d51a9f2328c88e9b645950a93f8df2288e">RLVB / "Lazy Agents" summary</a></li>
+<li><a href="https://aclanthology.org/2026.acl-industry/">ACL 2026 Industry Track Proceedings</a></li>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending — Daily</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 27/11/2026</div>
+</body></html>
