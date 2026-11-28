@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Resumo de IA para Devs — 28/11/2026</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f2937;max-width:760px;margin:0 auto;padding:32px 20px;background:#fff}
+h1{font-size:22px;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;color:#1e3a5f}
+h2{font-size:18px;color:#2563eb;margin-top:32px}
+h3{font-size:15px;color:#374151;margin-top:20px;margin-bottom:6px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:8px}
+a{color:#2563eb}
+.footer{margin-top:40px;padding-top:12px;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px}
+</style></head><body>
+<h1>Resumo de IA para Devs — 28/11/2026</h1>
+
+<h2>Novidades para Devs</h2>
+
+<h3>Modelos e APIs</h3>
+<ul>
+<li><strong>Claude Opus 5.5</strong> (22/09/2026): primeiro modelo da família Claude 5.5, com desempenho comparável ao Fable 5.1 na maior parte das tarefas; API a US$ 4/M tokens de entrada e US$ 20/M de saída, custo operacional entre 20% e 40% menor que o Opus 5, segundo fontes diferentes.</li>
+<li><strong>Claude Sonnet 5.5</strong> (28/09/2026): posicionado como complemento mais rápido e barato ao Opus 5.5, com preço de entrada inalterado em US$ 2/M tokens e ganhos reportados de até 30% em velocidade de saída e melhor performance em coding; Haiku 5.5 ainda sem data confirmada.</li>
+<li><strong>MCP spec 2026-07-28</strong>: quinta revisão da especificação do Model Context Protocol move o núcleo para arquitetura stateless, torna obrigatória a validação do parâmetro <code>iss</code> contra ataques de mix-up, e move "tasks" para extensão oficial (poll-based <code>tasks/get</code> + novo <code>tasks/update</code>, SEP-2663). Os SDKs Tier 1 somam hoje quase 500 milhões de downloads/mês.</li>
+<li><strong>LangChain</strong>: releases incrementais <code>langchain-core 1.8.4</code> e <code>langchain-openai 1.8.3</code> publicados em 18-19/11/2026 (patches, sem mudança de API).</li>
+</ul>
+
+<h3>Ferramentas e Frameworks</h3>
+<ul>
+<li><strong><a href="https://github.com/github/spec-kit">github/spec-kit</a></strong>: toolkit para spec-driven development pensado para uso com agentes de coding, 633 estrelas hoje no GitHub trending.</li>
+<li><strong><a href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a></strong>: projeto que busca tornar qualquer software operável por agentes de IA via interface de linha de comando, 666 estrelas hoje.</li>
+<li><strong><a href="https://github.com/agentscope-ai/agentscope">agentscope-ai/agentscope</a></strong>: framework para construir e rodar agentes com foco em transparência e confiabilidade, 59 estrelas hoje.</li>
+</ul>
+
+<h3>Agentes e Automação</h3>
+<ul>
+<li><strong><a href="https://github.com/awslabs/cli-agent-orchestrator">awslabs/cli-agent-orchestrator</a></strong>: coordena múltiplas CLIs de coding AI em sessões tmux isoladas.</li>
+<li><strong><a href="https://github.com/SWE-agent/mini-swe-agent">SWE-agent/mini-swe-agent</a></strong>: agente compacto voltado a resolver issues do GitHub, 28 estrelas hoje.</li>
+<li><strong>Google Agentic Resource Discovery</strong>: Google e parceiros de indústria anunciaram um padrão aberto para publicar e descobrir ferramentas, APIs e agentes de IA.</li>
+</ul>
+
+<h3>Infraestrutura e Deploy</h3>
+<ul>
+<li><strong><a href="https://github.com/pytorch/torchtitan">pytorch/torchtitan</a></strong>: plataforma do PyTorch para treinar modelos generativos, 10 estrelas hoje.</li>
+<li><strong><a href="https://github.com/vllm-project/vllm-ascend">vllm-project/vllm-ascend</a></strong>: plugin que adiciona suporte a hardware Huawei Ascend ao motor de inferência vLLM.</li>
+<li><strong>RAG observability</strong>: crescente integração de métricas de vector DB (latência, throughput) com qualidade de retrieval; Grafana Cloud lançou dashboard de VectorDB Observability, e a CoreWeave divulgou stack com Milvus + Dragonfly monitorado via Weights & Biases Weave.</li>
+</ul>
+
+<h2>Repositórios em Alta no GitHub</h2>
+<ul>
+<li><strong>elementalsouls/Claude-BugHunter</strong> (⭐ 1.608 hoje) — bundle de skills para Claude Code focado em caça de bugs de segurança e trabalho de red-team; líder do dia no trending geral.</li>
+<li><strong>n8n-io/n8n</strong> (TypeScript, ⭐ 218 hoje) — ferramenta de automação de workflows com recursos de IA e mais de 400 integrações.</li>
+<li><strong>rustdesk/rustdesk</strong> (Rust, ⭐ 224 hoje) — acesso remoto self-hostable open-source, alternativa ao TeamViewer.</li>
+<li><strong>HKUDS/CLI-Anything</strong> (⭐ 666 hoje) — torna qualquer software operável por agentes de IA via CLI.</li>
+<li><strong>jingyaogong/minimind</strong> (⭐ 660 hoje) — treina um LLM de 64M de parâmetros do zero em cerca de 2 horas; útil para entender internals de LLM na prática.</li>
+<li><strong>github/spec-kit</strong> (⭐ 633 hoje) — toolkit de spec-driven development para uso com agentes de coding.</li>
+<li><strong>mvanhorn/last30days-skill</strong> (⭐ 675 hoje) — skill de agente que pesquisa um tópico em várias plataformas e compila um resumo.</li>
+</ul>
+
+<h2>Técnicas e Skills em Alta</h2>
+<ol>
+<li><strong>Context engineering minimalista para coding agents</strong>: o paper ContextBench (arXiv 2602.05892) avaliou 4 LLMs de ponta e 5 coding agents e concluiu que scaffolds de retrieval mais complexos não superam de forma confiável um baseline simples — sinal de over-engineering. Um segundo estudo (arXiv 2602.11988) reporta que arquivos de contexto gerados por LLM tendem a reduzir a performance do agente, reforçando a tendência de "menos é mais" em gestão de contexto.</li>
+<li><strong>Orquestração multi-agente como skill central</strong>: um executivo do GitLab descreveu a mudança do papel do dev de "escrever cada linha de código" para "orquestrar sistemas e guiar múltiplos agentes de IA"; em pesquisa recente, 47% dos devs priorizam upskilling em prompt engineering e gestão de agentes como foco principal de 2026.</li>
+<li><strong>Agentic RAG</strong>: paradigma em que o próprio LLM decide quais ações de retrieval executar, quando executá-las e se deve iterar, em vez de um pipeline fixo de busca+geração (survey arXiv 2501.09136). O paper "Librarian Agents" (arXiv 2610.22273) vai além e treina LLMs para curar workspaces de contexto longo que antecipam queries futuras do usuário.</li>
+<li><strong>MLOps operacional em alta</strong>: segundo análise do Stack Overflow, adoção de MLflow quase triplicou entre devs que fazem deploy de modelos próprios, reforçando que "colocar o modelo na mão do usuário" é o que converte protótipo em valor de negócio.</li>
+<li><strong>Evals contínuos em CI/CD</strong>: ferramentas como Promptfoo, LangSmith, Braintrust e DeepEval estão sendo incorporadas a pipelines de CI/CD, tratando degradação de prompt/resposta como bug de regressão a ser pego antes do deploy.</li>
+<li><strong>Model editing sem retraining</strong>: o projeto heretic (⭐ 150 hoje no GitHub) modifica pesos de LLMs já treinados para reduzir censura e sycophancy sem precisar de um novo ciclo de fine-tuning, técnica que vem ganhando tração entre quem customiza modelos open-weight.</li>
+</ol>
+
+<h2>Papers em Tendência</h2>
+<ul>
+<li><strong>ContextBench</strong> (arXiv 2602.05892) — benchmark de retrieval de contexto para coding agents, medindo recall e precisão do código recuperado em 4 LLMs e 5 agentes.</li>
+<li><strong>SWE-ContextBench</strong> (arXiv 2602.08316) — construído sobre SWE-Bench Lite/Multilingual/Verified, testa se agentes reaproveitam experiência de tarefas anteriores em vez de só resolver cada issue isoladamente.</li>
+<li><strong>The Limits of Long-Context Reasoning in Automated Bug Fixing</strong> (arXiv 2602.16069) — argumenta que o SWE-bench é um teste fraco de capacidade de contexto longo, mesmo sendo adequado para avaliar workflows agentic em geral.</li>
+<li><strong>Librarian Agents</strong> (arXiv 2610.22273) — treina LLMs para curar workspaces de contexto longo que antecipam queries futuras, reduzindo retrabalho de busca.</li>
+<li><strong>Context files and agent performance / AGENTbench</strong> (arXiv 2602.11988) — mostra que arquivos de contexto gerados automaticamente por LLM podem piorar, em vez de melhorar, a performance do agente.</li>
+<li><strong>Agentic Retrieval-Augmented Generation: A Survey</strong> (arXiv 2501.09136) — survey de referência sobre o paradigma onde o LLM orquestra todo o processo de RAG, decidindo ações e iterações.</li>
+</ul>
+
+<h2>Fontes</h2>
+<ul>
+<li><a href="https://github.com/trending?since=daily&spoken_language_code=en">GitHub Trending (daily)</a></li>
+<li><a href="https://github.com/trending/python?since=daily">GitHub Trending — Python (daily)</a></li>
+<li><a href="https://techcrunch.com/2026/09/22/anthropic-releases-opus-5.5-with-lower-prices-and-fable-level-performance/">TechCrunch — Anthropic releases Opus 5.5</a></li>
+<li><a href="https://www.deeplearning.ai/the-batch/claude-opus-5-5-leaps-forward">The Batch — Claude Opus 5.5 Leaps Forward</a></li>
+<li><a href="https://www.fonearena.com/blog/?p=493601">Fonearena — Anthropic rolls out Claude Sonnet 5.5</a></li>
+<li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP Blog — Bringing MCP 2026-07-28</a></li>
+<li><a href="https://aaif.io/blog/mcp-graduates-to-enterprise-infrastructure-stateless-architecture-formal-governance-and-security">Agentic AI Foundation — MCP graduates to enterprise infrastructure</a></li>
+<li><a href="https://releasebot.io/updates/langchain-ai/langchain">Releasebot — LangChain updates</a></li>
+<li><a href="https://stackoverflow.blog/2026/10/22/is-ai-really-reshaping-the-developer-market/">Stack Overflow Blog — Is AI really reshaping the developer market?</a></li>
+<li><a href="https://leaddev.com/ai/engineering-skills-are-being-rewritten-by-ai">LeadDev — Engineering skills are being rewritten by AI</a></li>
+<li><a href="https://arxiv.org/html/2602.05892">arXiv 2602.05892 — ContextBench</a></li>
+<li><a href="https://arxiv.org/pdf/2602.08316">arXiv 2602.08316 — SWE-ContextBench</a></li>
+<li><a href="https://arxiv.org/html/2602.16069v1">arXiv 2602.16069 — The Limits of Long-Context Reasoning in Automated Bug Fixing</a></li>
+<li><a href="https://arxiv.org/pdf/2610.22273">arXiv 2610.22273 — Librarian Agents</a></li>
+<li><a href="https://arxiv.org/html/2602.11988v1">arXiv 2602.11988 — Context files and agent performance (AGENTbench)</a></li>
+<li><a href="https://arxiv.org/pdf/2501.09136">arXiv 2501.09136 — Agentic Retrieval-Augmented Generation: A Survey</a></li>
+<li><a href="https://ossinsight.io/trending/ai">OSS Insight — Trending AI repositories</a></li>
+<li><a href="https://grafana.com/docs/grafana-cloud/observe-and-act/monitor-applications/ai-observability/vectordb-observability/">Grafana Cloud — VectorDB Observability</a></li>
+<li><a href="https://coreweave.com/blog/powering-production-agentic-ai-with-rag-vector-databases-on-coreweave-as-your-knowledge-retrieval-layer">CoreWeave — Powering production agentic AI with RAG</a></li>
+</ul>
+
+<div class="footer">Gerado automaticamente por rotina diária de IA — 28/11/2026</div>
+</body></html>
